@@ -13,7 +13,7 @@
 
             <div class="footer_m_sns">
                 <a href="https://pf.kakao.com/_dYZTxd"><img src="${pageContext.request.contextPath}/assets/img/kakao.png"></a>
-                    <a href="#"><img src="${pageContext.request.contextPath}/assets/img/youtube.png"></a>
+                    <a href="https://youtube.com/channel/UCWWDCFNptuau3Q7WO0wzZyg"><img src="${pageContext.request.contextPath}/assets/img/youtube.png"></a>
                     <a href="https://everytime.kr/507155"><img src="${pageContext.request.contextPath}/assets/img/everytime.png"></a>
                     <a href="https://www.instagram.com/ed_u_snu/"><img src="${pageContext.request.contextPath}/assets/img/insta.png"></a>
             </div>
