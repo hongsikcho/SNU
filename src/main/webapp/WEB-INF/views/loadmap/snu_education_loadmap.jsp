@@ -150,6 +150,22 @@
 		height: 100%;
 	}
 }
+
+.snu_class_file_box a {
+	text-align: center;
+	width: 100%;
+	margin: 15px 0px;
+	height: 80px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid black;
+	background-color:#0f0f70;
+	color: white;
+	font-weight:bold;
+	border-radius: 8px;
+	
+}
 </style>
 
 </head>
@@ -182,6 +198,13 @@
 						교직 이수 표준형태 및 학사규정, 교원양성지원센터 홈페이지 자료, 수강 편람 들을 종합해 교직 로드맵을 제작하며,
 						자가진단표를 통해 이수 상황을 체크할 수 있도록 합니다. 자료에 대한 업데이트는 매년 진행할 예정입니다.</div>
 				</div>
+			</div>
+			
+			<div class="snu_class_file_box">
+					<a
+						href="${pageContext.request.contextPath}/file/loadmap/Curriculum_for_Teaching_Profession">교직로드맵 download</a>
+					<a
+						href="${pageContext.request.contextPath}/file/self_check/Curriculum_for_Teaching_Profession">교직 이론 및 기타 졸업 요건 자가진단표 download</a>
 			</div>
 
 		</div>
