@@ -33,7 +33,7 @@
                     <span>성인지 교육 </span><br>
                     <span>메뉴얼</span>
                 </div>
-                <div class="snu_side_bar_top_box">
+                <div class="snu_side_bar_top_box" style="border: 1px solid #0f0f70;">
                     <a href="#">TOP</a>
 
                 </div>

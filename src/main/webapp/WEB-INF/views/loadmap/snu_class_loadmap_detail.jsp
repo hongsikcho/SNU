@@ -150,7 +150,7 @@
                 </div>
             </div>
             <div class="snu_loadmap_graph">
-                <img src="${pageContext.request.contextPath}/assets/img/2_class_loadmap/graph.png" style="width: 90%;" />
+                <img src="${pageContext.request.contextPath}/assets/img/2_class_loadmap/graph.png" style="width: 100%;" />
             </div>
 
 

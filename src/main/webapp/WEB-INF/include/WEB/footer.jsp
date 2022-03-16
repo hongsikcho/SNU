@@ -5,13 +5,13 @@
                 <div class="footer_logo"><img src="${pageContext.request.contextPath}/assets/img/snu_logo.png"></div>
                 <div class="footer_text">
                     <div>서울대학교 사범대학 학생회</div>
-                    <div>email:jjdd9758@naver.com</div>
+                    <div>email:snupeda@gmail.com</div>
                 </div>
                 <div class="footer_logoright">
-                    <img src="${pageContext.request.contextPath}/assets/img/kakao.png">
-                    <img src="${pageContext.request.contextPath}/assets/img/youtube.png">
-                    <img src="${pageContext.request.contextPath}/assets/img/everytime.png">
-                    <img src="${pageContext.request.contextPath}/assets/img/insta.png">
+                    <a href="https://pf.kakao.com/_dYZTxd"><img src="${pageContext.request.contextPath}/assets/img/kakao.png"></a>
+                    <a href="#"><img src="${pageContext.request.contextPath}/assets/img/youtube.png"></a>
+                    <a href="https://everytime.kr/507155"><img src="${pageContext.request.contextPath}/assets/img/everytime.png"></a>
+                    <a href="https://www.instagram.com/ed_u_snu/"><img src="${pageContext.request.contextPath}/assets/img/insta.png"></a>
                 </div>
             </div>
         </div>

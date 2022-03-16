@@ -5,16 +5,16 @@
                 <div class="header_left_box">
                     <div class="header_logo_box"><a href="${pageContext.request.contextPath}/"><img src="${pageContext.request.contextPath}/assets/img/snu_logo-removebg-preview.png"></a>
                     </div>
-                    <div class="header_left_box_inner">서울대학교</div>
+                    <div class="header_left_box_inner"><a href="https://www.snu.ac.kr/">서울대학교</a></div>
                     <div class="header_left_bar"></div>
-                    <div class="header_left_box_inner">서울대학교 사범대학</div>
+                    <div class="header_left_box_inner"><a href="https://edu.snu.ac.kr/ ">서울대학교 사범대학</a></div>
                     <div class='header_left_bar'></div>
-                    <div class="header_left_box_inner">교원양성지원센터</div>
+                    <div class="header_left_box_inner"><a href="https://teacher.snu.ac.kr/main/main.php ">교원양성지원센터</a></div>
                 </div>
                 <div class="header_right_box">
-                    <div class="header_logo_box"><a href="#"><img src="${pageContext.request.contextPath}/assets/img/kakao.png"></a></div>
-                    <div class="header_logo_box" id="asd"><a href="#"><img src="${pageContext.request.contextPath}/assets/img/everytime.png"></a></div>
-                    <div class="header_logo_box"><a href="#"><img src="${pageContext.request.contextPath}/assets/img/insta.png"></a></div>
+                    <div class="header_logo_box"><a href="https://pf.kakao.com/_dYZTxd"><img src="${pageContext.request.contextPath}/assets/img/kakao.png"></a></div>
+                    <div class="header_logo_box" id="asd"><a href="https://everytime.kr/507155"><img src="${pageContext.request.contextPath}/assets/img/everytime.png"></a></div>
+                    <div class="header_logo_box"><a href="https://www.instagram.com/ed_u_snu/"><img src="${pageContext.request.contextPath}/assets/img/insta.png"></a></div>
                     <div class='header_left_bar'></div>
                     <div class="header_login_box">Login</div>
                 </div>

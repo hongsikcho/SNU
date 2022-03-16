@@ -62,3 +62,6 @@ body {
   right: 2px;
   width: 85px;
 }
+.header_left_m_box_inner a, .header_left_box_inner a{
+	color:white;
+}

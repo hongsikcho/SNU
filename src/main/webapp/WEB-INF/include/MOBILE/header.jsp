@@ -4,11 +4,12 @@
 
             <div class="snu_mobile_header_fisrt_box">
                 <div class="header_left_m_box">
-                    <div class="header_left_m_box_inner">서울대학교</div>
+                    
+                    <div class="header_left_m_box_inner"><a href="https://www.snu.ac.kr/">서울대학교</a></div>
                     <div class="header_left_m_bar"></div>
-                    <div class="header_left_m_box_inner">서울대학교 사범대학</div>
+                    <div class="header_left_m_box_inner"><a href="https://edu.snu.ac.kr/ ">서울대학교 사범대학</a></div>
                     <div class='header_left_m_bar'></div>
-                    <div class="header_left_m_box_inner">교원양성지원센터</div>
+                    <div class="header_left_m_box_inner"><a href="https://teacher.snu.ac.kr/main/main.php ">교원양성지원센터</a></div>
                 </div>
             </div>
 
