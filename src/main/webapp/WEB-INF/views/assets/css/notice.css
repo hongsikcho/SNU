@@ -1,0 +1,73 @@
+.snu_qna_box {
+  margin-bottom: 50px;
+}
+
+.snu_qna_content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+#snu_qna_header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.snu_qna_write_box {
+  width: 100%;
+  text-align: right;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.snu_qna_write_btn {
+  color: white;
+  background-color: #0f0f70;
+  padding: 5px 10px;
+  width: 100px;
+
+  cursor: pointer;
+}
+
+.snu_qna_content div {
+  padding: 10px 5px;
+  text-align: center;
+}
+
+#snu_qna_header div {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.qna_mobile_views {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 10px;
+  font-weight: bold;
+  position: absolute;
+}
+
+/*모바일 박스*/
+
+.snu_mobile_main_box .snu_qna_content {
+  font-size: 11px;
+}
+
+.snu_mobile_qna_content {
+  padding: 15px 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  color: gray;
+}
+
+.snu_mobile_qna_content_title {
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+.snu_mobile_qna_content_detail {
+  font-size: 11px;
+}
+.snu_mobile_qna_content_title i {
+  font-size: 12px;
+  position: relative;
+  top: -2px;
+}

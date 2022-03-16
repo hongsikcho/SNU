@@ -1,0 +1,51 @@
+.hi_detail_title {
+  width: 1190px;
+  margin: auto;
+  border-bottom: 2px solid rgb(32, 63, 204);
+  font-size: x-large;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+.hi_detail_video {
+  width: 1190px;
+  margin: auto;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.cons_intro_pt > iframe {
+  width: 70%;
+  height: 200px;
+}
+
+@media (max-width: 900px) {
+  .hi_detail_title {
+    width: 100%;
+    margin: auto;
+    border-bottom: 2px solid rgb(32, 63, 204);
+    font-size: x-large;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+  }
+  .hi_detail_video {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 400px;
+  }
+
+  .cons_intro_pt > iframe {
+    height: 400px;
+    width: 100%;
+  }
+}

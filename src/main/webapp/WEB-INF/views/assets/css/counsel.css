@@ -1,0 +1,151 @@
+.inrto_main {
+  width: 100%;
+}
+.bar {
+  padding: 2px;
+}
+
+.cons_intro_title {
+  width: 1190px;
+  margin: auto;
+  border-bottom: 2px solid rgb(32, 63, 204);
+  font-size: x-large;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.cons_intro_pt {
+  width: 1190px;
+  margin: auto;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.cons_intro_pt > img {
+  width: 100%;
+}
+
+.cons_intro_member {
+  display: flex;
+  justify-content: space-evenly;
+  width: 1190px;
+  margin: auto;
+}
+
+.cons_intro_member1,
+.cons_intro_member2 {
+  margin-top: 10px;
+  display: flex;
+  font-size: x-large;
+}
+
+.sunbon_intro {
+  margin-bottom: 30px;
+}
+
+.sun_intro_title {
+  display: flex;
+  justify-content: space-between;
+  width: 1190px;
+  margin: auto;
+  margin-top: 30px;
+  border-bottom: 2px solid rgb(32, 63, 204);
+  font-size: x-large;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.sunbon_explain {
+  width: 1190px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 200px;
+}
+
+.sunbon_explain_photo {
+  width: 30%;
+  text-align: center;
+  padding: 10px 0 10px 0;
+}
+.fas {
+  font-size: medium;
+}
+
+.sunbon_explain_photo > img {
+  height: 300px;
+}
+
+.sunbon_explain_text {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.sunbon_explain_text1 {
+  font-size: large;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 900px) {
+  .cons_intro_pt {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    margin-top: 20px;
+  }
+  .cons_intro_member {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    margin: auto;
+  }
+  .cons_intro_member1,
+  .cons_intro_member2 {
+    margin-top: 10px;
+    display: flex;
+    font-size: small;
+  }
+
+  .bar {
+    padding: 2px;
+  }
+  .cons_intro_member2 {
+    margin-bottom: 20px;
+  }
+
+  .sunbon_explain {
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  .sunbon_explain_photo {
+    text-align: center;
+    padding: 10px 0 10px 0;
+    width: 100%;
+  }
+
+  .sunbon_explain_photo > img {
+    height: 200px;
+  }
+
+  .sunbon_explain_text {
+    margin-top: 20px;
+    width: 100%;
+  }
+  .sunbon_explain_text1 {
+    font-size: large;
+    margin-bottom: 10px;
+  }
+  .fas {
+    font-size: medium;
+  }
+  .sunbon_explain_text2 {
+    font-size: small;
+    margin-bottom: 50px;
+  }
+}

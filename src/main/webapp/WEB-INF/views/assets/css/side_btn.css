@@ -1,0 +1,73 @@
+
+
+ .snu_side_bar {
+    position: fixed;
+    top: 20%;
+    right: 30px;
+    width: 120px;
+}
+.snu_side_bar_btn{
+    width: 120px;
+height: 120px;
+border-radius: 50%;
+background-color: #001153;
+position: relative;
+top: 60px;
+box-shadow: 1px 1px 10px 1px black;
+}
+
+.snu_side_bar_inner {
+    text-align: center;
+
+
+}
+
+.snu_side_bar_top_box,
+.snu_side_bar_top_box a {
+    background-color: white;
+    text-align: center;
+    color: #0f0f70;
+    font-weight: bold;
+    padding: 5px 0px;
+}
+
+.snu_side_bar_inner {
+    background-color: rgba(60, 63, 63, 0.85);
+    padding: 20px 0;
+    font-weight: bold;
+    color: white;
+    font-size: 14px;
+    ;
+
+
+}
+
+
+.snu_side_bar_inner:first-child {
+    padding-top:70px;
+
+}
+
+.snu_side_bar_box {
+    display: none;
+}
+
+.snu_side_bar_btn {
+    cursor: pointer;
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.snu_side_bar_btn img {
+    width: 65%;
+}
+
+.border_box {
+
+    background-color: white;
+    height: 1px;
+
+}

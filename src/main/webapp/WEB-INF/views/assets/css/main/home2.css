@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+.snu_main_candidate_img_box_p >img{
+	width:100%;
+}
+
+.snu_main_promise_text_p{
+	width:100%;
+	height:auto;
+}

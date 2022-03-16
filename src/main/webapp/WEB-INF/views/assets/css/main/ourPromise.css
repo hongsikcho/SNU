@@ -1,0 +1,37 @@
+@charset "UTF-8";
+.first{
+display: flex;
+justify-content: center;}
+	
+.second , .second_p{
+	display: flex;
+	}
+
+.second > div{
+	background-color :rgb(66,57,106);
+	width: 150px;
+	height : 150px;
+	border : 1px solid black;
+	margin: 0 25px 0 25px;
+	border-radius: 10px;
+	box-shadow: 5px 5px 7px grey;
+	}
+	
+.second_p{
+	display:flex;
+	
+}
+.third_p{
+	display:flex;
+	justify-content: center;
+	margin-top:20px;
+}
+.second_p > div , .third_p >div{
+	background-color :rgb(66,57,106);
+	width: 65px;
+	height : 80px;
+	border : 1px solid black;
+	margin: 0 25px 0 25px;
+	border-radius: 10px;
+	box-shadow: 5px 5px 7px grey;
+}

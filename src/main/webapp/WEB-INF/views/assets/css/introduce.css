@@ -1,0 +1,152 @@
+.cons_intro_title {
+  width: 1190px;
+  margin: auto;
+  border-bottom: 3px solid #34346b;
+  font-size: x-large;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.cons_intro_pt {
+  width: 1190px;
+  margin: auto;
+}
+
+.cons_intro_pt > img {
+  width: 100%;
+}
+
+.cons_intro_pt {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 150px;
+}
+
+.cons_intro_member {
+  display: flex;
+  justify-content: space-evenly;
+  width: 1190px;
+  margin: auto;
+}
+
+.cons_intro_member1,
+.cons_intro_member2 {
+  margin-top: 10px;
+  display: flex;
+  font-size: x-large;
+}
+
+.sunbon_intro {
+  margin-bottom: 30px;
+}
+
+.sun_intro_title {
+  display: flex;
+  justify-content: space-between;
+  width: 1190px;
+  margin: auto;
+  margin-top: 30px;
+  border-bottom: 1px solid #34346b;
+  font-size: x-large;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.sunbon_explain {
+  width: 1190px;
+  margin-top: 30px;
+  display: flex;
+}
+
+.sunbon_explain_photo {
+  width: 30%;
+
+  text-align: center;
+  padding: 10px 0 10px 0;
+}
+
+.sunbon_explain_photo > img {
+  width: 100%;
+  height: 100%;
+}
+
+.sunbon_explain_text {
+  width: 70%;
+  border: 1px solid black;
+}
+.sunbon_explain_text1 {
+  font-size: x-large;
+  margin-bottom: 10px;
+}
+.cons_intro_text {
+  width: 1190px;
+  margin: auto;
+  font-size: large;
+  margin-top: 10px;
+}
+.small_box {
+  width: 1190px;
+  margin: auto;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px 0 10px 0;
+}
+.small_box > div {
+  border: 2px solid #34346b;
+  width: 17%;
+  height: 100px;
+  padding: 0 2px 0 2px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  margin: 20px 0 20px 0;
+  align-items: center;
+  font-size: xx-large;
+}
+.small_box > div:hover {
+  background-color: #0f0f70;
+  color: aliceblue;
+  transition: all 0.5s;
+}
+
+@media (max-width: 900px) {
+  .small_title {
+    font-size: small;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 4px 0 0 0;
+  }
+  .cons_intro_pt {
+    width: 100%;
+  }
+  .small_box_m {
+    width: 100%;
+    padding: 20px 0 20px 0;
+  }
+  .small_box_m > div {
+    border: 2px solid #0f0f70;
+    font-size: x-large;
+    color: black;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin: 10px 0;
+  }
+  .small_box_m > div:hover {
+    background-color: #0f0f70;
+    color: aliceblue;
+    transition: all 0.5s;
+  }
+  .cons_intro_pt > img {
+    width: 100%;
+  }
+  .cons_intro_pt {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 50px;
+  }
+}

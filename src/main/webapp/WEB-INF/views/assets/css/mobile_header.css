@@ -1,0 +1,190 @@
+.snu_mobile_header {
+    width: 100%;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    margin-bottom: 15px;
+
+
+}
+
+.snu_mobile_header_fisrt_box {
+    padding: 8px 0px;
+    background-color:#0f0f70;
+}
+
+
+.header_left_m_box {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    padding-right: 5px;
+}
+
+.header_left_m_bar {
+    border-right: 0.1em solid white;
+    height: 10px;
+    margin: 0px 10px;
+}
+
+.header_left_m_box_inner {
+
+    font-size: 12px;
+    color: white;
+
+}
+
+.snu_m_header_second_box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.snu_m_logo_box {
+    display: flex;
+    height: 80px;
+    align-items: center;
+    
+}
+.snu_m_logo_box_title{
+    font-size: 14px;
+}
+#tab_btn2 a{
+	color:white;
+}
+@media (max-width : 450px) {
+    .snu_m_logo_box_title{
+        font-size: 14px;
+    }
+    .snu_m_logo_box_title span{
+        font-size: 10px;
+    }
+    .snu_m_header_second_box{
+        padding-left: 5px;
+    }
+
+    
+    
+
+}
+
+.snu_m_menu_box {
+    display: flex;
+    align-items: center;
+}
+
+.snu_m_menu_box_btn {
+    font-size: 24px;
+    color: gray;
+    margin: 0px 5px;
+}
+
+
+.menu-trigger,
+.menu-trigger span {
+    display: inline-block;
+    transition: all .4s;
+    box-sizing: border-box;
+}
+
+.menu-trigger {
+
+    width: 50px;
+    height: 44px;
+    position: relative;
+    right: -5px;
+    color: gray;
+    z-index: 1000;
+    
+}
+
+.menu-trigger span {
+    position: absolute;
+    left: 0;
+    width: 50%;
+    height: 4px;
+    background-color: gray;
+    border-radius: 4px;
+}
+
+.menu-trigger span:nth-of-type(1) {
+    top: 10px;
+}
+
+.menu-trigger span:nth-of-type(2) {
+    top: 20px;
+}
+
+.menu-trigger span:nth-of-type(3) {
+    bottom: 10px;
+}
+
+.menu-trigger.active-1 span:nth-of-type(1) {
+    -webkit-transform: translateY (10px) rotate (-45deg);
+    transform: translateY(10px) rotate(-45deg);
+}
+
+.menu-trigger.active-1 span:nth-of-type(2) {
+    opacity: 0;
+}
+
+.menu-trigger.active-1 span:nth-of-type(3) {
+    -webkit-transform: translateY(-10px) rotate(45deg);
+    transform: translateY(-10px) rotate(45deg);
+}
+
+.snu_m_tab_box {
+    width: 70%;
+    background: rgba(0, 0, 0, 0.85);
+    position: absolute;
+    top: 0px;
+    right: 0;
+    z-index: 50;
+    height: 100%;
+    display: none;
+
+}
+
+.tab_logo_box {
+    height: 100px;
+    ;
+}
+
+.m_tab_menu_btn {
+    text-align: center;
+    cursor: pointer;
+}
+
+.tab_inner {
+    width: 100%;
+    color: white;
+}
+
+.btn {
+    width: 100%;
+    height: 30px;
+    justify-content: space-between;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 19px;
+
+}
+
+
+.tab_btn_inner {
+    text-align: left;
+    display: none;
+}
+
+.tab_btn_inner a {
+    margin: 15px 0px;
+    color: white;
+    display: block;
+    font-size: 15px;
+
+}
+
+.tab_inner_box {
+    padding: 0px 40px;
+    padding-top: 10px;
+}

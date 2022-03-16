@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="DepartmentMapper">
+
+	<resultMap id="DepartmentMap"
+		type="study.spring.seoulspring.model.Department">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="dname" column="dname" />
+		<result property="image" column="image" />
+		<result property="deptno" column="deptno" />
+
+	</resultMap>
+
+
+
+
+	
+	<select id="selectOne"
+		parameterType="study.spring.seoulspring.model.Department"
+		resultMap="DepartmentMap">
+		SELECT * FROM department WHERE dname = #{dname} or image =#{image}
+	</select>
+	
+
+
+
+
+
+
+</mapper>

@@ -1,0 +1,28 @@
+@charset "UTF-8";
+/*footer*/
+.snu_footer {
+	
+	color: rgba(0, 0, 0, 0.7);
+	font-weight: bold;
+	padding: 30px 15px;
+	background-color:rgba(0,0,0,0.1);
+}
+
+/*sns 버튼 */
+.snu_sns_btn a {
+	display: inline-block;
+	background-color: #0F0F70;
+	padding: 10px;
+	width: 40px;
+	height: 40px;
+	line-height: 18px;
+	text-align: center;
+	border-radius: 0.5em;
+	margin-right: 10px;
+}
+
+.snu_sns_btn i {
+	color: white;
+	font-size: 20px;
+}
+

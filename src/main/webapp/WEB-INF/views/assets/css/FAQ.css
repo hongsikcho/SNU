@@ -1,0 +1,94 @@
+.faq_main {
+  width: 1190px;
+  margin: auto;
+}
+
+.faq_intro_title {
+  width: 1190px;
+  margin: auto;
+  border-bottom: 2px solid rgb(32, 63, 204);
+  font-size: x-large;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+.faq_add {
+  width: 1190px;
+  margin: auto;
+  display: flex;
+  justify-content: right;
+  margin-bottom: 200px;
+}
+.faq_add_btn {
+  font-size: small;
+  font-weight: 600;
+  margin: 10px 10px 0 0;
+  border: 2px;
+  background-color: rgb(192, 197, 212);
+  border-radius: 5px;
+  padding: 3px;
+}
+.faq_body {
+  width: 1190px;
+  margin: auto;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  padding: 10px 0 10px 0;
+  margin-top: 10px;
+  text-align: center;
+  font-weight: 400;
+  font-size: large;
+  transition: all 0.2s;
+}
+.faq_body:hover {
+  transition: all 0.2s;
+  background-color: rgb(150, 157, 216);
+}
+
+@media (max-width: 900px) {
+  .faq_main {
+    width: 100%;
+  }
+  .faq_intro_title {
+    width: 100%;
+    margin: auto;
+    border-bottom: 2px solid rgb(32, 63, 204);
+    font-size: x-large;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+  }
+  .faq_add {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: right;
+  }
+  .faq_body {
+    width: 100%;
+    margin: auto;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 10px 0 10px 0;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: 500;
+    font-size: large;
+    transition: all 0.2s;
+  }
+  .faq_body:hover {
+    transition: all 0.2s;
+    background-color: rgb(150, 157, 216);
+  }
+  .faq_add_btn {
+    font-size: small;
+    font-weight: 500;
+    margin: 10px 10px 0 0;
+    border: 2px;
+    background-color: rgb(192, 197, 212);
+    border-radius: 5px;
+    padding: 3px;
+  }
+}
