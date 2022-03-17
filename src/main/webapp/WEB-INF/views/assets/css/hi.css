@@ -2,6 +2,9 @@
   width: 100%;
 }
 
+.snu_main_box{
+  margin-bottom:50px;
+  }
 .hi_intro_title {
   width: 1190px;
   margin: auto;
@@ -174,5 +177,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  .snu_mobile_main_box{
+  margin-bottom:20px;
   }
 }
