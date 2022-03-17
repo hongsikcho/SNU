@@ -33,6 +33,7 @@
   width: 1190px;
   margin: auto;
   margin-top: 30px;
+  margin-bottom: 50px;
 }
 .detail_title {
   font-size: medium;
@@ -41,12 +42,18 @@
   margin-bottom: 20px;
 }
 .detail_body {
-  border: 1px solid rgba(0, 0, 0, 0.3);
+  border: 2px solid #0f0f70;
+  border-radius : 10px;
+  padding:5px;
 }
 .fas {
   font-size: large;
 }
-
+.back {
+  position: absolute;
+  right: 250px;
+  top: 170px;
+}
 @media (max-width: 900px) {
   .sub_title {
     font-size: small;
@@ -72,9 +79,7 @@
     font-size: medium;
     margin: 10px 0;
   }
-  .detail_body {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
+.snu_mobile_main_box{
+	margin-bottom:50px;
+}
 }
