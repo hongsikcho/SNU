@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="CouncilMapper">
+
+	<resultMap id="CouncilMap"
+		type="study.spring.seoulspring.model.Council">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="cnum" column="cnum" />
+		<result property="cname" column="cname" />
+		<result property="cdept" column="cdept" />
+		<result property="ccapt" column="ccapt" />
+		<result property="stunum" column="stunum" />
+		<result property="cintro" column="cintro" />
+		<result property="img" column="img" />
+		
+		
+		<result property="bname" column="bname" />
+		<result property="bnum" column="bnum" />
+		<result property="bnum_for" column="bnum_for" />
+		<result property="busin" column="busin" />
+	</resultMap>
+
+
+
+
+	
+	<select id="selectOne"
+		parameterType="study.spring.seoulspring.model.Council"
+		resultMap="CouncilMap">
+		select * from council WHERE cname = #{cname}
+	</select>
+	
+	<select id="selectBusiness"
+		parameterType="study.spring.seoulspring.model.Council"
+		resultMap="CouncilMap">
+		SELECT * FROM business b ,council c WHERE b.bnum_for=#{cnum} and c.cnum=#{cnum}
+	</select>
+	
+	
+
+	
+
+
+
+
+
+
+</mapper>
