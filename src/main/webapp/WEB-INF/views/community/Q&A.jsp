@@ -168,7 +168,6 @@
 										<div style="width: 44%; text-align: left;">${posttitle }
 											<i class="fa-solid fa-lock"></i>
 										</div>
-
 										<c:choose>
 											<c:when test="${posttype eq '익명'}">
 												<div style="width: 16%;">익명</div>
