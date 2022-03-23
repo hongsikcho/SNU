@@ -359,10 +359,8 @@ form {
 												<div class="date">${dateList.date}
 													<c:if test="${i <=14 && i>=0 }">
 														<div class="reserve_btn_box">
-															<br> <a class="reserve_btn"
-																href="${pageContext.request.contextPath}/reservation.do?reserve_date=${calendar_date}&room_num=106">9-106호</a>
-															<br> <a class="reserve_btn"
-																href="${pageContext.request.contextPath}/reservation.do?reserve_date=${calendar_date}&room_num=107">9-107호</a>
+															<br> <a class="reserve_btn" href="${pageContext.request.contextPath}/reservation.do?reserve_date=${calendar_date}&room_num=106">9-106호</a> <br>
+															<a class="reserve_btn" href="${pageContext.request.contextPath}/reservation.do?reserve_date=${calendar_date}&room_num=107">9-107호</a>
 														</div>
 													</c:if>
 												</div>
@@ -374,10 +372,8 @@ form {
 												<div class="sat">${dateList.date}
 													<c:if test="${i <=14 && i>=0 }">
 														<div class="reserve_btn_box">
-															<br> <a class="reserve_btn"
-																href="${pageContext.request.contextPath}/reservation.do?reserve_date=${calendar_date}&room_num=106">9-106호</a>
-															<br> <a class="reserve_btn"
-																href="${pageContext.request.contextPath}/reservation.do?reserve_date=${calendar_date}&room_num=107">9-107호</a>
+															<br> <a class="reserve_btn" href="${pageContext.request.contextPath}/reservation.do?reserve_date=${calendar_date}&room_num=106">9-106호</a> <br>
+															<a class="reserve_btn" href="${pageContext.request.contextPath}/reservation.do?reserve_date=${calendar_date}&room_num=107">9-107호</a>
 														</div>
 													</c:if>
 												</div>
@@ -391,10 +387,8 @@ form {
 									<div class="sun">${dateList.date}
 										<c:if test="${i <=14 && i>=0 }">
 											<div class="reserve_btn_box">
-												<br> <a class="reserve_btn"
-													href="${pageContext.request.contextPath}/reservation.do?reserve_date=${calendar_date}&room_num=106">9-106호</a>
-												<br> <a class="reserve_btn"
-													href="${pageContext.request.contextPath}/reservation.do?reserve_date=${calendar_date}&room_num=107">9-107호</a>
+												<br> <a class="reserve_btn" href="${pageContext.request.contextPath}/reservation.do?reserve_date=${calendar_date}&room_num=106">9-106호</a> <br>
+												<a class="reserve_btn" href="${pageContext.request.contextPath}/reservation.do?reserve_date=${calendar_date}&room_num=107">9-107호</a>
 											</div>
 										</c:if>
 									</div>
@@ -406,10 +400,8 @@ form {
 										<div class="date">${dateList.date}
 											<c:if test="${i <=14 && i>=0 }">
 												<div class="reserve_btn_box">
-													<br> <a class="reserve_btn"
-														href="${pageContext.request.contextPath}/reservation.do?reserve_date=${calendar_date}&room_num=106">9-106호</a>
-													<br> <a class="reserve_btn"
-														href="${pageContext.request.contextPath}/reservation.do?reserve_date=${calendar_date}&room_num=107">9-107호</a>
+													<br> <a class="reserve_btn" href="${pageContext.request.contextPath}/reservation.do?reserve_date=${calendar_date}&room_num=106">9-106호</a> <br>
+													<a class="reserve_btn" href="${pageContext.request.contextPath}/reservation.do?reserve_date=${calendar_date}&room_num=107">9-107호</a>
 												</div>
 											</c:if>
 										</div>
@@ -604,31 +596,7 @@ form {
 		
 	</script>
 	<script>
-		function reservation(date, room__num) {
-			let f = document.createElement('form');
-
-			let date;
-			date = document.createElement('input');
-			date.setAttribute('type', 'hidden');
-			date.setAttribute('name', 'date');
-			date.setAttribute('value', date);
-
-			let room_num;
-			date = document.createElement('input');
-			date.setAttribute('type', 'hidden');
-			date.setAttribute('name', 'room_num');
-			date.setAttribute('value', room_num);
-
-			f.appendChild(date);
-			f.appendChild(room_num);
-
-			f.setAttribute('method', 'post');
-			f.setAttribute('action',
-					'${pageContext.requset.contextPath}/reservation.do');
-			document.body.appendChild(f);
-			f.submit();
-
-		}
+	
 	</script>
 
 

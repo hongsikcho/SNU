@@ -124,7 +124,7 @@ public class HomeController {
 	
 	@RequestMapping(value = { "/reservation.do" }, method = RequestMethod.GET)
 	
-	public String reservation(Model model,@RequestParam("date") String date,@RequestParam("room_num") int room_num  ) {
+	public String reservation(Model model,@RequestParam("reserve_date") String date,@RequestParam("room_num") int room_num  ) {
 		
 		String month=date.substring(5,7);
 		String day =date.substring(8);
