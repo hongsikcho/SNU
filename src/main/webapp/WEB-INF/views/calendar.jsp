@@ -4,6 +4,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ page import="java.util.Date"%>
+
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -33,20 +35,6 @@
 
 
 <style type="text/css">
-body {
-	scrollbar-face-color: #F6F6F6;
-	scrollbar-highlight-color: #bbbbbb;
-	scrollbar-3dlight-color: #FFFFFF;
-	scrollbar-shadow-color: #bbbbbb;
-	scrollbar-darkshadow-color: #FFFFFF;
-	scrollbar-track-color: #FFFFFF;
-	scrollbar-arrow-color: #bbbbbb;
-	margin-left: "0px";
-	margin-right: "0px";
-	margin-top: "0px";
-	margin-bottom: "0px";
-}
-
 td {
 	font-family: "돋움";
 	font-size: 9pt;
@@ -68,34 +56,6 @@ select {
 .divDotText {
 	overflow: hidden;
 	text-overflow: ellipsis;
-}
-
-A:link {
-	font-size: 9pt;
-	font-family: "돋움";
-	color: #000000;
-	text-decoration: none;
-}
-
-A:visited {
-	font-size: 9pt;
-	font-family: "돋움";
-	color: #000000;
-	text-decoration: none;
-}
-
-A:active {
-	font-size: 9pt;
-	font-family: "돋움";
-	color: red;
-	text-decoration: none;
-}
-
-A:hover {
-	font-size: 9pt;
-	font-family: "돋움";
-	color: red;
-	text-decoration: none;
 }
 
 .day {
@@ -125,12 +85,12 @@ A:hover {
 }
 
 .calendar {
-	width: 80%;
+	width: 100%;
 	margin: auto;
 }
 
 .navigation {
-	margin-top: 100px;
+	margin-top: 50px;
 	margin-bottom: 30px;
 	text-align: center;
 	font-size: 25px;
@@ -212,6 +172,79 @@ A:hover {
 .this_month {
 	margin: 10px;
 }
+
+.reserve_btn {
+	width: 80%;
+	background-color: #0f0f70;
+	padding: 3% 0%;
+	font-weight: bold;
+	color: white;
+	text-align: center;
+	border-radius: 5px;
+	display: block;
+	margin: auto;
+}
+
+.reservation_rule_box {
+	font-size: 20px;
+	margin: 30px 0px;
+}
+
+.navi_box {
+	width: 90%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: auto;
+	margin-top: 20px;
+}
+
+.navi_box a {
+	background-color: #0f0f70;
+	color: white;
+	border-radius: 5px;
+	padding: 1%;
+	font-size: 16px;
+}
+
+form {
+	border: 1px solid;
+	margin-bottom: 40px;
+}
+
+.navi_box span {
+	font-size: 45px;
+	font-weight: bold;
+	color: #0f0f70;
+	position: relative;
+	bottom: 20px;
+}
+
+.year {
+	font-size: 35px;
+	color: #0f0f70;
+}
+
+@media ( max-width : 900px) {
+}
+
+@media ( max-width : 420px) {
+	.calendar {
+		width: 100%;
+	}
+	.reserve_btn {
+		font-size: 1px;
+	}
+	.calendar_body .today, .calendar_body .sun_day, .calendar_body .sat_day,
+		.calendar_body .normal_day {
+		height: 70px;
+	}
+	.reserve_btn {
+		width: 100%;
+		margin-top: 5px;
+	}
+}
+}
 </style>
 
 </head>
@@ -219,10 +252,192 @@ A:hover {
 <body>
 	<!-- pc부분 -->
 	<div class="main_box">
-		<header>
+		<div class="header">
 			<%@ include file="../include/WEB/header.jsp"%>
 			<%@ include file="../include/WEB/side_bar.jsp"%>
-		</header>
+		</div>
+		<div class="snu_main_box">
+			<div class="snu_main_header">
+				공실 예약하기 <img
+					src="${pageContext.request.contextPath }/assets/img/snu_logo.png" />
+			</div>
+			<div class="reservation_rule_box">
+				<span>- 예약을 원하시는 날짜의 9동 106호, 107호 버튼을 누르시면 대여 현황을 확인하실수 있으며
+					빈 예약시간에 예약하실 수 있습니다.</span> <br> <span>- 가능 시간대: 09:00 ~ 23:00
+					(월 ~ 일)</span> <br> <span>- 많은 학우부들의 이용을 위해 예약 가능 시간은 <b>1일
+						최대 4시간</b>으로 제한됩니다.
+				</span>
+			</div>
+			<form name="calendarFrm" id="calendarFrm" action="" method="GET">
+				<c:if test="${today_info.search_month<10}">
+					<c:set var="month" value="${0}${today_info.search_month}" />
+
+				</c:if>
+				<c:set var="before_year" value="${today_info.before_year}" />
+				<c:set var="before_month" value="${today_info.before_month}" />
+				<c:set var="after_year" value="${today_info.after_year}" />
+				<c:set var="after_month" value="${today_info.after_month}" />
+				<div class="calendar">
+
+					<!--날짜 네비게이션  -->
+					<div class="navigation">
+						<div class="year">${today_info.search_year}</div>
+						<div class="navi_box">
+							<a
+								href="${pageContext.request.contextPath}/calendar.do?year=${before_year}&month=${before_month}">
+								<i class="fa-solid fa-chevron-left"></i> 이전달
+							</a> <span>${today_info.search_month}월 </span><a
+								href="${pageContext.request.contextPath}/calendar.do?year=${after_year}&month=${after_month}">
+								다음달 <i class="fa-solid fa-chevron-right"></i>
+							</a>
+
+						</div>
+
+
+
+					</div>
+
+					<!-- <div class="today_button_div"> -->
+					<!-- <input type="button" class="today_button" onclick="javascript:location.href='/calendar.do'" value="go today"/> -->
+					<!-- </div> -->
+					<table class="calendar_body">
+
+						<thead>
+							<tr bgcolor="#CECECE">
+								<td class="day sun">일</td>
+								<td class="day">월</td>
+								<td class="day">화</td>
+								<td class="day">수</td>
+								<td class="day">목</td>
+								<td class="day">금</td>
+								<td class="day sat">토</td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<c:forEach var="dateList" items="${dateList}"
+									varStatus="date_status">
+
+									<fmt:parseDate value="${today}" var="strPlanDate"
+										pattern="yyyy-MM-dd" />
+									<fmt:parseNumber value="${strPlanDate.time / (1000*60*60*24)}"
+										integerOnly="true" var="strDate"></fmt:parseNumber>
+
+									<c:if test="${dateList.value ne null || dateList.value !='' }">
+										<c:choose>
+											<c:when test="${dateList.date <=9 && dateList.date>=1}">
+												<c:set var="calendar_date"
+													value="${today_info.search_year}${'-'}${month}${'-0'}${dateList.date}" />
+											</c:when>
+
+											<c:otherwise>
+												<c:set var="calendar_date"
+													value="${today_info.search_year}${'-'}${month}${'-'}${dateList.date}" />
+											</c:otherwise>
+
+
+										</c:choose>
+									</c:if>
+									<c:if test="${dateList.value eq null || dateList.value =='' }">
+										<c:set var="calendar_date" value="${''}" />
+									</c:if>
+
+									<c:if test="${ calendar_date ne null || calendar_date !=''}">
+										<fmt:parseDate value="${calendar_date }" var="endPlanDate"
+											pattern="yyyy-MM-dd" />
+										<fmt:parseNumber value="${endPlanDate.time / (1000*60*60*24)}"
+											integerOnly="true" var="endDate"></fmt:parseNumber>
+										<c:set var="DATE" value="${endDate -strDate } " />
+										<fmt:parseNumber var="i" integerOnly="true" type="number"
+											value="${DATE}" />
+									</c:if>
+
+									<c:choose>
+										<c:when test="${dateList.value=='today'}">
+											<td class="today">
+
+												<div class="date">${dateList.date}
+													<c:if test="${i <=14 && i>=0 }">
+														<div class="reserve_btn_box">
+															<br> <a class="reserve_btn"
+																href="${pageContext.request.contextPath}/reservation.do?reserve_date=${calendar_date}&room_num=106">9-106호</a>
+															<br> <a class="reserve_btn"
+																href="${pageContext.request.contextPath}/reservation.do?reserve_date=${calendar_date}&room_num=107">9-107호</a>
+														</div>
+													</c:if>
+												</div>
+												<div></div>
+											</td>
+										</c:when>
+										<c:when test="${date_status.index%7==6}">
+											<td class="sat_day">
+												<div class="sat">${dateList.date}
+													<c:if test="${i <=14 && i>=0 }">
+														<div class="reserve_btn_box">
+															<br> <a class="reserve_btn"
+																href="${pageContext.request.contextPath}/reservation.do?reserve_date=${calendar_date}&room_num=106">9-106호</a>
+															<br> <a class="reserve_btn"
+																href="${pageContext.request.contextPath}/reservation.do?reserve_date=${calendar_date}&room_num=107">9-107호</a>
+														</div>
+													</c:if>
+												</div>
+												<div></div>
+											</td>
+										</c:when>
+										<c:when test="${date_status.index%7==0}">
+							</tr>
+							<tr>
+								<td class="sun_day">
+									<div class="sun">${dateList.date}
+										<c:if test="${i <=14 && i>=0 }">
+											<div class="reserve_btn_box">
+												<br> <a class="reserve_btn"
+													href="${pageContext.request.contextPath}/reservation.do?reserve_date=${calendar_date}&room_num=106">9-106호</a>
+												<br> <a class="reserve_btn"
+													href="${pageContext.request.contextPath}/reservation.do?reserve_date=${calendar_date}&room_num=107">9-107호</a>
+											</div>
+										</c:if>
+									</div>
+									<div></div>
+								</td>
+								</c:when>
+								<c:otherwise>
+									<td class="normal_day">
+										<div class="date">${dateList.date}
+											<c:if test="${i <=14 && i>=0 }">
+												<div class="reserve_btn_box">
+													<br> <a class="reserve_btn"
+														href="${pageContext.request.contextPath}/reservation.do?reserve_date=${calendar_date}&room_num=106">9-106호</a>
+													<br> <a class="reserve_btn"
+														href="${pageContext.request.contextPath}/reservation.do?reserve_date=${calendar_date}&room_num=107">9-107호</a>
+												</div>
+											</c:if>
+										</div>
+										<div></div>
+									</td>
+								</c:otherwise>
+								</c:choose>
+								</c:forEach>
+						</tbody>
+
+					</table>
+				</div>
+			</form>
+		</div>
+
+
+		<%@ include file="../include/WEB/footer.jsp"%>
+
+
+	</div>
+
+	<!--모바일 -->
+	<div class="snu_mobile_box">
+
+		<!-- 모바일 헤더-->
+
+		<%@ include file="../include/MOBILE/header.jsp"%>
+		<!--모바일 컨텐츠 박스-->
 
 		<form name="calendarFrm" id="calendarFrm" action="" method="GET">
 
@@ -230,21 +445,25 @@ A:hover {
 
 				<!--날짜 네비게이션  -->
 				<div class="navigation">
-					<a class="before_after_year"
+					<%-- <a class="before_after_year"
 						href="${pageContext.request.contextPath}/calendar.do?year=${today_info.search_year-1}&month=${today_info.search_month-1}">
 						&lt;&lt; <!-- 이전해 -->
-					</a> <a class="before_after_month"
+					</a> --%>
+					<a class="before_after_month"
 						href="${pageContext.request.contextPath}/calendar.do?year=${today_info.before_year}&month=${today_info.before_month}">
 						&lt; <!-- 이전달 -->
 					</a> <span class="this_month"> &nbsp;${today_info.search_year}.
-						<c:if test="${today_info.search_month<10}">0</c:if>${today_info.search_month}
+						<c:if test="${today_info.search_month<10}">
+							<c:set var="month" value="${0}${today_info.search_month}" />
+						</c:if>${month}
 					</span> <a class="before_after_month"
 						href="${pageContext.request.contextPath}/calendar.do?year=${today_info.after_year}&month=${today_info.after_month}">
 						<!-- 다음달 --> &gt;
-					</a> <a class="before_after_year"
+					</a>
+					<%-- <a class="before_after_year"
 						href="${pageContext.request.contextPath}/calendar.do?year=${today_info.search_year+1}&month=${today_info.search_month-1}">
 						<!-- 다음해 --> &gt;&gt;
-					</a>
+					</a>--%>
 				</div>
 
 				<!-- <div class="today_button_div"> -->
@@ -267,16 +486,66 @@ A:hover {
 						<tr>
 							<c:forEach var="dateList" items="${dateList}"
 								varStatus="date_status">
+
+								<fmt:parseDate value="${today}" var="strPlanDate"
+									pattern="yyyy-MM-dd" />
+								<fmt:parseNumber value="${strPlanDate.time / (1000*60*60*24)}"
+									integerOnly="true" var="strDate"></fmt:parseNumber>
+
+								<c:if test="${dateList.value ne null || dateList.value !='' }">
+									<c:choose>
+										<c:when test="${dateList.date <=9 && dateList.date>=1}">
+											<c:set var="calendar_date"
+												value="${today_info.search_year}${'-'}${month}${'-0'}${dateList.date}" />
+										</c:when>
+
+										<c:otherwise>
+											<c:set var="calendar_date"
+												value="${today_info.search_year}${'-'}${month}${'-'}${dateList.date}" />
+										</c:otherwise>
+
+
+									</c:choose>
+								</c:if>
+								<c:if test="${dateList.value eq null || dateList.value =='' }">
+									<c:set var="calendar_date" value="${''}" />
+								</c:if>
+
+								<c:if test="${ calendar_date ne null || calendar_date !=''}">
+									<fmt:parseDate value="${calendar_date }" var="endPlanDate"
+										pattern="yyyy-MM-dd" />
+									<fmt:parseNumber value="${endPlanDate.time / (1000*60*60*24)}"
+										integerOnly="true" var="endDate"></fmt:parseNumber>
+									<c:set var="DATE" value="${endDate -strDate } " />
+									<fmt:parseNumber var="i" integerOnly="true" type="number"
+										value="${DATE}" />
+								</c:if>
+
 								<c:choose>
 									<c:when test="${dateList.value=='today'}">
 										<td class="today">
-											<div class="date">${dateList.date}</div>
+
+											<div class="date">${dateList.date}
+												<c:if test="${i <=14 && i>=0 }">
+													<div class="reserve_btn_box">
+														<a class="reserve_btn" href="#">9-106호</a> <a
+															class="reserve_btn" href="#">9-107호</a>
+													</div>
+												</c:if>
+											</div>
 											<div></div>
 										</td>
 									</c:when>
 									<c:when test="${date_status.index%7==6}">
 										<td class="sat_day">
-											<div class="sat">${dateList.date}</div>
+											<div class="sat">${dateList.date}
+												<c:if test="${i <=14 && i>=0 }">
+													<div class="reserve_btn_box">
+														<a class="reserve_btn" href="#">9-106호</a> <a
+															class="reserve_btn" href="#">9-107호</a>
+													</div>
+												</c:if>
+											</div>
 											<div></div>
 										</td>
 									</c:when>
@@ -284,13 +553,27 @@ A:hover {
 						</tr>
 						<tr>
 							<td class="sun_day">
-								<div class="sun">${dateList.date}</div>
+								<div class="sun">${dateList.date}
+									<c:if test="${i <=14 && i>=0 }">
+										<div class="reserve_btn_box">
+											<a class="reserve_btn" href="#">9-106호</a> <a
+												class="reserve_btn" href="#">9-107호</a>
+										</div>
+									</c:if>
+								</div>
 								<div></div>
 							</td>
 							</c:when>
 							<c:otherwise>
 								<td class="normal_day">
-									<div class="date">${dateList.date}</div>
+									<div class="date">${dateList.date}
+										<c:if test="${i <=14 && i>=0 }">
+											<div class="reserve_btn_box">
+												<a class="reserve_btn" href="#">9-106호</a> <a
+													class="reserve_btn" href="#">9-107호</a>
+											</div>
+										</c:if>
+									</div>
 									<div></div>
 								</td>
 							</c:otherwise>
@@ -301,20 +584,6 @@ A:hover {
 				</table>
 			</div>
 		</form>
-
-
-		<%@ include file="../include/WEB/footer.jsp"%>
-
-
-	</div>
-
-	<!--모바일 -->
-	<div class="snu_mobile_box">
-
-		<!-- 모바일 헤더-->
-
-		<%@ include file="../include/MOBILE/header.jsp"%>
-		<!--모바일 컨텐츠 박스-->
 
 
 
@@ -333,6 +602,33 @@ A:hover {
 		src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
 	<script src="${pageContext.request.contextPath}/assets/js/style.js">
 		
+	</script>
+	<script>
+		function reservation(date, room__num) {
+			let f = document.createElement('form');
+
+			let date;
+			date = document.createElement('input');
+			date.setAttribute('type', 'hidden');
+			date.setAttribute('name', 'date');
+			date.setAttribute('value', date);
+
+			let room_num;
+			date = document.createElement('input');
+			date.setAttribute('type', 'hidden');
+			date.setAttribute('name', 'room_num');
+			date.setAttribute('value', room_num);
+
+			f.appendChild(date);
+			f.appendChild(room_num);
+
+			f.setAttribute('method', 'post');
+			f.setAttribute('action',
+					'${pageContext.requset.contextPath}/reservation.do');
+			document.body.appendChild(f);
+			f.submit();
+
+		}
 	</script>
 
 
