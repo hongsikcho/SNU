@@ -1,14 +1,10 @@
 package study.spring.seoulspring.controllers;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -16,16 +12,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import study.spring.seoulspring.helper.WebHelper;
 import study.spring.seoulspring.model.Community;
-import study.spring.seoulspring.model.Department;
-import study.spring.seoulspring.model.View;
+import study.spring.seoulspring.model.Reply;
 import study.spring.seoulspring.service.CommunityService;
-import study.spring.seoulspring.service.DepartmentService;
-import study.spring.seoulspring.service.ViewService;
+import study.spring.seoulspring.service.ReplyService;
 
 /**
  * Handles requests for the application home page.
@@ -33,6 +26,8 @@ import study.spring.seoulspring.service.ViewService;
 @Controller
 public class CommunityController {
 
+	@Autowired
+	ReplyService replyService;
 	@Autowired
 	CommunityService communityService;
 	@Autowired
@@ -102,6 +97,13 @@ public class CommunityController {
 	@RequestMapping(value = "community/Q&A_view_page.do", method = RequestMethod.GET)
 	public String view_page(Locale locale, Model model,@RequestParam("postno") int postno) {
 		
+		
+		//Reply객체 생성
+		Reply reply = new Reply();
+		reply.setPost_num(postno);
+		Reply re_comment = null;
+		
+		//community객체 생성
 		Community input = new Community();
 		input.setPostno(postno);
 		Community output = null;
@@ -110,12 +112,14 @@ public class CommunityController {
 		try {
 			update = communityService.updatePostView(input);
 			output = communityService.selectOne(input);
+			re_comment = replyService.selectOne(reply);
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		model.addAttribute("output", output);
+		model.addAttribute("reply",re_comment);
 
 		return "community/Q&A_view_page";
 	}

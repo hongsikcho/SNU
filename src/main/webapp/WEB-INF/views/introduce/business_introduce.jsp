@@ -102,7 +102,7 @@
 
         <!--모바일 메인 박스 시작-->
 
-        
+        <div><img class="back_m" src="${pageContext.request.contextPath}/assets/img/${output[0].img}"/></div>
         <div class="snu_mobile_main_box">
 
             <div class="snu_main_header">
