@@ -41,7 +41,7 @@
 	width: 60%;
 	margin-top: 20px;
 	padding-right: 20px;
-	border-right: 1px solid rgba(0, 0, 0, 0.6);
+	border-right: 3px solid #0f0f70;
 }
 
 .snu_class_name_box img {
@@ -168,7 +168,7 @@
 
 				<div style="margin-top: 20px;">
 					<b>2. 응급처치 및 심폐소생술 교육</b> <br> <span>1 ) 매 학기 초 신청, 단체
-						교육 신청 기간을 놓쳤을 시 서울대하교 보건진료소 홈페이지(http://cpr.snu.ac.kr)에서 개별 신청</span> <br>
+						교육 신청 기간을 놓쳤을 시 서울대학교 보건진료소 홈페이지(http://cpr.snu.ac.kr)에서 개별 신청</span> <br>
 					<span>2 ) 두 학기 연속으로 검사를 신청할 수 없음</span>
 				</div>
 
@@ -237,7 +237,7 @@
 
 				<div style="margin-top: 20px;">
 					<b>2. 응급처치 및 심폐소생술 교육</b> <br> <span>1 ) 매 학기 초 신청, 단체
-						교육 신청 기간을 놓쳤을 시 서울대하교 보건진료소 홈페이지(http://cpr.snu.ac.kr)에서 개별 신청</span> <br>
+						교육 신청 기간을 놓쳤을 시 서울대학교 보건진료소 홈페이지(http://cpr.snu.ac.kr)에서 개별 신청</span> <br>
 					<span>2 ) 두 학기 연속으로 검사를 신청할 수 없음</span>
 				</div>
 
