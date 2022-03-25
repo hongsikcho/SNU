@@ -100,6 +100,7 @@
 		<div class="snu_main_box">
 			<div class="snu_main_header">
 				공지사항 <img src="${pageContext.request.contextPath }/assets/img/snu_logo.png" />
+				${reply.reply_txt}
 			</div>
 
 			<c:set var="postdate" value="${output.postdate}" />
@@ -109,6 +110,7 @@
 				</c:when>
 				<c:otherwise>
 					<c:set var="name" value="${output.memberno}번회원" />
+					
 				</c:otherwise>
 			</c:choose>
 

@@ -24,6 +24,7 @@ body {
 @media (max-width: 900px) {
   .snu_mobile_box {
     width: 100%;
+    position: relative;
   }
   .main_box {
     display: none;

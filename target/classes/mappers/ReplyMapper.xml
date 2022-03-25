@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ReplyMapper">
+
+	<resultMap id="ReplyMap"
+		type="study.spring.seoulspring.model.Reply">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="post_num" column="post_num" />
+		<result property="reply_num" column="reply_num" />
+		<result property="reply_txt" column="reply_txt" />
+		
+	</resultMap>
+
+
+
+
+	
+	<select id="selectOne"
+		parameterType="study.spring.seoulspring.model.Reply"
+		resultMap="ReplyMap">
+		select * from reply WHERE post_num = #{post_num}
+	</select>
+	
+	
+
+	
+
+
+
+
+
+
+</mapper>
