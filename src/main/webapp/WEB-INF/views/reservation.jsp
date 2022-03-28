@@ -128,6 +128,7 @@
                     <button class="time_table_button" type="button" id="26" value="21:30"><span id="time_26">21:30</span></button>
                     <button class="time_table_button" type="button" id="27" value="22:00"><span id="time_27">22:00</span></button>
                     <button class="time_table_button" type="button" id="28" value="22:30"><span id="time_28">22:30</span><span id="time_28_1" class="last_btn_label">23:00</span></button>
+                    <input type="hidden" id="29" value="23:00"/>
                 </div>
             </div>
 
@@ -266,6 +267,12 @@
                         $(this).attr("disabled", true);
                         click_count = 1;
                         first = parseInt($(this).attr("id"));
+                        if(last % 7 == 0){
+                            $("#time_"+(last)+"_1").css("color","black");
+                        }
+                        else{
+                            $("#time_"+(last+1)).css("color","black");
+                        }
 
                     }
 
