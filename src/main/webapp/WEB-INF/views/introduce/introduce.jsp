@@ -48,27 +48,27 @@
 
         <!--pc 메인 박스 시작-->
         <div class="snu_main_box">
-            <div class="snu_main_header">
-                <span>집행위원회 소개</span>
-                <img src="${pageContext.request.contextPath}/assets/img/snu_logo.png"/>
-            </div>
 
-            <div class="cons_intro_text">제41대 사범대 학생회 집행위원회는 교육국, 문화국, 사무국, 소통기획국, 인권사회국으로 구성되어 있습니다.</div>
-            <div class="cons_intro_pt">
-                <img src="${pageContext.request.contextPath}/assets/img/introduce_img.png">
-            </div>
+            
 
             <div class="cons_intro_title">
                 <div class="cons_intro_name">국별 배너</div>
             </div>
             <div class="small_box">
-                <div><a href="${pageContext.request.contextPath}/introduce/business_introduce.do?cnum=1">교육국</a></div>
-                <div><a href="${pageContext.request.contextPath}/introduce/business_introduce.do?cnum=2">문화국</a></div>
-                <div><a href="${pageContext.request.contextPath}/introduce/business_introduce.do?cnum=3">사무국</a></div>
-                <div><a href="${pageContext.request.contextPath}/introduce/business_introduce.do?cnum=4">소통기획국</a></div>
-                <div><a href="${pageContext.request.contextPath}/introduce/business_introduce.do?cnum=5">인권사회국</a></div>
+                <a href="${pageContext.request.contextPath}/introduce/business_introduce.do?cnum=1">교육국</a>
+                <a href="${pageContext.request.contextPath}/introduce/business_introduce.do?cnum=2">문화국</a>
+                <a href="${pageContext.request.contextPath}/introduce/business_introduce.do?cnum=3">사무국</a>
+                <a href="${pageContext.request.contextPath}/introduce/business_introduce.do?cnum=4">소통기획국</a>
+                <a href="${pageContext.request.contextPath}/introduce/business_introduce.do?cnum=5">인권사회국</a>
+            </div>
+            <div class="snu_main_header">
+                <span>집행위원회 소개</span>
+                <img src="${pageContext.request.contextPath}/assets/img/snu_logo.png"/>
             </div>
 
+<div class="cons_intro_pt">
+                <img src="${pageContext.request.contextPath}/assets/img/introduce_img.png">
+            </div>
         </div>
 
 
@@ -111,11 +111,11 @@
                 <div>국별배너</div>
              </div>
              <div class="small_box_m">
-                <div><a class="a" href="${pageContext.request.contextPath}/introduce/business_introduce.do?cnum=1">교육국</a></div>
-                <div><a class="a" href="${pageContext.request.contextPath}/introduce/business_introduce.do?cnum=2">문화국</a></div>
-                <div><a class="a" href="${pageContext.request.contextPath}/introduce/business_introduce.do?cnum=3">사무국</a></div>
-                <div><a class="a" href="${pageContext.request.contextPath}/introduce/business_introduce.do?cnum=4">소통기획국</a></div>
-                <div><a class="a" href="${pageContext.request.contextPath}/introduce/business_introduce.do?cnum=5">인권사회국</a></div>
+                 <a href="${pageContext.request.contextPath}/introduce/business_introduce.do?cnum=1">교육국</a>
+                <a href="${pageContext.request.contextPath}/introduce/business_introduce.do?cnum=2">문화국</a>
+                <a href="${pageContext.request.contextPath}/introduce/business_introduce.do?cnum=3">사무국</a>
+                <a href="${pageContext.request.contextPath}/introduce/business_introduce.do?cnum=4">소통기획국</a>
+                <a href="${pageContext.request.contextPath}/introduce/business_introduce.do?cnum=5">인권사회국</a>
             </div>
 
             

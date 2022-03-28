@@ -1,4 +1,6 @@
-
+.snu_side_bar{
+	z-index:9999;
+}
 
  .snu_side_bar {
     position: fixed;

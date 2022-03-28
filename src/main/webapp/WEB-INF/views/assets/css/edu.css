@@ -26,6 +26,7 @@
   margin: auto;
   margin-top: 30px;
   font-size: x-large;
+  font-weight : bold;
   color: rgba(0, 0, 0, 0.9);
 }
 
@@ -36,15 +37,17 @@
   margin-bottom: 50px;
 }
 .detail_title {
-  font-size: medium;
-  font-weight: 700;
+  font-size: large;
+  font-weight: bold;
   font-size: x-large;
   margin-bottom: 20px;
 }
 .detail_body {
   border: 2px solid #0f0f70;
   border-radius : 10px;
-  padding:5px;
+  padding:11px;
+  font-size: medium;
+  
 }
 .fas {
   font-size: large;
@@ -81,5 +84,16 @@
   }
 .snu_mobile_main_box{
 	margin-bottom:50px;
+}
+.edu_intro_detail{
+	margin-top:50px;
+}
+.back_m{
+	position: absolute;
+  	left: px;
+  	top: 170px;
+  	overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
 }
 }

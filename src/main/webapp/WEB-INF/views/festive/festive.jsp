@@ -33,6 +33,9 @@
 
 
 <style type="text/css">
+.snu_main_box{
+	margin-bottom:200px;
+}
 .festive_list {
 	display: flex;
 	align-items: center;
