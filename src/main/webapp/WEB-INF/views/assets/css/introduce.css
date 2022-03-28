@@ -8,7 +8,9 @@
   justify-content: space-between;
   padding: 5px;
 }
-
+.cons_intro_name{
+	margin-top:50px;
+}
 .cons_intro_pt {
   width: 1190px;
   margin: auto;
@@ -90,32 +92,31 @@
   width: 1190px;
   margin: auto;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   padding: 10px 0 10px 0;
   margin-top:20px;
 }
-.small_box > div {
+.small_box > a {
   border: 4px solid #34346b;
-  width: 17%;
+  width: 18%;
   height: 100px;
-  padding: 0 2px 0 2px;
+  padding: 0px 3px 0 3px;
   border-radius: 10px;
   display: flex;
   justify-content: center;
-  margin: 20px 0 20px 0;
+  margin: 20px 10px 20px 10px;
   align-items: center;
   font-size: large;
   font-weight:bold;
 }
-.small_box > div:hover {
-  background-color: #0f0f70;
-  color: aliceblue;
-  transition: all 0.5s;
-}
 
-.small_box > div > a:hover{
+
+.small_box > a:hover{
 	color:white;
 	transition: all 0.5s;
+	 background-color: #0f0f70;
+  color: aliceblue;
+  transition: all 0.5s;
 }
 
 @media (max-width: 900px) {
@@ -132,7 +133,7 @@
     width: 100%;
     padding: 20px 0 20px 0;
   }
-  .small_box_m > div {
+  .small_box_m > a {
     border: 2px solid #0f0f70;
     font-size: x-large;
     color: black;
@@ -143,10 +144,12 @@
     border-radius: 10px;
     margin: 10px 0;
   }
-  .small_box_m > div:hover {
+  .small_box_m > a:hover {
     background-color: #0f0f70;
     color: aliceblue;
     transition: all 0.5s;
+    	color:white;
+	transition: all 0.5s;
   }
   .cons_intro_pt > img {
     width: 100%;
@@ -156,12 +159,8 @@
     margin-top: 20px;
     margin-bottom: 50px;
   }
-  
-  .a:hover{
-	color:white;
-	transition: all 0.5s;
-}
- .small_box_m > div {
+ 
+ .small_box_m > a {
     border: 4px solid #0f0f70;
     font-size: large;
     color: black;

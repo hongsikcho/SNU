@@ -55,18 +55,9 @@
                 
                 </div>
                 <div class="cons_intro_pt">
-                    <img src="${pageContext.request.contextPath}/assets/img/cunsel_img.jpg">
+                    <img src="${pageContext.request.contextPath}/assets/img/council_intro.png">
                 </div>
-                <div class="cons_intro_member">
-                    <div class="cons_intro_member1">
-                        <div class="cons_intro_member1_left">부회장<span class="bar">|</span></div>
-                        <div class="cons_intro_member1_right">이찬영</div>
-                    </div>
-                    <div class="cons_intro_member2">
-                        <div class="cons_intro_member2_left">회장<span class="bar">|</span></div>
-                        <div class="cons_intro_member2_right">윤응식</div>
-                    </div>
-                </div>
+                
             </div>
     
             <div class="sunbon_intro">

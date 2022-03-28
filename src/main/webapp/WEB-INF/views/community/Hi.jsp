@@ -82,9 +82,8 @@
                         </div>
 
                         <div class="hi_foot_bpx_bot">
-                            <span style="font-weight: 600;">[2022-1월]</span>
-                            <br>3년 만에 열리는사범대 대면 새터!
-                            <br> 새터 준비 새기위원 특집
+                            <span style="font-weight: 600;">[2022-3월]</span>
+                            <br>...
                         </div>
                     </div>
                     <div class="hi_foot_box">
@@ -98,7 +97,11 @@
                     </div>
                     <div class="hi_foot_box">
                         <div class="hi_foot_box_top"><img src="${pageContext.request.contextPath}/assets/img/hi_january.png" alt=""></div>
-                        <div class="hi_foot_bpx_bot">[2022-1월]<br>기획한 주제 적기</div>
+                        <div class="hi_foot_bpx_bot">
+                            <span style="font-weight: 600;">[2022-1월]</span>
+                            <br>3년 만에 열리는사범대 대면 새터!
+                            <br> 새터 준비 새기위원 특집
+                        </div>
                     </div>
                 </div>
             </div>
@@ -150,9 +153,8 @@
                     <div class="hi_foot">
                         <div class="hi_foot_box">
                             <div class="hi_foot_box_top"><img src="${pageContext.request.contextPath}/assets/img/hi_january.png" alt=""></div>
-                            <div class="hi_foot_bpx_bot"><span style="font-weight: 600;">[2022-1월]</span>
-                                <br>3년 만에 열리는사범대 대면 새터!
-                                <br> 새터 준비 새기위원 특집
+                            <div class="hi_foot_bpx_bot"><span style="font-weight: 600;">[2022-3월]</span>
+                                <br>...
                             </div>
                         </div>
                     </a>
@@ -164,7 +166,11 @@
                         </div>
                         <div class="hi_foot_box">
                             <div class="hi_foot_box_top"><img src="${pageContext.request.contextPath}/assets/img/hi_january.png" alt=""></div>
-                            <div class="hi_foot_bpx_bot">[2022-1월]<br>기획한 주제 적기</div>
+                            <div class="hi_foot_bpx_bot">
+                            <span style="font-weight: 600;">[2022-3월]</span>
+                            <br>3년 만에 열리는사범대 대면 새터!
+                            <br> 새터 준비 새기위원 특집
+                        </div>
                         </div>
                     </div>
                 
