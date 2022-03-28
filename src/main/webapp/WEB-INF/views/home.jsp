@@ -45,13 +45,6 @@
 			<%@ include file="../include/WEB/side_bar.jsp"%>
 		</div>
 
-		<form action='${pageContext.request.contextPath}/login.do'
-			method='post'>
-			<input type='hidden' name='method' value='json' /> <input
-				type='text' name='si_id' value='' /> <input type='password'
-				name='si_pwd' value='' /> <input type='submit' />
-		</form>
-
 
 		<div class="snu_content_box">
 			<iframe width="100%" height="1070"
