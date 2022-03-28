@@ -39,6 +39,10 @@
 
 <body>
     <div class="main_box">
+   <div class="header">
+			<%@ include file="../include/WEB/header.jsp"%>
+			<%@ include file="../include/WEB/side_bar.jsp"%>
+		</div>
 
         <!--pc fix bar-->
         <div class="snu_side_bar">
