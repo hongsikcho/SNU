@@ -68,7 +68,6 @@
 	border: none;
 	color: white;
 	background-color: #0f0f70;
-	
 	padding: 7px 20px;
 	border-radius: 10px;
 	font-size: 20px;
@@ -90,6 +89,7 @@
 
 <body>
 	<!-- pc부분 -->
+
 	<div class="main_box">
 		<div class="header">
 			<%@ include file="../../include/WEB/header.jsp"%>
@@ -99,7 +99,8 @@
 
 		<div class="snu_main_box">
 			<div class="snu_main_header">
-				공지사항 <img src="${pageContext.request.contextPath }/assets/img/snu_logo.png" />
+				공지사항 <img
+					src="${pageContext.request.contextPath }/assets/img/snu_logo.png" />
 				${reply.reply_txt}
 			</div>
 
@@ -110,7 +111,7 @@
 				</c:when>
 				<c:otherwise>
 					<c:set var="name" value="${output.memberno}번회원" />
-					
+
 				</c:otherwise>
 			</c:choose>
 
@@ -125,8 +126,8 @@
 
 
 			<div class="post_btn_box">
-				<a>답글</a>
-				<a href="${pageContext.request.contextPath}/community/Q&A.do">목록</a>
+				<a>답글</a> <a
+					href="${pageContext.request.contextPath}/community/Q&A.do">목록</a>
 			</div>
 
 		</div>
@@ -200,9 +201,13 @@
 		
 	</script>
 	<script src="${pageContext.request.contextPath}/assets/js/regex.js"></script>
-	<script>
-		
-	</script>
+	<script type="text/javascript">
+		$(function() {
+			if(${member == null} ){
+				window.location = "${pageContext.request.contextPath}/login.do"
+			}
+		});
+		</script>
 
 
 </body>

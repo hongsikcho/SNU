@@ -2,20 +2,20 @@
 
 /*header*/
 .snu_header {
-	background-color: rgb(66,57,106); 
-   box-shadow: 0 5px 5px rgb(0 0 0/ 30%);
-   position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-     z-index:999;
+	background-color: rgb(66, 57, 106);
+	box-shadow: 0 5px 5px rgb(0 0 0/ 30%);
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 999;
 }
 
 .snu_header_inner_box {
 	display: flex;
 	justify-content: space-between;
 	padding: 10px;
-	background-color: #a6a6ff; 
+	background-color: #a6a6ff;
 }
 
 .snu_header_logo_box {
@@ -34,4 +34,8 @@
 	color: gray;
 	line-height: 15px;
 	padding-top: 5px;
+}
+
+.login_btn, .logout_btn {
+	color: white;
 }
