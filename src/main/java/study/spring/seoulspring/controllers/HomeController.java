@@ -1,5 +1,10 @@
 package study.spring.seoulspring.controllers;
 
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -9,6 +14,8 @@ import java.util.Locale;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,6 +32,12 @@ import study.spring.seoulspring.model.Department;
 import study.spring.seoulspring.model.View;
 import study.spring.seoulspring.service.DepartmentService;
 import study.spring.seoulspring.service.ViewService;
+
+
+import org.json.simple.JSONObject; // JSON객체 생성
+import org.json.simple.JSONArray; // JSON이 들어있는 Array 생성
+import org.json.simple.parser.JSONParser; // JSON객체 파싱
+import org.json.simple.parser.ParseException; 
 
 /**
  * Handles requests for the application home page.
@@ -81,6 +94,43 @@ public class HomeController {
 	public String game(Locale locale, Model model) {
 
 		return "game/game";
+	}
+	@RequestMapping(value = "login.do", method = RequestMethod.POST)
+	public String login(Locale locale, HttpServletRequest request, HttpServletResponse response, Model model,@RequestParam("si_id") String si_id,@RequestParam("si_pwd") String si_pwd ) throws MalformedURLException, IOException {
+		
+		String id = si_id;
+		String pw = si_pwd;
+		
+		String postString = "method=json&si_id="+id+"&si_pwd="+ java.net.URLEncoder.encode(pw,"UTF-8");
+		HttpURLConnection urlConnection = (HttpURLConnection)new URL("https://sso.snu.ac.kr/safeidentity/modules/auth_idpwd").openConnection();
+		urlConnection.setDoOutput(true);
+		urlConnection.setDoInput(true);
+		urlConnection.setRequestMethod("POST");
+		urlConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+		urlConnection.getOutputStream().write(postString.getBytes());
+		java.io.BufferedReader br = new java.io.BufferedReader(new java.io.InputStreamReader(urlConnection.getInputStream()));
+		StringBuilder sb = new StringBuilder();
+
+	
+		String line;
+		while ((line = br.readLine()) != null) {
+			sb.append(line).append("\n");
+		}
+		model.addAttribute("sb", sb.toString().trim());
+	
+		HttpSession session = request.getSession();
+		response.setHeader("Content-Type", "text/html;charset=utf-8");
+	    try
+	    {
+	      request.setCharacterEncoding("utf-8");
+	    }
+	    catch (UnsupportedEncodingException e)
+	    {
+	      e.printStackTrace();
+	    }
+		
+
+		return "home";
 	}
 
 	@RequestMapping("/busin")

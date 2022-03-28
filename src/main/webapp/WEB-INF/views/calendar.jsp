@@ -269,6 +269,7 @@ form {
 				</span>
 			</div>
 			<form name="calendarFrm" id="calendarFrm" action="" method="GET">
+				<c:set var="month" value="${today_info.search_month}" />
 				<c:if test="${today_info.search_month<10}">
 					<c:set var="month" value="${0}${today_info.search_month}" />
 
