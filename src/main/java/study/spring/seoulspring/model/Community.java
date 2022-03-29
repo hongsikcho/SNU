@@ -12,6 +12,6 @@ public class Community {
 	private String postdate;
 	private String postpublic;
 	private int postview;
-	private int memberno;
+	private String name;
 
 }

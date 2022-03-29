@@ -103,6 +103,11 @@
 					src="${pageContext.request.contextPath }/assets/img/snu_logo.png" />
 				${reply.reply_txt}
 			</div>
+			<div class="post_delete_btn_box">
+				<c:if test="${output.name eq member.getName()}">
+					<a class="post_delete_btn" href="#">삭제</a>
+				</c:if>
+			</div>
 
 			<c:set var="postdate" value="${output.postdate}" />
 			<c:choose>
@@ -110,7 +115,7 @@
 					<c:set var="name" value="익명" />
 				</c:when>
 				<c:otherwise>
-					<c:set var="name" value="${output.memberno}번회원" />
+					<c:set var="name" value="${output.name}" />
 
 				</c:otherwise>
 			</c:choose>
@@ -202,12 +207,8 @@
 	</script>
 	<script src="${pageContext.request.contextPath}/assets/js/regex.js"></script>
 	<script type="text/javascript">
-		$(function() {
-			if(${member == null} ){
-				window.location = "${pageContext.request.contextPath}/login.do"
-			}
-		});
-		</script>
+		
+	</script>
 
 
 </body>
