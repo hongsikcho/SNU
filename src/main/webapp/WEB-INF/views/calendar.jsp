@@ -250,6 +250,7 @@ form {
 </head>
 
 <body>
+
 	<!-- pc부분 -->
 	<div class="main_box">
 		<div class="header">
@@ -360,8 +361,10 @@ form {
 												<div class="date">${dateList.date}
 													<c:if test="${i <=14 && i>=0 }">
 														<div class="reserve_btn_box">
-															<br> <a class="reserve_btn" href="${pageContext.request.contextPath}/reservation.do?reserve_date=${calendar_date}&room_num=106">9-106호</a> <br>
-															<a class="reserve_btn" href="${pageContext.request.contextPath}/reservation.do?reserve_date=${calendar_date}&room_num=107">9-107호</a>
+															<br> <a class="reserve_btn"
+																onclick="javascript:goPage('106','${calendar_date}')">9-106호</a>
+															<br> <a class="reserve_btn"
+																onclick="javascript:goPage('107','${calendar_date}')">9-107호</a>
 														</div>
 													</c:if>
 												</div>
@@ -373,8 +376,10 @@ form {
 												<div class="sat">${dateList.date}
 													<c:if test="${i <=14 && i>=0 }">
 														<div class="reserve_btn_box">
-															<br> <a class="reserve_btn" href="${pageContext.request.contextPath}/reservation.do?reserve_date=${calendar_date}&room_num=106">9-106호</a> <br>
-															<a class="reserve_btn" href="${pageContext.request.contextPath}/reservation.do?reserve_date=${calendar_date}&room_num=107">9-107호</a>
+															<br> <a class="reserve_btn"
+																onclick="javascript:goPage('106','${calendar_date}')">9-106호</a>
+															<br> <a class="reserve_btn"
+																onclick="javascript:goPage('107','${calendar_date}')">9-107호</a>
 														</div>
 													</c:if>
 												</div>
@@ -388,8 +393,10 @@ form {
 									<div class="sun">${dateList.date}
 										<c:if test="${i <=14 && i>=0 }">
 											<div class="reserve_btn_box">
-												<br> <a class="reserve_btn" href="${pageContext.request.contextPath}/reservation.do?reserve_date=${calendar_date}&room_num=106">9-106호</a> <br>
-												<a class="reserve_btn" href="${pageContext.request.contextPath}/reservation.do?reserve_date=${calendar_date}&room_num=107">9-107호</a>
+												<br> <a class="reserve_btn"
+													onclick="javascript:goPage('106','${calendar_date}')">9-106호</a>
+												<br> <a class="reserve_btn"
+													onclick="javascript:goPage('107','${calendar_date}')">9-107호</a>
 											</div>
 										</c:if>
 									</div>
@@ -401,8 +408,10 @@ form {
 										<div class="date">${dateList.date}
 											<c:if test="${i <=14 && i>=0 }">
 												<div class="reserve_btn_box">
-													<br> <a class="reserve_btn" href="${pageContext.request.contextPath}/reservation.do?reserve_date=${calendar_date}&room_num=106">9-106호</a> <br>
-													<a class="reserve_btn" href="${pageContext.request.contextPath}/reservation.do?reserve_date=${calendar_date}&room_num=107">9-107호</a>
+													<br> <a class="reserve_btn"
+														onclick="javascript:goPage('106','${calendar_date}')">9-106호</a>
+													<br> <a class="reserve_btn"
+														onclick="javascript:goPage('107','${calendar_date}')">9-107호</a>
 												</div>
 											</c:if>
 										</div>
@@ -585,10 +594,6 @@ form {
 
 
 	</div>
-
-
-
-
 	<script src="https://kit.fontawesome.com/695be3a17b.js"
 		crossorigin="anonymous"></script>
 	<script
@@ -596,8 +601,30 @@ form {
 	<script src="${pageContext.request.contextPath}/assets/js/style.js">
 		
 	</script>
+
 	<script>
-	
+		function goPage(room, date) {
+			var newForm = $('<form></form>');
+			newForm.attr("method", "Post");
+			newForm.attr("action",
+					"${pageContext.request.contextPath}/reservation.do");
+
+			newForm.append($('<input/>', {
+				type : 'hidden',
+				name : 'room_num',
+				value : room
+			}));
+			newForm.append($('<input/>', {
+				type : 'hidden',
+				name : 'reserve_date',
+				value : date
+			}));
+
+			newForm.appendTo('body');
+
+			newForm.submit();
+
+		}
 	</script>
 
 

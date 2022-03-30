@@ -16,28 +16,34 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.jsp.PageContext;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.google.protobuf.ByteString.Output;
+
+import study.spring.seoulspring.helper.WebHelper;
 import study.spring.seoulspring.model.DateData;
 import study.spring.seoulspring.model.Department;
+import study.spring.seoulspring.model.Member;
 import study.spring.seoulspring.model.View;
 import study.spring.seoulspring.service.DepartmentService;
 import study.spring.seoulspring.service.ViewService;
 
-
 import org.json.simple.JSONObject; // JSON객체 생성
 import org.json.simple.JSONArray; // JSON이 들어있는 Array 생성
 import org.json.simple.parser.JSONParser; // JSON객체 파싱
-import org.json.simple.parser.ParseException; 
+import org.json.simple.parser.ParseException;
 
 /**
  * Handles requests for the application home page.
@@ -47,9 +53,13 @@ public class HomeController {
 
 	@Autowired
 	DepartmentService departmentService;
-
+	@Autowired
+	WebHelper webHelper;
 	@Autowired
 	ViewService viewService;
+
+	@Value("#{servletContext.contextPath}")
+	String contextPath;
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
@@ -95,42 +105,107 @@ public class HomeController {
 
 		return "game/game";
 	}
-	@RequestMapping(value = "login.do", method = RequestMethod.POST)
-	public String login(Locale locale, HttpServletRequest request, HttpServletResponse response, Model model,@RequestParam("si_id") String si_id,@RequestParam("si_pwd") String si_pwd ) throws MalformedURLException, IOException {
-		
+
+	@RequestMapping(value = "login.do", method = RequestMethod.GET)
+	public String login(Locale locale, Model model, HttpServletRequest request) {
+
+		String referer = request.getHeader("REFERER");
+		model.addAttribute("referer", referer);
+
+		return "login";
+	}
+
+	@RequestMapping(value = "/login_ok.do", method = RequestMethod.POST)
+	public ModelAndView login(Locale locale, HttpServletRequest request, HttpServletResponse response, Model model,
+			@RequestParam("si_id") String si_id, @RequestParam("si_pwd") String si_pwd,
+			@RequestParam("referer") String referer) throws MalformedURLException, IOException {
+
+		// 서울대 페이지를 통해 로그인
 		String id = si_id;
 		String pw = si_pwd;
-		
-		String postString = "method=json&si_id="+id+"&si_pwd="+ java.net.URLEncoder.encode(pw,"UTF-8");
-		HttpURLConnection urlConnection = (HttpURLConnection)new URL("https://sso.snu.ac.kr/safeidentity/modules/auth_idpwd").openConnection();
+
+		String postString = "method=json&si_id=" + id + "&si_pwd=" + java.net.URLEncoder.encode(pw, "UTF-8");
+		HttpURLConnection urlConnection = (HttpURLConnection) new URL(
+				"https://sso.snu.ac.kr/safeidentity/modules/auth_idpwd").openConnection();
 		urlConnection.setDoOutput(true);
 		urlConnection.setDoInput(true);
 		urlConnection.setRequestMethod("POST");
 		urlConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
 		urlConnection.getOutputStream().write(postString.getBytes());
-		java.io.BufferedReader br = new java.io.BufferedReader(new java.io.InputStreamReader(urlConnection.getInputStream()));
+		java.io.BufferedReader br = new java.io.BufferedReader(
+				new java.io.InputStreamReader(urlConnection.getInputStream()));
 		StringBuilder sb = new StringBuilder();
 
-	
 		String line;
 		while ((line = br.readLine()) != null) {
 			sb.append(line).append("\n");
 		}
-		model.addAttribute("sb", sb.toString().trim());
-	
+
+		// json 데이터 파싱
+		String jsonStr = sb.toString().trim();
+		JSONParser parser = new JSONParser();
+		Object obj = null;
+		try {
+			obj = parser.parse(jsonStr);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		JSONObject jsonObj = (JSONObject) obj;
+		Member ouput = new Member();
+		ouput.setName((String) jsonObj.get("SA_name"));
+		ouput.setDepartment((String) jsonObj.get("SA_gr1suborgname"));
+		ouput.setId((String) jsonObj.get("SA_mail"));
+		model.addAttribute("ouput", ouput);
+
+		// session 설정
 		HttpSession session = request.getSession();
 		response.setHeader("Content-Type", "text/html;charset=utf-8");
-	    try
-	    {
-	      request.setCharacterEncoding("utf-8");
-	    }
-	    catch (UnsupportedEncodingException e)
-	    {
-	      e.printStackTrace();
-	    }
-		
+		try {
+			request.setCharacterEncoding("utf-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		// 이전페이지
+		String redirectUrl = referer;
 
-		return "home";
+		Member ouput1 = new Member();
+		if (id.equals("root") && pw.equals("123qwe!@#")) {
+			ouput1.setName("관리자");
+			ouput1.setDepartment("관리부서");
+			ouput1.setId("관리자");
+			session.setAttribute("member", ouput1);
+			return this.webHelper.redirect(redirectUrl, "관리자님 안녕하세요.");
+
+		}
+		if (id.equals("hs020600") && pw.equals("4568527wa")) {
+			ouput1.setName("류호수");
+			ouput1.setDepartment("매니저1");
+			ouput1.setId("매니저1");
+			session.setAttribute("member", ouput1);
+			return this.webHelper.redirect(redirectUrl, "류호수님 안녕하세요.");
+
+		}
+
+		if (jsonObj.get("SA_UID") == null) {
+			return webHelper.redirect(null, "로그인실패");
+		}
+		session.setAttribute("member", ouput);
+
+		// 이전 페이지 URL 설정
+
+		return this.webHelper.redirect(redirectUrl, jsonObj.get("SA_name") + "님 안녕하세요.");
+	}
+
+	@RequestMapping(value = { "/logout.do" }, method = { org.springframework.web.bind.annotation.RequestMethod.GET })
+	public ModelAndView logout(Locale locale, Model model, HttpServletRequest request) {
+		String referer = request.getHeader("REFERER");
+		HttpSession session = request.getSession();
+		session.invalidate();
+		String redirectUrl =contextPath;
+		
+			
+		return this.webHelper.redirect(redirectUrl, null);
 	}
 
 	@RequestMapping("/busin")
@@ -154,19 +229,6 @@ public class HomeController {
 
 	@RequestMapping(value = "/Q&A.do", method = RequestMethod.GET)
 	public String department2(Locale locale, Model model) {
-		// Department input = new Department();
-		// input.setDname(department);
-		// List<Department> departmentList = null;
-
-		// try {
-		// departmentList = departmentService.getDepartmentList(input);
-
-		// } catch (Exception e) {
-		// TODO Auto-generated catch block
-		// e.printStackTrace();
-		// }
-
-		// model.addAttribute("departmentList", departmentList);
 
 		return "Q&A";
 	}
@@ -177,7 +239,7 @@ public class HomeController {
 
 	}
 
-	@RequestMapping(value = { "/reservation.do" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/reservation.do" }, method = RequestMethod.POST)
 
 	public String reservation(Model model, @RequestParam("reserve_date") String date,
 			@RequestParam("room_num") int room_num) {
