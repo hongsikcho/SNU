@@ -16,6 +16,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.jsp.PageContext;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -167,23 +168,23 @@ public class HomeController {
 		}
 		// 이전페이지
 		String redirectUrl = referer;
-		
+
 		Member ouput1 = new Member();
-		if(id.equals("root") && pw.equals("123qwe!@#")) {
+		if (id.equals("root") && pw.equals("123qwe!@#")) {
 			ouput1.setName("관리자");
 			ouput1.setDepartment("관리부서");
 			ouput1.setId("관리자");
 			session.setAttribute("member", ouput1);
 			return this.webHelper.redirect(redirectUrl, "관리자님 안녕하세요.");
-			
+
 		}
-		if(id.equals("hs020600") && pw.equals("4568527wa")) {
+		if (id.equals("hs020600") && pw.equals("4568527wa")) {
 			ouput1.setName("류호수");
 			ouput1.setDepartment("매니저1");
 			ouput1.setId("매니저1");
 			session.setAttribute("member", ouput1);
 			return this.webHelper.redirect(redirectUrl, "류호수님 안녕하세요.");
-			
+
 		}
 
 		if (jsonObj.get("SA_UID") == null) {
@@ -192,7 +193,6 @@ public class HomeController {
 		session.setAttribute("member", ouput);
 
 		// 이전 페이지 URL 설정
-		
 
 		return this.webHelper.redirect(redirectUrl, jsonObj.get("SA_name") + "님 안녕하세요.");
 	}
@@ -202,8 +202,9 @@ public class HomeController {
 		String referer = request.getHeader("REFERER");
 		HttpSession session = request.getSession();
 		session.invalidate();
-		String redirectUrl = referer;
-
+		String redirectUrl =contextPath;
+		
+			
 		return this.webHelper.redirect(redirectUrl, null);
 	}
 

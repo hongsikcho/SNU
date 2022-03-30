@@ -105,7 +105,7 @@
 			</div>
 			<div class="post_delete_btn_box">
 				<c:if test="${output.name eq member.getName()}">
-					<a class="post_delete_btn" href="#">삭제</a>
+					<a class="post_delete_btn" href="${pageContext.request.contextPath}/community/post_delete.do?postno=${output.postno}">삭제</a>
 				</c:if>
 			</div>
 
