@@ -125,7 +125,10 @@
 
 
 			<div class="post_btn_box">
-				<a>답글</a>
+ 			<form action="${pageContext.request.contextPath}/community/reply_write_insert.do">
+				<textarea style="width: 100%; height: 400px; padding: 10px 5px; font-size: 20px;" placeholder="내용을 입력해 주세요...."></textarea>
+				<button>글쓰기</button>
+			</form>
 				<a href="${pageContext.request.contextPath}/community/Q&A.do">목록</a>
 			</div>
 
@@ -173,7 +176,8 @@
 
 
 			<div class="post_btn_box">
-				<button>답글</button>
+			
+				<a href="${pageContext.request.contextPath}/community/Q&A_write.do"><button>답글</button></a>
 				<button>목록</button>
 			</div>
 			<!--모바일 메인 이너 끝-->
