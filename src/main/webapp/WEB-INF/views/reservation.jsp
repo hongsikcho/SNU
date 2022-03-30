@@ -178,10 +178,10 @@ input:focus {
 
 		<div class="content_wrap">
 
-			<div class="snu_main_header">제목2</div>
 
+			<div class="snu_main_header">공실예약하기</div>
 			<div>
-
+				<span>${month}월 ${day}일 9동 ${room_num }호 예약하기</span>
 				<div class="time_table_row">
 					<button class="time_table_button" type="button" id="1"
 						value="09:00">

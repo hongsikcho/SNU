@@ -109,6 +109,10 @@
 	top: -2px;
 }
 
+.qna_read_btn {
+	cursor: pointer;
+}
+
 #protected_qna_content {
 	background-color: rgba(0, 0, 0, 0.1);
 }
@@ -152,7 +156,7 @@
 					<c:forEach var="item" items="${output}" varStatus="status">
 						<c:set var="postcategory" value="${item.postcategory}" />
 						<c:set var="posttitle" value="${item.posttitle}" />
-						<c:set var="memberno" value="${item.memberno}" />
+						<c:set var="name" value="${item.name}" />
 						<c:set var="postdate" value="${item.postdate}" />
 						<c:set var="postview" value="${item.postview}" />
 						<c:set var="posttype" value="${item.posttype}" />
@@ -161,8 +165,7 @@
 
 						<c:choose>
 							<c:when test="${postpublic eq '비공개'}">
-								<a
-									href="#">
+								<a href="#">
 									<div class="snu_qna_content" id="protected_qna_content">
 										<div style="width: 8%;">${postcategory }</div>
 										<div style="width: 44%; text-align: left;">${posttitle }
@@ -173,7 +176,7 @@
 												<div style="width: 16%;">익명</div>
 											</c:when>
 											<c:otherwise>
-												<div style="width: 16%;">${memberno}번회원</div>
+												<div style="width: 16%;">${name}</div>
 											</c:otherwise>
 										</c:choose>
 										<div style="width: 16%;">${fn:substring(postdate,0,10)}</div>
@@ -182,8 +185,7 @@
 								</a>
 							</c:when>
 							<c:otherwise>
-								<a
-									href="${pageContext.request.contextPath }/community/Q&A_view_page.do?postno=${postno}">
+								<a class="qna_read_btn" id="${postno}">
 									<div class="snu_qna_content">
 										<div style="width: 8%;">${postcategory }</div>
 										<div style="width: 44%; text-align: left;">${posttitle }</div>
@@ -193,7 +195,7 @@
 												<div style="width: 16%;">익명</div>
 											</c:when>
 											<c:otherwise>
-												<div style="width: 16%;">${memberno}번회원</div>
+												<div style="width: 16%;">${name}</div>
 											</c:otherwise>
 										</c:choose>
 										<div style="width: 16%;">${fn:substring(postdate,0,10)}</div>
@@ -319,6 +321,43 @@
 		src="${pageContext.request.contextPath }/assets/js/jquery.min.js"></script>
 	<script src="${pageContext.request.contextPath }/assets/js/style.js">
 		
+	</script>
+	<script>
+	$(".qna_read_btn").click(function(){
+			if(${member == null} ){
+				if(confirm("로그인이 필요한 서비스입니다. 로그인 하시겠습니까?")){
+					window.location = "${pageContext.request.contextPath}/login.do"	
+				}
+				else{
+					return;
+				}
+			}
+			else{
+				goPost($(this).attr("id"));
+				
+			}
+	
+	})
+	
+	function goPost(postno) {
+			var newForm = $('<form></form>');
+			newForm.attr("method", "Post");
+			newForm.attr("action",
+					"${pageContext.request.contextPath }/community/Q&A_view_page.do");
+
+			newForm.append($('<input/>', {
+				type : 'hidden',
+				name : 'postno',
+				value : postno
+			}));
+			
+			newForm.appendTo('body');
+
+			newForm.submit();
+
+		}
+	
+	
 	</script>
 
 

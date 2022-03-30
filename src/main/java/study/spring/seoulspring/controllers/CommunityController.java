@@ -5,6 +5,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -16,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import study.spring.seoulspring.helper.WebHelper;
 import study.spring.seoulspring.model.Community;
+import study.spring.seoulspring.model.Member;
 import study.spring.seoulspring.model.Reply;
 import study.spring.seoulspring.service.CommunityService;
 import study.spring.seoulspring.service.ReplyService;
@@ -56,10 +60,13 @@ public class CommunityController {
 	}
 
 	@RequestMapping(value = "community/Q&A_write_insert.do", method = RequestMethod.POST)
-	public ModelAndView QandA_write_insert(Locale locale, Model model,
+	public ModelAndView QandA_write_insert(Locale locale, Model model,HttpServletRequest request,
 			@RequestParam("postcategory") String postcategory, @RequestParam("posttype") String posttype,
 			@RequestParam("posttitle") String posttitle, @RequestParam("postcontent") String postcontent,
 			@RequestParam("postpublic") String postpublic) {
+		
+		HttpSession session = request.getSession();
+	    Member loginInfo = (Member)session.getAttribute("member");
 
 		Community input = new Community();
 
@@ -72,7 +79,7 @@ public class CommunityController {
 		input.setPostcontent(postcontent);
 		input.setPostpublic(postpublic);
 		input.setPostdate(datetime);
-		input.setMemberno(0);
+		input.setName(loginInfo.getName());
 
 		int result = 0;
 		try {
@@ -94,7 +101,7 @@ public class CommunityController {
 		return "community/FAQ";
 	}
 	
-	@RequestMapping(value = "community/Q&A_view_page.do", method = RequestMethod.GET)
+	@RequestMapping(value = "community/Q&A_view_page.do", method = RequestMethod.POST)
 	public String view_page(Locale locale, Model model,@RequestParam("postno") int postno) {
 		
 		
