@@ -15,13 +15,13 @@
 		<result property="postdate" column="postdate" />
 		<result property="postpublic" column="postpublic" />
 		<result property="postview" column="postview" />
-		<result property="memberno" column="memberno" />
+		<result property="name" column="name" />
 
 	</resultMap>
 
 	<insert id="insertPost" parameterType="study.spring.seoulspring.model.Community">
-		INSERT INTO community (postcategory,posttype,posttitle,postcontent,postdate,memberno,postpublic) 
-		VALUES (#{postcategory},#{posttype},#{posttitle},#{postcontent},#{postdate},#{memberno},#{postpublic})
+		INSERT INTO community (postcategory,posttype,posttitle,postcontent,postdate,name,postpublic) 
+		VALUES (#{postcategory},#{posttype},#{posttitle},#{postcontent},#{postdate},#{name},#{postpublic})
 	</insert>
 	
 	<select id="selectList"

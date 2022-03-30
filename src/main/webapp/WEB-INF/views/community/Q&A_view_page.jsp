@@ -68,7 +68,6 @@
 	border: none;
 	color: white;
 	background-color: #0f0f70;
-	
 	padding: 7px 20px;
 	border-radius: 10px;
 	font-size: 20px;
@@ -90,6 +89,7 @@
 
 <body>
 	<!-- pc부분 -->
+
 	<div class="main_box">
 		<div class="header">
 			<%@ include file="../../include/WEB/header.jsp"%>
@@ -99,8 +99,14 @@
 
 		<div class="snu_main_box">
 			<div class="snu_main_header">
-				공지사항 <img src="${pageContext.request.contextPath }/assets/img/snu_logo.png" />
+				공지사항 <img
+					src="${pageContext.request.contextPath }/assets/img/snu_logo.png" />
 				${reply.reply_txt}
+			</div>
+			<div class="post_delete_btn_box">
+				<c:if test="${output.name eq member.getName()}">
+					<a class="post_delete_btn" href="${pageContext.request.contextPath}/community/post_delete.do?postno=${output.postno}">삭제</a>
+				</c:if>
 			</div>
 
 			<c:set var="postdate" value="${output.postdate}" />
@@ -109,8 +115,8 @@
 					<c:set var="name" value="익명" />
 				</c:when>
 				<c:otherwise>
-					<c:set var="name" value="${output.memberno}번회원" />
-					
+					<c:set var="name" value="${output.name}" />
+
 				</c:otherwise>
 			</c:choose>
 
@@ -125,8 +131,8 @@
 
 
 			<div class="post_btn_box">
-				<a>답글</a>
-				<a href="${pageContext.request.contextPath}/community/Q&A.do">목록</a>
+				<a>답글</a> <a
+					href="${pageContext.request.contextPath}/community/Q&A.do">목록</a>
 			</div>
 
 		</div>
@@ -200,7 +206,7 @@
 		
 	</script>
 	<script src="${pageContext.request.contextPath}/assets/js/regex.js"></script>
-	<script>
+	<script type="text/javascript">
 		
 	</script>
 
