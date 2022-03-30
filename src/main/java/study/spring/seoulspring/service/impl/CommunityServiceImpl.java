@@ -43,4 +43,11 @@ public class CommunityServiceImpl implements CommunityService {
 		return 0;
 	}
 
+	@Override
+	public int DeletePost(Community input) throws Exception {
+		int result =0;
+		result = sqlSession.delete("CommunityMapper.deletePost", input);
+		return 0;
+	}
+
 }

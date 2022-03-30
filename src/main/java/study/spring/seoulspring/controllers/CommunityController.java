@@ -60,13 +60,13 @@ public class CommunityController {
 	}
 
 	@RequestMapping(value = "community/Q&A_write_insert.do", method = RequestMethod.POST)
-	public ModelAndView QandA_write_insert(Locale locale, Model model,HttpServletRequest request,
+	public ModelAndView QandA_write_insert(Locale locale, Model model, HttpServletRequest request,
 			@RequestParam("postcategory") String postcategory, @RequestParam("posttype") String posttype,
 			@RequestParam("posttitle") String posttitle, @RequestParam("postcontent") String postcontent,
 			@RequestParam("postpublic") String postpublic) {
-		
+
 		HttpSession session = request.getSession();
-	    Member loginInfo = (Member)session.getAttribute("member");
+		Member loginInfo = (Member) session.getAttribute("member");
 
 		Community input = new Community();
 
@@ -88,10 +88,24 @@ public class CommunityController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		
 		String redirectUrl = this.contextPath + "/community/Q&A.do";
-		
+		return this.webHelper.redirect(redirectUrl, null);
+	}
+
+	@RequestMapping(value = "community/post_delete.do", method = RequestMethod.GET)
+	public ModelAndView post_delete(Locale locale, Model model, HttpServletRequest request,
+			@RequestParam("postno") int postno) {
+
+		Community input = new Community();
+		input.setPostno(postno);
+		int result = 0;
+		try {
+			result = communityService.DeletePost(input);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String redirectUrl = this.contextPath + "/community/Q&A.do";
 		return this.webHelper.redirect(redirectUrl, null);
 	}
 
@@ -100,33 +114,32 @@ public class CommunityController {
 
 		return "community/FAQ";
 	}
-	
+
 	@RequestMapping(value = "community/Q&A_view_page.do", method = RequestMethod.POST)
-	public String view_page(Locale locale, Model model,@RequestParam("postno") int postno) {
-		
-		
-		//Reply객체 생성
+	public String view_page(Locale locale, Model model, @RequestParam("postno") int postno) {
+
+		// Reply객체 생성
 		Reply reply = new Reply();
 		reply.setPost_num(postno);
 		Reply re_comment = null;
-		
-		//community객체 생성
+
+		// community객체 생성
 		Community input = new Community();
 		input.setPostno(postno);
 		Community output = null;
-		int update =0;
-		
+		int update = 0;
+
 		try {
 			update = communityService.updatePostView(input);
 			output = communityService.selectOne(input);
 			re_comment = replyService.selectOne(reply);
-			
+
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		model.addAttribute("output", output);
-		model.addAttribute("reply",re_comment);
+		model.addAttribute("reply", re_comment);
 
 		return "community/Q&A_view_page";
 	}

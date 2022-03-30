@@ -19,17 +19,20 @@
 
 	</resultMap>
 
-	<insert id="insertPost" parameterType="study.spring.seoulspring.model.Community">
-		INSERT INTO community (postcategory,posttype,posttitle,postcontent,postdate,name,postpublic) 
-		VALUES (#{postcategory},#{posttype},#{posttitle},#{postcontent},#{postdate},#{name},#{postpublic})
+	<insert id="insertPost"
+		parameterType="study.spring.seoulspring.model.Community">
+		INSERT INTO community
+		(postcategory,posttype,posttitle,postcontent,postdate,name,postpublic)
+		VALUES
+		(#{postcategory},#{posttype},#{posttitle},#{postcontent},#{postdate},#{name},#{postpublic})
 	</insert>
-	
+
 	<select id="selectList"
 		parameterType="study.spring.seoulspring.model.Community"
 		resultMap="CommunityMap">
 		SELECT * FROM community ORDER BY postno DESC;
 	</select>
-	
+
 	<select id="selectOne"
 		parameterType="study.spring.seoulspring.model.Community"
 		resultMap="CommunityMap">
@@ -41,7 +44,11 @@
 		WHERE
 		postno=#{postno}
 	</update>
-	
+	<delete id="deletePost"
+		parameterType="study.spring.seoulspring.model.Community">
+		DELETE FROM community WHERE postno=#{postno};
+	</delete>
+
 
 
 
