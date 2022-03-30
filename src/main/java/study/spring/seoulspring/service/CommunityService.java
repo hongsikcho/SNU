@@ -11,5 +11,6 @@ public interface CommunityService {
 	public abstract List<Community> selectList() throws Exception; 
 	public abstract Community selectOne(Community input) throws Exception;
 	public abstract int updatePostView(Community input) throws Exception;
+	public abstract int DeletePost(Community input) throws Exception;
 
 }

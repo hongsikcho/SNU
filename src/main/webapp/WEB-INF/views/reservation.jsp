@@ -155,7 +155,8 @@ input:focus {
 
 </head>
 
-<body>
+<body style="position:relative;">
+	<%@ include file="../include/MOBILE/tab.jsp"%>
 	<!-- pc부분 -->
 	<div class="main_box">
 		<div class="header">
@@ -165,17 +166,12 @@ input:focus {
 	</div>
 
 	<div class="snu_mobile_box" id="snu_mobile_header_box">
-
 		<!-- 모바일 헤더-->
 		<%@ include file="../include/MOBILE/header.jsp"%>
-
 	</div>
 
 
 	<div class="snu_main_box" id="snu_mobile_box">
-		<%@ include file="../include/MOBILE/tab.jsp"%>
-
-
 		<div class="content_wrap">
 
 
@@ -310,19 +306,25 @@ input:focus {
 				</div>
 			</div>
 
-			<form class="room_reserve_form">
+			<form class="room_reserve_form" action=" method="post"
+				action="${pageContext.request.contextPath }/reservation/reservation_insert.do"">
 				<br> <br> <br> <br> <br>
 				<div>
-					<span>선택시간</span> <span class="inserted_time"></span> <input
-						type="hidden" class="start_time" /> <input type="hidden"
-						class="start_time" /> <br> <label for="rent_objective">공실
-						대여 목적</label> <input type="text" id="rent_objective" /> <br> <label
-						for="people_num">사용 인원수</label> <input type="text" id="people_num" />
-					<br> <label for="student_name">대표 예약자 성함</label> <input
-						type="text" id="student_name" /> <br> <label
-						for="student_id">대표 예약자 학번</label> <input type="text"
-						id="student_id" /> <br> <label for="student_phNum">대표
-						예약자 연락처</label> <input type="text" id="student_phNum" />
+					<span>선택시간</span> <span class="inserted_time"></span> 
+					<input type="hidden" name="start_time" class="start_time" /> 
+					<input type="hidden" name="end_time" class="end_time" /> 
+					<br> 
+					<label for="rent_objective">공실 대여 목적</label> 
+					<input type="text" id="rent_objective" />
+					 <br> 
+					<label for="people_num">사용 인원수</label> 
+					<input type="text" id="people_num" name="" />
+					<br> 
+					<label for="student_name">대표 예약자 성함</label> 
+					<input type="text" id="student_name" /> <br> 
+					<label for="student_id">대표 예약자 학번</label> <input type="text" id="student_id" /> 
+					<br> 
+					<label for="student_phNum">대표 예약자 연락처</label> <input type="text" id="student_phNum" />
 
 				</div>
 				<div id="btn_box">
@@ -412,6 +414,8 @@ input:focus {
 					$("#time_" + (last + 1)).css("color", "green");
 				}
 				$(".inserted_time").html(start_time + " ~ " + end_time);
+				$(".start_time").val(start_time);
+				$(".end_time").val(end_time);
 				click_count++;
 				return;
 
