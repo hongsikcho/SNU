@@ -23,6 +23,11 @@
 		select * from reply WHERE post_num = #{post_num}
 	</select>
 	
+	<insert id="insertPost" parameterType="study.spring.seoulspring.model.Reply">
+		INSERT INTO reply () 
+		VALUES (#{postcategory},#{posttype},#{posttitle},#{postcontent},#{postdate},#{memberno},#{postpublic})
+	</insert>
+	
 	
 
 	
