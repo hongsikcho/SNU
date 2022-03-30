@@ -122,11 +122,16 @@
 
 				<div class="post_main_text">${output.postcontent}</div>
 			</div>
+			${reply.post_num}
+			${reply.reply_num}
+			${reply.reply_txt}
+			${reply.reply_name}
 
 
 			<div class="post_btn_box">
- 			<form action="${pageContext.request.contextPath}/community/reply_write_insert.do">
-				<textarea style="width: 100%; height: 400px; padding: 10px 5px; font-size: 20px;" placeholder="내용을 입력해 주세요...."></textarea>
+ 			<form action="${pageContext.request.contextPath}/community/reply_write_insert.do" method="POST">
+ 			<input type="hidden" name='postno' value="${output.postno}"/>
+				<textarea name = "posttext" style="width: 100%; height: 400px; padding: 10px 5px; font-size: 20px;" placeholder="내용을 입력해 주세요...."></textarea>
 				<button>글쓰기</button>
 			</form>
 				<a href="${pageContext.request.contextPath}/community/Q&A.do">목록</a>

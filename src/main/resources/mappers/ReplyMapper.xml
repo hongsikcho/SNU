@@ -10,6 +10,7 @@
 		<result property="post_num" column="post_num" />
 		<result property="reply_num" column="reply_num" />
 		<result property="reply_txt" column="reply_txt" />
+		<result property="reply_name" column="reply_name" />
 		
 	</resultMap>
 
@@ -24,8 +25,8 @@
 	</select>
 	
 	<insert id="insertPost" parameterType="study.spring.seoulspring.model.Reply">
-		INSERT INTO reply () 
-		VALUES (#{postcategory},#{posttype},#{posttitle},#{postcontent},#{postdate},#{memberno},#{postpublic})
+		INSERT INTO reply (reply_name,reply_txt,post_num) 
+		VALUES (#{reply_name},#{reply_txt},#{post_num})
 	</insert>
 	
 	
