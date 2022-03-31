@@ -57,32 +57,15 @@
 			<%@ include file="../../include/WEB/side_bar.jsp"%>
 		</div>
 
-<<<<<<< HEAD
 		
-=======
         <!--pc 메인 박스 시작-->
-        <div class="snu_main_box">
->>>>>>> branch 'hosu' of https://github.com/HoSuRyu/SNU.git
 
-<<<<<<< HEAD
 		<!--pc 메인 박스 시작-->
 		<div class="snu_main_box">
-			<div class="snu_main_header">
-				<span>집행위원회 소개</span> <img
-					src="${pageContext.request.contextPath}/assets/img/snu_logo.png" />
-			</div>
-=======
-            
->>>>>>> branch 'hosu' of https://github.com/HoSuRyu/SNU.git
+			
 
-<<<<<<< HEAD
-			<div class="cons_intro_text">제41대 사범대 학생회 집행위원회는 교육국, 문화국, 사무국,
-				소통기획국, 인권사회국으로 구성되어 있습니다.</div>
-			<div class="cons_intro_pt">
-				<img
-					src="${pageContext.request.contextPath}/assets/img/introduce_img.png">
-			</div>
-=======
+
+
             <div class="cons_intro_title">
                 <div class="cons_intro_name">국별 배너</div>
             </div>
@@ -93,46 +76,21 @@
                 <a href="${pageContext.request.contextPath}/introduce/business_introduce.do?cnum=4">소통기획국</a>
                 <a href="${pageContext.request.contextPath}/introduce/business_introduce.do?cnum=5">인권사회국</a>
             </div>
-            <div class="snu_main_header">
-                <span>집행위원회 소개</span>
-                <img src="${pageContext.request.contextPath}/assets/img/snu_logo.png"/>
-            </div>
->>>>>>> branch 'hosu' of https://github.com/HoSuRyu/SNU.git
+			<div class="cons_intro_text"></div>
+			
+			<div class="snu_main_header">
+				<span>집행위원회 소개</span>
+			</div>
+			<div class="cons_intro_pt">
+				<img
+					src="${pageContext.request.contextPath}/assets/img/introduce_img.png">
+			</div>
+            
 
-<<<<<<< HEAD
-			<div class="cons_intro_title">
-				<div class="cons_intro_name">국별 배너</div>
-			</div>
-			<div class="small_box">
-				<div>
-					<a
-						href="${pageContext.request.contextPath}/introduce/business_introduce.do?cnum=1">교육국</a>
-				</div>
-				<div>
-					<a
-						href="${pageContext.request.contextPath}/introduce/business_introduce.do?cnum=2">문화국</a>
-				</div>
-				<div>
-					<a
-						href="${pageContext.request.contextPath}/introduce/business_introduce.do?cnum=3">사무국</a>
-				</div>
-				<div>
-					<a
-						href="${pageContext.request.contextPath}/introduce/business_introduce.do?cnum=4">소통기획국</a>
-				</div>
-				<div>
-					<a
-						href="${pageContext.request.contextPath}/introduce/business_introduce.do?cnum=5">인권사회국</a>
-				</div>
-			</div>
+
+		
 
 		</div>
-=======
-<div class="cons_intro_pt">
-                <img src="${pageContext.request.contextPath}/assets/img/introduce_img.png">
-            </div>
-        </div>
->>>>>>> branch 'hosu' of https://github.com/HoSuRyu/SNU.git
 
 
 
@@ -154,23 +112,16 @@
 	<!--모바일 -->
 	<div class="snu_mobile_box">
 
-<<<<<<< HEAD
 		<!-- 모바일 헤더-->
-		<%@ include file="../../include/WEB/header.jsp"%>
-		<%@ include file="../../include/WEB/side_bar.jsp"%>
+		<%@ include file="../../include/MOBILE/header.jsp"%>
+		
 		<!--모바일 메인 박스 시작-->
-=======
-        <!-- 모바일 헤더-->
-        <%@ include file="../../include/WEB/header.jsp"%>
-			<%@ include file="../../include/WEB/side_bar.jsp"%>
-        <!--모바일 메인 박스 시작-->
 
         
         <div class="snu_mobile_main_box">
 
             <div class="snu_main_header">
                <div>집행위원회 소개</div>
-               <div class="small_title">제41대 사범대 학생회 집행위원회는<br> 교육국, 문화국, 사무국, 소통기획국, 인권사회국으로 구성되어 있습니다.</div>
             </div>
             <div class="cons_intro_pt">
                 <img src="${pageContext.request.contextPath}/assets/img/introduce_img.png">
@@ -196,62 +147,14 @@
 
         <!--모바일 메인 박스 끝-->
        
->>>>>>> branch 'hosu' of https://github.com/HoSuRyu/SNU.git
 
 
-		<div class="snu_mobile_main_box">
 
-			<div class="snu_main_header">
-				<div>집행위원회 소개</div>
-				<div class="small_title">
-					제41대 사범대 학생회 집행위원회는<br> 교육국, 문화국, 사무국, 소통기획국, 인권사회국으로 구성되어
-					있습니다.
-				</div>
-			</div>
-			<div class="cons_intro_pt">
-				<img
-					src="${pageContext.request.contextPath}/assets/img/introduce_img.png">
-			</div>
-
-			<div class="snu_main_header">
-				<div>국별배너</div>
-			</div>
-			<div class="small_box_m">
-				<div>
-					<a class="a"
-						href="${pageContext.request.contextPath}/introduce/business_introduce.do?cnum=1">교육국</a>
-				</div>
-				<div>
-					<a class="a"
-						href="${pageContext.request.contextPath}/introduce/business_introduce.do?cnum=2">문화국</a>
-				</div>
-				<div>
-					<a class="a"
-						href="${pageContext.request.contextPath}/introduce/business_introduce.do?cnum=3">사무국</a>
-				</div>
-				<div>
-					<a class="a"
-						href="${pageContext.request.contextPath}/introduce/business_introduce.do?cnum=4">소통기획국</a>
-				</div>
-				<div>
-					<a class="a"
-						href="${pageContext.request.contextPath}/introduce/business_introduce.do?cnum=5">인권사회국</a>
-				</div>
-			</div>
-
-
-			<!--모바일 메인 이너-->
-
-			<!--모바일 메인 이너 끝-->
-
-		</div>
-
-		<!--모바일 메인 박스 끝-->
-
+					
 
 
 		<!--모바일 footer-->
-		<%@ include file="../../include/WEB/footer.jsp"%>
+		<%@ include file="../../include/MOBILE/footer.jsp"%>
 
 
 	</div>
