@@ -28,11 +28,12 @@
   width: 250px;
   height: 100px;
   border-radius: 5px;
-  background-color: rgb(74, 117, 197);
+  background-color: #0f0f70;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
+  font-weight: bold;
 }
 .third_box {
   width: 1190px;
@@ -42,14 +43,14 @@
 .third_left {
   width: 40%;
   margin-right: 10px;
-  background-color: cornflowerblue;
+  background-color: #0f0f70;
   display: flex;
   justify-content: center;
   align-items: center;
   border-right: 2px solid #0f0f70;
 }
 .third_left > div {
-  background-color: rgb(63, 65, 197);
+  background-color: #0f0f70;
   height: 300px;
   width: 300px;
   margin: 10px 0 10px 0;
@@ -66,7 +67,7 @@
   align-items: center;
 }
 .third_right_bot > div {
-  background-color: crimson;
+  background-color: #0f0f70;
   width: 300px;
   height: 300px;
   margin: 10px 0 10px 0;

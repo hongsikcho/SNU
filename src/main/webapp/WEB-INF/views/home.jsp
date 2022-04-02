@@ -61,13 +61,10 @@
 
 				</div>
 				<div class="menu">
-					<div class="menus 1">
-						<a href="${pageContext.request.contextPath}/calendar.do">공실
-							예약하기</a>
-					</div>
-					<div class="menus 2">졸업 로드맵</div>
-					<div class="menus 3">Hi 사범</div>
-					<div class="menus 4">회의록/안건지</div>
+					<a class="menus 1" href="${pageContext.request.contextPath}/calendar.do">공실예약하기</a>
+					<a class="menus 2" href="${pageContext.request.contextPath}/loadmap/snu_class_loadmap.do">졸업 로드맵</a>
+					<a class="menus 3" href="${pageContext.request.contextPath}/community/Hi.do">Hi 사범</a>
+					<a class="menus 4" href="${pageContext.request.contextPath}/calendar.do">회의록/안건지</a>
 				</div>
 			</div>
 			<div class="third_box">
@@ -75,7 +72,7 @@
 					<div>이미지이미지이미지</div>
 				</div>
 				<div class="third_right">
-					<div class="third_right_top">홍보게시판</div>
+					<a href="${pageContext.request.contextPath}/festive/festive.do" class="third_right_top">홍보게시판</a>
 					<div class="third_right_bot">
 						<div></div>
 						<div></div>

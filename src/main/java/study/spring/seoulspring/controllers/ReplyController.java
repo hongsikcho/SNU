@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import study.spring.seoulspring.helper.WebHelper;
+import study.spring.seoulspring.model.Community;
 import study.spring.seoulspring.model.Member;
 import study.spring.seoulspring.model.Reply;
 import study.spring.seoulspring.service.ReplyService;
@@ -61,4 +62,22 @@ public class ReplyController {
 		return this.webHelper.redirect(redirectUrl, null);
 		
 	}
+	
+	@RequestMapping(value = "community/reply_delete.do", method = RequestMethod.GET)
+	public ModelAndView post_delete(Locale locale, Model model, HttpServletRequest request,
+			@RequestParam("postno") int postno) {
+
+		Reply input = new Reply();
+		input.setPost_num(postno);
+		int result = 0;
+		try {
+			result = replyService.DeletePost(input);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String redirectUrl = this.contextPath + "/community/Q&A.do";
+		return this.webHelper.redirect(redirectUrl, null);
+	}
+
 }

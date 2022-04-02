@@ -125,7 +125,7 @@
             </div>
             <div class="cons_intro_pt">
                 <img src="${pageContext.request.contextPath}/assets/img/introduce_img.png">
-            </div>
+            </div>	
 
             <div class="snu_main_header">
                 <div>국별배너</div>
