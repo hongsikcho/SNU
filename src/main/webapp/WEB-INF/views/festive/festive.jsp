@@ -88,7 +88,7 @@
 
 
 		<div class="snu_main_box">
-			<div class="snu_main_header">제목2</div>
+			<div class="snu_main_header">홍보 게시판</div>
 
 			<div class="festive_list">
 				<div class="festive_list_inner_box">
