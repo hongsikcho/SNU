@@ -9,5 +9,6 @@ public interface ReplyService {
 
 	public abstract Reply selectOne(Reply input) throws Exception;
 	public abstract int insertPost(Reply input) throws Exception;
+	public abstract int DeletePost(Reply input) throws Exception ;
 	
 }

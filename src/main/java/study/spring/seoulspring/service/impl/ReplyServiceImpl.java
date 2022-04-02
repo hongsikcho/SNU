@@ -27,4 +27,11 @@ public class ReplyServiceImpl implements ReplyService {
 		result = sqlSession.insert("ReplyMapper.insertPost", input);
 		return result;
 	}
+	
+	@Override
+	public int DeletePost(Reply input) throws Exception {
+		int result =0;
+		result = sqlSession.delete("ReplyMapper.deletePost", input);
+		return result;
+	}
 }
