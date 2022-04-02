@@ -29,13 +29,10 @@
 		VALUES (#{reply_name},#{reply_txt},#{post_num})
 	</insert>
 	
+	<delete id="deletePost"
+		parameterType="study.spring.seoulspring.model.Reply">
+		DELETE FROM reply WHERE post_num=#{post_num} and reply_num = #{reply_num}
+	</delete>
 	
-
-	
-
-
-
-
-
 
 </mapper>
