@@ -65,10 +65,11 @@ public class ReplyController {
 	
 	@RequestMapping(value = "community/reply_delete.do", method = RequestMethod.GET)
 	public ModelAndView post_delete(Locale locale, Model model, HttpServletRequest request,
-			@RequestParam("postno") int postno) {
+			@RequestParam("postno") int postno, @RequestParam("reply_num") int reply_num) {
 
 		Reply input = new Reply();
 		input.setPost_num(postno);
+		input.setReply_num(reply_num);
 		int result = 0;
 		try {
 			result = replyService.DeletePost(input);

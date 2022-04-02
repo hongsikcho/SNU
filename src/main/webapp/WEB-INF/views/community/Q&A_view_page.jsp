@@ -126,6 +126,11 @@
 			${reply.reply_num}
 			${reply.reply_txt}
 			${reply.reply_name}
+			<form action="${pageContext.request.contextPath}/community/reply_write_insert.do" method="POST">
+			<input type="hidden" name='postno' value="${output.postno}"/>
+			<input type="hidden" name='reply_num' value="${reply.reply_num}"/>
+			<button>댓글삭제</button>
+			</form>
 
 
 			<div class="post_btn_box">
