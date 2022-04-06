@@ -31,7 +31,7 @@
 	
 	<delete id="deletePost"
 		parameterType="study.spring.seoulspring.model.Reply">
-		DELETE FROM reply WHERE post_num=#{post_num} and reply_num = #{reply_num}
+		DELETE FROM reply WHERE reply_num = #{reply_num}
 	</delete>
 	
 

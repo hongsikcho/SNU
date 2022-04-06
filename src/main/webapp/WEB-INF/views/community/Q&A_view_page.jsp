@@ -126,15 +126,15 @@
 			${reply.reply_num}
 			${reply.reply_txt}
 			${reply.reply_name}
-			<form action="${pageContext.request.contextPath}/community/reply_write_insert.do" method="POST">
-			<input type="hidden" name='postno' value="${output.postno}"/>
+			<form action="${pageContext.request.contextPath}/community/reply_delete.do" method="GET">
+		
 			<input type="hidden" name='reply_num' value="${reply.reply_num}"/>
 			<button>댓글삭제</button>
 			</form>
 
 
 			<div class="post_btn_box">
- 			<form action="${pageContext.request.contextPath}/community/reply_write_insert.do" method="POST">
+ 			<form action="${pageContext.request.contextPath}/community/reply_write_insert.do" method="GET">
  			<input type="hidden" name='postno' value="${output.postno}"/>
 				<textarea name = "posttext" style="width: 100%; height: 400px; padding: 10px 5px; font-size: 20px;" placeholder="내용을 입력해 주세요...."></textarea>
 				<button>글쓰기</button>

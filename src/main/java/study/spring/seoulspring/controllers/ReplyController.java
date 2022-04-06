@@ -32,7 +32,7 @@ public class ReplyController {
 	@Autowired
 	WebHelper webHelper;
 	
-	@RequestMapping(value = "community/reply_write_insert.do", method = RequestMethod.POST)
+	@RequestMapping(value = "community/reply_write_insert.do", method = RequestMethod.GET)
 	public ModelAndView reply_write_insert(Locale locale, Model model,HttpServletRequest request,
 			@RequestParam("posttext") String posttext,@RequestParam("postno") int postno) {
 		
@@ -57,7 +57,7 @@ public class ReplyController {
 			e.printStackTrace();
 		}
 		
-		String redirectUrl = this.contextPath + "/community/Q&A_view_page.do";
+		String redirectUrl = this.contextPath + "/community/Q&A.do";
 		
 		return this.webHelper.redirect(redirectUrl, null);
 		
@@ -65,10 +65,10 @@ public class ReplyController {
 	
 	@RequestMapping(value = "community/reply_delete.do", method = RequestMethod.GET)
 	public ModelAndView post_delete(Locale locale, Model model, HttpServletRequest request,
-			@RequestParam("postno") int postno, @RequestParam("reply_num") int reply_num) {
+			 @RequestParam("reply_num") int reply_num) {
 
 		Reply input = new Reply();
-		input.setPost_num(postno);
+		System.out.println(reply_num);
 		input.setReply_num(reply_num);
 		int result = 0;
 		try {
