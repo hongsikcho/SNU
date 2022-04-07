@@ -128,7 +128,6 @@
 			${comment.reply_txt}
 			${comment.reply_name}
 			
-			-----
 			</c:forEach>
 			<form action="${pageContext.request.contextPath}/community/reply_delete.do" method="GET">
 		

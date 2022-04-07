@@ -11,6 +11,7 @@
 		<result property="reply_num" column="reply_num" />
 		<result property="reply_txt" column="reply_txt" />
 		<result property="reply_name" column="reply_name" />
+		<result property="reply_who" column="reply_who"/>
 		
 	</resultMap>
 
