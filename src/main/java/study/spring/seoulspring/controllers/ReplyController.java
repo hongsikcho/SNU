@@ -32,7 +32,7 @@ public class ReplyController {
 	@Autowired
 	WebHelper webHelper;
 	
-	@RequestMapping(value = "community/reply_write_insert.do", method = RequestMethod.GET)
+	@RequestMapping(value = "community/reply_write_insert.do", method = RequestMethod.POST)
 	public ModelAndView reply_write_insert(Locale locale, Model model,HttpServletRequest request,
 			@RequestParam("posttext") String posttext,@RequestParam("postno") int postno) {
 		
