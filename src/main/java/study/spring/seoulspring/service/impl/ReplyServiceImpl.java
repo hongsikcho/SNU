@@ -1,9 +1,11 @@
 package study.spring.seoulspring.service.impl;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import study.spring.seoulspring.model.Community;
 import study.spring.seoulspring.model.Reply;
 import study.spring.seoulspring.service.ReplyService;
 
@@ -14,9 +16,9 @@ public class ReplyServiceImpl implements ReplyService {
 	SqlSession sqlSession;
 	
 	@Override
-	public Reply selectOne(Reply input) throws Exception{
-		Reply result = null;
-		result = sqlSession.selectOne("ReplyMapper.selectOne", input);
+	public List<Reply> selectList(Reply input) throws Exception{
+		List<Reply> result = new ArrayList<>();
+		result = sqlSession.selectList("ReplyMapper.selectList",input);
 		return result;
 		
 	}

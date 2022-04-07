@@ -100,7 +100,7 @@
 		<div class="snu_main_box">
 			<div class="snu_main_header">
 				공지사항 <img src="${pageContext.request.contextPath }/assets/img/snu_logo.png" />
-				${reply.reply_txt}
+				${reply[0].reply_txt}
 			</div>
 
 			<c:set var="postdate" value="${output.postdate}" />
@@ -122,13 +122,17 @@
 
 				<div class="post_main_text">${output.postcontent}</div>
 			</div>
-			${reply.post_num}
-			${reply.reply_num}
-			${reply.reply_txt}
-			${reply.reply_name}
+			<c:forEach var="comment" items="${reply}">
+			${comment.post_num}
+			${comment.reply_num}
+			${comment.reply_txt}
+			${comment.reply_name}
+			
+			-----
+			</c:forEach>
 			<form action="${pageContext.request.contextPath}/community/reply_delete.do" method="GET">
 		
-			<input type="hidden" name='reply_num' value="${reply.reply_num}"/>
+			<input type="hidden" name='reply_num' value="${reply[0].reply_num}"/>
 			<button>댓글삭제</button>
 			</form>
 
