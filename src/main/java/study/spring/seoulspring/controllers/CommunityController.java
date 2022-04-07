@@ -1,6 +1,7 @@
 package study.spring.seoulspring.controllers;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -121,7 +122,7 @@ public class CommunityController {
 		// Reply객체 생성
 		Reply reply = new Reply();
 		reply.setPost_num(postno);
-		Reply re_comment = null;
+		List<Reply> re_comment = new ArrayList<>();
 
 		// community객체 생성
 		Community input = new Community();
@@ -132,7 +133,7 @@ public class CommunityController {
 		try {
 			update = communityService.updatePostView(input);
 			output = communityService.selectOne(input);
-			re_comment = replyService.selectOne(reply);
+			re_comment = replyService.selectList(reply);
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

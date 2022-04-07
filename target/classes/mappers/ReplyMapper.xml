@@ -18,10 +18,10 @@
 
 
 	
-	<select id="selectOne"
+	<select id="selectList"
 		parameterType="study.spring.seoulspring.model.Reply"
 		resultMap="ReplyMap">
-		select * from reply WHERE post_num = #{post_num}
+		select * from reply WHERE post_num =#{post_num}
 	</select>
 	
 	<insert id="insertPost" parameterType="study.spring.seoulspring.model.Reply">
