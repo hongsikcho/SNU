@@ -157,4 +157,9 @@ public class CommunityController {
 		return "community/Hi";
 	}
 
+	@RequestMapping(value = "community/Hi_detail.do", method = RequestMethod.GET)
+	public String HiDetail(Locale locale, Model model) {
+
+		return "community/Hi_detail";
+	}
 }

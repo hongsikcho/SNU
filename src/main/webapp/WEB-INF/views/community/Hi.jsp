@@ -76,7 +76,7 @@
                 </div>
     
                 <div class="hi_foot">
-                    <div class="hi_foot_box">
+                    <a class="hi_foot_box">
                         <div class="hi_foot_box_top">
                             <img src="${pageContext.request.contextPath}/assets/img/hi_january.png" alt="">
                         </div>
@@ -85,8 +85,8 @@
                             <span style="font-weight: 600;">[2022-3월]</span>
                             <br>...
                         </div>
-                    </div>
-                    <div class="hi_foot_box">
+                    </a>
+                    <a href="Hi_detail.do" class="hi_foot_box">
                         <div class="hi_foot_box_top">
                             <img src="https://i.ytimg.com/vi/CTG74d8-FrY/maxresdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBycdmmTv81p7Ff1-ud3i8ie1ru0g" alt="" style="width: 100%;">
                         </div>
@@ -94,15 +94,15 @@
                             <br>'임기 3개월만에 미친듯이 갈린 그들 ,<br> 늘품 집행위원장단 인터뷰'
                         </div>
                         
-                    </div>
-                    <div class="hi_foot_box">
+                    </a>
+                    <a class="hi_foot_box">
                         <div class="hi_foot_box_top"><img src="${pageContext.request.contextPath}/assets/img/hi_january.png" alt=""></div>
                         <div class="hi_foot_bpx_bot">
                             <span style="font-weight: 600;">[2022-1월]</span>
                             <br>3년 만에 열리는사범대 대면 새터!
                             <br> 새터 준비 새기위원 특집
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
 		
@@ -151,26 +151,26 @@
                     </div>
         
                     <div class="hi_foot">
-                        <div class="hi_foot_box">
+                        <a class="hi_foot_box">
                             <div class="hi_foot_box_top"><img src="${pageContext.request.contextPath}/assets/img/hi_january.png" alt=""></div>
                             <div class="hi_foot_bpx_bot"><span style="font-weight: 600;">[2022-3월]</span>
                                 <br>...
                             </div>
-                        </div>
+                        </a>
                     </a>
-                        <div class="hi_foot_box">
+                        <a href="Hi_detail.do" class="hi_foot_box">
                             <div class="hi_foot_box_top"><img src="https://i.ytimg.com/vi/CTG74d8-FrY/maxresdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBycdmmTv81p7Ff1-ud3i8ie1ru0g" alt=""></div>
                             <div class="hi_foot_bpx_bot"><span style="font-weight: 600;">[2022-2월]</span>
                                 <br>'임기 3개월만에 미친듯이 갈린 그들 ,<br> 늘품 집행위원장단 인터뷰'
                             </div>
-                        </div>
-                        <div class="hi_foot_box">
+                        </a>
+                        <a class="hi_foot_box">
                             <div class="hi_foot_box_top"><img src="${pageContext.request.contextPath}/assets/img/hi_january.png" alt=""></div>
                             <div class="hi_foot_bpx_bot">
                             <span style="font-weight: 600;">[2022-3월]</span>
                             <br>3년 만에 열리는사범대 대면 새터!
                             <br> 새터 준비 새기위원 특집
-                        </div>
+                        </a>
                         </div>
                     </div>
                 
