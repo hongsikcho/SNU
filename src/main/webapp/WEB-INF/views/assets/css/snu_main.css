@@ -1,4 +1,8 @@
 @media (min-width: 900px) {
+	
+	.main_box{
+	font-family: 'NanumGothic';
+	}
   .notice {
     width: 1190px;
     margin: auto;
@@ -80,7 +84,7 @@
   padding: 50px 0px;
 }
 
-/* ¸ð¹ÙÀÏ ¸ÞÀÎ È«½Ä*/
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È«ï¿½ï¿½*/
 
 .notice_header {
   display: flex;
