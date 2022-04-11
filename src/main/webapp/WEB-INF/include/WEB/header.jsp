@@ -4,6 +4,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
+<link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-gothic.css" rel="stylesheet">
+
+<style type="text/css">
+.header_box{
+font-family: 'NanumGothic';
+}
+</style>
 <div class="header_box">
 	<div class="main_box_header">
 		<div class="header_left_box">
@@ -98,7 +106,7 @@
 				<a href="#">MBTI 게임</a>
 			</div>
 			<div class="snu_tab_menu_inner_box">
-				<a href="${pageContext.request.contextPath}/community/FAQ.do">FAQ</a>
+				<a href="${pageContext.request.contextPath}/community/FAQ.do">2차오픈</a>
 			</div>
 			<div class="snu_tab_menu_inner_box">
 				<a href="${pageContext.request.contextPath}/community/Hi.do">Hi

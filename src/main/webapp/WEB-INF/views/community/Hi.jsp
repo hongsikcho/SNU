@@ -110,7 +110,6 @@
 		
 
 
-		<%@ include file="../../include/WEB/footer.jsp"%>
 
 
 	</div>
@@ -164,16 +163,15 @@
                                 <br>'임기 3개월만에 미친듯이 갈린 그들 ,<br> 늘품 집행위원장단 인터뷰'
                             </div>
                         </a>
-                        <a class="hi_foot_box">
-                            <div class="hi_foot_box_top"><img src="${pageContext.request.contextPath}/assets/img/hi_january.png" alt=""></div>
-                            <div class="hi_foot_bpx_bot">
-                            <span style="font-weight: 600;">[2022-3월]</span>
-                            <br>3년 만에 열리는사범대 대면 새터!
-                            <br> 새터 준비 새기위원 특집
+                         <a href="Hi_detail.do" class="hi_foot_box">
+                            <div class="hi_foot_box_top"><img src="${pageContext.request.contextPath}/assets/img/hi_january.png"></div>
+                            <div class="hi_foot_bpx_bot"><span style="font-weight: 600;">[2022-2월]</span>
+                                <br>3년 만에 열리는사범대 대면 새터!
+                                <br> 새터 준비 새기위원 특집
+                            </div>
                         </a>
                         </div>
                     </div>
-                
             </div>
             <!--모바일 메인 이너 끝-->
 
@@ -182,10 +180,10 @@
 	 
 
 		<!--모바일 footer-->
-		<%@ include file="../../include/MOBILE/footer.jsp"%>
+		
 
 
-	</div>
+	<%@ include file="../../include/MOBILE/footer.jsp"%>
 
 
 

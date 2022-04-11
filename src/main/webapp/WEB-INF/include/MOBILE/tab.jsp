@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-gothic.css" rel="stylesheet">
+    <style>
+    .snu_m_tab_box{
+    font-family: 'NanumGothic';}
+    </style>
 <div class="snu_m_tab_box">
             <div class="tab_logo_box"></div>
             <div class="tab_inner">
@@ -25,7 +30,7 @@
                     <div class="tab_btn_inner">
                         <div><a href="${pageContext.request.contextPath}/community/Q&A.do">건의 및 Q&A</a></div>
                         <div><a href="#">MBTI 게임</a></div>
-                        <div><a href="${pageContext.request.contextPath}/community/Q&A.do">FAQ</a></div>
+                        <div><a href="${pageContext.request.contextPath}/community/Q&A.do">2차오픈</a></div>
                         <div><a href="${pageContext.request.contextPath}/community/Hi.do">Hi 사범</a></div>
                     </div>
                 </div>

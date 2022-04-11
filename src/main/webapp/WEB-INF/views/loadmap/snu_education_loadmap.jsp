@@ -33,9 +33,11 @@
 
 
 <style type="text/css">
+
 .snu_loadmap_main {
 	width: 1190px;
 	margin: auto;
+	margin-bottom:70px;
 }
 
 .snu_loadmap_main_header {
