@@ -38,6 +38,34 @@
 
 
 <style type="text/css">
+.btn_delete{
+background-color:#0f0f70;
+color: white;
+border-radius:5px;
+border:none;
+}
+.btn{
+display:flex;
+justify-content: flex-end;
+}
+.comment_who{
+margin-bottom:5px;}
+.comment_rely_num{
+font-size:17px;
+color: #0f0f70;
+font-weight:bold;
+}
+.comment_rely_name{
+font-weight:bold;
+border-left: 1px solid black;
+padding-left:5px;
+}
+.comment_box{
+border:2px solid #0f0f70;
+border-radius: 10px;
+padding:7px;
+margin-top:10px;
+}
 .post_main_box {
 	padding: 50px 0px;
 	border-bottom: 3px solid #0f0f70;
@@ -63,18 +91,22 @@
 	margin-top: 10px;
 	margin-bottom: 100px;
 }
-
+.write{
+border: none;
+	color: white;
+	background-color: #0f0f70;
+	padding: 7px 15px;
+	border-radius: 10px;
+	font-size: 15px;
+	}
 .post_btn_box a {
 	border: none;
 	color: white;
 	background-color: #0f0f70;
 	
-	padding: 7px 20px;
+	padding: 7px 15px;
 	border-radius: 10px;
-	font-size: 20px;
-}
-.comment_box{
-	display: flex;
+	font-size: 15px;
 }
 
 @media ( max-width : 900px) {
@@ -103,7 +135,6 @@
 		<div class="snu_main_box">
 			<div class="snu_main_header">
 				공지사항 <img src="${pageContext.request.contextPath }/assets/img/snu_logo.png" />
-				${reply[0].reply_txt}
 			</div>
 
 			<c:set var="postdate" value="${output.postdate}" />
@@ -125,15 +156,18 @@
 
 				<div class="post_main_text">${output.postcontent}</div>
 			</div>
-			<c:forEach var="comment" items="${reply}">
+			<c:forEach var="comment" items="${reply}" varStatus="status">
 			<div class="comment_box">
 				<div class="comment_who">
-				<div class="comment_rely_num">1번댓글</div>
-				<div class="comment_rely_name">조홍식</div>
+				<div class="comment_rely_num">${status.count}번째 댓글  <span class="comment_rely_name">${comment.reply_name}</span></div> 
 				</div>
-				<div class="comment_main">
-					<h3>가나다라</h3>				
-				</div>
+				<div class="comment_main">${comment.reply_txt}</div>
+				<c:if test='${comment.reply_name eq member.name}'>
+				<form class="btn" action="${pageContext.request.contextPath}/community/reply_delete.do" method="GET">
+					<input type="hidden" name='reply_num' value="${reply[0].reply_num}"/>
+					<button class="btn_delete">삭제</button>
+			</form>
+			</c:if>
 			</div>
 			
 			
@@ -141,20 +175,17 @@
 			
 			
 			</c:forEach>
-			<form action="${pageContext.request.contextPath}/community/reply_delete.do" method="GET">
-		
-			<input type="hidden" name='reply_num' value="${reply[0].reply_num}"/>
-			<button>댓글삭제</button>
-			</form>
+			
 
 
 			<div class="post_btn_box">
  			<form action="${pageContext.request.contextPath}/community/reply_write_insert.do" method="GET">
  			<input type="hidden" name='postno' value="${output.postno}"/>
-				<textarea name = "posttext" style="width: 100%; height: 100px; padding: 10px 5px; font-size: 20px;" placeholder="내용을 입력해 주세요...."></textarea>
-				<button>글쓰기</button>
-			</form>
+				<textarea name = "posttext" style="width: 99%; height: 100px; padding: 10px 5px; font-size: 20px;" placeholder="댓글을 입력해 주세요...."></textarea>
+				<button class="write">글쓰기</button>
 				<a href="${pageContext.request.contextPath}/community/Q&A.do">목록</a>
+			</form>
+				
 			</div>
 
 		</div>
