@@ -15,7 +15,9 @@
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <title>제41대 사범대학 학생회 늘품</title>
-<link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-gothic.css" rel="stylesheet">
+<link
+	href="https://hangeul.pstatic.net/hangeul_static/css/nanum-gothic.css"
+	rel="stylesheet">
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/assets/css/side_btn.css" />
 
@@ -38,37 +40,45 @@
 
 
 <style type="text/css">
-.main_box{
+.main_box {
 	font-family: 'NanumGothic';
 }
-.btn_delete{
-background-color:#0f0f70;
-color: white;
-border-radius:5px;
-border:none;
+
+.btn_delete {
+	background-color: #0f0f70;
+	color: white;
+	border-radius: 5px;
+	border: none;
 }
-.btn{
-display:flex;
-justify-content: flex-end;
+
+.btn {
+	display: flex;
+	justify-content: flex-end;
 }
-.comment_who{
-margin-bottom:5px;}
-.comment_rely_num{
-font-size:17px;
-color: #0f0f70;
-font-weight:bold;
+
+.comment_who {
+	margin-bottom: 5px;
 }
-.comment_rely_name{
-font-weight:bold;
-border-left: 1px solid black;
-padding-left:5px;
+
+.comment_rely_num {
+	font-size: 17px;
+	color: #0f0f70;
+	font-weight: bold;
 }
-.comment_box{
-border:2px solid #0f0f70;
-border-radius: 10px;
-padding:7px;
-margin-top:10px;
+
+.comment_rely_name {
+	font-weight: bold;
+	border-left: 1px solid black;
+	padding-left: 5px;
 }
+
+.comment_box {
+	border: 2px solid #0f0f70;
+	border-radius: 10px;
+	padding: 7px;
+	margin-top: 10px;
+}
+
 .post_main_box {
 	padding: 50px 0px;
 	border-bottom: 3px solid #0f0f70;
@@ -94,19 +104,20 @@ margin-top:10px;
 	margin-top: 10px;
 	margin-bottom: 100px;
 }
-.write{
-border: none;
+
+.write {
+	border: none;
 	color: white;
 	background-color: #0f0f70;
 	padding: 7px 15px;
 	border-radius: 10px;
 	font-size: 15px;
-	}
+}
+
 .post_btn_box a {
 	border: none;
 	color: white;
 	background-color: #0f0f70;
-	
 	padding: 7px 15px;
 	border-radius: 10px;
 	font-size: 15px;
@@ -137,7 +148,8 @@ border: none;
 
 		<div class="snu_main_box">
 			<div class="snu_main_header">
-				공지사항 <img src="${pageContext.request.contextPath }/assets/img/snu_logo.png" />
+				공지사항 <img
+					src="${pageContext.request.contextPath }/assets/img/snu_logo.png" />
 			</div>
 
 			<c:set var="postdate" value="${output.postdate}" />
@@ -146,8 +158,8 @@ border: none;
 					<c:set var="name" value="익명" />
 				</c:when>
 				<c:otherwise>
-					<c:set var="name" value="${output.memberno}번회원" />
-					
+					<c:set var="name" value="${output.name}" />
+
 				</c:otherwise>
 			</c:choose>
 
@@ -160,35 +172,47 @@ border: none;
 				<div class="post_main_text">${output.postcontent}</div>
 			</div>
 			<c:forEach var="comment" items="${reply}" varStatus="status">
-			<div class="comment_box">
-				<div class="comment_who">
-				<div class="comment_rely_num">${status.count}번째 댓글  <span class="comment_rely_name">${comment.reply_name}</span></div> 
+				<div class="comment_box">
+					<div class="comment_who">
+						<div class="comment_rely_num">${status.count}번째
+							댓글 <span class="comment_rely_name">${comment.reply_name}</span>
+						</div>
+					</div>
+					<div class="comment_main">${comment.reply_txt}</div>
+					<c:if test='${comment.reply_name eq member.name}'>
+						<form class="btn"
+							action="${pageContext.request.contextPath}/community/reply_delete.do"
+							method="GET">
+							<input type="hidden" name='reply_num'
+								value="${reply[0].reply_num}" />
+							<button class="btn_delete">삭제</button>
+						</form>
+					</c:if>
 				</div>
-				<div class="comment_main">${comment.reply_txt}</div>
-				<c:if test='${comment.reply_name eq member.name}'>
-				<form class="btn" action="${pageContext.request.contextPath}/community/reply_delete.do" method="GET">
-					<input type="hidden" name='reply_num' value="${reply[0].reply_num}"/>
-					<button class="btn_delete">삭제</button>
-			</form>
-			</c:if>
-			</div>
-			
-			
-			
-			
-			
+
+
+
+
+
 			</c:forEach>
-			
+
 
 
 			<div class="post_btn_box">
- 			<form action="${pageContext.request.contextPath}/community/reply_write_insert.do" method="GET">
- 			<input type="hidden" name='postno' value="${output.postno}"/>
-				<textarea name = "posttext" style="width: 99%; height: 100px; padding: 10px 5px; font-size: 20px;" placeholder="댓글을 입력해 주세요...."></textarea>
-				<button class="write">글쓰기</button>
-				<a href="${pageContext.request.contextPath}/community/Q&A.do">목록</a>
-			</form>
-				
+				<form class="reply_write_insert"
+					action="${pageContext.request.contextPath}/community/reply_write_insert.do"
+					method="POST">
+					<input id="postno" type="hidden" name='postno'
+						value="${output.postno}" />
+
+					<textarea id="posttext" name="posttext"
+						style="width: 99%; height: 100px; padding: 10px 5px; font-size: 20px;"
+						placeholder="댓글을 입력해 주세요...."></textarea>
+
+					<button class="write">글쓰기</button>
+					<a href="${pageContext.request.contextPath}/community/Q&A.do">목록</a>
+				</form>
+
 			</div>
 
 		</div>
@@ -215,9 +239,7 @@ border: none;
 			<div class="snu_main_header">공지사항</div>
 
 			<!--모바일 메인 이너-->
-//${comment.post_num}
-			${comment.reply_num}
-			${comment.reply_txt}
+			//${comment.post_num} ${comment.reply_num} ${comment.reply_txt}
 			${comment.reply_name}
 			<div class="post_main_box">
 				<div class="post_main_header">
@@ -238,7 +260,7 @@ border: none;
 
 
 			<div class="post_btn_box">
-			
+
 				<a href="${pageContext.request.contextPath}/community/Q&A_write.do"><button>답글</button></a>
 				<button>목록</button>
 			</div>
@@ -267,7 +289,45 @@ border: none;
 	</script>
 	<script src="${pageContext.request.contextPath}/assets/js/regex.js"></script>
 	<script>
-		
+		$(".reply_write_insert")
+				.submit(
+						function(e) {
+							var postno = $("#postno").val();
+							var posttext = $("#posttext").val();
+							console.log(postno);
+
+							e.preventDefault();
+							var formData = new FormData(this);
+							if (!regex.value('#posttext', '답글을 입력해 주세요')) {
+								return false;
+							}
+
+							$
+									.ajax({
+										type : "GET",
+										url : "${pageContext.request.contextPath}/community/reply_write_insert.do?postno="
+												+ postno
+												+ "&posttext="
+												+ posttext,
+
+										success : function() {
+											alert("답글 작성이 완료되었습니다");
+											location.reload();
+
+										},
+										cache : false,
+										contentType : false,
+										processData : false,
+										error : function(request, status, error) {
+
+											alert("code:" + request.status
+													+ "\n" + "message:"
+													+ request.responseText
+													+ "\n" + "error:" + error);
+										}
+									});
+
+						});
 	</script>
 
 

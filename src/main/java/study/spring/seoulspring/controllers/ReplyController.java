@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import study.spring.seoulspring.helper.WebHelper;
@@ -33,7 +34,8 @@ public class ReplyController {
 	WebHelper webHelper;
 	
 	@RequestMapping(value = "community/reply_write_insert.do", method = RequestMethod.GET)
-	public ModelAndView reply_write_insert(Locale locale, Model model,HttpServletRequest request,
+	@ResponseBody
+	public void reply_write_insert(Locale locale, Model model,HttpServletRequest request,
 			@RequestParam("posttext") String posttext,@RequestParam("postno") int postno) {
 		
 		Reply reply = new Reply();
@@ -57,10 +59,7 @@ public class ReplyController {
 			e.printStackTrace();
 		}
 		
-		String redirectUrl = this.contextPath + "/community/Q&A.do";
-		
-		return this.webHelper.redirect(redirectUrl, null);
-		
+
 	}
 	
 	@RequestMapping(value = "community/reply_delete.do", method = RequestMethod.GET)
