@@ -147,7 +147,7 @@ font-family: 'NanumGothic';
 		</div>
 	</div>
 	<div class="snu_tab_menu">
-		<i class="fas fa-search"></i>
+		
 	</div>
 
 </div>
