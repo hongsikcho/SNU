@@ -16,7 +16,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>사범대</title>
-    
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-gothic.css" rel="stylesheet">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/side_btn.css">
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
@@ -31,7 +31,9 @@
 </head>
 
 <style>
-
+.main_box{
+	font-family: 'NanumGothic';
+}
 </style>
 
 

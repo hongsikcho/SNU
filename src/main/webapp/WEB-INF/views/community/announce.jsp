@@ -15,7 +15,7 @@
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <title>제41대 사범대학 학생회 늘품</title>
-
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-gothic.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/assets/css/side_btn.css" />
 	<link rel="stylesheet" type="text/css"
@@ -32,7 +32,9 @@
 	
 
 <style type="text/css">
-
+.main_box{
+	font-family: 'NanumGothic';
+}
 </style>
 
 </head>
@@ -93,9 +95,9 @@
                 </div>
             </div>
 
-            <div class="snu_qna_write_box">
+            <!--<div class="snu_qna_write_box">
                 <a class="snu_qna_write_btn">글쓰기</a>
-            </div>
+            </div>글쓰기 버튼-->
         </div>
         
         
