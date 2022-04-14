@@ -355,7 +355,7 @@ form {
 									</c:if>
 
 									<c:choose>
-										<c:when test="${dateList.value=='today'}">
+									<c:when test="${dateList.value=='today'}">
 											<td class="today">
 
 												<div class="date">${dateList.date}
@@ -371,6 +371,7 @@ form {
 												<div></div>
 											</td>
 										</c:when>
+							
 										<c:when test="${date_status.index%7==6}">
 											<td class="sat_day">
 												<div class="sat">${dateList.date}
