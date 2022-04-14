@@ -55,6 +55,7 @@
 		<div class="header">
 			<%@ include file="../../include/WEB/header.jsp"%>
 			<%@ include file="../../include/WEB/side_bar.jsp"%>
+
 		</div>
 
 		

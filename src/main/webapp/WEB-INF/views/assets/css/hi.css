@@ -1,6 +1,9 @@
 .hi_main {
   width: 100%;
 }
+.main_box{
+	font-family: 'NanumGothic';
+}
 
 .snu_main_box{
   margin-bottom:50px;

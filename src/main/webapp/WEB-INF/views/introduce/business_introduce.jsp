@@ -27,10 +27,13 @@
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/edu.css">
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-gothic.css" rel="stylesheet">
 </head>
 
 <style>
-
+.main_box{
+	font-family: 'NanumGothic';
+}
 </style>
 
 
@@ -69,7 +72,7 @@
 
             <div class="edu_intro_detail">
                 <div class="edu_intro_detail_1">
-                    <div class="detail_title">${busin.bnum}. ${busin.bname}</div>
+                    <div class="detail_title">${busin.bname}</div>
                     <div class="detail_body">${busin.busin}</div>
                 </div>
             </div>

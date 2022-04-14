@@ -72,12 +72,12 @@ font-family: 'NanumGothic';
 		</div>
 		<div class="snu_tab_menu_content hidden">
 			<div class="snu_tab_menu_inner_box">
-				<a
+				<a class="snu_tab_menu_inner_box"
 					href="${pageContext.request.contextPath}/Student_Council/introduce.do">학생회
 					소개</a>
 			</div>
 			<div class="snu_tab_menu_inner_box">
-				<a href="#">회의록 / 안건지</a>
+				<a href="https://drive.google.com/drive/folders/178bXKJbEItgUvkZXd1_u4L3EMwgtdaTj?usp=sharing">회의록 / 안건지</a>
 			</div>
 			<div class="snu_tab_menu_inner_box">
 				<a href="${pageContext.request.contextPath}/Student_Council/rule.do">학생회칙
@@ -103,10 +103,10 @@ font-family: 'NanumGothic';
 					및 Q&A</a>
 			</div>
 			<div class="snu_tab_menu_inner_box">
-				<a href="#">MBTI 게임</a>
+				<a href="#">2차 오픈</a>
 			</div>
 			<div class="snu_tab_menu_inner_box">
-				<a href="${pageContext.request.contextPath}/community/FAQ.do">2차오픈</a>
+				<a href="#">2차 오픈</a>
 			</div>
 			<div class="snu_tab_menu_inner_box">
 				<a href="${pageContext.request.contextPath}/community/Hi.do">Hi

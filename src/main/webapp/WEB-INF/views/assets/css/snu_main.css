@@ -53,15 +53,16 @@
   align-items: center;
   border-right: 2px solid #0f0f70;
 }
-.third_left > div {
+.third_left > img {
   background-color: #0f0f70;
-  height: 300px;
-  width: 300px;
+  height: 100px;
+  width: 100px;
   margin: 10px 0 10px 0;
 }
 .third_right {
   width: 60%;
 }
+
 .third_right_top {
   border-bottom: 2px solid #0f0f70;
 }
@@ -84,6 +85,7 @@
   padding: 50px 0px;
 }
 
+
 /* ����� ���� ȫ��*/
 
 .notice_header {
@@ -91,8 +93,11 @@
   justify-content: space-between;
   border-bottom: 3px solid rgb(45, 46, 145);
   font-weight: 900;
+  
 }
-
+.notice_header_title , .notice_header_more{
+	margin-bottom:10px;
+}
 .notice_body_text {
   border-bottom: 2px solid rgba(0, 0, 0, 0.1);
 }
