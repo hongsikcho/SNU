@@ -154,7 +154,7 @@
 
 
     <!--모바일 -->
-    <div class="snu_mobile_box">
+    <div class="snu_mobile_box"  style="font-family: 'NanumGothic';">
 
         <!-- 모바일 헤더-->
         <div class="snu_mobile_header">

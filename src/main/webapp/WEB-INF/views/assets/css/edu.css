@@ -28,6 +28,7 @@
   font-size: x-large;
   font-weight : bold;
   color: rgba(0, 0, 0, 0.9);
+  line-height: 30px;
 }
 
 .edu_intro_detail {
@@ -41,12 +42,14 @@
   font-weight: bold;
   font-size: x-large;
   margin-bottom: 20px;
+  line-height: 30px;
 }
 .detail_body {
   border: 2px solid #0f0f70;
   border-radius : 10px;
   padding:11px;
   font-size: medium;
+  line-height: 30px;
   
 }
 .fas {

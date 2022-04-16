@@ -118,7 +118,7 @@
 	<!--모바일 -->
 
 	<!-- 모바일 헤더-->
-	<div class="snu_mobile_box">
+	<div class="snu_mobile_box" style="font-family: 'NanumGothic';">
 		<%@ include file="../../include/MOBILE/header.jsp"%>
 		<%@ include file="../../include/MOBILE/tab.jsp"%>
 		<!--모바일 컨텐츠 박스-->
@@ -134,8 +134,8 @@
             <div>
             
                     <div class="hi_center">
-                        <div class="hi_main_pt"><img src="${pageContext.request.contextPath}/assets/img/hi_img.png"></div>
-                        <div class="hi_main_text">
+                        <div class="hi_main_pt" style="padding-left:9%"><img src="${pageContext.request.contextPath}/assets/img/hi_img.png"></div>
+                        <div class="hi_main_text" style="padding">
                             <div class="hi_main_title"> <i class="fas fa-circle"></i>HI 사범이란?</div>
                             <div class="hi_main_body"> 매달 한 명 ~ 두 명의 사범대학 소속 인터뷰를 대상으로 다양한 주제에 관해
                                 이야기하고, 이를 영상 및 카드뉴스로 제작하여 공유하는 사업입니다. 인터뷰는 약 30분
