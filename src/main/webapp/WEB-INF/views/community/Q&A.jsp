@@ -101,10 +101,12 @@
 .snu_mobile_qna_content_title {
 	font-weight: bold;
 	padding-bottom: 10px;
+	color: rgba(0, 0, 0, 0.2);
 }
 
 .snu_mobile_qna_content_detail {
 	font-size: 11px;
+	color: rgba(0, 0, 0, 0.7);
 }
 
 .snu_mobile_qna_content_title i {
@@ -143,7 +145,7 @@
 			<div class="snu_main_content">
 
 				<div class="snu_main_header">
-					<span>건의 및 Q&A</span> <img
+					<span>건의 및 Q&A</span><img
 						src="${pageContext.request.contextPath}/assets/img/snu_logo.png" />
 				</div>
 				<div class="snu_qna_box">
@@ -227,87 +229,87 @@
 	</div>
 
 	<!--모바일 -->
-	<div class="snu_mobile_box">
+	<div class="snu_mobile_box" style="font-family: 'NanumGothic';">
 		<!-- 모바일 헤더-->
 		<%@ include file="../../include/MOBILE/header.jsp"%>
 		<%@ include file="../../include/MOBILE/tab.jsp"%>
 		<!--모바일 컨텐츠 박스-->
 
 		<div class="snu_mobile_main_box">
-		${output.postview } 
+		
 
 			<div class="snu_main_header">
 				<span>건의 및 Q&A</span>
 			</div>
 			<div class="snu_mobile_qna_main_box">
-				<div class="snu_mobile_qna_content">
+			<c:forEach var="item" items="${output}" varStatus="status">
+			<c:set var="postcategory" value="${item.postcategory}" />
+						<c:set var="posttitle" value="${item.posttitle}" />
+						<c:set var="name" value="${item.name}" />
+						<c:set var="postdate" value="${item.postdate}" />
+						<c:set var="postview" value="${item.postview}" />
+						<c:set var="posttype" value="${item.posttype}" />
+						<c:set var="postpublic" value="${item.postpublic}" />
+						<c:set var="postno" value="${item.postno}" />
+						<div class="snu_mobile_qna_content">
 				
+				
+		<c:choose>
+			<c:when test="${postpublic eq '비공개'}">
+			<div class="snu_mobile_qna_content_title">
+					<a href="#">
+					${posttitle}
+						<c:if test="${postpublic eq '비공개'}">
+							<i class="fas fa-lock" style="margin-left:2px;"></i>
+						</c:if>
+					</div>
+					
+					<div class="snu_mobile_qna_content_detail">
+					<c:choose>
+						<c:when test="${posttype eq '익명'}">
+							<span>익명</span>
+						</c:when>
+						<c:otherwise>
+							<span>${name}</span>
+						</c:otherwise>
+					</c:choose>
+					<span>| ${postdate}</span> | <i class="far fa-eye"></i>${postview}
+					</div>
+				</div>
+				</a>
+			</c:when>
+			<c:otherwise>
 					<div class="snu_mobile_qna_content_title">
-						류호수 입니다. 안녕하세요<i class="fas fa-lock"></i>
+					<a class="qna_read_btn" id="${postno}">
+					${posttitle}
+						<c:if test="${postpublic eq '비공개'}">
+							<i class="fas fa-lock" style="margin-left:2px;"></i>
+						</c:if>
 					</div>
+					
 					<div class="snu_mobile_qna_content_detail">
-						<span>류호수 </span><span>| 2021.02.03</span> | <i class="far fa-eye"></i>
-						252
+					<c:choose>
+						<c:when test="${posttype eq '익명'}">
+							<span>익명</span>
+						</c:when>
+						<c:otherwise>
+							<span>${name}</span>
+						</c:otherwise>
+					</c:choose>
+					<span>| ${postdate}</span> | <i class="far fa-eye"></i>${postview}
 					</div>
 				</div>
-
-				<div class="snu_mobile_qna_content">
-					<div class="snu_mobile_qna_content_title">
-						예시 제목 2입니다. <i class="fas fa-lock"></i>
-					</div>
-					<div class="snu_mobile_qna_content_detail">
-						<span>조홍식 </span><span>| 2021.02.03</span> | <i class="far fa-eye"></i>
-						252
-					</div>
-				</div>
-
-				<div class="snu_mobile_qna_content">
-					<div class="snu_mobile_qna_content_title">안녕하세요 자원봉사단 단장 이창준
-						입니다.</div>
-					<div class="snu_mobile_qna_content_detail">
-						<span>이창준 </span><span>| 2021.02.03</span> | <i class="far fa-eye"></i>
-						123,456,789
-					</div>
-				</div>
-
-				<div class="snu_mobile_qna_content">
-					<div class="snu_mobile_qna_content_title">안녕하세요 자원봉사단 단장 이창준
-						입니다.</div>
-					<div class="snu_mobile_qna_content_detail">
-						<span>이창준 </span><span>| 2021.02.03</span> | <i class="far fa-eye"></i>
-						123,456,789
-					</div>
-				</div>
-
-				<div class="snu_mobile_qna_content">
-					<div class="snu_mobile_qna_content_title">안녕하세요 자원봉사단 단장 이창준
-						입니다.</div>
-					<div class="snu_mobile_qna_content_detail">
-						<span>이창준 </span><span>| 2021.02.03</span> | <i class="far fa-eye"></i>
-						123,456,789
-					</div>
-				</div>
-				<div class="snu_mobile_qna_content">
-					<div class="snu_mobile_qna_content_title">안녕하세요 자원봉사단 단장 이창준
-						입니다.</div>
-					<div class="snu_mobile_qna_content_detail">
-						<span>이창준 </span><span>| 2021.02.03</span> | <i class="far fa-eye"></i>
-						123,456,789
-					</div>
-				</div>
-				<div class="snu_mobile_qna_content">
-					<div class="snu_mobile_qna_content_title">안녕하세요 자원봉사단 단장 이창준
-						입니다.</div>
-					<div class="snu_mobile_qna_content_detail">
-						<span>이창준 </span><span>| 2021.02.03</span> | <i class="far fa-eye"></i>
-						123,456,789
-					</div>
-				</div>
-			</div>
+				</a>
+			</c:otherwise>
+			</c:choose>
+						
+						</c:forEach>
+				
 
 
 			<div class="snu_qna_write_box">
-				<a class="snu_qna_write_btn">글쓰기</a>
+				<a href="${pageContext.request.contextPath}/community/Q&A_write.do"
+						class="snu_qna_write_btn">글쓰기</a>
 			</div>
 
 		</div>

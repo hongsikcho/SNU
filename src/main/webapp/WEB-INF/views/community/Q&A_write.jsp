@@ -79,7 +79,7 @@
 
 			<form class="qna_write_form" method="post"
 				action="${pageContext.request.contextPath }/community/Q&A_write_insert.do">
-				<div>
+				<div >
 					<b>카테고리</b> 
 					<label for="category1"><input id="category1" type="radio" name="postcategory" value="건의">건의</label> 
 					<label for="category2"><input id="category2" type="radio" name="postcategory" value="질문">질문</label>
@@ -136,7 +136,7 @@
 
 			<div>
 				<form class="qna_write_moblie_form">
-					<div>
+					<div style="margin-top:10px;">
 						<b>카테고리</b>
 						 <label for="category1"><input id="category1" type="radio" name="chk_info1" value="HTML">건의</label>
 						 <label for="category2"><input id="category2" type="radio" name="chk_info1" value="HTML">질문</label>
