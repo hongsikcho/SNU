@@ -148,7 +148,7 @@
 
 		<div class="snu_main_box">
 			<div class="snu_main_header">
-				공지사항 <img
+				건의 및 Q&A<img
 					src="${pageContext.request.contextPath }/assets/img/snu_logo.png" />
 			</div>
 
@@ -236,33 +236,63 @@
 
 		<div class="snu_mobile_main_box">
 
-			<div class="snu_main_header">공지사항</div>
+			<div class="snu_main_header">건의 및 Q&A</div>
 
 			<!--모바일 메인 이너-->
-			//${comment.post_num} ${comment.reply_num} ${comment.reply_txt}
-			${comment.reply_name}
+			
 			<div class="post_main_box">
 				<div class="post_main_header">
-					<b>글의 제목을 여기에 띄어주세요.</b> <br> <span>건의 / 2022.02.23 /
-						조회수 12345 / 작성자</span>
+					<b>${output.posttitle }</b> <br> <span>${output.postcategory} / ${output.postdate} /
+						조회수 ${output.postview} / 작성자 <c:choose>
+				<c:when test="${output.posttype eq '익명'}">
+					익명
+				</c:when>
+				<c:otherwise>
+					${output.name}
+
+				</c:otherwise>
+			</c:choose></span>
 				</div>
 
-				<div class="post_main_text">대한민국 최초의 국립 고등교육기관으로 첫 장을 열었던
-					서울대학교는 이제 대한민국을 대표하는 세계적인 대학으로 자리매김하였습니다. 급변하는 국내외 환경 속에서 대학들은 여러
-					가지 도전에 직면하고 있습니다. 서울대학교는 세계를 선도하는 진리 탐구와 공동체를 위한 공헌에 더욱 매진하기 위해 이제
-					혁신의 도정에 나섭니다. 독창적인 사유능력과 더불어 공동체를 두루 살피고 타인을 존중하는 인재를 양성할 것입니다. 사회
-					곳곳에 숨어있는 인재들을 선발하여 서울대에서 그 잠재력을 꽃피우도록 할 것입니다. 긴 호흡으로 새로운 영역을 개척하는
-					연구를 수행할 것입니다. 사회적 난제들에 대해 실현가능한 정책을 연구하고, 사회가 나아가야 할 방향을 제시하며 사회와
-					함께 발전해 나가겠습니다. 새로운 길을 가고 함께 가는 인재 양성 담대한 진리 탐구와 사회 난제에 대한 협동 연구 윤리와
-					다양성을 존중하며 소통하는 학문공동체 서울대인이 함께 지혜와 힘을 모아 탁월하고 따뜻한 지성의 전당을 만들겠습니다. 많은
-					성원을 부탁드립니다.</div>
+				<div class="post_main_text">${output.postcontent}</div>
 			</div>
 
+<c:forEach var="comment" items="${reply}" varStatus="status">
+				<div class="comment_box" style="margin:10px 0;">
+					<div class="comment_who">
+						<div class="comment_rely_num">${status.count}번째
+							댓글 <span class="comment_rely_name">${comment.reply_name}</span>
+						</div>
+					</div>
+					<div class="comment_main">${comment.reply_txt}</div>
+					<c:if test='${comment.reply_name eq member.name}'>
+						<form class="btn"
+							action="${pageContext.request.contextPath}/community/reply_delete.do"
+							method="GET">
+							<input type="hidden" name='reply_num'
+								value="${reply[0].reply_num}" />
+							<button class="btn_delete">삭제</button>
+						</form>
+					</c:if>
+				</div>
 
+
+			</c:forEach>
 			<div class="post_btn_box">
+				<form class="reply_write_insert"
+					action="${pageContext.request.contextPath}/community/reply_write_insert.do"
+					method="POST">
+					<input id="postno" type="hidden" name='postno'
+						value="${output.postno}" />
 
-				<a href="${pageContext.request.contextPath}/community/Q&A_write.do"><button>답글</button></a>
-				<button>목록</button>
+					<textarea id="posttext" name="posttext"
+						style="width: 99%; height: 100px; padding: 10px 5px; font-size: 20px;"
+						placeholder="댓글을 입력해 주세요...."></textarea>
+
+					<button class="write">글쓰기</button>
+					<a href="${pageContext.request.contextPath}/community/Q&A.do">목록</a>
+				</form>
+
 			</div>
 			<!--모바일 메인 이너 끝-->
 
