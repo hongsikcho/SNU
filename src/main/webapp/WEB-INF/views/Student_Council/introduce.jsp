@@ -88,7 +88,7 @@
 	</div>
 
 	<!--모바일 -->
-	<div class="snu_mobile_box">
+	<div class="snu_mobile_box" style="font-family: 'NanumGothic';">
 
 		<!-- 모바일 헤더-->
 
@@ -103,18 +103,9 @@
                학생회 소개
             </div>
             <div class="cons_intro_pt">
-                <img src="${pageContext.request.contextPath}/assets/img/cunsel_img.jpg">
+                <img src="${pageContext.request.contextPath}/assets/img/council_intro.png">
             </div>
-            <div class="cons_intro_member">
-                <div class="cons_intro_member1">
-                    <div class="cons_intro_member1_left">부회장<span class="bar">|</span> </div>
-                    <div class="cons_intro_member1_right"> 이찬영</div>
-                </div>
-                <div class="cons_intro_member2">
-                    <div class="cons_intro_member2_left">회장<span class="bar">|</span></div>
-                    <div class="cons_intro_member2_right">윤응식</div>
-                </div>
-            </div>
+           
 
             <div class="snu_main_header">
                 41대 학생회 늘품
@@ -125,9 +116,9 @@
                     <div class="sunbon_explain_photo"><img src="${pageContext.request.contextPath}/assets/img/ne.png"></div>
                 
                 </div>
-                <div class="sunbon_explain_text">
-                    <div class="sunbon_explain_text1"><i class="fas fa-circle"></i> 학생회 소개</div>
-                    <div class="sunbon_explain_text2">‘늘’은 ‘계속하여 언제나’라는 의미입니다. 제41대 사범대 학생회 ‘늘품’은 늘 사범대 학우들의 곁에 머물며 안정적인 지지대의 역할을 하겠습니다. 언제나 학우들의 목소리에 귀 기울이며, 계속되는 학생회를 만들고자 하는 저희의 비전이 ‘늘’에 담겨있습니다.
+                <div class="sunbon_explain_text" style="margin-left:3px">
+                    <div class="sunbon_explain_text1" style="margin-bottom:10px; text-align:center"><i class="fas fa-circle"></i> 학생회 소개</div>
+                    <div class="sunbon_explain_text2" style="width:100%">‘늘’은 ‘계속하여 언제나’라는 의미입니다. 제41대 사범대 학생회 ‘늘품’은 늘 사범대 학우들의 곁에 머물며 안정적인 지지대의 역할을 하겠습니다. 언제나 학우들의 목소리에 귀 기울이며, 계속되는 학생회를 만들고자 하는 저희의 비전이 ‘늘’에 담겨있습니다.
                         한자 ‘품(品)’은 ‘입구(口)’ 자가 세 개 모여서 형성됩니다. ‘늘품’은 더 나은 사범대의 미래를 학우들의 목소리를 모아서 실현하고자 합니다. 단순히 선출된 학생회로서 학우들과 괴리되어 가는 것이 아니라 사범대 학우들 자체로서의 학생회가 되고자 합니다. 사범대 학생이 바라는 것이 있다면 그의 목소리에 힘을 실어 유의미한 변화를 만들어낼 수 있는 학생회를 꿈꿉니다.
                         ‘품(品)’이라는 단어에는 이러한 저희의 비전이 담겨있습니다.
                         그들만의 학생회에서, 학우들에게 스며드는, 장벽 없는 학생회로의 탈피를 적극적으로 시도하기 위해 제41대 사범대 학생회 늘품은 끊임없이 노력합니다.
