@@ -83,7 +83,7 @@
 }
 .sunbon_explain_text1 {
   font-size: x-large;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 .cons_intro_text {
   width: 1190px;
@@ -174,4 +174,11 @@
     border-radius: 10px;
     margin: 10px 0;
   }
+ .sunbon_explain_text {
+    display: flex;
+    flex-direction: column;
+    /* margin-top: 20px; */
+    align-items: flex-start;
+    /* margin-left: 20px; */
+}
 }
