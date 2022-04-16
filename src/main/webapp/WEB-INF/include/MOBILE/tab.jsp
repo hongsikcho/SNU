@@ -15,7 +15,7 @@
                     </div>
                     <div class="tab_btn_inner">
                         <div><a href="${pageContext.request.contextPath}/Student_Council/introduce.do">학생회 소개</a></div>
-                        <div><a href="#">회의록 / 안건지</a></div>
+                        <div><a href="https://drive.google.com/drive/folders/178bXKJbEItgUvkZXd1_u4L3EMwgtdaTj?usp=sharing">회의록 / 안건지</a></div>
                          <div><a href="${pageContext.request.contextPath}/Student_Council/rule.do">학생회칙 / 세칙</a></div>
                         <div><a href="${pageContext.request.contextPath}/introduce/introduce.do">집행위원회 소개</a></div>
                         <div><a href="${pageContext.request.contextPath}/introduce/business_introduce.do?cnum=1">주요사업소개</a></div>
@@ -45,7 +45,7 @@
 
                 <div class="tab_inner_box">
                     <div class="btn" id="tab_btn2">
-                        <div><a href="${pageContext.request.contextPath}/festive/festive.do">행사 참여신청</a></div>
+                        <div><a href="${pageContext.request.contextPath}/festive/festive.do">홍보 게시판</a></div>
                     </div>
                 </div>
 

@@ -234,14 +234,16 @@
 		<!--모바일 컨텐츠 박스-->
 
 		<div class="snu_mobile_main_box">
+		${output.postview } 
 
 			<div class="snu_main_header">
 				<span>건의 및 Q&A</span>
 			</div>
 			<div class="snu_mobile_qna_main_box">
 				<div class="snu_mobile_qna_content">
+				
 					<div class="snu_mobile_qna_content_title">
-						류호수 입니다. 안녕하세요 <i class="fas fa-lock"></i>
+						류호수 입니다. 안녕하세요<i class="fas fa-lock"></i>
 					</div>
 					<div class="snu_mobile_qna_content_detail">
 						<span>류호수 </span><span>| 2021.02.03</span> | <i class="far fa-eye"></i>

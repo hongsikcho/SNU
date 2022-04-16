@@ -52,10 +52,7 @@
   line-height: 30px;
   height: 300px;
   overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 10;
-  -webkit-box-orient: vertical;
+  
 }
 .hi_onclick {
   width: 1190px;
