@@ -96,7 +96,7 @@
                         </div>
                         
                     </a>
-                    <a class="hi_foot_box">
+                    <a class="hi_foot_box" href="${pageContext.request.contextPath}/community/Hi_detail1">
                         <div class="hi_foot_box_top"><img src="${pageContext.request.contextPath}/assets/img/hi_january.png" alt=""></div>
                         <div class="hi_foot_bpx_bot">
                             <span style="font-weight: 600;">[2022-1월]</span>

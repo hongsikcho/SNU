@@ -279,13 +279,13 @@
 
 			</c:forEach>
 			<div class="post_btn_box">
-				<form class="reply_write_insert"
+				<form class="reply_write_insert_m"
 					action="${pageContext.request.contextPath}/community/reply_write_insert.do"
 					method="POST">
 					<input id="postno" type="hidden" name='postno'
 						value="${output.postno}" />
 
-					<textarea id="posttext" name="posttext"
+					<textarea id="posttext_m" name="posttext"
 						style="width: 99%; height: 100px; padding: 10px 5px; font-size: 20px;"
 						placeholder="댓글을 입력해 주세요...."></textarea>
 
@@ -360,6 +360,47 @@
 						});
 	</script>
 
+<script>
+		$(".reply_write_insert_m")
+				.submit(
+						function(e) {
+							var postno = $("#postno").val();
+							var posttext = $("#posttext_m").val();
+							console.log(postno);
+
+							e.preventDefault();
+							var formData = new FormData(this);
+							if (!regex.value('#posttext_m', '답글을 입력해 주세요')) {
+								return false;
+							}
+
+							$
+									.ajax({
+										type : "GET",
+										url : "${pageContext.request.contextPath}/community/reply_write_insert.do?postno="
+												+ postno
+												+ "&posttext="
+												+ posttext,
+
+										success : function() {
+											alert("답글 작성이 완료되었습니다");
+											location.reload();
+
+										},
+										cache : false,
+										contentType : false,
+										processData : false,
+										error : function(request, status, error) {
+
+											alert("code:" + request.status
+													+ "\n" + "message:"
+													+ request.responseText
+													+ "\n" + "error:" + error);
+										}
+									});
+
+						});
+	</script>
 
 </body>
 </html>
