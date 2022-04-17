@@ -135,33 +135,33 @@
 			<!--모바일 메인 이너-->
 
 			<div>
-				<form class="qna_write_moblie_form">
+				<form class="qna_write_moblie_form" action="${pageContext.request.contextPath }/community/Q&A_write_insert.do" method="post">
 					<div style="margin-top:10px;">
 						<b>카테고리</b>
-						 <label for="category1"><input id="category1" type="radio" name="chk_info1" value="HTML">건의</label>
-						 <label for="category2"><input id="category2" type="radio" name="chk_info1" value="HTML">질문</label>
+						 <label for="category1"><input id="category1" type="radio" name="postcategory" value="건의">건의</label>
+						 <label for="category2"><input id="category2" type="radio" name="postcategory" value="질문">질문</label>
 					</div>
 
 					<div>
 						<b>공개설정</b> <label for="category3"><input id="category3"
-							type="radio" name="chk_info2" value="HTML">공개</label> <label
+							type="radio" name="postpublic" value="HTML">공개</label> <label
 							for="category4"><input id="category4" type="radio"
-							name="chk_info2" value="HTML">비공개</label>
+							name="postpublic" value="HTML">비공개</label>
 					</div>
 
 					<div>
 						<b>익명여부</b> <label for="category5"><input id="category5"
-							type="radio" name="chk_info3" value="HTML">익명</label> <label
+							type="radio" name="posttype" value="HTML">익명</label> <label
 							for="category6"><input id="category6" type="radio"
-							name="chk_info3" value="HTML">실명</label>
+							name="posttype" value="HTML">실명</label>
 					</div>
 					<div style="margin-top: 30px; text-align: center;">
-						<input id="title" style="width: 95%; padding: 10px 5px; font-weight: bold;"
+						<input  id="title_m" name="posttitle" style="width: 95%; padding: 10px 5px; font-weight: bold;"
 							type="text" placeholder="제목을 입력해 주세요" />
 					</div>
 					<div style="margin-top: 30px; text-align: center;">
 						<textarea
-							style="width: 95%; height: 400px; padding: 10px 5px; font-size: 20px; margin: auto;"
+							id="content_m" name="postcontent"style="width: 95%; height: 400px; padding: 10px 5px; font-size: 20px; margin: auto;"
 							placeholder="내용을 입력해 주세요...."></textarea>
 					</div>
 					<div class="snu_qna_write_box">
@@ -213,6 +213,32 @@
 					return false;
 				}
 				if (!regex.value('#content', '내용을 입력하세요.')) {
+					return false;
+				}
+			})
+		})
+	</script>
+	<script>
+		$(function() {
+			$(".qna_write_moblie_form").submit(function(e) {
+				if ($("input:radio[name='postcategory']").is(":checked") == false) {
+					alert('카테고리를 선택하세요');
+					return false;
+					
+				} 
+				if ($("input:radio[name='postpublic']").is(":checked") == false) {
+					alert('공개여부를 선택하세요');
+					return false;
+					
+				} 
+				if ($("input:radio[name='posttype']").is(":checked") == false) {
+					alert('익명여부를 선택하세요');
+					return false;
+				} 
+				if (!regex.value('#title_m', '제목을 입력하세요.')) {
+					return false;
+				}
+				if (!regex.value('#content_m', '내용을 입력하세요.')) {
 					return false;
 				}
 			})
