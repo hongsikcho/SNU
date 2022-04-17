@@ -126,11 +126,12 @@
 
 		<div class="snu_main_box">
 			<div class="snu_main_header">2월 HI 사범</div>
+			<h1>${output[0].cardno}</h1>
 
 			<div class="" style="width:85%; margin: auto; margin-top:50px;">
 				
                  <div class="hi_detail_video">
-                     <iframe width="100%" height="500px" src="https://www.youtube.com/watch?v=CTG74d8-FrY&t=247s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                     <iframe width="100%" height="500px" src="${output[0].link}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
 
 

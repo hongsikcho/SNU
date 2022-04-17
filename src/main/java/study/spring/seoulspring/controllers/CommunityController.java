@@ -22,8 +22,10 @@ import study.spring.seoulspring.helper.WebHelper;
 import study.spring.seoulspring.model.Community;
 import study.spring.seoulspring.model.Member;
 import study.spring.seoulspring.model.Reply;
+import study.spring.seoulspring.model.sabum;
 import study.spring.seoulspring.service.CommunityService;
 import study.spring.seoulspring.service.ReplyService;
+import study.spring.seoulspring.service.SabumService;
 
 /**
  * Handles requests for the application home page.
@@ -31,6 +33,8 @@ import study.spring.seoulspring.service.ReplyService;
 @Controller
 public class CommunityController {
 
+	@Autowired
+	SabumService sabumService;
 	@Autowired
 	ReplyService replyService;
 	@Autowired
@@ -153,13 +157,27 @@ public class CommunityController {
 
 	@RequestMapping(value = "community/Hi.do", method = RequestMethod.GET)
 	public String Hi(Locale locale, Model model) {
-
+		
+	
 		return "community/Hi";
 	}
 
 	@RequestMapping(value = "community/Hi_detail.do", method = RequestMethod.GET)
-	public String HiDetail(Locale locale, Model model) {
+	public String HiDetail(Locale locale, Model model,@RequestParam("num") int num) {
 
+		sabum sabum = new sabum();
+		sabum.setNum(num);
+		List<sabum> output = new ArrayList<>();
+		
+		try {
+			output = sabumService.SelectSabum(sabum);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		model.addAttribute("output", output);
 		return "community/Hi_detail";
 	}
 }
