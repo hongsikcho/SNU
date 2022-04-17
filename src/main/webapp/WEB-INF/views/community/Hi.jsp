@@ -77,7 +77,7 @@
                 </div>
     
                 <div class="hi_foot">
-                    <a class="hi_foot_box">
+                    <a href="Hi_detail.do?num=1" class="hi_foot_box">
                         <div class="hi_foot_box_top">
                             <img src="${pageContext.request.contextPath}/assets/img/hi_january.png" alt="">
                         </div>
@@ -87,7 +87,7 @@
                             <br>...
                         </div>
                     </a>
-                    <a href="Hi_detail.do" class="hi_foot_box">
+                    <a href="Hi_detail.do?num=2" class="hi_foot_box">
                         <div class="hi_foot_box_top">
                             <img src="https://i.ytimg.com/vi/CTG74d8-FrY/maxresdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBycdmmTv81p7Ff1-ud3i8ie1ru0g" alt="" style="width: 100%;">
                         </div>
@@ -96,7 +96,7 @@
                         </div>
                         
                     </a>
-                    <a class="hi_foot_box" href="${pageContext.request.contextPath}/community/Hi_detail1">
+                    <a href="Hi_detail.do?num=3" class="hi_foot_box" href="${pageContext.request.contextPath}/community/Hi_detail1">
                         <div class="hi_foot_box_top"><img src="${pageContext.request.contextPath}/assets/img/hi_january.png" alt=""></div>
                         <div class="hi_foot_bpx_bot">
                             <span style="font-weight: 600;">[2022-1월]</span>
