@@ -138,6 +138,13 @@
         .snu_loadmap_main_btn_class {
             width: 31%;
         }
+         .snu_loadmap_main_img {
+        width: 100%;
+    }
+    .snu_loadmap_main_text{
+    margin-top: 200px;
+    line-height: 30px;
+    }
 
 
     }
@@ -164,6 +171,15 @@
             font-size: 18px;
 
         }
+         .snu_loadmap_main_img {
+        width: 100%;
+    }
+    
+     .snu_loadmap_main_text{
+    margin-top: 50px;
+    line-height: 30px;
+    }
+    
 
     }
 </style>

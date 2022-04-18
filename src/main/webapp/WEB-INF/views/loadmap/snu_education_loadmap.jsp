@@ -129,9 +129,14 @@
 	}
 	.snu_loadmap_main_text {
 		width: 100%;
+		margin-top:50px;
+		line-height: 30px;
 	}
 	.snu_loadmap_main_btn_class {
 		width: 31%;
+	}
+	.snu_loadmap_info{
+	line-height:30px
 	}
 }
 

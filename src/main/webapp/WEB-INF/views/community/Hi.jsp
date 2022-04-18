@@ -77,14 +77,14 @@
                 </div>
     
                 <div class="hi_foot">
-                    <a href="Hi_detail.do?num=1" class="hi_foot_box">
+                    <a href="Hi_detail.do?num=3" class="hi_foot_box">
                         <div class="hi_foot_box_top">
-                            <img src="${pageContext.request.contextPath}/assets/img/hi_january.png" alt="">
+                            <img src="${pageContext.request.contextPath}/assets/img/hi_march.png" alt="">
                         </div>
 
                         <div class="hi_foot_bpx_bot">
                             <span style="font-weight: 600;">[2022-3월]</span>
-                            <br>...
+                            <br>초면인 고학번과 새내기가 만난다면?
                         </div>
                     </a>
                     <a href="Hi_detail.do?num=2" class="hi_foot_box">
@@ -96,7 +96,7 @@
                         </div>
                         
                     </a>
-                    <a href="Hi_detail.do?num=3" class="hi_foot_box" href="${pageContext.request.contextPath}/community/Hi_detail1">
+                    <a href="Hi_detail.do?num=1" class="hi_foot_box" href="${pageContext.request.contextPath}/community/Hi_detail1">
                         <div class="hi_foot_box_top"><img src="${pageContext.request.contextPath}/assets/img/hi_january.png" alt=""></div>
                         <div class="hi_foot_bpx_bot">
                             <span style="font-weight: 600;">[2022-1월]</span>
@@ -134,7 +134,7 @@
             <div>
             
                     <div class="hi_center">
-                        <div class="hi_main_pt" style="padding-left:9%"><img src="${pageContext.request.contextPath}/assets/img/hi_img.png"></div>
+                        <div class="hi_main_pt"><img src="${pageContext.request.contextPath}/assets/img/hi_img.png"></div>
                         <div class="hi_main_text" style="padding">
                             <div class="hi_main_title"> <i class="fas fa-circle"></i>HI 사범이란?</div>
                             <div class="hi_main_body"> 매달 한 명 ~ 두 명의 사범대학 소속 인터뷰를 대상으로 다양한 주제에 관해
@@ -151,22 +151,22 @@
                     </div>
         
                     <div class="hi_foot">
-                        <a class="hi_foot_box">
-                            <div class="hi_foot_box_top"><img src="${pageContext.request.contextPath}/assets/img/hi_january.png" alt=""></div>
+                        <a href="Hi_detail.do?num=3" class="hi_foot_box">
+                            <div class="hi_foot_box_top"><img src="${pageContext.request.contextPath}/assets/img/hi_march.png" alt=""></div>
                             <div class="hi_foot_bpx_bot"><span style="font-weight: 600;">[2022-3월]</span>
-                                <br>...
+                                <br>초면인 고학번과 새내기가 만난다면?
                             </div>
                         </a>
                     </a>
-                        <a href="Hi_detail.do" class="hi_foot_box">
+                        <a href="Hi_detail.do?num=2" class="hi_foot_box">
                             <div class="hi_foot_box_top"><img src="https://i.ytimg.com/vi/CTG74d8-FrY/maxresdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBycdmmTv81p7Ff1-ud3i8ie1ru0g" alt=""></div>
                             <div class="hi_foot_bpx_bot"><span style="font-weight: 600;">[2022-2월]</span>
                                 <br>'임기 3개월만에 미친듯이 갈린 그들 ,<br> 늘품 집행위원장단 인터뷰'
                             </div>
                         </a>
-                         <a href="Hi_detail.do" class="hi_foot_box">
+                         <a href="Hi_detail.do?num=1" class="hi_foot_box">
                             <div class="hi_foot_box_top"><img src="${pageContext.request.contextPath}/assets/img/hi_january.png"></div>
-                            <div class="hi_foot_bpx_bot"><span style="font-weight: 600;">[2022-2월]</span>
+                            <div class="hi_foot_bpx_bot"><span style="font-weight: 600;">[2022-1월]</span>
                                 <br>3년 만에 열리는사범대 대면 새터!
                                 <br> 새터 준비 새기위원 특집
                             </div>
