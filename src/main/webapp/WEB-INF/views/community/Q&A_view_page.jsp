@@ -109,9 +109,10 @@
 	border: none;
 	color: white;
 	background-color: #0f0f70;
-	padding: 7px 15px;
+	padding: 6px 13px;
 	border-radius: 10px;
-	font-size: 15px;
+	font-size: 14px;
+	
 }
 
 .post_btn_box a {
@@ -210,7 +211,7 @@
 						placeholder="댓글을 입력해 주세요...."></textarea>
 
 					<button class="write">글쓰기</button>
-					<a href="${pageContext.request.contextPath}/community/Q&A.do">목록</a>
+					<a  class="write" href="${pageContext.request.contextPath}/community/Q&A.do">목록</a>
 				</form>
 
 			</div>
@@ -234,7 +235,7 @@
 		<!--모바일 컨텐츠 박스-->
 
 
-		<div class="snu_mobile_main_box">
+		<div class="snu_mobile_main_box" style="font-family: 'NanumGothic';">
 
 			<div class="snu_main_header">건의 및 Q&A</div>
 
@@ -286,7 +287,7 @@
 						value="${output.postno}" />
 
 					<textarea id="posttext_m" name="posttext"
-						style="width: 99%; height: 100px; padding: 10px 5px; font-size: 20px;"
+						style="width: 98%; height: 100px; padding: 10px 5px; font-size: 20px;"
 						placeholder="댓글을 입력해 주세요...."></textarea>
 
 					<button class="write">글쓰기</button>

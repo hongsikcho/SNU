@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
@@ -125,8 +124,7 @@
 
 
 		<div class="snu_main_box">
-			<div class="snu_main_header">2월 HI 사범</div>
-			<h1>${output[0].cardno}</h1>
+			<div class="snu_main_header">${output[0].num}월 HI 사범 </div>
 
 			<div class="" style="width:85%; margin: auto; margin-top:50px;">
 				
@@ -135,55 +133,23 @@
                     </div>
 
 
-				<div class="photo" style="margin-top:100px;">
+				<div class="photo" style="margin-top:100px; margin-bottom:100px">
 					<div class="head">
 						<img class="main_img" style="width: 100%;"
-							src="${pageContext.request.contextPath}/assets/img/hi_1/001.png" />
+							src="${pageContext.request.contextPath}/assets/img/hi_${output[0].num}/${output[0].photo}" />
 					</div>
 					<a class="prev"> <span>이전</span>
 					</a> <a class="next"> <span>이후</span>
 					</a>
 					<div class="midd">
 						<ul>
-							<li id="li_0"><a class="small_img_box on"> <img
-									class="small_img" id="0"
-									src="${pageContext.request.contextPath}/assets/img/hi_1/001.png" />
+						<c:forEach var="s" items="${output}" varStatus="status">
+							<li id="li_${status.count -1}"><a class="small_img_box on"> <img
+									class="small_img" id="${status.count}"
+									src="${pageContext.request.contextPath}/assets/img/hi_${s.num}/${s.photo}" />
 							</a></li>
-							<li id="li_1"><a class="small_img_box"> <img
-									class="small_img" id="1"
-									src="${pageContext.request.contextPath}/assets/img/hi_1/002.png"
-									alt="220106_2022 교육부 업무보고 02">
-							</a></li>
-							<li id="li_2"><a class="small_img_box"> <img
-									class="small_img" id="2"
-									src="${pageContext.request.contextPath}/assets/img/hi_1/003.png"
-									alt="220106_2022 교육부 업무보고 02">
-							</a></li>
-							<li id="li_3"><a class="small_img_box"> <img
-									class="small_img" id="3"
-									src="${pageContext.request.contextPath}/assets/img/hi_1/004.png"
-									alt="220106_2022 교육부 업무보고 02">
-							</a></li>
-							<li id="li_4"><a class="small_img_box"> <img
-									class="small_img" id="4"
-									src="${pageContext.request.contextPath}/assets/img/hi_1/005.png"
-									alt="220106_2022 교육부 업무보고 02">
-							</a></li>
-							<li id="li_5"><a class="small_img_box"> <img
-									class="small_img" id="5"
-									src="${pageContext.request.contextPath}/assets/img/hi_1/006.png"
-									alt="220106_2022 교육부 업무보고 02">
-							</a></li>
-							<li id="li_6"><a class="small_img_box"> <img
-									class="small_img" id="6"
-									src="${pageContext.request.contextPath}/assets/img/hi_1/007.png"
-									alt="220106_2022 교육부 업무보고 02">
-							</a></li>
-							
-
-
+							</c:forEach>
 						</ul>
-
 					</div>
 				</div>
 			</div>
@@ -213,64 +179,32 @@
 		
 
 			<!--모바일 메인 이너-->
-<div class="snu_main_header">2월 HI 사범</div>
+<div class="snu_main_header">${output[0].num}월 HI 사범 </div>
 
-			<div class="" style="width:77%; margin: auto; margin-top:50px;">
+			<div class="" style="width:90%; margin: auto; margin-top:30px;">
 				
-                 <div class="hi_detail_video">
-                     <iframe width="100%" height="500px" src="https://www.youtube.com/watch?v=CTG74d8-FrY&t=247s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                 <div class="hi_detail_video" style="border-radius: 10px;">
+                     <iframe  width="100%" height="180px" src="${output[0].link}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
 
 
-				<div class="photo" style="margin-top:100px;">
+				<div class="photo" style="margin-top:100px; margin-bottom:100px">
 					<div class="head">
 						<img class="main_img" style="width: 100%;"
-							src="${pageContext.request.contextPath}/assets/img/hi_1/001.png" />
+							src="${pageContext.request.contextPath}/assets/img/hi_${output[0].num}/${output[0].photo}" />
 					</div>
 					<a class="prev"> <span>이전</span>
 					</a> <a class="next"> <span>이후</span>
 					</a>
 					<div class="midd">
 						<ul>
-							<li id="li_0"><a class="small_img_box on"> <img
-									class="small_img" id="0"
-									src="${pageContext.request.contextPath}/assets/img/hi_1/001.png" />
+						<c:forEach var="s" items="${output}" varStatus="status">
+							<li id="li_${status.count -1}"><a class="small_img_box on"> <img
+									class="small_img" id="${status.count}"
+									src="${pageContext.request.contextPath}/assets/img/hi_${s.num}/${s.photo}" />
 							</a></li>
-							<li id="li_1"><a class="small_img_box"> <img
-									class="small_img" id="1"
-									src="${pageContext.request.contextPath}/assets/img/hi_1/002.png"
-									alt="220106_2022 교육부 업무보고 02">
-							</a></li>
-							<li id="li_2"><a class="small_img_box"> <img
-									class="small_img" id="2"
-									src="${pageContext.request.contextPath}/assets/img/hi_1/003.png"
-									alt="220106_2022 교육부 업무보고 02">
-							</a></li>
-							<li id="li_3"><a class="small_img_box"> <img
-									class="small_img" id="3"
-									src="${pageContext.request.contextPath}/assets/img/hi_1/004.png"
-									alt="220106_2022 교육부 업무보고 02">
-							</a></li>
-							<li id="li_4"><a class="small_img_box"> <img
-									class="small_img" id="4"
-									src="${pageContext.request.contextPath}/assets/img/hi_1/005.png"
-									alt="220106_2022 교육부 업무보고 02">
-							</a></li>
-							<li id="li_5"><a class="small_img_box"> <img
-									class="small_img" id="5"
-									src="${pageContext.request.contextPath}/assets/img/hi_1/006.png"
-									alt="220106_2022 교육부 업무보고 02">
-							</a></li>
-							<li id="li_6"><a class="small_img_box"> <img
-									class="small_img" id="6"
-									src="${pageContext.request.contextPath}/assets/img/hi_1/007.png"
-									alt="220106_2022 교육부 업무보고 02">
-							</a></li>
-							
-
-
+							</c:forEach>
 						</ul>
-
 					</div>
 				</div>
 			</div>
