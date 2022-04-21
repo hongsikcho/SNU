@@ -16,7 +16,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <title>제41대 사범대학 학생회 늘품(조홍식)(류호수)</title>
 
-<link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-gothic.css" rel="stylesheet">
+<link
+	href="https://hangeul.pstatic.net/hangeul_static/css/nanum-gothic.css"
+	rel="stylesheet">
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/assets/css/snu_main.css" />
 <link rel="stylesheet" type="text/css"
@@ -34,6 +36,11 @@
 
 
 <style type="text/css">
+.main_festive_title {
+	font-weight: bold;
+	text-align: center;
+	margin-top: 15px;
+}
 </style>
 
 </head>
@@ -62,10 +69,14 @@
 
 				</div>
 				<div class="menu">
-					<a class="menus 1" href="${pageContext.request.contextPath}/calendar.do">공실예약하기</a>
-					<a class="menus 2" href="${pageContext.request.contextPath}/loadmap/snu_class_loadmap.do">졸업 로드맵</a>
-					<a class="menus 3" href="${pageContext.request.contextPath}/community/Hi.do">Hi 사범</a>
-					<a class="menus 4" href="${pageContext.request.contextPath}/calendar.do">회의록/안건지</a>
+					<a class="menus 1"
+						href="${pageContext.request.contextPath}/calendar.do">공실예약하기</a> <a
+						class="menus 2"
+						href="${pageContext.request.contextPath}/loadmap/snu_class_loadmap.do">졸업
+						로드맵</a> <a class="menus 3"
+						href="${pageContext.request.contextPath}/community/Hi.do">Hi
+						사범</a> <a class="menus 4"
+						href="${pageContext.request.contextPath}/calendar.do">회의록/안건지</a>
 				</div>
 			</div>
 			<div class="third_box">
@@ -73,10 +84,26 @@
 					<div>이미지이미지이미지</div>
 				</div>
 				<div class="third_right">
-					<a href="${pageContext.request.contextPath}/festive/festive.do" class="third_right_top">홍보게시판</a>
+					<a href="${pageContext.request.contextPath}/festive/festive.do"
+						class="third_right_top">홍보게시판</a>
 					<div class="third_right_bot">
-						<div></div>
-						<div></div>
+
+						<c:forEach var="item" items="${output1}" varStatus="status">
+							<c:set var="title" value="${item.title}" />
+							<c:set var="img" value="${item.img}" />
+							<c:set var="no" value="${item.festiveno}" />
+
+							<div class="main_festive_box">
+								<a href="${pageContext.request.contextPath}/festive/festive_detail.do?festiveno=${no}"> <img style="width: 100%;"
+									src="http://3.138.48.22:8080/upload/${img}" /> <br>
+									<div class="main_festive_title">
+										<span>${title}</span>
+									</div>
+								</a>
+							</div>
+						</c:forEach>
+
+
 
 					</div>
 				</div>
@@ -90,10 +117,21 @@
 					</div>
 				</div>
 				<div class="notice_body">
-					<div class="notice_body_text">1번공지사항</div>
-					<div class="notice_body_text">2번공지사항</div>
-					<div class="notice_body_text">3번공지사항</div>
-					<div class="notice_body_text">4번공지사항</div>
+
+					<c:forEach var="item" items="${output}" varStatus="status">
+
+						<c:set var="title" value="${item.title}" />
+						<c:set var="img" value="${item.img}" />
+						<c:set var="no" value="${item.announceno}" />
+						<c:set var="postdate" value="${item.postdate}" />
+						<c:set var="view" value="${item.view}" />
+						<a
+							href="${pageContext.request.contextPath }/community/announce_detail.do?announceno=${no}">
+							<div class="notice_body_text">${title}</div>
+						</a>
+
+					</c:forEach>
+
 				</div>
 			</div>
 		</div>
@@ -105,7 +143,7 @@
 	</div>
 
 	<!--모바일 -->
-	<div class="snu_mobile_box" style="font-family: 'NanumGothic';">
+	<div class="snu_mobile_box">
 
 		<!-- 모바일 헤더-->
 
@@ -129,10 +167,21 @@
 					</div>
 				</div>
 				<div class="notice_body">
-					<div class="notice_body_text">1번공지사항</div>
-					<div class="notice_body_text">2번공지사항</div>
-					<div class="notice_body_text">3번공지사항</div>
-					<div class="notice_body_text">4번공지사항</div>
+
+					<c:forEach var="item" items="${output}" varStatus="status">
+
+						<c:set var="title" value="${item.title}" />
+						<c:set var="img" value="${item.img}" />
+						<c:set var="no" value="${item.announceno}" />
+						<c:set var="postdate" value="${item.postdate}" />
+						<c:set var="view" value="${item.view}" />
+						<a
+							href="${pageContext.request.contextPath }/community/announce_detail.do?announceno=${no}">
+							<div class="notice_body_text">${title}</div>
+						</a>
+
+					</c:forEach>
+
 				</div>
 			</div>
 

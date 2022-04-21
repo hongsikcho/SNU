@@ -5,6 +5,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -30,25 +31,28 @@
 	href="${pageContext.request.contextPath}/assets/css/mobile_footer.css" />
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/assets/css/style.css" />
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/assets/css/main/pagination.css" />
+
 
 
 <style type="text/css">
-.snu_main_box{
-	margin-bottom:200px;
+.snu_main_box {
+	margin-bottom: 200px;
 }
-.festive_list {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
+
+.festive_list_inner_box {
+	display: inline-block;
+	width: 33%;
+	text-align: center;
 	margin-top: 30px;
 }
 
-.festive_list_inner_img {
-	width: 90%;
-	border: 1px solid #0f0f70;
+.festive_list_inner_box  img {
+	width: 80%;
 }
 
-.festive_list_inner_img img {
+.festive_list_inner_img {
 	width: 100%;
 }
 
@@ -74,6 +78,12 @@
 	margin-top: 20px;
 	border-radius: 5px;
 }
+
+.festive_wrap {
+	margin: 30px 0px;
+}
+
+
 </style>
 
 </head>
@@ -88,65 +98,122 @@
 
 
 		<div class="snu_main_box">
-			<div class="snu_main_header">제목2</div>
 
-			<div class="festive_list">
-				<div class="festive_list_inner_box">
-					<a href="${pageContext.request.contextPath}/festive/festive_detail.do">
-						<div class="festive_list_inner_img">
-							<img
-								src="${pageContext.request.contextPath}/assets/img/festive/festive1.jpg">
-						</div>
-						<div class="festive_list_inner_state">
-							<span>[진행]</span> 1. 첫번째 행사입니다
-						</div>
-					</a>
-				</div>
-				<div class="festive_list_inner_box">
-					<div class="festive_list_inner_img">
-						<img src="${pageContext.request.contextPath}/assets/img/kakao.png">
+			<div class="snu_main_header">홍보게시판</div>
+
+
+			<fmt:parseDate value="${today}" var="strPlanDate"
+				pattern="yyyy-MM-dd" />
+			<fmt:parseNumber value="${strPlanDate.time / (1000*60*60*24)}"
+				integerOnly="true" var="strDate"></fmt:parseNumber>
+
+			<div class="festive_wrap">
+
+				<c:forEach var="item" items="${output}" varStatus="status">
+
+					<c:set var="title" value="${item.title}" />
+					<c:set var="img" value="${item.img}" />
+					<c:set var="no" value="${item.festiveno}" />
+					<c:set var="end_date" value="${item.end_date}" />
+
+					<fmt:parseDate value="${end_date }" var="endPlanDate"
+						pattern="yyyy-MM-dd" />
+					<fmt:parseNumber value="${endPlanDate.time / (1000*60*60*24)}"
+						integerOnly="true" var="endDate"></fmt:parseNumber>
+					<c:set var="DATE" value="${endDate -strDate } " />
+					<fmt:parseNumber var="i" integerOnly="true" type="number"
+						value="${DATE}" />
+					<c:choose>
+						<c:when test="${i<0}">
+							<c:set var="status" value="<span style='color:gray'>[마감]</span>" />
+						</c:when>
+						<c:otherwise>
+							<c:set var="status" value="[진행중]" />
+						</c:otherwise>
+
+					</c:choose>
+
+					<div class="festive_list_inner_box">
+						<a
+							href="${pageContext.request.contextPath}/festive/festive_detail.do?festiveno=${no}">
+							<div class="festive_list_inner_img">
+								<img src="http://3.138.48.22:8080/upload/${img}">
+							</div>
+							<div class="festive_list_inner_state">
+								<span>${status}</span> ${title}
+							</div>
+						</a>
 					</div>
-					<div class="festive_list_inner_state">
-						<span>[진행]</span> 2. 두번째 행사입니다
-					</div>
-				</div>
-				<div class="festive_list_inner_box">
-					<div class="festive_list_inner_img">
-						<img src="${pageContext.request.contextPath}/assets/img/kakao.png">
-					</div>
-					<div class="festive_list_inner_state">
-						<span>[진행]</span> 3. 세번째 행사입니다
-					</div>
-				</div>
+
+				</c:forEach>
 			</div>
 
-			<div class="festive_list">
-				<div class="festive_list_inner_box">
-					<div class="festive_list_inner_img">
-						<img src="${pageContext.request.contextPath}/assets/img/kakao.png">
-					</div>
-					<div class="festive_list_inner_state">
-						<span>[마감]</span> 4. 네번째 행사입니다
-					</div>
-				</div>
-				<div class="festive_list_inner_box">
-					<div class="festive_list_inner_img">
-						<img src="${pageContext.request.contextPath}/assets/img/kakao.png">
-					</div>
-					<div class="festive_list_inner_state">
-						<span>[마감]</span> 5. 다섯번째 행사입니다
-					</div>
-				</div>
-				<div class="festive_list_inner_box">
-					<div class="festive_list_inner_img">
-						<img src="${pageContext.request.contextPath}/assets/img/kakao.png">
-					</div>
-					<div class="festive_list_inner_state">
-						<span>[마감]</span> 6. 여섯번째 행사입니다
-					</div>
-				</div>
+						<div class="paging_box">
+				<ul class="pagination">
+					<c:choose>
+						<c:when test="${pageData.prevPage >0 }">
+							<c:url value="/festive/festive.do" var="prevPageUrl">
+								<c:param name="page" value="${pageData.prevPage }" />
+							</c:url>
+							<li><a href="${prevPageUrl }"><i
+									class="fas fa-angle-left"></i></a></li>
+
+						</c:when>
+						<c:otherwise>
+							<li class="disabled"><a href="#"><i
+									class="fas fa-angle-left"></i></a></li>
+						</c:otherwise>
+
+
+					</c:choose>
+
+					<c:forEach var="i" begin="${pageData.startPage}"
+						end="${pageData.endPage}" varStatus="status">
+						<c:url value="/festive/festive.do" var="pageUrl">
+							<c:param name="page" value="${i}" />
+						</c:url>
+						<c:choose>
+							<c:when test="${pageData.nowPage ==i }">
+								<li class="active"><span style="color:white;">${i}</span></li>
+							</c:when>
+							<c:otherwise>
+								<li><a href="${pageUrl}">${i}</a></li>
+
+							</c:otherwise>
+						</c:choose>
+
+					</c:forEach>
+
+
+					<c:choose>
+						<c:when test="${pageData.nextPage >0 }">
+							<c:url value="/festive/festive.do" var="nextPageUrl">
+								<c:param name="page" value="${pageData.nextPage }" />
+							</c:url>
+							<li><a href="${nextPageUrl }"><i
+									class="fas fa-angle-right"></i></a></li>
+
+						</c:when>
+
+						<c:otherwise>
+
+						</c:otherwise>
+
+
+
+					</c:choose>
+				</ul>
 			</div>
 
+
+
+
+
+			<div>
+				<a
+					href="${pageContext.request.contextPath}/festive/festive_write.do?festiveno=${festiveno}">
+					관리자 게시글 작성 </a>
+			</div>
 		</div>
 
 
@@ -167,81 +234,109 @@
 
 		<div class="snu_mobile_main_box">
 
-			<div class="snu_main_header">제목2</div>
+			<div class="snu_main_header">홍보게시판</div>
+
 
 			<!--모바일 메인 이너-->
 
-			<div>
-				<div class="festive_list">
-					<div class="festive_list_inner_box">
-						<a href="#">
+			<div class="festive_wrap">
+
+				<c:forEach var="item" items="${output}" varStatus="status">
+					<c:set var="title" value="${item.title}" />
+					<c:set var="img" value="${item.img}" />
+					<c:set var="no" value="${item.festiveno}" />
+					<c:set var="end_date" value="${item.end_date}" />
+
+					<fmt:parseDate value="${end_date }" var="endPlanDate"
+						pattern="yyyy-MM-dd" />
+					<fmt:parseNumber value="${endPlanDate.time / (1000*60*60*24)}"
+						integerOnly="true" var="endDate"></fmt:parseNumber>
+					<c:set var="DATE" value="${endDate -strDate } " />
+					<fmt:parseNumber var="i" integerOnly="true" type="number"
+						value="${DATE}" />
+					<c:choose>
+						<c:when test="${i<0}">
+							<c:set var="status" value="<span style='color:gray'>[마감]</span>" />
+						</c:when>
+						<c:otherwise>
+							<c:set var="status" value="[진행중]" />
+						</c:otherwise>
+
+					</c:choose>
+
+					<div class="festive_list_inner_box" style="width: 100%;">
+						<a
+							href="${pageContext.request.contextPath}/festive/festive_detail.do?festiveno=${no}">
 							<div class="festive_list_inner_img">
-								<img
-									src="${pageContext.request.contextPath}/assets/img/kakao.png">
+								<img src="http://3.138.48.22:8080/upload/${img}">
 							</div>
 							<div class="festive_list_inner_state">
-								<span>[진행]</span><br> 1. 첫번째 행사입니다
+								<span>${status}</span><br> ${title}
 							</div>
 						</a>
 					</div>
-					<div class="festive_list_inner_box">
-						<div class="festive_list_inner_img">
-							<img
-								src="${pageContext.request.contextPath}/assets/img/kakao.png">
-						</div>
-						<div class="festive_list_inner_state">
-							<span>[진행]</span> <br>2. 두번째 행사입니다
-						</div>
-					</div>
 
-				</div>
-
-				<div class="festive_list">
-					<div class="festive_list_inner_box">
-						<div class="festive_list_inner_img">
-							<img
-								src="${pageContext.request.contextPath}/assets/img/kakao.png">
-						</div>
-						<div class="festive_list_inner_state">
-							<span>[마감]</span><br> 3. 세t번째 행사입니다
-						</div>
-					</div>
-					<div class="festive_list_inner_box">
-						<div class="festive_list_inner_img">
-							<img
-								src="${pageContext.request.contextPath}/assets/img/kakao.png">
-						</div>
-						<div class="festive_list_inner_state">
-							<span>[마감]</span> <br> 4. 네섯번째 행사입니다
-						</div>
-					</div>
-
-				</div>
-
-				<div class="festive_list">
-					<div class="festive_list_inner_box">
-						<div class="festive_list_inner_img">
-							<img
-								src="${pageContext.request.contextPath}/assets/img/kakao.png">
-						</div>
-						<div class="festive_list_inner_state">
-							<span>[마감]</span> <br>5. 다섯번째 행사입니다
-						</div>
-					</div>
-					<div class="festive_list_inner_box">
-						<div class="festive_list_inner_img">
-							<img
-								src="${pageContext.request.contextPath}/assets/img/kakao.png">
-						</div>
-						<div class="festive_list_inner_state">
-							<span>[마감]</span> <br>6. 여섯번째 행사입니다
-						</div>
-					</div>
-
-				</div>
-
-
+				</c:forEach>
 			</div>
+
+			<div class="paging_box ">
+				<ul class="pagination">
+					<c:choose>
+						<c:when test="${pageData.prevPage >0 }">
+							<c:url value="/festive/festive.do" var="prevPageUrl">
+								<c:param name="page" value="${pageData.prevPage }" />
+							</c:url>
+							<li><a href="${prevPageUrl }"><i
+									class="fas fa-angle-left"></i></a></li>
+
+						</c:when>
+						<c:otherwise>
+							<li class="disabled"><a href="#"><i
+									class="fas fa-angle-left"></i></a></li>
+						</c:otherwise>
+
+
+					</c:choose>
+
+					<c:forEach var="i" begin="${pageData.startPage}"
+						end="${pageData.endPage}" varStatus="status">
+						<c:url value="/festive/festive.do" var="pageUrl">
+							<c:param name="page" value="${i}" />
+						</c:url>
+						<c:choose>
+							<c:when test="${pageData.nowPage ==i }">
+								<li class="active"><span style="color:white;">${i}</span></li>
+							</c:when>
+							<c:otherwise>
+								<li><a href="${pageUrl}">${i}</a></li>
+
+							</c:otherwise>
+						</c:choose>
+
+					</c:forEach>
+
+
+					<c:choose>
+						<c:when test="${pageData.nextPage >0 }">
+							<c:url value="/festive/festive.do" var="nextPageUrl">
+								<c:param name="page" value="${pageData.nextPage }" />
+							</c:url>
+							<li><a href="${nextPageUrl }"><i
+									class="fas fa-angle-right"></i></a></li>
+
+						</c:when>
+
+						<c:otherwise>
+
+						</c:otherwise>
+
+
+
+					</c:choose>
+				</ul>
+			</div>
+
+
 			<!--모바일 메인 이너 끝-->
 
 		</div>
