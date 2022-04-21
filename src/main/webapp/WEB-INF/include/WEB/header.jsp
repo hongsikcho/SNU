@@ -123,7 +123,7 @@ font-family: 'NanumGothic';
 
 	<div class="snu_tab_menu">
 		<div class="snu_tab_btn">
-			<a href="${pageContext.request.contextPath}/festive/festive.do">홍보 게시판</a>
+			<a href="${pageContext.request.contextPath}/festive/festive.do">홍보게시판</a>
 		</div>
 
 	</div>
