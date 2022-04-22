@@ -56,14 +56,47 @@ public class CommunityController {
 	String contextPath;
 
 	@RequestMapping(value = "community/Q&A.do", method = RequestMethod.GET)
-	public String QandA(Locale locale, Model model) {
+	public String QandA(Locale locale, Model model, @RequestParam(value = "page", defaultValue = "1") int nowPage) {
+		Community input = new Community(); 
 		List<Community> output = null;
+		
+		Community output1 = null;
 		try {
 			output = communityService.selectList();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		int totalCount = 0;
+		int listCount = 10;
+		int pageCount = 5;
+		PageData pageData = null;
+
+		try {
+			totalCount = communityService.getCommunityCount();
+			pageData = new PageData(nowPage, totalCount, listCount, pageCount);
+			Community.setOffset(pageData.getOffset());
+			Community.setListCount(pageData.getListCount());
+
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+
+		try {
+			output = communityService.selectlist(input);
+			output1 = communityService.selectone();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		model.addAttribute("communityno", output1.getPostno() + 1);
+		model.addAttribute("output", output);
+
+		model.addAttribute("pageData", pageData);
+
 		model.addAttribute("output", output);
 		return "community/Q&A";
 	}
@@ -164,7 +197,7 @@ public class CommunityController {
 	public String announce(Locale locale, Model model, @RequestParam(value = "page", defaultValue = "1") int nowPage) {
 
 		int totalCount = 0;
-		int listCount = 10;
+		int listCount = 1;
 		int pageCount = 5;
 		PageData pageData = null;
 
