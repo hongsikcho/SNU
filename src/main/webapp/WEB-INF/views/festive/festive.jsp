@@ -98,10 +98,7 @@
 
 
 		<div class="snu_main_box">
-
 			<div class="snu_main_header">홍보게시판</div>
-
-
 			<fmt:parseDate value="${today}" var="strPlanDate"
 				pattern="yyyy-MM-dd" />
 			<fmt:parseNumber value="${strPlanDate.time / (1000*60*60*24)}"
