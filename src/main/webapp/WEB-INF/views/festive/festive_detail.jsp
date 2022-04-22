@@ -125,9 +125,6 @@
 		<fmt:parseDate value="${today}" var="strPlanDate" pattern="yyyy-MM-dd" />
 		<fmt:parseNumber value="${strPlanDate.time / (1000*60*60*24)}"
 			integerOnly="true" var="strDate"></fmt:parseNumber>
-
-
-
 		<fmt:parseDate value="${output.end_date }" var="endPlanDate"
 			pattern="yyyy-MM-dd" />
 		<fmt:parseNumber value="${endPlanDate.time / (1000*60*60*24)}"
@@ -145,7 +142,6 @@
 			</c:otherwise>
 
 		</c:choose>
-
 		<div class="snu_main_box">
 			<div class="snu_main_header">${status }${ output.title }</div>
 			<div class="" style="width: 70%; margin: auto;">
@@ -173,20 +169,13 @@
 										src="http://3.138.48.22:8080/upload/${img}" />
 								</a></li>
 							</c:forEach>
-
 						</ul>
-
 					</div>
 				</div>
-
 				<div class="festive_main_text"
 					style="width: 100%; margin: 60px 0px;">${output.text}</div>
 			</div>
-
-
-
 		</div>
-
 
 
 		<%@ include file="../../include/WEB/footer.jsp"%>
@@ -196,16 +185,69 @@
 
 	<!--모바일 -->
 	<div class="snu_mobile_box">
-
 		<!-- 모바일 헤더-->
 
 		<%@ include file="../../include/MOBILE/header.jsp"%>
 		<%@ include file="../../include/MOBILE/tab.jsp"%>
 		<!--모바일 컨텐츠 박스-->
+		<fmt:parseDate value="${today}" var="strPlanDate" pattern="yyyy-MM-dd" />
+		<fmt:parseNumber value="${strPlanDate.time / (1000*60*60*24)}"
+			integerOnly="true" var="strDate"></fmt:parseNumber>
 
+
+
+		<fmt:parseDate value="${output.end_date }" var="endPlanDate"
+			pattern="yyyy-MM-dd" />
+		<fmt:parseNumber value="${endPlanDate.time / (1000*60*60*24)}"
+			integerOnly="true" var="endDate"></fmt:parseNumber>
+		<c:set var="DATE" value="${endDate -strDate } " />
+		<fmt:parseNumber var="i" integerOnly="true" type="number"
+			value="${DATE}" />
+		<c:choose>
+			<c:when test="${i<0}">
+				<c:set var="status" value="<span style='color:gray'>[마감] </span>" />
+			</c:when>
+			<c:otherwise>
+				<c:set var="status"
+					value="<span style='color:#0f0f70'>[진행중] </span>" />
+			</c:otherwise>
+
+		</c:choose>
 		<div class="snu_mobile_main_box">
 
-			<div class="snu_main_header">[진행] ${output.title }</div>
+			<div class="snu_main_header">${status}${ output.title }</div>
+			<div class="">
+
+				<div style="width: 70%; margin: auto; margin-top: 30px">
+					<div style="position: relative;">
+						<img class="main_img" style="width: 100%;"
+							src="http://3.138.48.22:8080/upload/${output.img}" /> <a
+							class="prev" style="left:-20%; bottom:40%;"> <span>이전</span>
+						</a> <a class="next" style="right:-20%; bottom:40%;"> <span>이후</span>
+						</a>
+						<ul style="display: none;">
+							<li id="li_0"><a class="small_img_box on"> <img
+									class="small_img" id="0"
+									src="http://3.138.48.22:8080/upload/${output.img}" />
+							</a></li>
+
+							<c:forEach var="item" items="${imgoutput}" varStatus="status">
+								<c:set var="img" value="${item.img}" />
+								<c:set var="num" value="${num+1}" />
+								<li id="li_${num}"><a class="small_img_box"> <img
+										class="small_img" id="${num}"
+										src="http://3.138.48.22:8080/upload/${img}" />
+								</a></li>
+							</c:forEach>
+						</ul>
+
+					</div>
+				</div>
+
+				<div class="festive_main_text"
+					style="width: 100%; margin: 60px 0px;">${output.text}</div>
+			</div>
+
 
 			<!--모바일 메인 이너-->
 
@@ -226,103 +268,112 @@
 
 	<script src="https://kit.fontawesome.com/695be3a17b.js"
 		crossorigin="anonymous"></script>
-	<script
-		src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
-	<script src="${pageContext.request.contextPath}/assets/js/style.js"></script>
+	
 	<script
 		src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
 	<script src="${pageContext.request.contextPath}/assets/js/style.js"></script>
 
 	<script>
-		$(window).load(function() {
-			var width_sum = 0;
-			var width = $(".midd").width();
-			var overflow = 0;
-			var move_distance = 0;
-			var first_index = 0;
-			var last_index = parseInt($(".midd ul li:last img").attr("id"));
-			for (var i = 0; i <= last_index; i++) {
-				width_sum += $("#li_" + i).outerWidth(true);
-				if (width_sum > width) {
-					overflow = i;
-					break;
-				}
-			}
-			console.log(width_sum);
-			console.log(width);
-			console.log(overflow);
-			$(".next").click(function() {
-				var index = parseInt($(".on").find(".small_img").attr("id")) + 1;
-				if (index <= last_index) {
-					if (overflow == 0) {
-						slide(index);
-					} else {
-						slide(index);
-						if (index >= overflow) {
-							move_distance += $("#li_" + index).outerWidth(true);
-							$(".midd ul").animate({
-								left : "-" + move_distance + "px"
-							}, 200);
-						} else {
-							move_distance = 0;
-							$(".midd ul").animate({
-								left : "0px"
-							}, 200);
+		$(window).load(
+				function() {
+					var width_sum = 0;
+					var width = $(".midd").width();
+					var overflow = 0;
+					var move_distance = 0;
+					var first_index = 0;
+					var last_index = parseInt($(".midd ul li:last img").attr(
+							"id"));
+					for (var i = 0; i <= last_index; i++) {
+						width_sum += $("#li_" + i).outerWidth(true);
+						if (width_sum > width) {
+							overflow = i;
+							break;
 						}
 					}
-				}
-				console.log(move_distance);
-			});
-			$(".prev").click(function() {
-				var index = parseInt($(".on").find(".small_img").attr("id")) - 1;
-				if (index >= first_index) {
-					slide(index);
-					if (index >= overflow) {
-						move_distance -= $("#li_" + index).outerWidth(true);
-						$(".midd ul").animate({
-							left : "-" + move_distance + "px"
-						}, 200);
-					} else {
-						move_distance = 0;
-						$(".midd ul").animate({
-							left : "0px"
-						}, 200);
+					console.log(width_sum);
+					console.log(width);
+					console.log(overflow);
+					$(".next").click(
+							function() {
+								var index = parseInt($(".on")
+										.find(".small_img").attr("id")) + 1;
+								if (index <= last_index) {
+									if (overflow == 0) {
+										slide(index);
+									} else {
+										slide(index);
+										if (index >= overflow) {
+											move_distance += $("#li_" + index)
+													.outerWidth(true);
+											$(".midd ul").animate(
+													{
+														left : "-"
+																+ move_distance
+																+ "px"
+													}, 200);
+										} else {
+											move_distance = 0;
+											$(".midd ul").animate({
+												left : "0px"
+											}, 200);
+										}
+									}
+								}
+							
+							});
+					$(".prev").click(
+							function() {
+								var index = parseInt($(".on")
+										.find(".small_img").attr("id")) - 1;
+								if (index >= first_index) {
+									slide(index);
+									if (index >= overflow) {
+										move_distance -= $("#li_" + index)
+												.outerWidth(true);
+										$(".midd ul").animate({
+											left : "-" + move_distance + "px"
+										}, 200);
+									} else {
+										move_distance = 0;
+										$(".midd ul").animate({
+											left : "0px"
+										}, 200);
+									}
+								}
+						
+							});
+					function slide(index) {
+						$(".small_img_box").removeClass("on");
+						$("#" + index).parent(".small_img_box").addClass("on");
+						var src = $(".on").find(".small_img").attr("src");
+						$(".main_img").attr("src", src);
 					}
-				}
-				console.log(move_distance);
-			});
-			function slide(index) {
-				$(".small_img_box").removeClass("on");
-				$("#" + index).parent(".small_img_box").addClass("on");
-				var src = $(".on").find(".small_img").attr("src");
-				$(".main_img").attr("src", src);
-			}
-			$(".small_img_box").click(function() {
-				move_distance = 0;
-				$(".small_img_box").removeClass("on");
-				$(this).addClass("on");
-				var index = parseInt($(this).find(".small_img").attr("id"));
-				slide(index);
-				if (index >= overflow && overflow != 0) {
-					for (var i = overflow; i <= index; i++) {
-						move_distance += $("#li_" + i).outerWidth(true);
-					}
-					$(".midd ul").animate({
-						left : "-" + move_distance + "px"
-					}, 200);
-				} else {
-					$(".midd ul").animate({
-						left : "0px"
-					}, 200);
-				}
-				console.log(move_distance);
-				console.log(index);
-				console.log(overflow);
-			});
-		});
-		
-	
-		
+					$(".small_img_box").click(
+							function() {
+								move_distance = 0;
+								$(".small_img_box").removeClass("on");
+								$(this).addClass("on");
+								var index = parseInt($(this).find(".small_img")
+										.attr("id"));
+								slide(index);
+								if (index >= overflow && overflow != 0) {
+									for (var i = overflow; i <= index; i++) {
+										move_distance += $("#li_" + i)
+												.outerWidth(true);
+									}
+									$(".midd ul").animate({
+										left : "-" + move_distance + "px"
+									}, 200);
+								} else {
+									$(".midd ul").animate({
+										left : "0px"
+									}, 200);
+								}
+							
+							});
+					//모바일 버튼
+
+				});
 	</script>
 
 
