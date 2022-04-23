@@ -93,7 +93,6 @@ public class CommunityController {
 			e.printStackTrace();
 		}
 		model.addAttribute("communityno", output1.getPostno() + 1);
-		model.addAttribute("output", output);
 
 		model.addAttribute("pageData", pageData);
 
