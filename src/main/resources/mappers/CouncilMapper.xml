@@ -20,6 +20,8 @@
 		<result property="bnum" column="bnum" />
 		<result property="bnum_for" column="bnum_for" />
 		<result property="busin" column="busin" />
+		<result property="link" column="link"/>
+		<result property="linkname" column="linkname"/>
 	</resultMap>
 
 
