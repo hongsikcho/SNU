@@ -240,6 +240,8 @@
 								</a></li>
 							</c:forEach>
 						</ul>
+						<div class="mobile_img_page" style="text-align:center;">
+						</div>
 
 					</div>
 				</div>
@@ -290,6 +292,7 @@
 							break;
 						}
 					}
+					$(".mobile_img_page").html(1+"/"+(last_index+1));
 					console.log(width_sum);
 					console.log(width);
 					console.log(overflow);
@@ -342,13 +345,13 @@
 								}
 						
 							});
-					function slide(index) {
+					function slide(index){
 						$(".small_img_box").removeClass("on");
 						$("#" + index).parent(".small_img_box").addClass("on");
 						var src = $(".on").find(".small_img").attr("src");
 						$(".main_img").attr("src", src);
-					}
-					$(".small_img_box").click(
+						$(".mobile_img_page").html(index+1+"/"+(last_index+1));
+					}					$(".small_img_box").click(
 							function() {
 								move_distance = 0;
 								$(".small_img_box").removeClass("on");

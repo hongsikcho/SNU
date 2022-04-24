@@ -82,8 +82,6 @@
 .festive_wrap {
 	margin: 30px 0px;
 }
-
-
 </style>
 
 </head>
@@ -145,7 +143,7 @@
 				</c:forEach>
 			</div>
 
-						<div class="paging_box">
+			<div class="paging_box">
 				<ul class="pagination">
 					<c:choose>
 						<c:when test="${pageData.prevPage >0 }">
@@ -171,7 +169,7 @@
 						</c:url>
 						<c:choose>
 							<c:when test="${pageData.nowPage ==i }">
-								<li class="active"><span style="color:white;">${i}</span></li>
+								<li class="active"><span style="color: white;">${i}</span></li>
 							</c:when>
 							<c:otherwise>
 								<li><a href="${pageUrl}">${i}</a></li>
@@ -201,16 +199,16 @@
 					</c:choose>
 				</ul>
 			</div>
+			<c:if test="${member !=null }">
+				<c:if test="${member.name eq '관리자' }">
+					<div>
+						<a
+							href="${pageContext.request.contextPath}/festive/festive_write.do?festiveno=${festiveno}">
+							관리자 게시글 작성 </a>
+					</div>
+				</c:if>
+			</c:if>
 
-
-
-
-
-			<div>
-				<a
-					href="${pageContext.request.contextPath}/festive/festive_write.do?festiveno=${festiveno}">
-					관리자 게시글 작성 </a>
-			</div>
 		</div>
 
 
@@ -302,7 +300,7 @@
 						</c:url>
 						<c:choose>
 							<c:when test="${pageData.nowPage ==i }">
-								<li class="active"><span style="color:white;">${i}</span></li>
+								<li class="active"><span style="color: white;">${i}</span></li>
 							</c:when>
 							<c:otherwise>
 								<li><a href="${pageUrl}">${i}</a></li>
