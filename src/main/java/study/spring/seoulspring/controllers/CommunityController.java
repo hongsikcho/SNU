@@ -196,7 +196,7 @@ public class CommunityController {
 	public String announce(Locale locale, Model model, @RequestParam(value = "page", defaultValue = "1") int nowPage) {
 
 		int totalCount = 0;
-		int listCount = 1;
+		int listCount = 9;
 		int pageCount = 5;
 		PageData pageData = null;
 
