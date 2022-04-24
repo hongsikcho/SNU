@@ -41,17 +41,26 @@
 	text-align: center;
 	margin-top: 15px;
 }
-@media(max-width:900px){
- .menu{
- display:flex;
- flex-direction:column;
- align-items:center;
- }
- .menu > a{
- margin:13px;
- width:100%;
- height:60px;
- }
+
+@media ( max-width :900px) {
+	.menu {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.menu>a {
+		margin: 13px;
+		width: 100%;
+		height: 60px;
+	}
+}
+
+.pr_body {
+	display: block;
+}
+
+.pr_body_first {
+	margin-top: 20px;
 }
 </style>
 
@@ -77,7 +86,7 @@
 		<div class="second_page">
 			<div class="second_box">
 				<div class="onclick" style="border-bottom: 2px solid #0f0f70;">
-					<div class="button" style="padding-bottom:3px;">바로가기</div>
+					<div class="button" style="padding-bottom: 3px;">바로가기</div>
 
 				</div>
 				<div class="menu">
@@ -94,7 +103,8 @@
 			<div class="third_box">
 				<div class="third_right">
 					<div href="${pageContext.request.contextPath}/festive/festive.do"
-						class="third_right_top" style="padding-bottom:5px; .main_box: font-family: 'NanumGothic'; font-weight:bold;">홍보게시판</div>
+						class="third_right_top"
+						style="padding-bottom: 5px; . main_box: font-family: 'NanumGothic'; font-weight: bold;">홍보게시판</div>
 					<div class="third_right_bot">
 
 						<c:forEach var="item" items="${output1}" varStatus="status">
@@ -123,7 +133,8 @@
 			<div class="notice">
 				<div class="notice_header">
 					<div class="notice_header_title">공지사항</div>
-					<a class="notice_header_more" href="${pageContext.request.contextPath}/community/announce.do">
+					<a class="notice_header_more"
+						href="${pageContext.request.contextPath}/community/announce.do">
 						더보기<i class="fas fa-chevron-right"></i>
 					</a>
 				</div>
@@ -138,7 +149,8 @@
 						<c:set var="view" value="${item.view}" />
 						<a
 							href="${pageContext.request.contextPath }/community/announce_detail.do?announceno=${no}">
-							<div class="notice_body_text" style="margin:0px 0 0 5px; padding-bottom:10px;">${title}</div>
+							<div class="notice_body_text"
+								style="margin: 0px 0 0 5px; padding-bottom: 10px;">${title}</div>
 						</a>
 
 					</c:forEach>
@@ -171,9 +183,10 @@
 		</div>
 		<div class="middle">
 			<div class="notice">
-				<div class="notice_header" style="margin-top:30px;">
-					<div class="notice_header_title" >공지사항</div>
-					<a class="notice_header_more" href="${pageContext.request.contextPath}/community/announce.do">
+				<div class="notice_header" style="margin-top: 30px;">
+					<div class="notice_header_title">공지사항</div>
+					<a class="notice_header_more"
+						href="${pageContext.request.contextPath}/community/announce.do">
 						더보기<i class="fas fa-chevron-right"></i>
 					</a>
 				</div>
@@ -188,7 +201,8 @@
 						<c:set var="view" value="${item.view}" />
 						<a
 							href="${pageContext.request.contextPath }/community/announce_detail.do?announceno=${no}">
-							<div class="notice_body_text" style="margin:3px 0 0 1px; padding:3px 0 0 5px;">${title}</div>
+							<div class="notice_body_text"
+								style="margin: 3px 0 0 1px; padding: 3px 0 0 5px;">${title}</div>
 						</a>
 
 					</c:forEach>
@@ -196,45 +210,42 @@
 				</div>
 			</div>
 
-			<div class="onclick_m">
-				<div class="card_news">
-					<div class="card_news_header" style="margin-top:50px;">
-						<div class="notice_header_title">카드뉴스</div>
-					</div>
-					<div class="card_news_body">
-						<img src="assets/img/kakao.png">
-					</div>
-				</div>
-			</div>
 			<div class="pr">
 				<div class="pr_header">
 					<div class="pr_header_title">홍보게시판</div>
-					
+
 				</div>
 				<div class="pr_body">
-					<div class="pr_body_first">
-						<div class="pr_body_photo">
-							<img src="assets/img/everytime.png" alt="">
-						</div>
-						<div class="pr_body_text">[진행]겨울사만 신청</div>
-					</div>
-					<div class="pr_body_second">
-						<div class="pr_body_photo">
-							<img src="assets/img/everytime.png" alt="">
-						</div>
-						<div class="pr_body_text">사범대 새터</div>
-					</div>
+
+
+					<c:forEach var="item" items="${output1}" varStatus="status">
+						<c:set var="title" value="${item.title}" />
+						<c:set var="img" value="${item.img}" />
+						<c:set var="no" value="${item.festiveno}" />
+
+						<a
+							href="${pageContext.request.contextPath}/festive/festive_detail.do?festiveno=${no}">
+							<div class="pr_body_first">
+								<div class="pr_body_photo">
+									<img src="http://3.138.48.22:8080/upload/${img}" alt="">
+								</div>
+								<div class="pr_body_text">${title}</div>
+							</div>
+						</a>
+
+					</c:forEach>
+
+
 				</div>
 			</div>
 
 
 			<div class="menu">
 				<a class="menus 1"
-					href="${pageContext.request.contextPath}/calendar.do">공실예약하기</a>
-				<a class="menus 2"
+					href="${pageContext.request.contextPath}/calendar.do">공실예약하기</a> <a
+					class="menus 2"
 					href="${pageContext.request.contextPath}/loadmap/snu_class_loadmap.do">졸업
-					로드맵</a> 
-				<a class="menus 3"
+					로드맵</a> <a class="menus 3"
 					href="${pageContext.request.contextPath}/community/Hi.do">Hi 사범</a>
 				<a class="menus 4"
 					href="https://drive.google.com/drive/folders/178bXKJbEItgUvkZXd1_u4L3EMwgtdaTj?usp=sharing">회의록/안건지</a>

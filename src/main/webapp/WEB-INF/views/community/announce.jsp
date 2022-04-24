@@ -32,6 +32,8 @@
 	href="${pageContext.request.contextPath}/assets/css/style.css" />
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/notice.css">
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/assets/css/main/pagination.css" />
 
 
 <style type="text/css">
@@ -93,20 +95,25 @@
 
 			</div>
 
-			<div class="paging_box">
+			<div class="paging_box ">
 				<ul class="pagination">
 					<c:choose>
 						<c:when test="${pageData.prevPage >0 }">
 							<c:url value="/community/announce.do" var="prevPageUrl">
 								<c:param name="page" value="${pageData.prevPage }" />
 							</c:url>
-							<a href="${prevPageUrl }">[이전]</a>
+							<li><a href="${prevPageUrl }"><i
+									class="fas fa-angle-left"></i></a></li>
 
 						</c:when>
 						<c:otherwise>
-						[이전]
+							<li class="disabled"><a href="#"><i
+									class="fas fa-angle-left"></i></a></li>
 						</c:otherwise>
+
+
 					</c:choose>
+
 					<c:forEach var="i" begin="${pageData.startPage}"
 						end="${pageData.endPage}" varStatus="status">
 						<c:url value="/community/announce.do" var="pageUrl">
@@ -114,27 +121,37 @@
 						</c:url>
 						<c:choose>
 							<c:when test="${pageData.nowPage ==i }">
-								<strong>[${i}]</strong>
+								<li class="active"><span style="color: white;">${i}</span></li>
 							</c:when>
 							<c:otherwise>
-								<a href="${pageUrl}">[${i}]</a>
+								<li><a href="${pageUrl}">${i}</a></li>
 
 							</c:otherwise>
 						</c:choose>
+
 					</c:forEach>
+
+
 					<c:choose>
 						<c:when test="${pageData.nextPage >0 }">
 							<c:url value="/community/announce.do" var="nextPageUrl">
 								<c:param name="page" value="${pageData.nextPage }" />
 							</c:url>
-							<a href="${nextPageUrl }">[다음]</a>
+							<li><a href="${nextPageUrl }"><i
+									class="fas fa-angle-right"></i></a></li>
+
 						</c:when>
+
 						<c:otherwise>
-						[다음]
+
 						</c:otherwise>
+
+
+
 					</c:choose>
 				</ul>
 			</div>
+
 
 			<c:if test="${member !=null }">
 				<c:if test="${member.name eq '관리자' }">
@@ -204,21 +221,25 @@
 					href="${pageContext.request.contextPath}/community/announce_write.do?announceno=${announceno}">글쓰기</a>
 			</div>
 
-
-			<div class="paging_box">
+			<div class="paging_box ">
 				<ul class="pagination">
 					<c:choose>
 						<c:when test="${pageData.prevPage >0 }">
 							<c:url value="/community/announce.do" var="prevPageUrl">
 								<c:param name="page" value="${pageData.prevPage }" />
 							</c:url>
-							<a href="${prevPageUrl }">[이전]</a>
+							<li><a href="${prevPageUrl }"><i
+									class="fas fa-angle-left"></i></a></li>
 
 						</c:when>
 						<c:otherwise>
-						[이전]
+							<li class="disabled"><a href="#"><i
+									class="fas fa-angle-left"></i></a></li>
 						</c:otherwise>
+
+
 					</c:choose>
+
 					<c:forEach var="i" begin="${pageData.startPage}"
 						end="${pageData.endPage}" varStatus="status">
 						<c:url value="/community/announce.do" var="pageUrl">
@@ -226,27 +247,39 @@
 						</c:url>
 						<c:choose>
 							<c:when test="${pageData.nowPage ==i }">
-								<strong>[${i}]</strong>
+								<li class="active"><span style="color: white;">${i}</span></li>
 							</c:when>
 							<c:otherwise>
-								<a href="${pageUrl}">[${i}]</a>
+								<li><a href="${pageUrl}">${i}</a></li>
 
 							</c:otherwise>
 						</c:choose>
+
 					</c:forEach>
+
+
 					<c:choose>
 						<c:when test="${pageData.nextPage >0 }">
 							<c:url value="/community/announce.do" var="nextPageUrl">
 								<c:param name="page" value="${pageData.nextPage }" />
 							</c:url>
-							<a href="${nextPageUrl }">[다음]</a>
+							<li><a href="${nextPageUrl }"><i
+									class="fas fa-angle-right"></i></a></li>
+
 						</c:when>
+
 						<c:otherwise>
-						[다음]
+
 						</c:otherwise>
+
+
+
 					</c:choose>
 				</ul>
 			</div>
+
+
+
 		</div>
 
 
