@@ -77,7 +77,8 @@
 					src="${pageContext.request.contextPath}/assets/img/snu_logo.png" />
 			</div>
 
-			<form class="qna_write_form" method="post" enctype="multipart/form-data"
+			<form class="qna_write_form" method="post"
+				enctype="multipart/form-data"
 				action="${pageContext.request.contextPath }/festive/festive_insert.do">
 
 				<div style="margin-top: 30px;">
@@ -89,14 +90,14 @@
 					<textarea id="content" name="text"
 						style="width: 100%; height: 400px; padding: 10px 5px; font-size: 20px;"
 						placeholder="내용을 입력해 주세요...."></textarea>
-					<label for="thumbnail"> 썸네일 이미지</label>
-					<input type="file" name="thumbnail" />
-					<br><br><br>
-					<label for="file"> 나머지 이미지</label><input multiple="multiple" type="file" name="file" />
-					
-					<input type="date" name="end_date"/> 
-					<input type="hidden" name="festiveno" value="${festiveno}" />
-					
+					<label for="thumbnail"> 썸네일 이미지</label> <input type="file"
+						name="thumbnail" /> <br>
+					<br>
+					<br> <label for="file"> 나머지 이미지</label><input
+						multiple="multiple" type="file" name="file" /> <input type="date"
+						name="end_date" /> <input type="hidden" name="festiveno"
+						value="${festiveno}" />
+
 				</div>
 				<div class="snu_qna_write_box">
 					<button class="snu_qna_write_btn">글쓰기</button>
@@ -188,7 +189,10 @@
 	</script>
 	<script src="${pageContext.request.contextPath}/assets/js/regex.js"></script>
 	<script>
-		
+
+		if(${member.name != "관리자"} ){
+			window.location.href = '${pageContext.request.contextPath}/festive/festive.do';
+		}
 	</script>
 
 

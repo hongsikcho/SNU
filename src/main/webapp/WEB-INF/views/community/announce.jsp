@@ -136,10 +136,16 @@
 				</ul>
 			</div>
 
-			<div class="snu_qna_write_box">
-				<a class="snu_qna_write_btn"
-					href="${pageContext.request.contextPath}/community/announce_write.do?announceno=${announceno}">글쓰기</a>
-			</div>
+			<c:if test="${member !=null }">
+				<c:if test="${member.name eq '관리자' }">
+
+					<div class="snu_qna_write_box">
+						<a class="snu_qna_write_btn"
+							href="${pageContext.request.contextPath}/community/announce_write.do?announceno=${announceno}">글쓰기</a>
+					</div>
+
+				</c:if>
+			</c:if>
 
 		</div>
 
@@ -192,13 +198,13 @@
 
 			</div>
 
-			
+
 			<div class="snu_qna_write_box">
 				<a class="snu_qna_write_btn"
 					href="${pageContext.request.contextPath}/community/announce_write.do?announceno=${announceno}">글쓰기</a>
 			</div>
-			
-			
+
+
 			<div class="paging_box">
 				<ul class="pagination">
 					<c:choose>

@@ -185,7 +185,11 @@
 	</script>
 	<script src="${pageContext.request.contextPath}/assets/js/regex.js"></script>
 	<script>
-		
+	if(${member.name != "관리자"} ){
+		window.location.href = '${pageContext.request.contextPath}/announce/announce.do';
+	}
+	
+
 	</script>
 
 
