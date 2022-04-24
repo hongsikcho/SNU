@@ -152,8 +152,11 @@
     </div>
 
     <script src="https://kit.fontawesome.com/6478f529f2.js" crossorigin="anonymous"></script>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/style.js"> </script>
+    <script
+		src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/style.js">
+		
+	</script>
    
 
 </body>

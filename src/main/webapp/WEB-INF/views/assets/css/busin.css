@@ -47,6 +47,8 @@
   border: 2px solid #0f0f70;
   border-radius: 10px;
   padding: 11px;
+  color: rgba(0, 0, 0, 0.9);
+  line-height: 30px;
 }
 .fas {
   font-size: large;

@@ -97,6 +97,7 @@
 /*모바일 박스*/
 .snu_mobile_main_box .snu_qna_content {
 	font-size: 11px;
+	width:100%;
 }
 
 .snu_mobile_qna_content {
@@ -219,9 +220,7 @@
 						</c:choose>
 					</c:forEach>
 					<div class="snu_qna_write_box">
-						<a
-							href="${pageContext.request.contextPath}/community/Q&A_write.do"
-							class="snu_qna_write_btn">글쓰기</a>
+						<a class="qna_read_btn snu_qna_write_btn">글쓰기</a>
 					</div>
 
 
@@ -355,14 +354,12 @@
 
 
 			<div class="snu_qna_write_box">
-				<a href="${pageContext.request.contextPath}/community/Q&A_write.do"
-					class="snu_qna_write_btn">글쓰기</a>
+				<a class="qna_read_btn snu_qna_write_btn">글쓰기</a>
 			</div>
 
 		</div>
-
+	<%@ include file="../../include/MOBILE/footer.jsp"%>
 		<!--모바일 footer-->
-		<%@ include file="../../include/MOBILE/footer.jsp"%>
 
 
 	</div>

@@ -73,7 +73,7 @@
                 </div>
     
                 <div class="hi_onclick">
-                    <div><a href="#"><span class="hi_in">HI 사범 인터뷰 신청하기 <i class="fas fa-mouse-pointer"></i></span></a></div>
+                    <div><a href="https://forms.gle/3Rb7TsX52UyWbwJQ9"><span class="hi_in">HI 사범 인터뷰 신청하기 <i class="fas fa-mouse-pointer"></i></span></a></div>
                 </div>
     
                 <div class="hi_foot">

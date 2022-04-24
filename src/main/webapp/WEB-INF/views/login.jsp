@@ -74,7 +74,7 @@ button {
 }
 .submit{
 	background-color: rgb(89, 117, 196);
-	border: 1px solid black;
+	border:none;
 	border-radius:3px;
 	width:75%;
 	padding: 8px 0;
@@ -156,7 +156,6 @@ button {
 }
 .submit{
 	background-color: rgb(89, 117, 196);
-	border: 1px solid black;
 	border-radius:3px;
 	width:75%;
 	padding: 8px 0;
@@ -165,6 +164,7 @@ button {
 	margin-bottom:5px;
 	margin-top: 10px;
 	cursor:pointer;
+	border:none;
 }
 .submit:hover{
 	color: white;

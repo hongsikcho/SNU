@@ -41,6 +41,18 @@
 	text-align: center;
 	margin-top: 15px;
 }
+@media(max-width:900px){
+ .menu{
+ display:flex;
+ flex-direction:column;
+ align-items:center;
+ }
+ .menu > a{
+ margin:13px;
+ width:100%;
+ height:60px;
+ }
+}
 </style>
 
 </head>
@@ -64,8 +76,8 @@
 
 		<div class="second_page">
 			<div class="second_box">
-				<div class="onclick">
-					<div class="button">바로가기</div>
+				<div class="onclick" style="border-bottom: 2px solid #0f0f70;">
+					<div class="button" style="padding-bottom:3px;">바로가기</div>
 
 				</div>
 				<div class="menu">
@@ -76,16 +88,13 @@
 						로드맵</a> <a class="menus 3"
 						href="${pageContext.request.contextPath}/community/Hi.do">Hi
 						사범</a> <a class="menus 4"
-						href="${pageContext.request.contextPath}/calendar.do">회의록/안건지</a>
+						href="https://drive.google.com/drive/folders/178bXKJbEItgUvkZXd1_u4L3EMwgtdaTj?usp=sharing">회의록/안건지</a>
 				</div>
 			</div>
 			<div class="third_box">
-				<div class="third_left">
-					<div>이미지이미지이미지</div>
-				</div>
 				<div class="third_right">
-					<a href="${pageContext.request.contextPath}/festive/festive.do"
-						class="third_right_top">홍보게시판</a>
+					<div href="${pageContext.request.contextPath}/festive/festive.do"
+						class="third_right_top" style="padding-bottom:5px; .main_box: font-family: 'NanumGothic'; font-weight:bold;">홍보게시판</div>
 					<div class="third_right_bot">
 
 						<c:forEach var="item" items="${output1}" varStatus="status">
@@ -94,7 +103,9 @@
 							<c:set var="no" value="${item.festiveno}" />
 
 							<div class="main_festive_box">
-								<a href="${pageContext.request.contextPath}/festive/festive_detail.do?festiveno=${no}"> <img style="width: 100%;"
+								<a
+									href="${pageContext.request.contextPath}/festive/festive_detail.do?festiveno=${no}">
+									<img style="width: 100%;"
 									src="http://3.138.48.22:8080/upload/${img}" /> <br>
 									<div class="main_festive_title">
 										<span>${title}</span>
@@ -112,9 +123,9 @@
 			<div class="notice">
 				<div class="notice_header">
 					<div class="notice_header_title">공지사항</div>
-					<div class="notice_header_more">
+					<a class="notice_header_more" href="${pageContext.request.contextPath}/community/announce.do">
 						더보기<i class="fas fa-chevron-right"></i>
-					</div>
+					</a>
 				</div>
 				<div class="notice_body">
 
@@ -127,7 +138,7 @@
 						<c:set var="view" value="${item.view}" />
 						<a
 							href="${pageContext.request.contextPath }/community/announce_detail.do?announceno=${no}">
-							<div class="notice_body_text">${title}</div>
+							<div class="notice_body_text" style="margin:0px 0 0 5px; padding-bottom:10px;">${title}</div>
 						</a>
 
 					</c:forEach>
@@ -160,11 +171,11 @@
 		</div>
 		<div class="middle">
 			<div class="notice">
-				<div class="notice_header">
-					<div class="notice_header_title">공지사항</div>
-					<div class="notice_header_more">
+				<div class="notice_header" style="margin-top:30px;">
+					<div class="notice_header_title" >공지사항</div>
+					<a class="notice_header_more" href="${pageContext.request.contextPath}/community/announce.do">
 						더보기<i class="fas fa-chevron-right"></i>
-					</div>
+					</a>
 				</div>
 				<div class="notice_body">
 
@@ -177,7 +188,7 @@
 						<c:set var="view" value="${item.view}" />
 						<a
 							href="${pageContext.request.contextPath }/community/announce_detail.do?announceno=${no}">
-							<div class="notice_body_text">${title}</div>
+							<div class="notice_body_text" style="margin:3px 0 0 1px; padding:3px 0 0 5px;">${title}</div>
 						</a>
 
 					</c:forEach>
@@ -187,7 +198,7 @@
 
 			<div class="onclick_m">
 				<div class="card_news">
-					<div class="card_news_header">
+					<div class="card_news_header" style="margin-top:50px;">
 						<div class="notice_header_title">카드뉴스</div>
 					</div>
 					<div class="card_news_body">
@@ -198,9 +209,7 @@
 			<div class="pr">
 				<div class="pr_header">
 					<div class="pr_header_title">홍보게시판</div>
-					<div class="pr_header_more">
-						더보기<i class="fas fa-chevron-right"></i>
-					</div>
+					
 				</div>
 				<div class="pr_body">
 					<div class="pr_body_first">
@@ -219,27 +228,21 @@
 			</div>
 
 
-			<div class="onclick_m">
-				<div class="onclick_m_header">
-					<div class="onclick_m_header_title">바로가기</div>
-				</div>
-				<div class="onclick_m_body">
-					<div class="first_body">
-						<div class="first_body_one">공실 예약하기</div>
-						<div class="first_body_two">졸업 로드맵</div>
-					</div>
-					<div class="second_body">
-						<div class="second_body_one">Hi 사범</div>
-						<div class="second_body_two">회의록/안건지</div>
-					</div>
-				</div>
+			<div class="menu">
+				<a class="menus 1"
+					href="${pageContext.request.contextPath}/calendar.do">공실예약하기</a>
+				<a class="menus 2"
+					href="${pageContext.request.contextPath}/loadmap/snu_class_loadmap.do">졸업
+					로드맵</a> 
+				<a class="menus 3"
+					href="${pageContext.request.contextPath}/community/Hi.do">Hi 사범</a>
+				<a class="menus 4"
+					href="https://drive.google.com/drive/folders/178bXKJbEItgUvkZXd1_u4L3EMwgtdaTj?usp=sharing">회의록/안건지</a>
 			</div>
 		</div>
 
 		<!--모바일 footer-->
 		<%@ include file="../include/MOBILE/footer.jsp"%>
-
-
 	</div>
 
 

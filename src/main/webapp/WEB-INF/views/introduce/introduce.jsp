@@ -67,9 +67,10 @@
 
 
 
-            <div class="cons_intro_title">
-                <div class="cons_intro_name">국별 배너</div>
-            </div>
+               <div class="snu_main_header">
+                        <span>국별 배너</span>
+                        <img src="${pageContext.request.contextPath}/assets/img/snu_logo.png"/>
+                    </div>
             <div class="small_box">
                 <a href="${pageContext.request.contextPath}/introduce/business_introduce.do?cnum=1">교육국</a>
                 <a href="${pageContext.request.contextPath}/introduce/business_introduce.do?cnum=2">문화국</a>
@@ -162,7 +163,8 @@
 
 	<script src="https://kit.fontawesome.com/6478f529f2.js"
 		crossorigin="anonymous"></script>
-	<script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
 	<script src="${pageContext.request.contextPath}/assets/js/style.js">
 		
 	</script>
