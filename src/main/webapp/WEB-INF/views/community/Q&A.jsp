@@ -97,7 +97,7 @@
 /*모바일 박스*/
 .snu_mobile_main_box .snu_qna_content {
 	font-size: 11px;
-	width:100%;
+	width: 100%;
 }
 
 .snu_mobile_qna_content {
@@ -225,20 +225,26 @@
 
 
 				</div>
-				<div class="paging_box">
+
+				<div class="paging_box ">
 					<ul class="pagination">
 						<c:choose>
 							<c:when test="${pageData.prevPage >0 }">
 								<c:url value="/community/Q&A.do" var="prevPageUrl">
 									<c:param name="page" value="${pageData.prevPage }" />
 								</c:url>
-								<a href="${prevPageUrl }">[이전]</a>
+								<li><a href="${prevPageUrl }"><i
+										class="fas fa-angle-left"></i></a></li>
 
 							</c:when>
 							<c:otherwise>
-						[이전]
-						</c:otherwise>
+								<li class="disabled"><a href="#"><i
+										class="fas fa-angle-left"></i></a></li>
+							</c:otherwise>
+
+
 						</c:choose>
+
 						<c:forEach var="i" begin="${pageData.startPage}"
 							end="${pageData.endPage}" varStatus="status">
 							<c:url value="/community/Q&A.do" var="pageUrl">
@@ -246,27 +252,37 @@
 							</c:url>
 							<c:choose>
 								<c:when test="${pageData.nowPage ==i }">
-									<strong>[${i}]</strong>
+									<li class="active"><span style="color: white;">${i}</span></li>
 								</c:when>
 								<c:otherwise>
-									<a href="${pageUrl}">[${i}]</a>
+									<li><a href="${pageUrl}">${i}</a></li>
 
 								</c:otherwise>
 							</c:choose>
+
 						</c:forEach>
+
+
 						<c:choose>
 							<c:when test="${pageData.nextPage >0 }">
 								<c:url value="/community/Q&A.do" var="nextPageUrl">
 									<c:param name="page" value="${pageData.nextPage }" />
 								</c:url>
-								<a href="${nextPageUrl }">[다음]</a>
+								<li><a href="${nextPageUrl }"><i
+										class="fas fa-angle-right"></i></a></li>
+
 							</c:when>
+
 							<c:otherwise>
-						[다음]
-						</c:otherwise>
+
+							</c:otherwise>
+
+
+
 						</c:choose>
 					</ul>
 				</div>
+
 
 
 			</div>
@@ -352,13 +368,71 @@
 			</c:forEach>
 
 
+			<div class="paging_box ">
+				<ul class="pagination">
+					<c:choose>
+						<c:when test="${pageData.prevPage >0 }">
+							<c:url value="/community/Q&A.do" var="prevPageUrl">
+								<c:param name="page" value="${pageData.prevPage }" />
+							</c:url>
+							<li><a href="${prevPageUrl }"><i
+									class="fas fa-angle-left"></i></a></li>
+
+						</c:when>
+						<c:otherwise>
+							<li class="disabled"><a href="#"><i
+									class="fas fa-angle-left"></i></a></li>
+						</c:otherwise>
+
+
+					</c:choose>
+
+					<c:forEach var="i" begin="${pageData.startPage}"
+						end="${pageData.endPage}" varStatus="status">
+						<c:url value="/community/Q&A.do" var="pageUrl">
+							<c:param name="page" value="${i}" />
+						</c:url>
+						<c:choose>
+							<c:when test="${pageData.nowPage ==i }">
+								<li class="active"><span style="color: white;">${i}</span></li>
+							</c:when>
+							<c:otherwise>
+								<li><a href="${pageUrl}">${i}</a></li>
+
+							</c:otherwise>
+						</c:choose>
+
+					</c:forEach>
+
+
+					<c:choose>
+						<c:when test="${pageData.nextPage >0 }">
+							<c:url value="/community/Q&A.do" var="nextPageUrl">
+								<c:param name="page" value="${pageData.nextPage }" />
+							</c:url>
+							<li><a href="${nextPageUrl }"><i
+									class="fas fa-angle-right"></i></a></li>
+
+						</c:when>
+
+						<c:otherwise>
+
+						</c:otherwise>
+
+
+
+					</c:choose>
+				</ul>
+			</div>
+
+
 
 			<div class="snu_qna_write_box">
 				<a class="qna_read_btn snu_qna_write_btn">글쓰기</a>
 			</div>
 
 		</div>
-	<%@ include file="../../include/MOBILE/footer.jsp"%>
+		<%@ include file="../../include/MOBILE/footer.jsp"%>
 		<!--모바일 footer-->
 
 

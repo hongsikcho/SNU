@@ -29,7 +29,7 @@
 
                     <div class="tab_btn_inner">
                         <div><a href="${pageContext.request.contextPath}/community/Q&A.do">건의 및 Q&A</a></div>
-                        <div><a href="#">MBTI 게임</a></div>
+                        <div><a href="${pageContext.request.contextPath}/game/game.do">MBTI 게임</a></div>
                         <div><a href="${pageContext.request.contextPath}/community/Q&A.do">2차오픈</a></div>
                         <div><a href="${pageContext.request.contextPath}/community/Hi.do">Hi 사범</a></div>
                     </div>
@@ -60,6 +60,13 @@
                         <div><a href="${pageContext.request.contextPath}/loadmap/snu_education_loadmap.do">교직 로드맵</a></div>
                     </div>
                 </div>
+                
+                <div class="tab_inner_box">
+                    <div class="btn" id="tab_btn2">
+                        <div><a href="${pageContext.request.contextPath}/login.do">로그인</a></div>
+                    </div>
+                </div>
+                
 
             </div>
 

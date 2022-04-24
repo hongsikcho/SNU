@@ -103,7 +103,7 @@ font-family: 'NanumGothic';
 					및 Q&A</a>
 			</div>
 			<div class="snu_tab_menu_inner_box">
-				<a href="#">2차 오픈</a>
+				<a href="${pageContext.request.contextPath}/game/game.do">MBTI</a>
 			</div>
 			<div class="snu_tab_menu_inner_box">
 				<a href="#">2차 오픈</a>

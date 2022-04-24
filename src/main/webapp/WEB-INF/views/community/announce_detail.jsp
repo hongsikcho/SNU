@@ -194,11 +194,41 @@
 
 		<div class="snu_mobile_main_box">
 
-			<div class="snu_main_header">[진행] ${output.title }</div>
+			<div class="snu_main_header"> ${output.title }</div>
 
-			<!--모바일 메인 이너-->
+			<div class="">
 
-			<!--모바일 메인 이너 끝-->
+				<div style="width: 70%; margin: auto; margin-top: 30px">
+					<div style="position: relative;">
+						<img class="main_img" style="width: 100%;"
+							src="http://3.138.48.22:8080/announce/${output.img}" /> <a
+							class="prev" style="left:-20%; bottom:40%;"> <span>이전</span>
+						</a> <a class="next" style="right:-20%; bottom:40%;"> <span>이후</span>
+						</a>
+						<ul style="display: none;">
+							<li id="li_0"><a class="small_img_box on"> <img
+									class="small_img" id="0"
+									src="http://3.138.48.22:8080/upload/${output.img}" />
+							</a></li>
+
+							<c:forEach var="item" items="${imgoutput}" varStatus="status">
+								<c:set var="img" value="${item.img}" />
+								<c:set var="num" value="${num+1}" />
+								<li id="li_${num}"><a class="small_img_box"> <img
+										class="small_img" id="${num}"
+										src="http://3.138.48.22:8080/announce/${img}" />
+								</a></li>
+							</c:forEach>
+						</ul>
+						<div class="mobile_img_page" style="text-align:center;">
+						</div>
+
+					</div>
+				</div>
+
+				<div class="festive_main_text"
+					style="width: 100%; margin: 60px 0px;">${output.text}</div>
+			</div>
 
 <div style="display: flex; justify-content:left; margin-left:370px; margin-bottom:100px;">
 					<div class="back">목록으로</div>
@@ -252,6 +282,7 @@
 							break;
 						}
 					}
+					$(".mobile_img_page").html(1+"/"+(last_index+1));
 					console.log(width_sum);
 					console.log(width);
 					console.log(overflow);
@@ -309,6 +340,7 @@
 						$("#" + index).parent(".small_img_box").addClass("on");
 						var src = $(".on").find(".small_img").attr("src");
 						$(".main_img").attr("src", src);
+						$(".mobile_img_page").html(index+1+"/"+(last_index+1));
 					}
 					$(".small_img_box").click(
 							function() {
