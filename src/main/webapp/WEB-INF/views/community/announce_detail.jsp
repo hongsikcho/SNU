@@ -33,6 +33,14 @@
 
 
 <style type="text/css">
+.back{
+	color: white;
+	background-color: #0f0f70;
+	border-radius:7px;
+	padding: 5px 10px;
+	width: 65px;
+	text-align:center;
+	cursor: pointer;}
 .midd {
 	overflow: hidden;
 	position: relative;
@@ -159,6 +167,9 @@
 
 				<div class="festive_main_text"
 					style="width: 100%; margin: 60px 0px;">${output.text}</div>
+					<div style="display: flex; justify-content:left; margin-left:370px; margin-bottom:100px;">
+					<div class="back">목록으로</div>
+			</div>
 			</div>
 
 
@@ -189,6 +200,9 @@
 
 			<!--모바일 메인 이너 끝-->
 
+<div style="display: flex; justify-content:left; margin-left:370px; margin-bottom:100px;">
+					<div class="back">목록으로</div>
+			</div>
 		</div>
 
 
