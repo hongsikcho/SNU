@@ -68,11 +68,11 @@
                 <div class="edu_intro_doing_name">주요사업</div>
                 
             </div>
-		<c:forEach var="busin" items="${output}">
+		<c:forEach var="busin" items="${output}" varStatus="status">
 
             <div class="edu_intro_detail">
                 <div class="edu_intro_detail_1">
-                    <div class="detail_title">${busin.bname}</div>
+                    <div style="display:flex; justify-content:space-between;"><div class="detail_title">${status.count}. ${busin.bname}</div> <a style="display:flex; align-items:center; justify-content:center; margin-bottom:20px;" href="${busin.link}">${busin.linkname }</a></div>
                     <div class="detail_body">${busin.busin}</div>
                 </div>
             </div>
@@ -125,12 +125,13 @@
                 <div class="edu_intro_doing_name">주요사업</div>
                 
             </div>
-                <c:forEach var="busin" items="${output}">
+                <c:forEach var="busin" items="${output}" varStatus="status">
 
             <div class="edu_intro_detail">
                 <div class="edu_intro_detail_1">
-                    <div class="detail_title">${busin.bnum}. ${busin.bname}</div>
-                    <div class="detail_body">${busin.busin}</div>
+                    <div class="detail_title">${status.count}. ${busin.bname}</div>
+                    <a style="margin-bottom:15px;" href="${busin.link}">${busin.linkname }</a>
+                    <div style="margin-top:15px;" class="detail_body">${status.count}. ${busin.busin}</div>
                 </div>
             </div>
             </c:forEach>

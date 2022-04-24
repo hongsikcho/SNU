@@ -96,6 +96,10 @@
   height: 100%;
   border-radius: 20px;
 }
+.hi_foot_box_bot {
+  margin: 10px 0px 10px 0px ;
+  line-height:30px;
+  }
 
 @media (max-width: 900px) {
   .hi_intro_title {
@@ -171,12 +175,15 @@
   }
   .hi_foot_box_top {
     padding: 0 1px 0 1px;
-
     width: 100%;
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  .hi_foot_box_bot {
+  margin: 10px 0px 10px 0px ;
+  line-height:30px;
   }
   .snu_mobile_main_box{
   margin-bottom:20px;
