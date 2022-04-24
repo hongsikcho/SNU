@@ -130,7 +130,7 @@
 			<%@ include file="../../include/WEB/side_bar.jsp"%>
 		</div>
 
-		
+
 
 		<div class="snu_main_box">
 			<div class="snu_main_header">${ output.title }</div>
@@ -226,95 +226,118 @@
 	<script src="${pageContext.request.contextPath}/assets/js/style.js"></script>
 
 	<script>
-		$(window).load(function() {
-			var width_sum = 0;
-			var width = $(".midd").width();
-			var overflow = 0;
-			var move_distance = 0;
-			var first_index = 0;
-			var last_index = parseInt($(".midd ul li:last img").attr("id"));
-			for (var i = 0; i <= last_index; i++) {
-				width_sum += $("#li_" + i).outerWidth(true);
-				if (width_sum > width) {
-					overflow = i;
-					break;
-				}
-			}
-			console.log(width_sum);
-			console.log(width);
-			console.log(overflow);
-			$(".next").click(function() {
-				var index = parseInt($(".on").find(".small_img").attr("id")) + 1;
-				if (index <= last_index) {
-					if (overflow == 0) {
-						slide(index);
-					} else {
-						slide(index);
-						if (index >= overflow) {
-							move_distance += $("#li_" + index).outerWidth(true);
-							$(".midd ul").animate({
-								left : "-" + move_distance + "px"
-							}, 200);
-						} else {
-							move_distance = 0;
-							$(".midd ul").animate({
-								left : "0px"
-							}, 200);
+		//if(${member ==null} ){
+		//var confirm = confirm("로그인이 필요한 페이지입니다. 로그인 하시겠습니까?");
+		//if(confirm){
+		//window.location.href = '${pageContext.request.contextPath}/login.do';
+
+		//}
+		//else{
+		//window.location.href = '${pageContext.request.contextPath}/';
+
+		//}
+
+		//}
+		$(window).load(
+				function() {
+					var width_sum = 0;
+					var width = $(".midd").width();
+					var overflow = 0;
+					var move_distance = 0;
+					var first_index = 0;
+					var last_index = parseInt($(".midd ul li:last img").attr(
+							"id"));
+					for (var i = 0; i <= last_index; i++) {
+						width_sum += $("#li_" + i).outerWidth(true);
+						if (width_sum > width) {
+							overflow = i;
+							break;
 						}
 					}
-				}
-				console.log(move_distance);
-			});
-			$(".prev").click(function() {
-				var index = parseInt($(".on").find(".small_img").attr("id")) - 1;
-				if (index >= first_index) {
-					slide(index);
-					if (index >= overflow) {
-						move_distance -= $("#li_" + index).outerWidth(true);
-						$(".midd ul").animate({
-							left : "-" + move_distance + "px"
-						}, 200);
-					} else {
-						move_distance = 0;
-						$(".midd ul").animate({
-							left : "0px"
-						}, 200);
+					console.log(width_sum);
+					console.log(width);
+					console.log(overflow);
+					$(".next").click(
+							function() {
+								var index = parseInt($(".on")
+										.find(".small_img").attr("id")) + 1;
+								if (index <= last_index) {
+									if (overflow == 0) {
+										slide(index);
+									} else {
+										slide(index);
+										if (index >= overflow) {
+											move_distance += $("#li_" + index)
+													.outerWidth(true);
+											$(".midd ul").animate(
+													{
+														left : "-"
+																+ move_distance
+																+ "px"
+													}, 200);
+										} else {
+											move_distance = 0;
+											$(".midd ul").animate({
+												left : "0px"
+											}, 200);
+										}
+									}
+								}
+								console.log(move_distance);
+							});
+					$(".prev").click(
+							function() {
+								var index = parseInt($(".on")
+										.find(".small_img").attr("id")) - 1;
+								if (index >= first_index) {
+									slide(index);
+									if (index >= overflow) {
+										move_distance -= $("#li_" + index)
+												.outerWidth(true);
+										$(".midd ul").animate({
+											left : "-" + move_distance + "px"
+										}, 200);
+									} else {
+										move_distance = 0;
+										$(".midd ul").animate({
+											left : "0px"
+										}, 200);
+									}
+								}
+								console.log(move_distance);
+							});
+					function slide(index) {
+						$(".small_img_box").removeClass("on");
+						$("#" + index).parent(".small_img_box").addClass("on");
+						var src = $(".on").find(".small_img").attr("src");
+						$(".main_img").attr("src", src);
 					}
-				}
-				console.log(move_distance);
-			});
-			function slide(index) {
-				$(".small_img_box").removeClass("on");
-				$("#" + index).parent(".small_img_box").addClass("on");
-				var src = $(".on").find(".small_img").attr("src");
-				$(".main_img").attr("src", src);
-			}
-			$(".small_img_box").click(function() {
-				move_distance = 0;
-				$(".small_img_box").removeClass("on");
-				$(this).addClass("on");
-				var index = parseInt($(this).find(".small_img").attr("id"));
-				slide(index);
-				if (index >= overflow && overflow != 0) {
-					for (var i = overflow; i <= index; i++) {
-						move_distance += $("#li_" + i).outerWidth(true);
-					}
-					$(".midd ul").animate({
-						left : "-" + move_distance + "px"
-					}, 200);
-				} else {
-					$(".midd ul").animate({
-						left : "0px"
-					}, 200);
-				}
-				console.log(move_distance);
-				console.log(index);
-				console.log(overflow);
-			});
-		});
-		
-	
-		
+					$(".small_img_box").click(
+							function() {
+								move_distance = 0;
+								$(".small_img_box").removeClass("on");
+								$(this).addClass("on");
+								var index = parseInt($(this).find(".small_img")
+										.attr("id"));
+								slide(index);
+								if (index >= overflow && overflow != 0) {
+									for (var i = overflow; i <= index; i++) {
+										move_distance += $("#li_" + i)
+												.outerWidth(true);
+									}
+									$(".midd ul").animate({
+										left : "-" + move_distance + "px"
+									}, 200);
+								} else {
+									$(".midd ul").animate({
+										left : "0px"
+									}, 200);
+								}
+								console.log(move_distance);
+								console.log(index);
+								console.log(overflow);
+							});
+				});
 	</script>
 
 
