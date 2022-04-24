@@ -15,7 +15,8 @@
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <title>제41대 사범대학 학생회 늘품</title>
-
+<link rel="icon" 
+	href="${pageContext.request.contextPath}/assets/img/basic_logo.png" />
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/assets/css/snu_main.css" />
 <link rel="stylesheet" type="text/css"
@@ -208,7 +209,7 @@
 			<div class="snu_detail_loadmap_main">
 				<div class="snu_class_name_box">
 					<img
-						src="${pageContext.request.contextPath}/assets/img/2_class_loadmap/class/eng_edu.png" />
+						src="${pageContext.request.contextPath}/assets/img/2_class_loadmap/class/${department.image}.png" />
 				</div>
 				<div class="snu_class_file_box">
 					<a

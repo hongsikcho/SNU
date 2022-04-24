@@ -11,6 +11,8 @@
 <link rel="icon" href="${pageContext.request.contextPath}/assets/img/basic_logo.png"/>
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+	<link rel="icon" 
+	href="${pageContext.request.contextPath}/assets/img/basic_logo.png" />
 <style>
 * {
 	box-sizing: border-box;	

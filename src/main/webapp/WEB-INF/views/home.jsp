@@ -15,7 +15,8 @@
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <title>제41대 사범대학 학생회 늘품(조홍식)(류호수)</title>
-
+<link rel="icon" 
+	href="${pageContext.request.contextPath}/assets/img/basic_logo.png" />
 <link
 	href="https://hangeul.pstatic.net/hangeul_static/css/nanum-gothic.css"
 	rel="stylesheet">
@@ -174,7 +175,7 @@
 		<%@ include file="../include/MOBILE/tab.jsp"%>
 		<!--모바일 컨텐츠 박스-->
 
-		<div class="snu_mobile_content_box">
+		<div class="snu_mobile_content_box" style="margin-top:0px; padding-top:0px;">
 			<iframe width="100%" height="300px"
 				src="https://www.youtube.com/embed/OlVTXkYgVs0?autoplay=1&mute=1&controls=0&loop=1&playlist=OlVTXkYgVs0"
 				title="YouTube video player" frameborder="0"
@@ -212,7 +213,7 @@
 
 			<div class="pr">
 				<div class="pr_header">
-					<div class="pr_header_title">홍보게시판</div>
+					<div class="pr_header_title" style="padding-bottom:10px;">홍보게시판</div>
 
 				</div>
 				<div class="pr_body">

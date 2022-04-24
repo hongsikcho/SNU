@@ -8,6 +8,23 @@
 <div class="snu_m_tab_box">
             <div class="tab_logo_box"></div>
             <div class="tab_inner">
+            <div class="tab_inner_box" style="margin-bottom:20px;">
+                    <div class="btn" id="tab_btn2">
+                    
+                    <c:choose>
+				<c:when test="${member == null }">
+					<a style="color: white; font-size:25px;" class="login_btn"
+						href="${pageContext.request.contextPath}/login.do"><b>로그인</b></a>
+				</c:when>
+
+				<c:otherwise>					
+					<a style="color: white; font-size:25px;" class="logout_btn"
+						href="${pageContext.request.contextPath}/logout.do"><b>로그아웃</b></a>
+				</c:otherwise>
+
+			</c:choose>
+                    </div>
+                </div>
                 <div class="tab_inner_box">
                     <div class="btn">
                         <div>학생회 </div>
@@ -61,11 +78,7 @@
                     </div>
                 </div>
                 
-                <div class="tab_inner_box">
-                    <div class="btn" id="tab_btn2">
-                        <div><a href="${pageContext.request.contextPath}/login.do">로그인</a></div>
-                    </div>
-                </div>
+                
                 
 
             </div>
