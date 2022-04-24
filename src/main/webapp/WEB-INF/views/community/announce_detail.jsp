@@ -15,7 +15,8 @@
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <title>제41대 사범대학 학생회 늘품</title>
-
+<link rel="icon" 
+	href="${pageContext.request.contextPath}/assets/img/basic_logo.png" />
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/assets/css/snu_main.css" />
 <link rel="stylesheet" type="text/css"
