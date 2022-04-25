@@ -9,7 +9,7 @@
 <html lang="ko">
 
 <head>
-<link rel="icon" 
+<link rel="icon"
 	href="${pageContext.request.contextPath}/assets/img/basic_logo.png" />
 <meta charset="utf-8" />
 <meta name="viewport"
@@ -21,6 +21,7 @@
 .question {
 	color: white;
 	font-weight: bold;
+	background-color: #000e58;
 }
 
 body {
@@ -31,17 +32,36 @@ body {
 .snu_game_box {
 	width: 500px;
 	text-align: center;
-	background-color: #000e58;
 	margin: auto;
-	min-height: 100vh;
+}
+
+.start_box {
+	position: absolute;
+	width: 100%;
+	height: 105px;
+	bottom: 17%;
+}
+
+#question0 {
+	position: relative;
 }
 
 .snu_game_title {
 	padding: 30px 0px;
 }
 
+#content_wrap {
+	display: flex;
+	align-items: center;
+	height: 100vh;
+	background: #000e58;
+	width: 500px;
+	margin: auto;
+}
+
+
 @media ( max-width : 600px) {
-	.snu_game_box {
+	.snu_game_box,#content_wrap  {
 		width: 100%;
 	}
 	body {
@@ -90,11 +110,47 @@ body {
 }
 
 #start_btn {
-	position: absolute;
 	background: rgba(0, 0, 0, 0);
 	color: rgba(0, 0, 0, 0);
 	box-shadow: none;
+	height: 105px;
 }
+
+@font-face {
+	font-family: 'Gmarket Bold';
+	font-style: normal;
+	font-weight: 700;
+	src: local('Gmarket Sans Bold'), local('GmarketSans-Bold'),
+		url('http://script.ebay.co.kr/fonts/GmarketSansBold.woff2')
+		format('woff2'),
+		url('http://script.ebay.co.kr/fonts/GmarketSansBold.woff')
+		format('woff');
+}
+
+@font-face {
+	font-family: 'Gmarket mid';
+	font-style: normal;
+	font-weight: 500;
+	src: local('Gmarket Sans Medium'), local('GmarketSans-Medium'),
+		url('http://script.ebay.co.kr/fonts/GmarketSansMedium.woff2')
+		format('woff2'),
+		url('http://script.ebay.co.kr/fonts/GmarketSansMedium.woff')
+		format('woff');
+}
+
+@font-face {
+	font-family: 'Gmarket Lite';
+	font-style: normal;
+	font-weight: 300;
+	src: local('Gmarket Sans Light'), local('GmarketSans-Light'),
+		url('http://script.ebay.co.kr/fonts/GmarketSansLight.woff2')
+		format('woff2'),
+		url('http://script.ebay.co.kr/fonts/GmarketSansLight.woff')
+		format('woff');
+}
+
+* {
+	font-family: 'Gmarket mid', serif;
 }
 </style>
 
@@ -102,9 +158,7 @@ body {
 
 <body>
 
-	<div>
-		<div class="header_bar"></div>
-
+	<div id="content_wrap">
 		<div class="snu_game_box" style="">
 			<div id="question0" class="question">
 
@@ -112,33 +166,35 @@ body {
 					<img style="width: 100%;"
 						src="${pageContext.request.contextPath }/assets/img/mbti/mbti_start_size.png" />
 				</div>
-				<div style="position: relative; right: 240px; bottom: 250px;">
+				<div class="start_box">
 					<button class="answer" id="start_btn"></button>
 					<br /> <br />
 
 				</div>
 			</div>
-			<div style="background: #222538;" id="question0" class="question hidden">
+			<div style="background: #222538;" id="question0"
+				class="question hidden">
 
 				<div>
 					<img style="width: 100%;"
 						src="${pageContext.request.contextPath }/assets/img/mbti/start2.png" />
 				</div>
-				<div style="position: relative; right: 240px; bottom: 250px;">
+				<div class="start_box">
 					<button class="answer" id="start_btn"></button>
 					<br /> <br />
 
 				</div>
 			</div>
-			
-			<div style="background: #222538;" id="question0" class="question hidden">
+
+			<div style="background: #222538;" id="question0"
+				class="question hidden">
 
 				<div>
 					<img style="width: 100%;"
 						src="${pageContext.request.contextPath }/assets/img/mbti/start3.png" />
 				</div>
-				<div style="position: relative; right: 240px; bottom: 250px;">
-					<button class="answer" id="start_btn"></button>
+				<div class="start_box">
+					<button class="answer last_start_btn" id="start_btn"></button>
 					<br /> <br />
 
 				</div>
@@ -156,8 +212,9 @@ body {
 				<div>
 					<button class="answer" value="J">정리를 다 하고 휴식타임을 가진다</button>
 					<br /> <br />
-					<button class="answer" value="P">친구들과 장난으로 낙서한 페이지를 보며 추억에
-						잠긴다</button>
+					<button class="answer" value="P">
+						친구들과 장난으로 낙서한 페이지를 보며<br>추억에 잠긴다
+					</button>
 				</div>
 			</div>
 
@@ -222,11 +279,13 @@ body {
 					노잼이다. <br> <br> 이때 나는
 				</div>
 				<div>
-					<button class="answer" value="E">조장을 격려하면서 조장이 전체 조를 이끌어갈
-						수 있게 돕는다.</button>
+					<button class="answer" value="E">
+						조장을 격려하면서 조장이 전체 조를 <br>이끌어갈 수 있게 돕는다.
+					</button>
 					<br /> <br />
-					<button class="answer" value="I">조장이 재미없느니 나랑 맞는 사람들이랑 알아서
-						혼자 친해진다.</button>
+					<button class="answer" value="I">
+						조장이 재미없느니 나랑 맞는 사람들이랑 <br>알아서 혼자 친해진다.
+					</button>
 				</div>
 			</div>
 
@@ -240,11 +299,13 @@ body {
 					나는
 				</div>
 				<div>
-					<button class="answer" value="T">와 어쩌자는거지? 라는 심정으로 일단은 듣고
-						빨리 택시 태워서 집에 바로 보낸다.</button>
+					<button class="answer" value="T">
+						와 어쩌자는거지? 라는 심정으로 일단은 듣고 <br>빨리 택시 태워서 집에 바로 보낸다.
+					</button>
 					<br /> <br />
-					<button class="answer" value="F">전 애인 얘기에 공감하면서 일단은 열심히
-						들어주고 택시 태워 보내준다.</button>
+					<button class="answer" value="F">
+						전 애인 얘기에 공감하면서 일단은 <br>열심히 들어주고 택시 태워 보내준다.
+					</button>
 				</div>
 			</div>
 
@@ -258,11 +319,13 @@ body {
 					예정에도 없이 갑자기 오늘<br> 밤새 술 먹자고 한다. <br> <br> 이때 나는
 				</div>
 				<div>
-					<button class="answer" value="J">술을 신나게 마시다가 취할 것 같은면 그만
-						마신다.</button>
+					<button class="answer" value="J">
+						술을 신나게 마시다가 취할 것 같은면 <br>그만 마신다.
+					</button>
 					<br /> <br />
-					<button class="answer" value="P">술을 조절하면서 마시려다가 실패하고 필름이
-						끊긴다.</button>
+					<button class="answer" value="P">
+						술을 조절하면서 마시려다가 실패하고 <br>필름이 끊긴다.
+					</button>
 				</div>
 			</div>
 
@@ -275,8 +338,9 @@ body {
 					이때 나는
 				</div>
 				<div>
-					<button class="answer" value="S">와... 진짜 뭐라 하고 싶지만 현실적으로
-						선배니까 일단 참아야지....</button>
+					<button class="answer" value="S">
+						와... 진짜 뭐라 하고 싶지만 현실적으로<br> 선배니까 일단 참아야지....
+					</button>
 					<br /> <br />
 					<button class="answer" value="N">
 						마음 속으로 저 선배가 다치지 않지만 <br> 민망할 정도로 넘어지는 생각을 하며 참는다.
@@ -292,11 +356,13 @@ body {
 
 				</div>
 				<div>
-					<button class="answer" value="E">선약에 룸메가 끼어들어서 기분 나쁘다는 말을
-						하지만 일단 만난다.</button>
+					<button class="answer" value="E">
+						선약에 룸메가 끼어들어서 기분 나쁘다는<br> 말을 하지만 일단 만난다.
+					</button>
 					<br /> <br />
-					<button class="answer" value="I">만나지만 속으로는 이미 마음 다 상하고 다시
-						그 친구랑 안 만날 계획을 하고 있다.</button>
+					<button class="answer" value="I">
+						만나지만 속으로는 이미 마음 다 상하고 <br>다시 그 친구랑 안 만날 계획을 하고 있다.
+					</button>
 				</div>
 			</div>
 
@@ -339,22 +405,24 @@ body {
 
 				</div>
 				<div>
-					<button class="answer last_btn" value="S">주변 학생회 사람들한테
-						물어봐서 사실인지 확인한다.</button>
+					<button class="answer last_btn" value="S">
+						주변 학생회 사람들한테 물어봐서 <br>사실인지 확인한다.
+					</button>
 					<br /> <br />
 					<button class="answer last_btn" value="N">벌써 혼자 학생회 n년차
 						타큐를 찍는다.</button>
 				</div>
 			</div>
-			
-			<div style="background: #222538;" id="question0" class="question hidden">
+
+			<div style="background: #222538;" id="question0"
+				class="question hidden">
 
 				<div>
 					<img style="width: 100%;"
 						src="${pageContext.request.contextPath }/assets/img/mbti/result.png" />
 				</div>
-				<div style="position: relative; right: 240px; bottom: 250px;">
-					<button class="answer" id="start_btn"></button>
+				<div class="start_box">
+					<button class="answer last_start_btn end_btn" id="start_btn"></button>
 					<br /> <br />
 
 				</div>
@@ -363,9 +431,9 @@ body {
 
 
 			<div id="result" class="question hidden">
-				
 				<img class="game_loading"
-					src="${pageContext.request.contextPath }/assets/img/loading.gif">
+					src="${pageContext.request.contextPath }/assets/img/loading.gif"
+					style="width: 10%; padding: 70% 0%;">
 			</div>
 
 
@@ -376,6 +444,15 @@ body {
 	<script src="https://kit.fontawesome.com/6478f529f2.js"
 		crossorigin="anonymous"></script>
 	<script>
+		$("#start_btn").click(function() {
+			$("#content_wrap").css("background-color", "#222538");
+
+		})
+
+		$(".last_start_btn").click(function() {
+			$("#content_wrap").css("background-color", "#000e58");
+
+		})
 		var mbti = [ 0, 0, 0, 0, 0, 0, 0, 0 ]
 		$(".answer").click(function() {
 			$(this).parents(".question").addClass("hidden");
@@ -410,8 +487,10 @@ body {
 			}
 
 		})
+		var result = ""
 		$(".last_btn").click(function() {
-			var result = ""
+			$("#content_wrap").css("background-color", "#222538");
+			
 			if (mbti[0] > mbti[1]) {
 				result += "E";
 			} else {
@@ -436,15 +515,24 @@ body {
 				result += "P";
 			}
 
-			setTimeout(function() {
-				$(".game_loading").addClass('hidden');
+		});
+		$(".end_btn")
+				.click(
+						function() {
+							setTimeout(
+									function() {
+										$(".game_loading").addClass('hidden');
+										$("#content_wrap").css("background-color", "white");
+										$(".question").css("background-color", "white");
+										var code = ""
+										code += "<img style='width:100%;' src='${pageContext.request.contextPath}/assets/img/mbti/result/"
+												+ result + ".png'/>";
+										code+="<a class='home_btn' href='${pageContext.request.contextPath}/'>홈으로</a>"		
+										$("#result").append(code);
 
-				var code = ""
-				code += "<img style='width:100%;' src='${pageContext.request.contextPath}/assets/img/mbti/result/"+result+".png'/>";
-				$("#result").append(code);
+									}, 2000);
 
-			}, 2000);
-		})
+						})
 	</script>
 </body>
 </html>

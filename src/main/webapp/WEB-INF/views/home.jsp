@@ -15,7 +15,7 @@
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <title>제41대 사범대학 학생회 늘품(조홍식)(류호수)</title>
-<link rel="icon" 
+<link rel="icon"
 	href="${pageContext.request.contextPath}/assets/img/basic_logo.png" />
 <link
 	href="https://hangeul.pstatic.net/hangeul_static/css/nanum-gothic.css"
@@ -103,9 +103,30 @@
 			</div>
 			<div class="third_box">
 				<div class="third_right">
-					<div href="${pageContext.request.contextPath}/festive/festive.do"
-						class="third_right_top"
-						style="padding-bottom: 5px; . main_box: font-family: 'NanumGothic'; font-weight: bold;">홍보게시판</div>
+					<div class="third_right_top">
+						<a href="${pageContext.request.contextPath}/festive/festive.do"
+							style="padding-bottom: 5px; . main_box: font-family: 'NanumGothic'; font-weight: bold;">mbti 게임</a>
+					</div>
+					<div class="third_right_bot">
+
+							<div class="main_festive_box">
+								<a
+									href="${pageContext.request.contextPath}/festive/festive_detail.do?festiveno=${no}">
+									<img style="width: 100%;"
+									src="${pageContext.request.contextPath }/assets/img/mbti/mbti.png" /> <br>
+								</a>
+							</div>
+					
+
+
+
+					</div>
+				</div>
+				<div class="third_right">
+					<div class="third_right_top">
+						<a href="${pageContext.request.contextPath}/festive/festive.do"
+							style="padding-bottom: 5px; . main_box: font-family: 'NanumGothic'; font-weight: bold;">홍보게시판</a>
+					</div>
 					<div class="third_right_bot">
 
 						<c:forEach var="item" items="${output1}" varStatus="status">
@@ -175,7 +196,8 @@
 		<%@ include file="../include/MOBILE/tab.jsp"%>
 		<!--모바일 컨텐츠 박스-->
 
-		<div class="snu_mobile_content_box" style="margin-top:0px; padding-top:0px;">
+		<div class="snu_mobile_content_box"
+			style="margin-top: 0px; padding-top: 0px;">
 			<iframe width="100%" height="300px"
 				src="https://www.youtube.com/embed/OlVTXkYgVs0?autoplay=1&mute=1&controls=0&loop=1&playlist=OlVTXkYgVs0"
 				title="YouTube video player" frameborder="0"
@@ -213,7 +235,7 @@
 
 			<div class="pr">
 				<div class="pr_header">
-					<div class="pr_header_title" style="padding-bottom:10px;">홍보게시판</div>
+					<div class="pr_header_title" style="padding-bottom: 10px;">홍보게시판</div>
 
 				</div>
 				<div class="pr_body">
