@@ -104,7 +104,7 @@
 			<div class="third_box">
 				<div class="third_right">
 					<div class="third_right_top">
-						<a href="${pageContext.request.contextPath}/festive/festive.do"
+						<a href="${pageContext.request.contextPath}/game/game.do"
 							style="padding-bottom: 5px; . main_box: font-family: 'NanumGothic'; font-weight: bold;">mbti 게임</a>
 					</div>
 					<div class="third_right_bot">

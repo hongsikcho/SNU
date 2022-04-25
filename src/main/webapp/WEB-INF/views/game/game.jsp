@@ -205,7 +205,7 @@ body {
 
 				<div class="mbti_text">
 
-					먼저 풀었던 문제집을 다시<br> 정리해야겠어.<br> <br> 이떄 나는
+					먼저 풀었던 문제집을 다시<br> 정리해야겠어.<br> <br> 이때 나는
 				</div>
 
 
@@ -284,7 +284,7 @@ body {
 					</button>
 					<br /> <br />
 					<button class="answer" value="I">
-						조장이 재미없느니 나랑 맞는 사람들이랑 <br>알아서 혼자 친해진다.
+						조장이 재미없으니 나랑 맞는 사람들이랑 <br>알아서 혼자 친해진다.
 					</button>
 				</div>
 			</div>
