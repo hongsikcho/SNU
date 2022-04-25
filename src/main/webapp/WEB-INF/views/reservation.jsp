@@ -80,15 +80,17 @@
 	}
 	.time_table_row span {
 		position: absolute;
-		font-size: 1px;
+		font-size: 10px;
 		left: -15px;
 		bottom: -15px;
+		color: black;
 	}
 	.time_table_row .last_btn_label {
 		position: absolute;
 		bottom: -70%;
-		font-size: 1px;
+		font-size: 10px;
 		bottom: -15px;
+		color: black;
 	}
 	.time_table_row button {
 		width: 13%;

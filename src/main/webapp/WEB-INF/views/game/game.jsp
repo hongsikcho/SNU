@@ -59,13 +59,16 @@ body {
 	margin: auto;
 }
 
-
 @media ( max-width : 600px) {
-	.snu_game_box,#content_wrap  {
+	.snu_game_box, #content_wrap {
 		width: 100%;
 	}
 	body {
 		background: white;
+	}
+	.answer_btn_box {
+		position: relative;
+		top: -30px;
 	}
 }
 
@@ -99,7 +102,7 @@ body {
 
 .mbti_text {
 	font-size: 20px;
-	height: 500px;
+	height: 350px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -209,7 +212,7 @@ body {
 				</div>
 
 
-				<div>
+				<div class="answer_btn_box">
 					<button class="answer" value="J">정리를 다 하고 휴식타임을 가진다</button>
 					<br /> <br />
 					<button class="answer" value="P">
@@ -227,7 +230,7 @@ body {
 					처음보는 친구들이다. <br>같이 밥을 먹게 됐는데, 요즘 공부를 <br> 어떻게 하냐고 묻는다.<br>
 					<br> 이때 나는
 				</div>
-				<div>
+				<div class="answer_btn_box">
 					<button class="answer" value="E">
 						오늘 어떻게 공부했고 보통 어떤 썜 강의를<br> 듣는지 말하면서 분위기를 풀어나가야지.
 					</button>
@@ -245,7 +248,8 @@ body {
 					칭찬해주고 <br> <br>친구 B는<br>"언제부터 이렇게 똑똑했냐"<br>라고
 					칭찬해준다. <br> <br> 이때 나는
 				</div>
-				<div>
+
+				<div class="answer_btn_box">
 					<button class="answer" value="T">친구 A의 칭찬이 더 기분 좋다.</button>
 					<br /> <br />
 					<button class="answer" value="F">친구 B의 칭찬이 더 기분 좋다.</button>
@@ -263,7 +267,8 @@ body {
 					건가요 교수님.. <br> <br> 교수님: 자네는 '사과' 하면 무슨 생각이 드나? <br>
 					<br> 나:
 				</div>
-				<div>
+
+				<div class="answer_btn_box">
 					<button class="answer" value="S">빨갛다, 맛있다..?</button>
 					<br /> <br />
 					<button class="answer" value="N">스티브 잡스, 뉴턴..?</button>
@@ -278,7 +283,8 @@ body {
 					<br> 사범대 학생회에서 새터를 한다고 해서 갔는데..<br> 새터 조장이 분위기를 너무 못 띄우고
 					노잼이다. <br> <br> 이때 나는
 				</div>
-				<div>
+
+				<div class="answer_btn_box">
 					<button class="answer" value="E">
 						조장을 격려하면서 조장이 전체 조를 <br>이끌어갈 수 있게 돕는다.
 					</button>
@@ -298,7 +304,8 @@ body {
 					마시고 자꾸 1도 안궁금한 <br> 자기 전 애인들 이야기를 한다. <br> <br> 이때
 					나는
 				</div>
-				<div>
+
+				<div class="answer_btn_box">
 					<button class="answer" value="T">
 						와 어쩌자는거지? 라는 심정으로 일단은 듣고 <br>빨리 택시 태워서 집에 바로 보낸다.
 					</button>
@@ -318,7 +325,8 @@ body {
 					대면 수업은 즐겁지만 너무 힘들다 ㅜㅜ <br> <br> 수업 끝나고 일어나는데 친구가<br>
 					예정에도 없이 갑자기 오늘<br> 밤새 술 먹자고 한다. <br> <br> 이때 나는
 				</div>
-				<div>
+
+				<div class="answer_btn_box">
 					<button class="answer" value="J">
 						술을 신나게 마시다가 취할 것 같은면 <br>그만 마신다.
 					</button>
@@ -337,7 +345,8 @@ body {
 					선후배끼리 다같이 만난 자리에서<br> 선배가 자꾸 latte 썰을 풀고 귀찮게 한다. <br> <br>
 					이때 나는
 				</div>
-				<div>
+
+				<div class="answer_btn_box">
 					<button class="answer" value="S">
 						와... 진짜 뭐라 하고 싶지만 현실적으로<br> 선배니까 일단 참아야지....
 					</button>
@@ -355,7 +364,8 @@ body {
 					놀아도 되냐고 한다.<br> <br> 이때 나는
 
 				</div>
-				<div>
+
+				<div class="answer_btn_box">
 					<button class="answer" value="E">
 						선약에 룸메가 끼어들어서 기분 나쁘다는<br> 말을 하지만 일단 만난다.
 					</button>
@@ -373,7 +383,8 @@ body {
 					친구랑 같이 듣기로 한 강의가 있는데,<br> 친구가 너무 힘들어서 드랍해도 되냐고<br> 조심스럽게
 					물어본다.<br> <br> 이때 나는
 				</div>
-				<div>
+
+				<div class="answer_btn_box">
 					<button class="answer" value="T">왜 드랍해?</button>
 					<br /> <br />
 					<button class="answer" value="F">나랑 같이 안들어ㅜㅜ?</button>
@@ -388,7 +399,8 @@ body {
 					친구가<br> "다음 주 까지 제출해야 하는 과제 풀었어?"<br> 라고 물어본다.<br> <br>
 					이때 나는
 				</div>
-				<div>
+
+				<div class="answer_btn_box">
 					<button class="answer" value="J">과제가...있었어? 오늘 풀어야지</button>
 					<br /> <br />
 					<button class="answer" value="P">과제가...있었어? 다음 주에 풀어야지</button>
@@ -404,7 +416,8 @@ body {
 					글을 봤다.<br> <br> 이때 나는
 
 				</div>
-				<div>
+
+				<div class="answer_btn_box">
 					<button class="answer last_btn" value="S">
 						주변 학생회 사람들한테 물어봐서 <br>사실인지 확인한다.
 					</button>
@@ -490,7 +503,7 @@ body {
 		var result = ""
 		$(".last_btn").click(function() {
 			$("#content_wrap").css("background-color", "#222538");
-			
+
 			if (mbti[0] > mbti[1]) {
 				result += "E";
 			} else {
@@ -522,12 +535,14 @@ body {
 							setTimeout(
 									function() {
 										$(".game_loading").addClass('hidden');
-										$("#content_wrap").css("background-color", "white");
-										$(".question").css("background-color", "white");
+										$("#content_wrap").css(
+												"background-color", "white");
+										$(".question").css("background-color",
+												"white");
 										var code = ""
 										code += "<img style='width:100%;' src='${pageContext.request.contextPath}/assets/img/mbti/result/"
 												+ result + ".png'/>";
-										code+="<a class='home_btn' href='${pageContext.request.contextPath}/'>홈으로</a>"		
+										code += "<a class='home_btn' href='${pageContext.request.contextPath}/'>홈으로</a>"
 										$("#result").append(code);
 
 									}, 2000);

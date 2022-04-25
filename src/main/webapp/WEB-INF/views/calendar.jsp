@@ -17,7 +17,7 @@
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <title>제41대 사범대학 학생회 늘품</title>
-<link rel="icon" 
+<link rel="icon"
 	href="${pageContext.request.contextPath}/assets/img/basic_logo.png" />
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/assets/css/snu_main.css" />
@@ -114,6 +114,10 @@ select {
 	vertical-align: top;
 }
 
+body .calendar_body .today_color {
+	background-color: #c9c9c9;
+}
+
 .calendar_body .date {
 	font-weight: bold;
 	font-size: 15px;
@@ -184,6 +188,7 @@ select {
 	border-radius: 5px;
 	display: block;
 	margin: auto;
+	cursor: pointer;
 }
 
 .reservation_rule_box {
@@ -234,7 +239,7 @@ form {
 		width: 100%;
 	}
 	.reserve_btn {
-		font-size: 1px;
+		font-size: 8px;
 	}
 	.calendar_body .today, .calendar_body .sun_day, .calendar_body .sat_day,
 		.calendar_body .normal_day {
@@ -243,6 +248,14 @@ form {
 	.reserve_btn {
 		width: 100%;
 		margin-top: 5px;
+		padding: 25% 0%;
+	}
+	.navi_box a {
+		background-color: #0f0f70;
+		color: white;
+		border-radius: 5px;
+		padding: 3%;
+		font-size: 12px;
 	}
 }
 }
@@ -356,39 +369,66 @@ form {
 									</c:if>
 
 									<c:choose>
-									<c:when test="${dateList.value=='today'}">
-											<td class="today">
-
-												<div class="date">${dateList.date}
-													<c:if test="${i <=14 && i>=0 }">
-														<div class="reserve_btn_box">
-															<br> <a class="reserve_btn"
-																onclick="javascript:goPage('106','${calendar_date}')">9-106호</a>
-															<br> <a class="reserve_btn"
-																onclick="javascript:goPage('107','${calendar_date}')">9-107호</a>
-														</div>
-													</c:if>
-												</div>
-												<div></div>
-											</td>
-										</c:when>
-							
 										<c:when test="${date_status.index%7==6}">
-											<td class="sat_day">
-												<div class="sat">${dateList.date}
-													<c:if test="${i <=14 && i>=0 }">
-														<div class="reserve_btn_box">
-															<br> <a class="reserve_btn"
-																onclick="javascript:goPage('106','${calendar_date}')">9-106호</a>
-															<br> <a class="reserve_btn"
-																onclick="javascript:goPage('107','${calendar_date}')">9-107호</a>
+
+											<c:choose>
+												<c:when test="${today_info.today == dateList.date}">
+
+													<td class="sat_day today_color">
+														<div class="sat">${dateList.date}
+															<c:if test="${i <=14 && i>=0 }">
+																<div class="reserve_btn_box">
+																	<br> <a class="reserve_btn"
+																		onclick="javascript:goPage('106','${calendar_date}')">9-106호</a>
+																	<br> <a class="reserve_btn"
+																		onclick="javascript:goPage('107','${calendar_date}')">9-107호</a>
+																</div>
+															</c:if>
 														</div>
-													</c:if>
-												</div>
-												<div></div>
-											</td>
+														<div></div>
+													</td>
+
+												</c:when>
+												<c:otherwise>
+													<td class="sat_day">
+														<div class="sat">${dateList.date}
+															<c:if test="${i <=14 && i>=0 }">
+																<div class="reserve_btn_box">
+																	<br> <a class="reserve_btn"
+																		onclick="javascript:goPage('106','${calendar_date}')">9-106호</a>
+																	<br> <a class="reserve_btn"
+																		onclick="javascript:goPage('107','${calendar_date}')">9-107호</a>
+																</div>
+															</c:if>
+														</div>
+														<div></div>
+													</td>
+												</c:otherwise>
+											</c:choose>
+
 										</c:when>
 										<c:when test="${date_status.index%7==0}">
+
+											<c:choose>
+												<c:when test="${today_info.today == dateList.date}">
+							</tr>
+							<tr>
+								<td class="sun_day today_color">
+									<div class="sun">${dateList.date}
+										<c:if test="${i <=14 && i>=0 }">
+											<div class="reserve_btn_box">
+												<br> <a class="reserve_btn"
+													onclick="javascript:goPage('106','${calendar_date}')">9-106호</a>
+												<br> <a class="reserve_btn"
+													onclick="javascript:goPage('107','${calendar_date}')">9-107호</a>
+											</div>
+										</c:if>
+									</div>
+									<div></div>
+								</td>
+
+								</c:when>
+								<c:otherwise>
 							</tr>
 							<tr>
 								<td class="sun_day">
@@ -404,21 +444,53 @@ form {
 									</div>
 									<div></div>
 								</td>
+
+
+
+								</c:otherwise>
+								</c:choose>
+
 								</c:when>
 								<c:otherwise>
-									<td class="normal_day">
-										<div class="date">${dateList.date}
-											<c:if test="${i <=14 && i>=0 }">
-												<div class="reserve_btn_box">
-													<br> <a class="reserve_btn"
-														onclick="javascript:goPage('106','${calendar_date}')">9-106호</a>
-													<br> <a class="reserve_btn"
-														onclick="javascript:goPage('107','${calendar_date}')">9-107호</a>
+
+									<c:choose>
+										<c:when test="${today_info.today == dateList.date}">
+											<td class="normal_day today_color">
+												<div class="date">${dateList.date}
+													<c:if test="${i <=14 && i>=0 }">
+														<div class="reserve_btn_box">
+															<br> <a class="reserve_btn"
+																onclick="javascript:goPage('106','${calendar_date}')">9-106호</a>
+															<br> <a class="reserve_btn"
+																onclick="javascript:goPage('107','${calendar_date}')">9-107호</a>
+														</div>
+													</c:if>
 												</div>
-											</c:if>
-										</div>
-										<div></div>
-									</td>
+												<div></div>
+											</td>
+
+										</c:when>
+										<c:otherwise>
+
+											<td class="normal_day">
+												<div class="date">${dateList.date}
+													<c:if test="${i <=14 && i>=0 }">
+														<div class="reserve_btn_box">
+															<br> <a class="reserve_btn"
+																onclick="javascript:goPage('106','${calendar_date}')">9-106호</a>
+															<br> <a class="reserve_btn"
+																onclick="javascript:goPage('107','${calendar_date}')">9-107호</a>
+														</div>
+													</c:if>
+												</div>
+												<div></div>
+											</td>
+
+
+
+										</c:otherwise>
+									</c:choose>
+
 								</c:otherwise>
 								</c:choose>
 								</c:forEach>
@@ -441,33 +513,37 @@ form {
 		<!-- 모바일 헤더-->
 
 		<%@ include file="../include/MOBILE/header.jsp"%>
+		<%@ include file="../include/MOBILE/tab.jsp"%>
 		<!--모바일 컨텐츠 박스-->
 
 		<form name="calendarFrm" id="calendarFrm" action="" method="GET">
+			<c:set var="month" value="${today_info.search_month}" />
+			<c:if test="${today_info.search_month<10}">
+				<c:set var="month" value="${0}${today_info.search_month}" />
 
+			</c:if>
+			<c:set var="before_year" value="${today_info.before_year}" />
+			<c:set var="before_month" value="${today_info.before_month}" />
+			<c:set var="after_year" value="${today_info.after_year}" />
+			<c:set var="after_month" value="${today_info.after_month}" />
 			<div class="calendar">
 
 				<!--날짜 네비게이션  -->
 				<div class="navigation">
-					<%-- <a class="before_after_year"
-						href="${pageContext.request.contextPath}/calendar.do?year=${today_info.search_year-1}&month=${today_info.search_month-1}">
-						&lt;&lt; <!-- 이전해 -->
-					</a> --%>
-					<a class="before_after_month"
-						href="${pageContext.request.contextPath}/calendar.do?year=${today_info.before_year}&month=${today_info.before_month}">
-						&lt; <!-- 이전달 -->
-					</a> <span class="this_month"> &nbsp;${today_info.search_year}.
-						<c:if test="${today_info.search_month<10}">
-							<c:set var="month" value="${0}${today_info.search_month}" />
-						</c:if>${month}
-					</span> <a class="before_after_month"
-						href="${pageContext.request.contextPath}/calendar.do?year=${today_info.after_year}&month=${today_info.after_month}">
-						<!-- 다음달 --> &gt;
-					</a>
-					<%-- <a class="before_after_year"
-						href="${pageContext.request.contextPath}/calendar.do?year=${today_info.search_year+1}&month=${today_info.search_month-1}">
-						<!-- 다음해 --> &gt;&gt;
-					</a>--%>
+					<div class="year">${today_info.search_year}</div>
+					<div class="navi_box">
+						<a
+							href="${pageContext.request.contextPath}/calendar.do?year=${before_year}&month=${before_month}">
+							<i class="fa-solid fa-chevron-left"></i> 이전달
+						</a> <span>${today_info.search_month}월 </span><a
+							href="${pageContext.request.contextPath}/calendar.do?year=${after_year}&month=${after_month}">
+							다음달 <i class="fa-solid fa-chevron-right"></i>
+						</a>
+
+					</div>
+
+
+
 				</div>
 
 				<!-- <div class="today_button_div"> -->
@@ -526,60 +602,128 @@ form {
 								</c:if>
 
 								<c:choose>
-									<c:when test="${dateList.value=='today'}">
-										<td class="today">
-
-											<div class="date">${dateList.date}
-												<c:if test="${i <=14 && i>=0 }">
-													<div class="reserve_btn_box">
-														<a class="reserve_btn" href="#">9-106호</a> <a
-															class="reserve_btn" href="#">9-107호</a>
-													</div>
-												</c:if>
-											</div>
-											<div></div>
-										</td>
-									</c:when>
 									<c:when test="${date_status.index%7==6}">
-										<td class="sat_day">
-											<div class="sat">${dateList.date}
-												<c:if test="${i <=14 && i>=0 }">
-													<div class="reserve_btn_box">
-														<a class="reserve_btn" href="#">9-106호</a> <a
-															class="reserve_btn" href="#">9-107호</a>
+
+										<c:choose>
+											<c:when test="${today_info.today == dateList.date}">
+
+												<td class="sat_day today_color">
+													<div class="sat">${dateList.date}
+														<c:if test="${i <=14 && i>=0 }">
+															<div class="reserve_btn_box">
+																<br> <a class="reserve_btn"
+																	onclick="javascript:goPage('106','${calendar_date}')">9-106호</a>
+																<br> <a class="reserve_btn"
+																	onclick="javascript:goPage('107','${calendar_date}')">9-107호</a>
+															</div>
+														</c:if>
 													</div>
-												</c:if>
-											</div>
-											<div></div>
-										</td>
+													<div></div>
+												</td>
+
+											</c:when>
+											<c:otherwise>
+												<td class="sat_day">
+													<div class="sat">${dateList.date}
+														<c:if test="${i <=14 && i>=0 }">
+															<div class="reserve_btn_box">
+																<br> <a class="reserve_btn"
+																	onclick="javascript:goPage('106','${calendar_date}')">9-106호</a>
+																<br> <a class="reserve_btn"
+																	onclick="javascript:goPage('107','${calendar_date}')">9-107호</a>
+															</div>
+														</c:if>
+													</div>
+													<div></div>
+												</td>
+											</c:otherwise>
+										</c:choose>
+
 									</c:when>
 									<c:when test="${date_status.index%7==0}">
+
+										<c:choose>
+											<c:when test="${today_info.today == dateList.date}">
+						</tr>
+						<tr>
+							<td class="sun_day today_color">
+								<div class="sun">${dateList.date}
+									<c:if test="${i <=14 && i>=0 }">
+										<div class="reserve_btn_box">
+											<br> <a class="reserve_btn"
+												onclick="javascript:goPage('106','${calendar_date}')">9-106호</a>
+											<br> <a class="reserve_btn"
+												onclick="javascript:goPage('107','${calendar_date}')">9-107호</a>
+										</div>
+									</c:if>
+								</div>
+								<div></div>
+							</td>
+
+							</c:when>
+							<c:otherwise>
 						</tr>
 						<tr>
 							<td class="sun_day">
 								<div class="sun">${dateList.date}
 									<c:if test="${i <=14 && i>=0 }">
 										<div class="reserve_btn_box">
-											<a class="reserve_btn" href="#">9-106호</a> <a
-												class="reserve_btn" href="#">9-107호</a>
+											<br> <a class="reserve_btn"
+												onclick="javascript:goPage('106','${calendar_date}')">9-106호</a>
+											<br> <a class="reserve_btn"
+												onclick="javascript:goPage('107','${calendar_date}')">9-107호</a>
 										</div>
 									</c:if>
 								</div>
 								<div></div>
 							</td>
+
+
+
+							</c:otherwise>
+							</c:choose>
+
 							</c:when>
 							<c:otherwise>
-								<td class="normal_day">
-									<div class="date">${dateList.date}
-										<c:if test="${i <=14 && i>=0 }">
-											<div class="reserve_btn_box">
-												<a class="reserve_btn" href="#">9-106호</a> <a
-													class="reserve_btn" href="#">9-107호</a>
+
+								<c:choose>
+									<c:when test="${today_info.today == dateList.date}">
+										<td class="normal_day today_color">
+											<div class="date">${dateList.date}
+												<c:if test="${i <=14 && i>=0 }">
+													<div class="reserve_btn_box">
+														<br> <a class="reserve_btn"
+															onclick="javascript:goPage('106','${calendar_date}')">9-106호</a>
+														<br> <a class="reserve_btn"
+															onclick="javascript:goPage('107','${calendar_date}')">9-107호</a>
+													</div>
+												</c:if>
 											</div>
-										</c:if>
-									</div>
-									<div></div>
-								</td>
+											<div></div>
+										</td>
+
+									</c:when>
+									<c:otherwise>
+
+										<td class="normal_day">
+											<div class="date">${dateList.date}
+												<c:if test="${i <=14 && i>=0 }">
+													<div class="reserve_btn_box">
+														<br> <a class="reserve_btn"
+															onclick="javascript:goPage('106','${calendar_date}')">9-106호</a>
+														<br> <a class="reserve_btn"
+															onclick="javascript:goPage('107','${calendar_date}')">9-107호</a>
+													</div>
+												</c:if>
+											</div>
+											<div></div>
+										</td>
+
+
+
+									</c:otherwise>
+								</c:choose>
+
 							</c:otherwise>
 							</c:choose>
 							</c:forEach>
@@ -588,7 +732,6 @@ form {
 				</table>
 			</div>
 		</form>
-
 
 
 		<!--모바일 footer-->
@@ -606,26 +749,39 @@ form {
 
 	<script>
 		function goPage(room, date) {
-			var newForm = $('<form></form>');
-			newForm.attr("method", "Post");
-			newForm.attr("action",
-					"${pageContext.request.contextPath}/reservation.do");
+			if(${member  == null})
+			{
+				if(confirm("로그인이 필요한 서비스입니다. 로그인 하시겠습니까?")){
+					window.location = "${pageContext.request.contextPath}/login.do"	
+				}
+				else{
+					return;
+				}
+				
+			}
+			else{
 
-			newForm.append($('<input/>', {
-				type : 'hidden',
-				name : 'room_num',
-				value : room
-			}));
-			newForm.append($('<input/>', {
-				type : 'hidden',
-				name : 'reserve_date',
-				value : date
-			}));
+				var newForm = $('<form></form>');
+				newForm.attr("method", "Post");
+				newForm.attr("action",
+						"${pageContext.request.contextPath}/reservation.do");
 
-			newForm.appendTo('body');
+				newForm.append($('<input/>', {
+					type : 'hidden',
+					name : 'room_num',
+					value : room
+				}));
+				newForm.append($('<input/>', {
+					type : 'hidden',
+					name : 'reserve_date',
+					value : date
+				}));
 
-			newForm.submit();
+				newForm.appendTo('body');
 
+				newForm.submit();
+
+			}
 		}
 	</script>
 
