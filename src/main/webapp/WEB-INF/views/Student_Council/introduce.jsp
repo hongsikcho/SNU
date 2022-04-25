@@ -30,7 +30,8 @@
 	href="${pageContext.request.contextPath}/assets/css/counsel.css" />	
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/assets/css/style.css" />
-
+<link rel="icon" 
+	href="${pageContext.request.contextPath}/assets/img/basic_logo.png" />
 
 <style type="text/css">
 .main_box{

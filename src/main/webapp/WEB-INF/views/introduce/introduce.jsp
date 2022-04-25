@@ -21,7 +21,8 @@
 	rel="stylesheet">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/side_btn.css">
-
+<link rel="icon" 
+	href="${pageContext.request.contextPath}/assets/img/basic_logo.png" />
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/header.css">
 <link rel="stylesheet"

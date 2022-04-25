@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
@@ -14,7 +15,8 @@
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <title>제41대 사범대학 학생회 늘품</title>
-
+<link rel="icon" 
+	href="${pageContext.request.contextPath}/assets/img/basic_logo.png" />
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/assets/css/snu_main.css" />
 <link rel="stylesheet" type="text/css"
@@ -109,7 +111,6 @@
 	margin: 0;
 	padding: 0;
 }
-
 </style>
 
 </head>
@@ -124,16 +125,21 @@
 
 
 		<div class="snu_main_box">
-			<div class="snu_main_header">${output[0].num}월 HI 사범 </div>
+			<div class="snu_main_header">${output[0].num}월HI 사범</div>
 
-			<div class="" style="width:85%; margin: auto; margin-top:50px;">
+			<div class="" style="width: 85%; margin: auto; margin-top: 50px;">
+
+				<div class="hi_detail_video">
 				
-                 <div class="hi_detail_video">
-                     <iframe width="100%" height="500px" src="${output[0].link}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
+					<iframe width="100%" height="540px" src="${output[0].link}"
+						title="YouTube video player" frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+						allowfullscreen></iframe>
+						
+				</div>
 
 
-				<div class="photo" style="margin-top:100px; margin-bottom:100px">
+				<div class="photo" style="margin-top: 100px; margin-bottom: 100px">
 					<div class="head">
 						<img class="main_img" style="width: 100%;"
 							src="${pageContext.request.contextPath}/assets/img/hi_${output[0].num}/${output[0].photo}" />
@@ -143,11 +149,11 @@
 					</a>
 					<div class="midd">
 						<ul>
-						<c:forEach var="s" items="${output}" varStatus="status">
-							<li id="li_${status.count -1}"><a class="small_img_box on"> <img
-									class="small_img" id="${status.count}"
-									src="${pageContext.request.contextPath}/assets/img/hi_${s.num}/${s.photo}" />
-							</a></li>
+							<c:forEach var="s" items="${output}" varStatus="status">
+								<li id="li_${status.count -1}"><a class="small_img_box on">
+										<img class="small_img" id="${status.count}"
+										src="${pageContext.request.contextPath}/assets/img/hi_${s.num}/${s.photo}" />
+								</a></li>
 							</c:forEach>
 						</ul>
 					</div>
@@ -174,41 +180,48 @@
 		<%@ include file="../../include/MOBILE/tab.jsp"%>
 		<!--모바일 컨텐츠 박스-->
 
-		<div class="snu_mobile_main_box">
+		<div class="snu_mobile_main_box" style="margin-bottom:100px;">
 
-		
+
 
 			<!--모바일 메인 이너-->
-<div class="snu_main_header">${output[0].num}월 HI 사범 </div>
+			<div class="snu_main_header" style="margin-bottom:30px;">${output[0].num}월HI 사범</div>
 
-			<div class="" style="width:90%; margin: auto; margin-top:30px;">
-				
-                 <div class="hi_detail_video" style="border-radius: 10px;">
-                     <iframe  width="100%" height="180px" src="${output[0].link}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
+			<div class="hi_detail_video" style="display:flex; justify-content:center; margin-bottom:50px;">
+				<iframe width="70%" height="250px"style="margin-top:30px;"  src="${output[0].link}"
+					title="YouTube video player" frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen></iframe>
+			</div>
 
-
-				<div class="photo" style="margin-top:100px; margin-bottom:100px">
-					<div class="head">
-						<img class="main_img" style="width: 100%;"
-							src="${pageContext.request.contextPath}/assets/img/hi_${output[0].num}/${output[0].photo}" />
-					</div>
-					<a class="prev"> <span>이전</span>
-					</a> <a class="next"> <span>이후</span>
+<h3 style="font-size:27px; text-align:start; font-weight:bold; border-bottom:3px solid #0f0f70; padding-bottom:5px;">HI뉴스</h3>
+			<div style="width: 70%; margin: auto; margin-top: 30px">
+				<div style="position: relative;">
+					<img class="main_img" style="width: 100%;"
+						src="${pageContext.request.contextPath}/assets/img/hi_${output[0].num}/${output[0].photo}" />
+					<a class="prev" style="left: -20%; bottom: 40%;"> <span>이전</span>
+					</a> <a class="next" style="right: -20%; bottom: 40%;"> <span>이후</span>
 					</a>
-					<div class="midd">
-						<ul>
-						<c:forEach var="s" items="${output}" varStatus="status">
-							<li id="li_${status.count -1}"><a class="small_img_box on"> <img
-									class="small_img" id="${status.count}"
-									src="${pageContext.request.contextPath}/assets/img/hi_${s.num}/${s.photo}" />
+					<ul style="display: none;">
+						<li id="li_0"><a class="small_img_box on"> <img
+								class="small_img" id="0"
+								src="${pageContext.request.contextPath}/assets/img/hi_${output[0].num}/${output[0].photo}" />
+						</a></li>
+
+						<c:forEach var="item" items="${imgoutput}" varStatus="status">
+							<c:set var="img" value="${item.photo}" />
+							<c:set var="num" value="${num+1}" />
+							<li id="li_${num}"><a class="small_img_box"> <img
+									class="small_img" id="${num}"
+									src="http://3.138.48.22:8080/upload/${img}" />
 							</a></li>
-							</c:forEach>
-						</ul>
-					</div>
+						</c:forEach>
+					</ul>
+					<div class="mobile_img_page" style="text-align: center;"></div>
+
 				</div>
 			</div>
-			
+
 			<!--모바일 메인 이너 끝-->
 
 		</div>
@@ -229,9 +242,7 @@
 	<script
 		src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
 	<script src="${pageContext.request.contextPath}/assets/js/style.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
-	<script src="${pageContext.request.contextPath}/assets/js/style.js"></script>
+
 
 	<script>
 		var width_sum = 0;
@@ -299,12 +310,12 @@
 			$(this).addClass("on");
 			var index = parseInt($(this).find(".small_img").attr("id"));
 			slide(index);
-			if (index >= overflow && overflow!=0) {
+			if (index >= overflow && overflow != 0) {
 				for (var i = overflow; i <= index; i++) {
 					move_distance += $("#li_" + i).outerWidth(true);
 				}
 				$(".midd ul").animate({
-					left : "-" + move_distance+ + "px"
+					left : "-" + move_distance + +"px"
 				}, 200);
 			} else {
 				$(".midd ul").animate({

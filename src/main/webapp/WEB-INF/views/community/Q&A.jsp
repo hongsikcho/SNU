@@ -15,7 +15,8 @@
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <title>제41대 사범대학 학생회 늘품</title>
-
+<link rel="icon" 
+	href="${pageContext.request.contextPath}/assets/img/basic_logo.png" />
 <link
 	href="https://hangeul.pstatic.net/hangeul_static/css/nanum-gothic.css"
 	rel="stylesheet">
@@ -220,7 +221,7 @@
 						</c:choose>
 					</c:forEach>
 					<div class="snu_qna_write_box">
-						<a class="qna_read_btn snu_qna_write_btn">글쓰기</a>
+						<a class="qna_write_btn snu_qna_write_btn">글쓰기</a>
 					</div>
 
 
@@ -428,16 +429,15 @@
 
 
 			<div class="snu_qna_write_box">
-				<a class="qna_read_btn snu_qna_write_btn">글쓰기</a>
+				<a class="qna_write_btn snu_qna_write_btn">글쓰기</a>
 			</div>
 
 		</div>
-		<%@ include file="../../include/MOBILE/footer.jsp"%>
 		<!--모바일 footer-->
 
 
 	</div>
-
+<%@ include file="../../include/MOBILE/footer.jsp"%>
 
 
 
@@ -483,8 +483,23 @@
 
 		}
 	
-	
 	</script>
+	<script>
+	$(".qna_write_btn").click(function(){
+		if(${member == null} ){
+			if(confirm("로그인이 필요한 서비스입니다. 로그인 하시겠습니까?")){
+				window.location = "${pageContext.request.contextPath}/login.do"	
+			}
+			else{
+				return;
+			}
+		}
+		else{
+			window.location = "${pageContext.request.contextPath}/community/Q&A_write.do"	
+			
+		}
+
+})</script>
 
 
 </body>

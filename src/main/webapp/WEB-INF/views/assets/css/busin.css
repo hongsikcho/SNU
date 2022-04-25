@@ -42,6 +42,7 @@
   font-weight: 700;
   font-size: x-large;
   margin-bottom: 20px;
+  margin-top:20px;
 }
 .detail_body {
   border: 2px solid #0f0f70;
@@ -101,5 +102,12 @@
   left: 120px;
   top: 170px;
   width:100px;
+}
+.detail_title {
+  font-size: medium;
+  font-weight: 700;
+  font-size: x-large;
+  margin-bottom: 5px;
+  margin-top:20px;
 }
 }

@@ -17,13 +17,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>사범대</title>
     <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-gothic.css" rel="stylesheet">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/side_btn.css">
+    <link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/assets/css/side_btn.css" />
+<link rel="icon" 
+	href="${pageContext.request.contextPath}/assets/img/basic_logo.png" />
+<link rel="icon" 
+	href="${pageContext.request.contextPath}/assets/img/basic_logo.png" />
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/assets/css/header.css" />
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/assets/css/footer.css" />
 
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
-
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/mobile_header.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/mobile_footer.css">
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/assets/css/mobile_header.css" />
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/assets/css/mobile_footer.css" />
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/FAQ.css">
@@ -124,25 +132,12 @@
     
             </div>
 
+	<%@ include file="../include/WEB/footer.jsp"%>
         <!--pc 메인박스 끝-->
 
 
         <!--pc footer-->
-        <div class="footer_box">
-            <div class="footer">
-                <div class="footer_logo"><img src="assets/img/snu_logo.png"></div>
-                <div class="footer_text">
-                    <div>서울대학교 사범대학 학생회</div>
-                    <div>email:jjdd9758@naver.com</div>
-                </div>
-                <div class="footer_logoright">
-                    <img src="assets/img/kakao.png">
-                    <img src="assets/img/youtube.png">
-                    <img src="assets/img/everytime.png">
-                    <img src="assets/img/insta.png">
-                </div>
-            </div>
-        </div>
+       
 
 
 
@@ -150,6 +145,7 @@
 
 
     </div>
+    
 
 
 
@@ -157,105 +153,8 @@
     <div class="snu_mobile_box"  style="font-family: 'NanumGothic';">
 
         <!-- 모바일 헤더-->
-        <div class="snu_mobile_header">
-            <div class="snu_mobile_header_fisrt_box">
-                <div class="header_left_m_box">
-                    <div class="header_left_m_box_inner">서울대학교</div>
-                    <div class="header_left_m_bar"></div>
-                    <div class="header_left_m_box_inner">서울대학교 사범대학</div>
-                    <div class='header_left_m_bar'></div>
-                    <div class="header_left_m_box_inner">교원양성지원센터</div>
-                </div>
-            </div>
-
-            <div class="snu_m_header_second_box">
-                <div class="snu_m_logo_box">
-                    <img style="width: 80px; height: 80px;" src="assets/img/snu_logo.png"/>
-                    <div class="snu_m_logo_box_title">
-                        
-                            <b>서울대학교 사범대학 학생회</b>
-                            <br>
-                            <span>College of Education Student Council</span>
-                        
-                    </div>
-                </div>
-
-                <div class="snu_m_menu_box">
-                    <a href="#" class="snu_m_menu_box_btn">
-                        <i class="fas fa-search"></i>
-
-                    </a>
-
-                    <a class=" snu_m_menu_box_btn menu-trigger" href="#">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </a>
-                </div>
-            </div>
-
-        </div>
-        <div class="snu_m_tab_box">
-            <div class="tab_logo_box"></div>
-            <div class="tab_inner">
-                <div class="tab_inner_box">
-                    <div class="btn">
-                        <div>학생회 </div>
-                        <div><i class="fas fa-chevron-down"></i></div>
-                    </div>
-                    <div class="tab_btn_inner">
-                        <div><a href="#">학생회 소개</a></div>
-                        <div><a href="#">회의록 / 세칙</a></div>
-                        <div><a href="#">집행위원회 소개</a></div>
-                        <div><a href="#">주요사업소개</a></div>
-                    </div>
-                </div>
-                <div class="tab_inner_box">
-                    <div class="btn" id="tab_btn2">
-                        <div>커뮤니티</div>
-                        <div><i class="fas fa-chevron-down"></i></div>
-                    </div>
-
-                    <div class="tab_btn_inner">
-                        <div><a href="#">건의 및 Q&A</a></div>
-                        <div><a href="#">MBTI 게임</a></div>
-                        <div><a href="#">FAQ</a></div>
-                        <div><a href="#">Hi 사범</a></div>
-                    </div>
-                </div>
-
-                <div class="tab_inner_box">
-                    <div class="btn" id="tab_btn2">
-                        <div>공지사항</div>
-
-                    </div>
-
-                </div>
-
-                <div class="tab_inner_box">
-                    <div class="btn" id="tab_btn2">
-                        <div>행사 참여신청</div>
-
-                    </div>
-
-                </div>
-
-                <div class="tab_inner_box">
-                    <div class="btn" id="tab_btn2">
-                        <div>졸업로드맵</div>
-                        <div><i class="fas fa-chevron-down"></i></div>
-                    </div>
-
-                    <div class="tab_btn_inner">
-                        <div><a class="a" href="#">과별 졸업로드맵</a></div>
-                        <div><a href="#">교직 로드맵</a></div>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
+        <%@ include file="../include/MOBILE/header.jsp"%>
+		<%@ include file="../include/MOBILE/tab.jsp"%>
         <!--모바일 메인 박스 시작-->
 
         
@@ -346,33 +245,18 @@
 
 
         <!--모바일 footer-->
-        <div class="footer_m">
-            <div class="footer_m_text">
-                <div class="footer_m_text_img">
-                    <img src="assets/img/snu_logo.png">
-                </div>
-                <div class="footer_m_write">
-                    <div class="footer_m_text_name">서울대학교 사범대학 학생회</div>
-                    <div class="footer_m_text_email">jjdd9758@naver.com</div>
-                </div>
-            </div>
+       
 
-            <div class="footer_m_sns">
-                <img src="assets/img/everytime.png">
-                <img src="assets/img/insta.png">
-                <img src="assets/img/youtube.png">
-                <img src="assets/img/kakao.png">
-            </div>
-            <div></div>
-        </div>
-
-
+ <%@ include file="../include/MOBILE/footer.jsp"%>
 
     </div>
+ 
 
-    <script src="https://kit.fontawesome.com/6478f529f2.js" crossorigin="anonymous"></script>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/style.js"> </script>
+  <script src="https://kit.fontawesome.com/695be3a17b.js"
+		crossorigin="anonymous"></script>
+	<script
+		src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/style.js"></script>
    
 
 </body>

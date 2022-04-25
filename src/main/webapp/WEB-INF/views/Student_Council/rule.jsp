@@ -31,7 +31,8 @@
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/assets/css/style.css" />
 
-
+<link rel="icon" 
+	href="${pageContext.request.contextPath}/assets/img/basic_logo.png" />
 <style type="text/css">
 .rule_pdf {
 	margin: 50px 0px;
@@ -54,7 +55,7 @@
 			</div>
 
 			<iframe class="rule_pdf" width="100%" height="1000"
-				src="${pageContext.request.contextPath}/assets/file/pdf/education_college_rule_202108.pdf"></iframe>
+				src="${pageContext.request.contextPath}/assets/file/pdf/education_college_rule_2021082.pdf"></iframe>
 		</div>
 
 		<%@ include file="../../include/WEB/footer.jsp"%>

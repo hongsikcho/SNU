@@ -8,4 +8,5 @@ public class Business {
 	private int bnum;
 	private int bnum_for;
 	private String busin;
+	private String link;
 }
