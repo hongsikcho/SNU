@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ViewMapper">
+
+	<resultMap id="ViewMap"
+		type="study.spring.seoulspring.model.View">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="title" column="title" />
+		<result property="count" column="count" />
+	</resultMap>
+
+	<select id="selectItem"
+		parameterType="study.spring.seoulspring.model.View"
+		resultMap="ViewMap">
+		SELECT * FROM view
+	</select>
+
+	<update id="updateSearchCount"
+		parameterType="study.spring.seoulspring.model.View">
+		UPDATE view SET count= count+1
+		WHERE
+		title=#{title}
+	</update>
+
+
+
+
+
+
+</mapper>
