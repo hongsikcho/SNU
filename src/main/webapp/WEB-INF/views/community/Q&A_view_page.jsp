@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
@@ -42,10 +43,6 @@
 
 
 <style type="text/css">
-.main_box {
-	font-family: 'NanumGothic';
-}
-
 .btn_delete {
 	background-color: #0f0f70;
 	color: white;
@@ -62,23 +59,14 @@
 	margin-bottom: 5px;
 }
 
-.comment_rely_num {
-	font-size: 17px;
-	color: #0f0f70;
-	font-weight: bold;
-}
-
 .comment_rely_name {
+	font-size: 16px;
 	font-weight: bold;
-	border-left: 1px solid black;
-	padding-left: 5px;
 }
 
 .comment_box {
-	border: 2px solid #0f0f70;
-	border-radius: 10px;
-	padding: 7px;
-	margin-top: 10px;
+	border-bottom: 1px solid #dcdcdc;
+	padding: 20px 10px;
 }
 
 .post_main_box {
@@ -227,43 +215,26 @@ textarea {
 							<c:when test="${output.posttype eq '익명'}">익명</c:when>
 							<c:otherwise>${output.name}</c:otherwise>
 						</c:choose>
-						<span>${fn:substring(postdate,0,10)}</span> <br>
-						<span>조회수 ${output.postview }</span>
+						<span>${fn:substring(postdate,0,10)}</span> <br> <span
+							style="padding: 10px 0px 0px 0px">조회수 ${output.postview }</span>
 					</div>
 				</div>
 
-				<div class="post_main_text">
-					${output.postcontent }
-				</div>
+				<div class="post_main_text">${output.postcontent }</div>
 			</div>
-
-			<c:forEach var="comment" items="${reply}" varStatus="status">
-				<div class="comment_box">
-					<div class="comment_who">
-						<div class="comment_rely_num">${status.count}번째
-							댓글 <span class="comment_rely_name">${comment.reply_name}</span>
+			<div class="comment_wrap">
+				<c:forEach var="comment" items="${reply}" varStatus="status">
+					<div class="comment_box reply${comment.reply_num}">
+						<div class="comment_who">
+							<span class="comment_rely_name">${comment.reply_name}</span>
 						</div>
+						<div class="comment_main">${comment.reply_txt}</div>
+						<c:if test='${comment.reply_name eq member.name}'>
+							<button value="${comment.reply_num}" class="btn_delete">삭제</button>
+						</c:if>
 					</div>
-					<div class="comment_main">${comment.reply_txt}</div>
-					<c:if test='${comment.reply_name eq member.name}'>
-						<form class="btn"
-							action="${pageContext.request.contextPath}/community/reply_delete.do"
-							method="GET">
-							<input type="hidden" name='reply_num'
-								value="${reply[0].reply_num}" />
-							<button class="btn_delete">삭제</button>
-						</form>
-					</c:if>
-				</div>
-
-
-
-
-
-			</c:forEach>
-
-
-
+				</c:forEach>
+			</div>
 			<div class="post_btn_box">
 				<form class="reply_write_insert"
 					action="${pageContext.request.contextPath}/community/reply_write_insert.do"
@@ -274,13 +245,13 @@ textarea {
 					<textarea id="posttext" name="posttext"
 						placeholder="댓글을 입력해 주세요...."></textarea>
 
-					<button class="write">글쓰기</button>
-
+					<button type="submit" class="write">글쓰기</button>
+					<button type="button" class="write"
+						onclick="location.href='${pageContext.request.contextPath}/community/Q&A.do'">목록</button>
 				</form>
 
 			</div>
-			<a class="write"
-				href="${pageContext.request.contextPath}/community/Q&A.do">목록</a>
+
 
 		</div>
 
@@ -301,7 +272,7 @@ textarea {
 		<!--모바일 컨텐츠 박스-->
 
 
-		<div class="snu_mobile_main_box" style="font-family: 'NanumGothic';">
+		<div class="snu_mobile_main_box">
 
 			<div class="snu_main_header">건의 및 Q&A</div>
 
@@ -317,65 +288,45 @@ textarea {
 							<c:when test="${output.posttype eq '익명'}">익명</c:when>
 							<c:otherwise>${output.name}</c:otherwise>
 						</c:choose>
-						<span>${fn:substring(postdate,0,10)}</span> <br>
-						<span style="padding:10px 0px 0px 0px">조회수 ${output.postview }</span>
+						<span>${fn:substring(postdate,0,10)}</span> <br> <span
+							style="padding: 10px 0px 0px 0px">조회수 ${output.postview }</span>
 
 					</div>
 				</div>
 
-				<div class="post_main_text">
-					${output.postcontent }
-				</div>
+				<div class="post_main_text">${output.postcontent }</div>
 			</div>
-
-			<c:forEach var="comment" items="${reply}" varStatus="status">
-				<div class="comment_box" style="margin: 10px 0;">
-					<div class="comment_who">
-						<div class="comment_rely_num">${status.count}번째
-							댓글 <span class="comment_rely_name">${comment.reply_name}</span>
+			<div class="comment_wrap">
+				<c:forEach var="comment" items="${reply}" varStatus="status">
+					<div class="comment_box reply${comment.reply_num}">
+						<div class="comment_who">
+							<span class="comment_rely_name">${comment.reply_name}</span>
 						</div>
+						<div class="comment_main">${comment.reply_txt}</div>
+						<c:if test='${comment.reply_name eq member.name}'>
+							<button value="${comment.reply_num}" class="btn_delete">삭제</button>
+						</c:if>
+
 					</div>
-					<div class="comment_main">${comment.reply_txt}</div>
-					<c:if test='${comment.reply_name eq member.name}'>
-						<form class="btn"
-							action="${pageContext.request.contextPath}/community/reply_delete.do"
-							method="GET">
-							<input type="hidden" name='reply_num'
-								value="${reply[0].reply_num}" />
-							<button class="btn_delete">삭제</button>
-						</form>
-					</c:if>
-				</div>
-
-
-			</c:forEach>
+				</c:forEach>
+			</div>
 			<div class="post_btn_box">
 				<form class="reply_write_insert_m"
 					action="${pageContext.request.contextPath}/community/reply_write_insert.do"
 					method="POST">
 					<input id="postno" type="hidden" name='postno'
 						value="${output.postno}" />
-
 					<textarea id="posttext_m" name="posttext"
 						placeholder="댓글을 입력해 주세요...."></textarea>
-					<button  type="submit"class="write">글쓰기</button>
-					<button  type="button" class="write"
+					<button type="submit" class="write">글쓰기</button>
+					<button type="button" class="write"
 						onclick="location.href='${pageContext.request.contextPath}/community/Q&A.do'">목록</button>
-
 				</form>
 			</div>
-
 			<!--모바일 메인 이너 끝-->
-
 		</div>
-
-
-
-
 		<!--모바일 footer-->
 		<%@ include file="../../include/MOBILE/footer.jsp"%>
-
-
 	</div>
 
 
@@ -390,88 +341,129 @@ textarea {
 	</script>
 	<script src="${pageContext.request.contextPath}/assets/js/regex.js"></script>
 	<script>
-		$(".reply_write_insert")
-				.submit(
-						function(e) {
-							var postno = $("#postno").val();
-							var posttext = $("#posttext").val();
-							console.log(postno);
+		$(document).on("click",".btn_delete",function() {
+			if(confirm("댓글을 삭제 하시겠습니까?")){
+				var replyno = $(this).val();
+				$(".reply"+replyno).css("display","none");
+				$.ajax({
+					type : "GET",
+					url : "${pageContext.request.contextPath}/community/reply_delete.do?replyno="+ replyno,
+					success : function() {
+						
+					},
+					cache : false,
+					contentType : false,
+					processData : false,
+					error : function(request, status, error) {
+						alert("code:" + request.status+ "\n" + "message:"+ request.responseText+ "\n" + "error:" + error);
+						}
+					});
 
-							e.preventDefault();
-							var formData = new FormData(this);
-							if (!regex.value('#posttext', '답글을 입력해 주세요')) {
-								return false;
-							}
+			}
+			else{
+				return;
+			}
+			
+	
+		});
+		
+		$(".reply_write_insert_m").submit(function(e) {
+					$(".write").attr("disabled", false);
+					var postno = $("#postno").val();
+					var posttext = $("#posttext_m").val();
+					
+					console.log(postno);
 
-							$
-									.ajax({
-										type : "GET",
-										url : "${pageContext.request.contextPath}/community/reply_write_insert.do?postno="
-												+ postno
-												+ "&posttext="
-												+ posttext,
+					e.preventDefault();
+					var formData = new FormData(this);
+					if (!regex.value('#posttext_m', '답글을 입력해 주세요')) {
+						return false;
+					}
+					if(${member.name == null}){
+						alert("로그인이 필요한 서비스입니다");
+						return false;
+					}
+					$("#posttext_m").val("");
+					
+					$.ajax({
+						type : "GET",
+						url : "${pageContext.request.contextPath}/community/reply_write_insert.do?postno="
+										+ postno
+										+ "&posttext="
+										+ posttext,
 
-										success : function() {
-											alert("답글 작성이 완료되었습니다");
-											location.reload();
+						success : function(data) {
+							
+							var comment ='<div class="comment_box reply'+data+'"><div class="comment_who"><span class="comment_rely_name">${member.name}</span></div><div class="comment_main">';
+							comment+=posttext;
+							comment+='</div><button value="'+data+'" class="btn_delete">삭제</button></div>';
+							alert("답글 작성이 완료되었습니다");
+							$(".comment_wrap").prepend(comment);
+							
+						},
+								cache : false,
+								contentType : false,
+								processData : false,
+								error : function(request, status, error) {
 
-										},
-										cache : false,
-										contentType : false,
-										processData : false,
-										error : function(request, status, error) {
+									alert("code:" + request.status
+											+ "\n" + "message:"
+											+ request.responseText
+											+ "\n" + "error:" + error);
+								}
+							});
 
-											alert("code:" + request.status
-													+ "\n" + "message:"
-													+ request.responseText
-													+ "\n" + "error:" + error);
-										}
-									});
+		});
+		
 
-						});
+		$(".reply_write_insert").submit(function(e) {
+			
+					var postno = $("#postno").val();
+					var posttext = $("#posttext").val();
+					console.log(postno);
+					e.preventDefault();
+					var formData = new FormData(this);
+					if (!regex.value('#posttext', '답글을 입력해 주세요')) {
+						return false;
+					}
+					if(${member.name == null}){
+						alert("로그인이 필요한 서비스입니다");
+						return false;
+					}
+					$("#posttext_m").val("");
+					
+					$.ajax({
+						type : "GET",
+						url : "${pageContext.request.contextPath}/community/reply_write_insert.do?postno="
+										+ postno
+										+ "&posttext="
+										+ posttext,
+
+						success : function(data) {
+
+							var comment ='<div class="comment_box reply'+data+'"><div class="comment_who"><span class="comment_rely_name">${member.name}</span></div><div class="comment_main">';
+							comment+=posttext;
+							comment+='</div><button value="'+data+'" class="btn_delete">삭제</button></div>';
+							alert("답글 작성이 완료되었습니다");
+							$(".comment_wrap").prepend(comment);
+						},
+								cache : false,
+								contentType : false,
+								processData : false,
+								error : function(request, status, error) {
+
+									alert("code:" + request.status
+											+ "\n" + "message:"
+											+ request.responseText
+											+ "\n" + "error:" + error);
+								}
+							});
+
+		});
 	</script>
 
 	<script>
-		$(".reply_write_insert_m")
-				.submit(
-						function(e) {
-							var postno = $("#postno").val();
-							var posttext = $("#posttext_m").val();
-							console.log(postno);
-
-							e.preventDefault();
-							var formData = new FormData(this);
-							if (!regex.value('#posttext_m', '답글을 입력해 주세요')) {
-								return false;
-							}
-
-							$
-									.ajax({
-										type : "GET",
-										url : "${pageContext.request.contextPath}/community/reply_write_insert.do?postno="
-												+ postno
-												+ "&posttext="
-												+ posttext,
-
-										success : function() {
-											alert("답글 작성이 완료되었습니다");
-											location.reload();
-
-										},
-										cache : false,
-										contentType : false,
-										processData : false,
-										error : function(request, status, error) {
-
-											alert("code:" + request.status
-													+ "\n" + "message:"
-													+ request.responseText
-													+ "\n" + "error:" + error);
-										}
-									});
-
-						});
+		
 	</script>
-
 </body>
 </html>
