@@ -33,7 +33,7 @@
 	<select id="selectList"
 		parameterType="study.spring.seoulspring.model.Festive"
 		resultMap="FestiveMap">
-		SELECT * FROM snu.festive order by festiveno DESC
+		SELECT festiveno,title,img,end_date FROM snu.festive order by festiveno DESC
 		<if test="listCount > 0">
 		LIMIT #{offset},#{listCount}
 		</if>

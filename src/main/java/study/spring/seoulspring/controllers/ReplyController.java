@@ -25,46 +25,47 @@ import study.spring.seoulspring.service.ReplyService;
 
 @Controller
 public class ReplyController {
-	
+
 	@Autowired
 	ReplyService replyService;
 	@Value("#{servletContext.contextPath}")
 	String contextPath;
 	@Autowired
 	WebHelper webHelper;
-	
+
 	@RequestMapping(value = "community/reply_write_insert.do", method = RequestMethod.GET)
 	@ResponseBody
-	public void reply_write_insert(Locale locale, Model model,HttpServletRequest request,
-			@RequestParam("posttext") String posttext,@RequestParam("postno") int postno) {
-		
+	public int reply_write_insert(Locale locale, Model model, HttpServletRequest request,
+			@RequestParam("posttext") String posttext, @RequestParam("postno") int postno) {
+
 		Reply reply = new Reply();
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		Date time = new Date();
-		
+
 		HttpSession session = request.getSession();
 		Member member = (Member) session.getAttribute("member");
-		
-		String memberid = member.getId();
-		
+
+		String memberid = member.getName();
 		reply.setPost_num(postno);
 		reply.setReply_txt(posttext);
 		reply.setReply_name(memberid);
-		
+
 		int result = 0;
 		try {
 			result = replyService.insertPost(reply);
+			result = reply.getReply_num();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		return result;
 
 	}
-	
+
 	@RequestMapping(value = "community/reply_delete.do", method = RequestMethod.GET)
-	public ModelAndView post_delete(Locale locale, Model model, HttpServletRequest request,
-			 @RequestParam("reply_num") int reply_num) {
+	@ResponseBody
+	public void post_delete(Locale locale, Model model, HttpServletRequest request,
+			@RequestParam("replyno") int reply_num) {
 
 		Reply input = new Reply();
 		System.out.println(reply_num);
@@ -76,8 +77,7 @@ public class ReplyController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		String redirectUrl = this.contextPath + "/community/Q&A.do";
-		return this.webHelper.redirect(redirectUrl, null);
+
 	}
 
 }
