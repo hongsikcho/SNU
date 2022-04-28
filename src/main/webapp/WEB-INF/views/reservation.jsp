@@ -16,7 +16,7 @@
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <title>제41대 사범대학 학생회 늘품(조홍식)(류호수)</title>
-<link rel="icon" 
+<link rel="icon"
 	href="${pageContext.request.contextPath}/assets/img/basic_logo.png" />
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/assets/css/snu_main.css" />
@@ -155,8 +155,9 @@ input:focus {
 	margin-top: 30px;
 	margin-bottom: 50px;
 }
-.time_table_row .disabled:disabled{
-background-color:red;
+
+.time_table_row .disabled:disabled {
+	background-color: red;
 }
 </style>
 
@@ -329,8 +330,8 @@ background-color:red;
 						id="rent_objective" name="rent_objective" /> <br> <label
 						for="people_num">사용 인원수</label> <input type="text" id="people_num"
 						name="people_num" value="" /> <br> <label for="student_name">대표
-						예약자 성함</label> <input type="text" id="student_name" name="student_name"
-						value="" /> <br> <label for="student_id">대표 예약자 학번</label> <input
+						예약자 성함</label> <input type="text" id="student_name" name="student_name" disabled
+						value="${member.name }" /> <br> <label for="student_id">대표 예약자 학번</label> <input
 						type="text" id="student_id" name="student_id" value="" /> <br>
 
 					<label for="student_phNum">대표 예약자 연락처</label> <input type="text"
@@ -368,44 +369,44 @@ background-color:red;
 	</script>
 
 	<script>
-	var starttime_list = new Array();
-	var endtime_list = new Array();
-	//jstl 변수 리스트에 담기 
-	<c:forEach items="${output}" var="item">
-	starttime_list.push("${item.starttime}");
-	endtime_list.push("${item.endtime}");
+		var starttime_list = new Array();
+		var endtime_list = new Array();
+		//jstl 변수 리스트에 담기 
+		<c:forEach items="${output}" var="item">
+		starttime_list.push("${item.starttime}");
+		endtime_list.push("${item.endtime}");
 
-	</c:forEach>
-	
-	
-		$(document).ready(function() {
-			var arrLength = '${fn:length(output)}';
-			console.log(arrLength);
-			for(var i=0; i<starttime_list.length; i++){
-				console.log("starttime="+starttime_list[i]);
-				console.log("endtime="+endtime_list[i]);
-				var start_index =parseInt($('[value="'+starttime_list[i]+'"]').attr("id"));
-				var end_index =parseInt($('[value="'+endtime_list[i]+'"]').attr("id"));
-				
-				console.log("starttime="+start_index);
-				console.log("endtime="+end_index);
-				for(var j=start_index; j<end_index; j++)
-				{
-					
-					$("#"+j).addClass("disabled");
-					$("#"+j).attr("disabled", true);
-					console.log(j);
-					
-					
-				}
-				$(".disabled").css("color", "red");
-				
-			
-			}
-			
-		
+		</c:forEach>
 
-		});
+		$(document)
+				.ready(
+						function() {
+							var arrLength = '${fn:length(output)}';
+							console.log(arrLength);
+							for (var i = 0; i < starttime_list.length; i++) {
+								console.log("starttime=" + starttime_list[i]);
+								console.log("endtime=" + endtime_list[i]);
+								var start_index = parseInt($(
+										'[value="' + starttime_list[i] + '"]')
+										.attr("id"));
+								var end_index = parseInt($(
+										'[value="' + endtime_list[i] + '"]')
+										.attr("id"));
+
+								console.log("starttime=" + start_index);
+								console.log("endtime=" + end_index);
+								for (var j = start_index; j < end_index; j++) {
+
+									$("#" + j).addClass("disabled");
+									$("#" + j).attr("disabled", true);
+									console.log(j);
+
+								}
+								$(".disabled").css("color", "red");
+
+							}
+
+						});
 
 		var click_count = 0;
 
@@ -445,9 +446,9 @@ background-color:red;
 					click_count = 0;
 					return;
 				}
-				
+
 				for (var i = first; i <= last; i++) {
-					if($("#"+i).hasClass("disabled") ==true){
+					if ($("#" + i).hasClass("disabled") == true) {
 						alert("예약 불가능한 시간이 있습니다. 시간을 다시 선택해주세요");
 						$(".time_table_button").attr("disabled", false);
 						$(".disabled").attr("disabled", true);

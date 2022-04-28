@@ -96,6 +96,21 @@
 	display: block;
 	padding-top: 10px;
 }
+
+.notice_body_text {
+	padding: 5px 0px;
+	display: block;
+	width: 100%;
+	border-bottom: 1px solid #dcdcdc;
+	font-size: 17px;
+}
+
+#notice_info {
+	display: inline-block;
+	font-size: 0.83em;
+	color: #8c8c8c;
+	margin-top: 5px;
+}
 </style>
 
 </head>
@@ -138,7 +153,8 @@
 				<div class="third_inner_box" style="width: 35%">
 					<div class="third_inner_header">mbti 게임</div>
 					<div class="third_inner_img_box">
-						<a href="${pageContext.request.contextPath}/game/game.do"><img style="width: 80%;"
+						<a href="${pageContext.request.contextPath}/game/game.do"><img
+							style="width: 80%;"
 							src="${pageContext.request.contextPath}/assets/img/mbti/mbti.png" /></a>
 					</div>
 
@@ -150,9 +166,10 @@
 							<c:set var="title" value="${item.title}" />
 							<c:set var="img" value="${item.img}" />
 							<c:set var="no" value="${item.festiveno}" />
-							<a href="${pageContext.request.contextPath}/festive/festive_detail.do?festiveno=${no}"><img style="width: 80%;"
-								src="http://3.138.48.22:8080/upload/${img}" /> <span
-								class="third_inner_text">${title}</span> </a>
+							<a
+								href="${pageContext.request.contextPath}/festive/festive_detail.do?festiveno=${no}"><img
+								style="width: 80%;" src="http://3.138.48.22:8080/upload/${img}" />
+								<span class="third_inner_text">${title}</span> </a>
 						</c:forEach>
 
 					</div>
@@ -180,8 +197,7 @@
 						<c:set var="view" value="${item.view}" />
 						<a
 							href="${pageContext.request.contextPath }/community/announce_detail.do?announceno=${no}">
-							<div class="notice_body_text"
-								style="margin: 0px 0 0 5px; padding-bottom: 10px;">${title}</div>
+							<span class="notice_body_text">${title}</span>
 						</a>
 
 					</c:forEach>
@@ -233,31 +249,39 @@
 						<c:set var="view" value="${item.view}" />
 						<a
 							href="${pageContext.request.contextPath }/community/announce_detail.do?announceno=${no}">
-							<div class="notice_body_text"
-								style="margin: 3px 0 0 1px; padding: 3px 0 0 5px;">${title}</div>
+							<div class="notice_body_text">
+								<div id="notice_title">${title}</div>
+								<div id="notice_info">
+									<span>관리자</span> <span>${postdate}</span> <span>${view}</span>
+
+								</div>
+							</div>
+
 						</a>
 
 					</c:forEach>
 
 				</div>
 			</div>
-			
+
 			<div class="pr">
 				<div class="pr_header">
-					<div class="pr_header_title" style="padding-bottom: 10px;">MBTI 게임</div>
+					<div class="pr_header_title" style="padding-bottom: 10px;">MBTI
+						게임</div>
 
 				</div>
 				<div class="pr_body">
 
-	
-						<a
-							href="${pageContext.request.contextPath}/game/game.do">
-							<div class="pr_body_first">
-								<div class="pr_body_photo">
-									<img src="${pageContext.request.contextPath}/assets/img/mbti/mbti.png" alt="">
-								</div>
+
+					<a href="${pageContext.request.contextPath}/game/game.do">
+						<div class="pr_body_first">
+							<div class="pr_body_photo">
+								<img
+									src="${pageContext.request.contextPath}/assets/img/mbti/mbti.png"
+									alt="">
 							</div>
-						</a>
+						</div>
+					</a>
 
 
 
