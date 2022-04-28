@@ -59,19 +59,6 @@ body {
 	margin: auto;
 }
 
-@media ( max-width : 600px) {
-	.snu_game_box, #content_wrap {
-		width: 100%;
-	}
-	body {
-		background: white;
-	}
-	.answer_btn_box {
-		position: relative;
-		top: -30px;
-	}
-}
-
 .header_bar {
 	height: 20px;
 	background-color: #000e58;
@@ -155,6 +142,23 @@ body {
 * {
 	font-family: 'Gmarket mid', serif;
 }
+
+@media ( max-width : 600px) {
+	.snu_game_box, #content_wrap {
+		width: 100%;
+	}
+	body {
+		background: white;
+	}
+	.answer_btn_box {
+		position: relative;
+		top: -30px;
+	}
+	.mbti_text ,.page_nav_bar{
+		font-size: 18px;
+	}
+}
+
 </style>
 
 </head>

@@ -15,7 +15,7 @@
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <title>제41대 사범대학 학생회 늘품</title>
-<link rel="icon" 
+<link rel="icon"
 	href="${pageContext.request.contextPath}/assets/img/basic_logo.png" />
 <link
 	href="https://hangeul.pstatic.net/hangeul_static/css/nanum-gothic.css"
@@ -53,7 +53,7 @@
 	border: none;
 }
 
-.btn {
+.comment_main.btn {
 	display: flex;
 	justify-content: flex-end;
 }
@@ -82,23 +82,30 @@
 }
 
 .post_main_box {
-	padding: 50px 0px;
-	border-bottom: 3px solid #0f0f70;
+	border-bottom: 1px solid #dcdcdc;
+	min-height: 400px;
 }
 
 .post_main_header b {
-	font-size: 30px;
-	display: block;
+	font-size: 18px;
+	display: inline-block;
 }
 
 .post_main_header {
 	margin-bottom: 30px;
+	background: #f5f5f5;
+	padding: 20px 10px;
+	border-bottom: 1px solid #dcdcdc;
 }
 
 .post_main_text {
 	width: 80%;
 	font-size: 18px;
 	line-height: 25px;
+	font-family: 'Noto Sans KR', malgun gothic, '맑은 고딕', '돋움', Arial,
+		sans-serif;
+	font-size: 16px;
+	line-height: 1.4em;
 }
 
 .post_btn_box {
@@ -107,17 +114,7 @@
 	margin-bottom: 100px;
 }
 
-.write {
-	border: none;
-	color: white;
-	background-color: #0f0f70;
-	padding: 6px 13px;
-	border-radius: 10px;
-	font-size: 14px;
-	
-}
-
-.post_btn_box a {
+.post_btn_box .write {
 	border: none;
 	color: white;
 	background-color: #0f0f70;
@@ -126,15 +123,69 @@
 	font-size: 15px;
 }
 
+.mobile_post_info {
+	margin-top: 5px;
+	color: #8c8c8c;
+}
+
+.mobile_post_info  span {
+	padding-left: 5px
+}
+
+.label {
+	display: inline;
+	font-size: 75%;
+	font-weight: 700;
+	color: #fff;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: baseline;
+	border-radius: 0.25em;
+}
+
+.label {
+	padding: 5px 10px;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.label-success {
+	background-color: #0f0f70;
+}
+
+textarea {
+	font-size: 16px;
+	width: 100%;
+	-webkit-appearance: none;
+	resize: none;
+	box-sizing: border-box;
+	height: 90px;
+	padding: 10px;
+	display: inline-block;
+	outline: none;
+}
+
 @media ( max-width : 900px) {
 	.post_main_text {
 		width: 100%;
-		font-size: 18px;
+		font-size: 14px;
 		line-height: 25px;
 	}
+	.mobile_post_count, .mobile_post_info {
+		font-size: 10px;
+	}
+	.snu_main_header {
+		font-size: 18px;
+	}
+	.post_main_header b {
+		font-size: 16px;
+	}
+	.label {
+		line-height: 1;
+		padding: 5px 5px;
+	}
 }
-
-@media ( max-width : 420px) {
+}
 }
 </style>
 
@@ -168,12 +219,24 @@
 
 			<div class="post_main_box">
 				<div class="post_main_header">
-					<b>${output.posttitle}</b> <br> <span>${output.postcategory}</span>
-					/ ${fn:substring(postdate,0,10)} / 조회수 ${output.postview} / ${name}
+					<div class="mobile_post_title">
+						<span class="label label-success">${output.postcategory}</span> <b>${output.posttitle }</b>
+					</div>
+					<div class="mobile_post_info">
+						<c:choose>
+							<c:when test="${output.posttype eq '익명'}">익명</c:when>
+							<c:otherwise>${output.name}</c:otherwise>
+						</c:choose>
+						<span>${fn:substring(postdate,0,10)}</span> <br>
+						<span>조회수 ${output.postview }</span>
+					</div>
 				</div>
 
-				<div class="post_main_text">${output.postcontent}</div>
+				<div class="post_main_text">
+					${output.postcontent }
+				</div>
 			</div>
+
 			<c:forEach var="comment" items="${reply}" varStatus="status">
 				<div class="comment_box">
 					<div class="comment_who">
@@ -209,14 +272,15 @@
 						value="${output.postno}" />
 
 					<textarea id="posttext" name="posttext"
-						style="width: 99%; height: 100px; padding: 10px 5px; font-size: 20px;"
 						placeholder="댓글을 입력해 주세요...."></textarea>
 
 					<button class="write">글쓰기</button>
-					<a  class="write" href="${pageContext.request.contextPath}/community/Q&A.do">목록</a>
+
 				</form>
 
 			</div>
+			<a class="write"
+				href="${pageContext.request.contextPath}/community/Q&A.do">목록</a>
 
 		</div>
 
@@ -242,26 +306,30 @@
 			<div class="snu_main_header">건의 및 Q&A</div>
 
 			<!--모바일 메인 이너-->
-			
+
 			<div class="post_main_box">
 				<div class="post_main_header">
-					<b>${output.posttitle }</b> <br> <span>${output.postcategory} / ${output.postdate} /
-						조회수 ${output.postview} / 작성자 <c:choose>
-				<c:when test="${output.posttype eq '익명'}">
-					익명
-				</c:when>
-				<c:otherwise>
-					${output.name}
+					<div class="mobile_post_title">
+						<span class="label label-success">${output.postcategory}</span> <b>${output.posttitle }</b>
+					</div>
+					<div class="mobile_post_info">
+						<c:choose>
+							<c:when test="${output.posttype eq '익명'}">익명</c:when>
+							<c:otherwise>${output.name}</c:otherwise>
+						</c:choose>
+						<span>${fn:substring(postdate,0,10)}</span> <br>
+						<span style="padding:10px 0px 0px 0px">조회수 ${output.postview }</span>
 
-				</c:otherwise>
-			</c:choose></span>
+					</div>
 				</div>
 
-				<div class="post_main_text">${output.postcontent}</div>
+				<div class="post_main_text">
+					${output.postcontent }
+				</div>
 			</div>
 
-<c:forEach var="comment" items="${reply}" varStatus="status">
-				<div class="comment_box" style="margin:10px 0;">
+			<c:forEach var="comment" items="${reply}" varStatus="status">
+				<div class="comment_box" style="margin: 10px 0;">
 					<div class="comment_who">
 						<div class="comment_rely_num">${status.count}번째
 							댓글 <span class="comment_rely_name">${comment.reply_name}</span>
@@ -289,14 +357,14 @@
 						value="${output.postno}" />
 
 					<textarea id="posttext_m" name="posttext"
-						style="width: 98%; height: 100px; padding: 10px 5px; font-size: 20px;"
 						placeholder="댓글을 입력해 주세요...."></textarea>
+					<button  type="submit"class="write">글쓰기</button>
+					<button  type="button" class="write"
+						onclick="location.href='${pageContext.request.contextPath}/community/Q&A.do'">목록</button>
 
-					<button class="write">글쓰기</button>
-					<a href="${pageContext.request.contextPath}/community/Q&A.do">목록</a>
 				</form>
-
 			</div>
+
 			<!--모바일 메인 이너 끝-->
 
 		</div>
@@ -363,7 +431,7 @@
 						});
 	</script>
 
-<script>
+	<script>
 		$(".reply_write_insert_m")
 				.submit(
 						function(e) {

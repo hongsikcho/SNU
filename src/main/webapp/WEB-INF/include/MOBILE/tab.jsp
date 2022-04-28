@@ -12,7 +12,7 @@
 	<div class="tab_logo_box"></div>
 	<div class="tab_inner">
 		<div class="tab_inner_box" style="margin-bottom: 20px;">
-			<div class="btn" id="tab_btn2">
+			<div class="btn" id="tab_btn2" style="display: block;">
 
 				<c:choose>
 					<c:when test="${member == null }">
@@ -21,8 +21,9 @@
 					</c:when>
 
 					<c:otherwise>
-						<a style="color: white; font-size: 25px;" class="logout_btn"
-							href="${pageContext.request.contextPath}/logout.do"><b>로그아웃</b></a>
+						<b style="font-size:25px">${member.name}님 </b>
+						<a style="color: white; font-size: 12px;" class="logout_btn"
+							href="${pageContext.request.contextPath}/logout.do">로그아웃</a>
 					</c:otherwise>
 
 				</c:choose>
