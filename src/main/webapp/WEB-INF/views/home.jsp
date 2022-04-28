@@ -14,8 +14,8 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<title>제41대 사범대학 학생회 늘품(조홍식)(류호수)</title>
-<link rel="icon" 
+<title>제41대 사범대학 학생회 늘품</title>
+<link rel="icon"
 	href="${pageContext.request.contextPath}/assets/img/basic_logo.png" />
 <link
 	href="https://hangeul.pstatic.net/hangeul_static/css/nanum-gothic.css"
@@ -63,6 +63,39 @@
 .pr_body_first {
 	margin-top: 20px;
 }
+
+.third_wrap {
+	display: flex;
+	width: 1190px;
+	margin: auto;
+	justify-content: space-between;
+	margin: auto;
+}
+
+.third_inner_box {
+	width: 48%;
+}
+
+.third_inner_header {
+	font-weight: bold;
+	padding-bottom: 2px;
+	border-bottom: 2px solid #0f0f70;
+}
+
+.third_inner_img_box {
+	height: 450px;
+	display: flex;
+	align-items: end;
+	justify-content: center;
+	/* width: 100%; */
+	text-align: center;
+}
+
+.third_inner_text {
+	font-weight: bold;
+	display: block;
+	padding-top: 10px;
+}
 </style>
 
 </head>
@@ -101,34 +134,31 @@
 						href="https://drive.google.com/drive/folders/178bXKJbEItgUvkZXd1_u4L3EMwgtdaTj?usp=sharing">회의록/안건지</a>
 				</div>
 			</div>
-			<div class="third_box">
-				<div class="third_right">
-					<div href="${pageContext.request.contextPath}/festive/festive.do"
-						class="third_right_top"
-						style="padding-bottom: 5px; . main_box: font-family: 'NanumGothic'; font-weight: bold;">홍보게시판</div>
-					<div class="third_right_bot">
+			<div class="third_wrap">
+				<div class="third_inner_box" style="width: 35%">
+					<div class="third_inner_header">mbti 게임</div>
+					<div class="third_inner_img_box">
+						<a href="${pageContext.request.contextPath}/game/game.do"><img style="width: 80%;"
+							src="${pageContext.request.contextPath}/assets/img/mbti/mbti.png" /></a>
+					</div>
 
+				</div>
+				<div class="third_inner_box" style="width: 60%">
+					<div class="third_inner_header">홍보게시판</div>
+					<div class="third_inner_img_box">
 						<c:forEach var="item" items="${output1}" varStatus="status">
 							<c:set var="title" value="${item.title}" />
 							<c:set var="img" value="${item.img}" />
 							<c:set var="no" value="${item.festiveno}" />
-
-							<div class="main_festive_box">
-								<a
-									href="${pageContext.request.contextPath}/festive/festive_detail.do?festiveno=${no}">
-									<img style="width: 100%;"
-									src="http://3.138.48.22:8080/upload/${img}" /> <br>
-									<div class="main_festive_title">
-										<span>${title}</span>
-									</div>
-								</a>
-							</div>
+							<a href="${pageContext.request.contextPath}/festive/festive_detail.do?festiveno=${no}"><img style="width: 80%;"
+								src="http://3.138.48.22:8080/upload/${img}" /> <span
+								class="third_inner_text">${title}</span> </a>
 						</c:forEach>
 
-
-
 					</div>
+
 				</div>
+
 			</div>
 
 			<div class="notice">
@@ -175,7 +205,8 @@
 		<%@ include file="../include/MOBILE/tab.jsp"%>
 		<!--모바일 컨텐츠 박스-->
 
-		<div class="snu_mobile_content_box" style="margin-top:0px; padding-top:0px;">
+		<div class="snu_mobile_content_box"
+			style="margin-top: 0px; padding-top: 0px;">
 			<iframe width="100%" height="300px"
 				src="https://www.youtube.com/embed/OlVTXkYgVs0?autoplay=1&mute=1&controls=0&loop=1&playlist=OlVTXkYgVs0"
 				title="YouTube video player" frameborder="0"
@@ -210,10 +241,32 @@
 
 				</div>
 			</div>
+			
+			<div class="pr">
+				<div class="pr_header">
+					<div class="pr_header_title" style="padding-bottom: 10px;">MBTI 게임</div>
+
+				</div>
+				<div class="pr_body">
+
+	
+						<a
+							href="${pageContext.request.contextPath}/game/game.do">
+							<div class="pr_body_first">
+								<div class="pr_body_photo">
+									<img src="${pageContext.request.contextPath}/assets/img/mbti/mbti.png" alt="">
+								</div>
+							</div>
+						</a>
+
+
+
+				</div>
+			</div>
 
 			<div class="pr">
 				<div class="pr_header">
-					<div class="pr_header_title" style="padding-bottom:10px;">홍보게시판</div>
+					<div class="pr_header_title" style="padding-bottom: 10px;">홍보게시판</div>
 
 				</div>
 				<div class="pr_body">

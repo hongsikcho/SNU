@@ -12,7 +12,7 @@
 	<div class="tab_logo_box"></div>
 	<div class="tab_inner">
 		<div class="tab_inner_box" style="margin-bottom: 20px;">
-			<div class="btn" id="tab_btn2">
+			<div class="btn" id="tab_btn2" style="display: block;">
 
 				<c:choose>
 					<c:when test="${member == null }">
@@ -21,8 +21,9 @@
 					</c:when>
 
 					<c:otherwise>
-						<a style="color: white; font-size: 25px;" class="logout_btn"
-							href="${pageContext.request.contextPath}/logout.do"><b>로그아웃</b></a>
+						<b style="font-size:25px">${member.name}님 </b>
+						<a style="color: white; font-size: 12px;" class="logout_btn"
+							href="${pageContext.request.contextPath}/logout.do">로그아웃</a>
 					</c:otherwise>
 
 				</c:choose>
@@ -71,12 +72,20 @@
 					<a href="${pageContext.request.contextPath}/community/Q&A.do">건의
 						및 Q&A</a>
 				</div>
+
 				<div>
-					<a href="${pageContext.request.contextPath}/community/Q&A.do">2차오픈</a>
+					<a href="${pageContext.request.contextPath}/game/game.do">MBTI
+						게임</a>
 				</div>
+
+
 				<div>
 					<a href="${pageContext.request.contextPath}/community/Hi.do">Hi
 						사범</a>
+				</div>
+
+				<div>
+					<a href="#">2차오픈</a>
 				</div>
 			</div>
 		</div>
@@ -92,47 +101,40 @@
 		</div>
 
 
-			<div class="tab_inner_box">
-				<div class="btn" id="tab_btn2">
-					<div>
-						<a href="${pageContext.request.contextPath}/game/game.do">MBTI
-						게임</a>
-					</div>
+
+		<div class="tab_inner_box">
+			<div class="btn" id="tab_btn2">
+				<div>
+					<a href="${pageContext.request.contextPath}/festive/festive.do">홍보게시판</a>
 				</div>
 			</div>
-			<div class="tab_inner_box">
-				<div class="btn" id="tab_btn2">
-					<div>
-						<a href="${pageContext.request.contextPath}/festive/festive.do">홍보게시판</a>
-					</div>
-				</div>
-			</div>
-
-			<div class="tab_inner_box">
-				<div class="btn" id="tab_btn2">
-					<div>졸업로드맵</div>
-					<div>
-						<i class="fas fa-chevron-down"></i>
-					</div>
-				</div>
-
-				<div class="tab_btn_inner">
-					<div>
-						<a
-							href="${pageContext.request.contextPath}/loadmap/snu_class_loadmap.do">과별
-							졸업로드맵</a>
-					</div>
-					<div>
-						<a
-							href="${pageContext.request.contextPath}/loadmap/snu_education_loadmap.do">교직
-							로드맵</a>
-					</div>
-				</div>
-			</div>
-
-
-
-
 		</div>
 
+		<div class="tab_inner_box">
+			<div class="btn" id="tab_btn2">
+				<div>졸업로드맵</div>
+				<div>
+					<i class="fas fa-chevron-down"></i>
+				</div>
+			</div>
+
+			<div class="tab_btn_inner">
+				<div>
+					<a
+						href="${pageContext.request.contextPath}/loadmap/snu_class_loadmap.do">과별
+						졸업로드맵</a>
+				</div>
+				<div>
+					<a
+						href="${pageContext.request.contextPath}/loadmap/snu_education_loadmap.do">교직
+						로드맵</a>
+				</div>
+			</div>
+		</div>
+
+
+
+
 	</div>
+
+</div>

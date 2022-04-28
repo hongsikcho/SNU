@@ -9,7 +9,7 @@
 <html lang="ko">
 
 <head>
-<link rel="icon" 
+<link rel="icon"
 	href="${pageContext.request.contextPath}/assets/img/basic_logo.png" />
 <meta charset="utf-8" />
 <meta name="viewport"
@@ -21,6 +21,7 @@
 .question {
 	color: white;
 	font-weight: bold;
+	background-color: #000e58;
 }
 
 body {
@@ -31,22 +32,31 @@ body {
 .snu_game_box {
 	width: 500px;
 	text-align: center;
-	background-color: #000e58;
 	margin: auto;
-	min-height: 100vh;
+}
+
+.start_box {
+	position: absolute;
+	width: 100%;
+	height: 105px;
+	bottom: 17%;
+}
+
+#question0 {
+	position: relative;
 }
 
 .snu_game_title {
 	padding: 30px 0px;
 }
 
-@media ( max-width : 600px) {
-	.snu_game_box {
-		width: 100%;
-	}
-	body {
-		background: white;
-	}
+#content_wrap {
+	display: flex;
+	align-items: center;
+	height: 100vh;
+	background: #000e58;
+	width: 500px;
+	margin: auto;
 }
 
 .header_bar {
@@ -79,7 +89,7 @@ body {
 
 .mbti_text {
 	font-size: 20px;
-	height: 500px;
+	height: 350px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -90,21 +100,72 @@ body {
 }
 
 #start_btn {
-	position: absolute;
 	background: rgba(0, 0, 0, 0);
 	color: rgba(0, 0, 0, 0);
 	box-shadow: none;
+	height: 105px;
 }
+
+@font-face {
+	font-family: 'Gmarket Bold';
+	font-style: normal;
+	font-weight: 700;
+	src: local('Gmarket Sans Bold'), local('GmarketSans-Bold'),
+		url('http://script.ebay.co.kr/fonts/GmarketSansBold.woff2')
+		format('woff2'),
+		url('http://script.ebay.co.kr/fonts/GmarketSansBold.woff')
+		format('woff');
 }
+
+@font-face {
+	font-family: 'Gmarket mid';
+	font-style: normal;
+	font-weight: 500;
+	src: local('Gmarket Sans Medium'), local('GmarketSans-Medium'),
+		url('http://script.ebay.co.kr/fonts/GmarketSansMedium.woff2')
+		format('woff2'),
+		url('http://script.ebay.co.kr/fonts/GmarketSansMedium.woff')
+		format('woff');
+}
+
+@font-face {
+	font-family: 'Gmarket Lite';
+	font-style: normal;
+	font-weight: 300;
+	src: local('Gmarket Sans Light'), local('GmarketSans-Light'),
+		url('http://script.ebay.co.kr/fonts/GmarketSansLight.woff2')
+		format('woff2'),
+		url('http://script.ebay.co.kr/fonts/GmarketSansLight.woff')
+		format('woff');
+}
+
+* {
+	font-family: 'Gmarket mid', serif;
+}
+
+@media ( max-width : 600px) {
+	.snu_game_box, #content_wrap {
+		width: 100%;
+	}
+	body {
+		background: white;
+	}
+	.answer_btn_box {
+		position: relative;
+		top: -30px;
+	}
+	.mbti_text ,.page_nav_bar{
+		font-size: 18px;
+	}
+}
+
 </style>
 
 </head>
 
 <body>
 
-	<div>
-		<div class="header_bar"></div>
-
+	<div id="content_wrap">
 		<div class="snu_game_box" style="">
 			<div id="question0" class="question">
 
@@ -112,33 +173,35 @@ body {
 					<img style="width: 100%;"
 						src="${pageContext.request.contextPath }/assets/img/mbti/mbti_start_size.png" />
 				</div>
-				<div style="position: relative; right: 240px; bottom: 250px;">
+				<div class="start_box">
 					<button class="answer" id="start_btn"></button>
 					<br /> <br />
 
 				</div>
 			</div>
-			<div style="background: #222538;" id="question0" class="question hidden">
+			<div style="background: #222538;" id="question0"
+				class="question hidden">
 
 				<div>
 					<img style="width: 100%;"
 						src="${pageContext.request.contextPath }/assets/img/mbti/start2.png" />
 				</div>
-				<div style="position: relative; right: 240px; bottom: 250px;">
+				<div class="start_box">
 					<button class="answer" id="start_btn"></button>
 					<br /> <br />
 
 				</div>
 			</div>
-			
-			<div style="background: #222538;" id="question0" class="question hidden">
+
+			<div style="background: #222538;" id="question0"
+				class="question hidden">
 
 				<div>
 					<img style="width: 100%;"
 						src="${pageContext.request.contextPath }/assets/img/mbti/start3.png" />
 				</div>
-				<div style="position: relative; right: 240px; bottom: 250px;">
-					<button class="answer" id="start_btn"></button>
+				<div class="start_box">
+					<button class="answer last_start_btn" id="start_btn"></button>
 					<br /> <br />
 
 				</div>
@@ -149,15 +212,16 @@ body {
 
 				<div class="mbti_text">
 
-					먼저 풀었던 문제집을 다시<br> 정리해야겠어.<br> <br> 이떄 나는
+					먼저 풀었던 문제집을 다시<br> 정리해야겠어.<br> <br> 이때 나는
 				</div>
 
 
-				<div>
+				<div class="answer_btn_box">
 					<button class="answer" value="J">정리를 다 하고 휴식타임을 가진다</button>
 					<br /> <br />
-					<button class="answer" value="P">친구들과 장난으로 낙서한 페이지를 보며 추억에
-						잠긴다</button>
+					<button class="answer" value="P">
+						친구들과 장난으로 낙서한 페이지를 보며<br>추억에 잠긴다
+					</button>
 				</div>
 			</div>
 
@@ -170,7 +234,7 @@ body {
 					처음보는 친구들이다. <br>같이 밥을 먹게 됐는데, 요즘 공부를 <br> 어떻게 하냐고 묻는다.<br>
 					<br> 이때 나는
 				</div>
-				<div>
+				<div class="answer_btn_box">
 					<button class="answer" value="E">
 						오늘 어떻게 공부했고 보통 어떤 썜 강의를<br> 듣는지 말하면서 분위기를 풀어나가야지.
 					</button>
@@ -188,7 +252,8 @@ body {
 					칭찬해주고 <br> <br>친구 B는<br>"언제부터 이렇게 똑똑했냐"<br>라고
 					칭찬해준다. <br> <br> 이때 나는
 				</div>
-				<div>
+
+				<div class="answer_btn_box">
 					<button class="answer" value="T">친구 A의 칭찬이 더 기분 좋다.</button>
 					<br /> <br />
 					<button class="answer" value="F">친구 B의 칭찬이 더 기분 좋다.</button>
@@ -206,7 +271,8 @@ body {
 					건가요 교수님.. <br> <br> 교수님: 자네는 '사과' 하면 무슨 생각이 드나? <br>
 					<br> 나:
 				</div>
-				<div>
+
+				<div class="answer_btn_box">
 					<button class="answer" value="S">빨갛다, 맛있다..?</button>
 					<br /> <br />
 					<button class="answer" value="N">스티브 잡스, 뉴턴..?</button>
@@ -221,12 +287,15 @@ body {
 					<br> 사범대 학생회에서 새터를 한다고 해서 갔는데..<br> 새터 조장이 분위기를 너무 못 띄우고
 					노잼이다. <br> <br> 이때 나는
 				</div>
-				<div>
-					<button class="answer" value="E">조장을 격려하면서 조장이 전체 조를 이끌어갈
-						수 있게 돕는다.</button>
+
+				<div class="answer_btn_box">
+					<button class="answer" value="E">
+						조장을 격려하면서 조장이 전체 조를 <br>이끌어갈 수 있게 돕는다.
+					</button>
 					<br /> <br />
-					<button class="answer" value="I">조장이 재미없느니 나랑 맞는 사람들이랑 알아서
-						혼자 친해진다.</button>
+					<button class="answer" value="I">
+						조장이 재미없으니 나랑 맞는 사람들이랑 <br>알아서 혼자 친해진다.
+					</button>
 				</div>
 			</div>
 
@@ -239,12 +308,15 @@ body {
 					마시고 자꾸 1도 안궁금한 <br> 자기 전 애인들 이야기를 한다. <br> <br> 이때
 					나는
 				</div>
-				<div>
-					<button class="answer" value="T">와 어쩌자는거지? 라는 심정으로 일단은 듣고
-						빨리 택시 태워서 집에 바로 보낸다.</button>
+
+				<div class="answer_btn_box">
+					<button class="answer" value="T">
+						와 어쩌자는거지? 라는 심정으로 일단은 듣고 <br>빨리 택시 태워서 집에 바로 보낸다.
+					</button>
 					<br /> <br />
-					<button class="answer" value="F">전 애인 얘기에 공감하면서 일단은 열심히
-						들어주고 택시 태워 보내준다.</button>
+					<button class="answer" value="F">
+						전 애인 얘기에 공감하면서 일단은 <br>열심히 들어주고 택시 태워 보내준다.
+					</button>
 				</div>
 			</div>
 
@@ -257,12 +329,15 @@ body {
 					대면 수업은 즐겁지만 너무 힘들다 ㅜㅜ <br> <br> 수업 끝나고 일어나는데 친구가<br>
 					예정에도 없이 갑자기 오늘<br> 밤새 술 먹자고 한다. <br> <br> 이때 나는
 				</div>
-				<div>
-					<button class="answer" value="J">술을 신나게 마시다가 취할 것 같은면 그만
-						마신다.</button>
+
+				<div class="answer_btn_box">
+					<button class="answer" value="J">
+						술을 신나게 마시다가 취할 것 같은면 <br>그만 마신다.
+					</button>
 					<br /> <br />
-					<button class="answer" value="P">술을 조절하면서 마시려다가 실패하고 필름이
-						끊긴다.</button>
+					<button class="answer" value="P">
+						술을 조절하면서 마시려다가 실패하고 <br>필름이 끊긴다.
+					</button>
 				</div>
 			</div>
 
@@ -274,9 +349,11 @@ body {
 					선후배끼리 다같이 만난 자리에서<br> 선배가 자꾸 latte 썰을 풀고 귀찮게 한다. <br> <br>
 					이때 나는
 				</div>
-				<div>
-					<button class="answer" value="S">와... 진짜 뭐라 하고 싶지만 현실적으로
-						선배니까 일단 참아야지....</button>
+
+				<div class="answer_btn_box">
+					<button class="answer" value="S">
+						와... 진짜 뭐라 하고 싶지만 현실적으로<br> 선배니까 일단 참아야지....
+					</button>
 					<br /> <br />
 					<button class="answer" value="N">
 						마음 속으로 저 선배가 다치지 않지만 <br> 민망할 정도로 넘어지는 생각을 하며 참는다.
@@ -291,12 +368,15 @@ body {
 					놀아도 되냐고 한다.<br> <br> 이때 나는
 
 				</div>
-				<div>
-					<button class="answer" value="E">선약에 룸메가 끼어들어서 기분 나쁘다는 말을
-						하지만 일단 만난다.</button>
+
+				<div class="answer_btn_box">
+					<button class="answer" value="E">
+						선약에 룸메가 끼어들어서 기분 나쁘다는<br> 말을 하지만 일단 만난다.
+					</button>
 					<br /> <br />
-					<button class="answer" value="I">만나지만 속으로는 이미 마음 다 상하고 다시
-						그 친구랑 안 만날 계획을 하고 있다.</button>
+					<button class="answer" value="I">
+						만나지만 속으로는 이미 마음 다 상하고 <br>다시 그 친구랑 안 만날 계획을 하고 있다.
+					</button>
 				</div>
 			</div>
 
@@ -307,7 +387,8 @@ body {
 					친구랑 같이 듣기로 한 강의가 있는데,<br> 친구가 너무 힘들어서 드랍해도 되냐고<br> 조심스럽게
 					물어본다.<br> <br> 이때 나는
 				</div>
-				<div>
+
+				<div class="answer_btn_box">
 					<button class="answer" value="T">왜 드랍해?</button>
 					<br /> <br />
 					<button class="answer" value="F">나랑 같이 안들어ㅜㅜ?</button>
@@ -322,7 +403,8 @@ body {
 					친구가<br> "다음 주 까지 제출해야 하는 과제 풀었어?"<br> 라고 물어본다.<br> <br>
 					이때 나는
 				</div>
-				<div>
+
+				<div class="answer_btn_box">
 					<button class="answer" value="J">과제가...있었어? 오늘 풀어야지</button>
 					<br /> <br />
 					<button class="answer" value="P">과제가...있었어? 다음 주에 풀어야지</button>
@@ -338,23 +420,26 @@ body {
 					글을 봤다.<br> <br> 이때 나는
 
 				</div>
-				<div>
-					<button class="answer last_btn" value="S">주변 학생회 사람들한테
-						물어봐서 사실인지 확인한다.</button>
+
+				<div class="answer_btn_box">
+					<button class="answer last_btn" value="S">
+						주변 학생회 사람들한테 물어봐서 <br>사실인지 확인한다.
+					</button>
 					<br /> <br />
 					<button class="answer last_btn" value="N">벌써 혼자 학생회 n년차
 						타큐를 찍는다.</button>
 				</div>
 			</div>
-			
-			<div style="background: #222538;" id="question0" class="question hidden">
+
+			<div style="background: #222538;" id="question0"
+				class="question hidden">
 
 				<div>
 					<img style="width: 100%;"
 						src="${pageContext.request.contextPath }/assets/img/mbti/result.png" />
 				</div>
-				<div style="position: relative; right: 240px; bottom: 250px;">
-					<button class="answer" id="start_btn"></button>
+				<div class="start_box">
+					<button class="answer last_start_btn end_btn" id="start_btn"></button>
 					<br /> <br />
 
 				</div>
@@ -363,9 +448,9 @@ body {
 
 
 			<div id="result" class="question hidden">
-				
 				<img class="game_loading"
-					src="${pageContext.request.contextPath }/assets/img/loading.gif">
+					src="${pageContext.request.contextPath }/assets/img/loading.gif"
+					style="width: 10%; padding: 70% 0%;">
 			</div>
 
 
@@ -376,6 +461,15 @@ body {
 	<script src="https://kit.fontawesome.com/6478f529f2.js"
 		crossorigin="anonymous"></script>
 	<script>
+		$("#start_btn").click(function() {
+			$("#content_wrap").css("background-color", "#222538");
+
+		})
+
+		$(".last_start_btn").click(function() {
+			$("#content_wrap").css("background-color", "#000e58");
+
+		})
 		var mbti = [ 0, 0, 0, 0, 0, 0, 0, 0 ]
 		$(".answer").click(function() {
 			$(this).parents(".question").addClass("hidden");
@@ -410,8 +504,10 @@ body {
 			}
 
 		})
+		var result = ""
 		$(".last_btn").click(function() {
-			var result = ""
+			$("#content_wrap").css("background-color", "#222538");
+
 			if (mbti[0] > mbti[1]) {
 				result += "E";
 			} else {
@@ -436,15 +532,26 @@ body {
 				result += "P";
 			}
 
-			setTimeout(function() {
-				$(".game_loading").addClass('hidden');
+		});
+		$(".end_btn")
+				.click(
+						function() {
+							setTimeout(
+									function() {
+										$(".game_loading").addClass('hidden');
+										$("#content_wrap").css(
+												"background-color", "white");
+										$(".question").css("background-color",
+												"white");
+										var code = ""
+										code += "<img style='width:100%;' src='${pageContext.request.contextPath}/assets/img/mbti/result/"
+												+ result + ".png'/>";
+										code += "<a class='home_btn' href='${pageContext.request.contextPath}/'>홈으로</a>"
+										$("#result").append(code);
 
-				var code = ""
-				code += "<img style='width:100%;' src='${pageContext.request.contextPath}/assets/img/mbti/result/"+result+".png'/>";
-				$("#result").append(code);
+									}, 2000);
 
-			}, 2000);
-		})
+						})
 	</script>
 </body>
 </html>

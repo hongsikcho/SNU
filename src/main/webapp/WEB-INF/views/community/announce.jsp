@@ -214,15 +214,16 @@
 					</a>
 
 				</c:forEach>
-
 			</div>
-
-
-			<div class="snu_qna_write_box">
-				<a class="snu_qna_write_btn"
-					href="${pageContext.request.contextPath}/community/announce_write.do?announceno=${announceno}">글쓰기</a>
-			</div>
-
+			
+			<c:if test="${member !=null }">
+				<c:if test="${member.name eq '관리자' }">
+					<div class="snu_qna_write_box">
+						<a class="snu_qna_write_btn"
+							href="${pageContext.request.contextPath}/community/announce_write.do?announceno=${announceno}">글쓰기</a>
+					</div>
+				</c:if>
+			</c:if>
 			<div class="paging_box ">
 				<ul class="pagination">
 					<c:choose>
@@ -232,13 +233,11 @@
 							</c:url>
 							<li><a href="${prevPageUrl }"><i
 									class="fas fa-angle-left"></i></a></li>
-
 						</c:when>
 						<c:otherwise>
 							<li class="disabled"><a href="#"><i
 									class="fas fa-angle-left"></i></a></li>
 						</c:otherwise>
-
 
 					</c:choose>
 
