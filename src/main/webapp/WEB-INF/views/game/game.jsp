@@ -332,7 +332,7 @@ body {
 
 				<div class="answer_btn_box">
 					<button class="answer" value="J">
-						술을 신나게 마시다가 취할 것 같은면 <br>그만 마신다.
+						술을 신나게 마시다가 취할 것 같으면 <br>그만 마신다.
 					</button>
 					<br /> <br />
 					<button class="answer" value="P">
