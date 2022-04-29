@@ -20,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -32,6 +33,7 @@ import study.spring.seoulspring.helper.PageData;
 import study.spring.seoulspring.helper.WebHelper;
 import study.spring.seoulspring.model.Department;
 import study.spring.seoulspring.model.Festive;
+import study.spring.seoulspring.model.FestiveImgList;
 import study.spring.seoulspring.model.View;
 import study.spring.seoulspring.service.DepartmentService;
 import study.spring.seoulspring.service.FestiveService;
@@ -146,9 +148,35 @@ public class FestiveController {
 		return "festive/festive_detail";
 	}
 
-	@RequestMapping(value = "festive/festive_write.do", method = RequestMethod.GET)
-	public String festive_write(Locale locale, Model model, @RequestParam("festiveno") int festiveno) {
-		model.addAttribute("festiveno", festiveno);
+	@RequestMapping(value = "festive/festive_delete.do", method = RequestMethod.POST)
+	public ModelAndView festive_delete(Locale locale, Model model,
+			@ModelAttribute(value = "FestiveImgList") FestiveImgList imgList,
+			@RequestParam("festiveno") int festiveno) {
+		Festive input = new Festive();
+		input.setFestiveno(festiveno);
+		String path = "/var/lib/tomcat9/webapps/upload/";
+		List<Festive> imglist = imgList.getImgList();
+		for (int i = 0; i < imglist.size(); i++) {
+			File file = new File(path+imglist.get(i).getImg());
+			if (file.exists()) {
+				file.delete();
+			}
+
+		}
+		try {
+			int result = festiveService.DeleteFestive(input);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		String redirectUrl = this.contextPath + "/festive/festive.do";
+		return this.webHelper.redirect(redirectUrl, null);
+	}
+
+	@RequestMapping(value = "festive/festive_delete.do", method = RequestMethod.GET)
+	public String festive_delete(Locale locale, Model model, @RequestParam("festiveno") int festiveno) {
+
 		return "festive/festive_write";
 	}
 
