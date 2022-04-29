@@ -15,7 +15,7 @@
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <title>제41대 사범대학 학생회 늘품</title>
-<link rel="icon" 
+<link rel="icon"
 	href="${pageContext.request.contextPath}/assets/img/basic_logo.png" />
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/assets/css/snu_main.css" />
@@ -110,6 +110,10 @@
 	transition: opacity .2s linear;
 	margin: 0;
 	padding: 0;
+}
+
+.festive_main_text a {
+	color: blue;
 }
 </style>
 
@@ -223,8 +227,8 @@
 					<div style="position: relative;">
 						<img class="main_img" style="width: 100%;"
 							src="http://3.138.48.22:8080/upload/${output.img}" /> <a
-							class="prev" style="left:-20%; bottom:40%;"> <span>이전</span>
-						</a> <a class="next" style="right:-20%; bottom:40%;"> <span>이후</span>
+							class="prev" style="left: -20%; bottom: 40%;"> <span>이전</span>
+						</a> <a class="next" style="right: -20%; bottom: 40%;"> <span>이후</span>
 						</a>
 						<ul style="display: none;">
 							<li id="li_0"><a class="small_img_box on"> <img
@@ -241,8 +245,7 @@
 								</a></li>
 							</c:forEach>
 						</ul>
-						<div class="mobile_img_page" style="text-align:center;">
-						</div>
+						<div class="mobile_img_page" style="text-align: center;"></div>
 
 					</div>
 				</div>
@@ -271,7 +274,7 @@
 
 	<script src="https://kit.fontawesome.com/695be3a17b.js"
 		crossorigin="anonymous"></script>
-	
+
 	<script
 		src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
 	<script src="${pageContext.request.contextPath}/assets/js/style.js"></script>
@@ -293,7 +296,7 @@
 							break;
 						}
 					}
-					$(".mobile_img_page").html(1+"/"+(last_index+1));
+					$(".mobile_img_page").html(1 + "/" + (last_index + 1));
 					console.log(width_sum);
 					console.log(width);
 					console.log(overflow);
@@ -323,7 +326,7 @@
 										}
 									}
 								}
-							
+
 							});
 					$(".prev").click(
 							function() {
@@ -344,15 +347,17 @@
 										}, 200);
 									}
 								}
-						
+
 							});
-					function slide(index){
+					function slide(index) {
 						$(".small_img_box").removeClass("on");
 						$("#" + index).parent(".small_img_box").addClass("on");
 						var src = $(".on").find(".small_img").attr("src");
 						$(".main_img").attr("src", src);
-						$(".mobile_img_page").html(index+1+"/"+(last_index+1));
-					}					$(".small_img_box").click(
+						$(".mobile_img_page").html(
+								index + 1 + "/" + (last_index + 1));
+					}
+					$(".small_img_box").click(
 							function() {
 								move_distance = 0;
 								$(".small_img_box").removeClass("on");
@@ -373,7 +378,7 @@
 										left : "0px"
 									}, 200);
 								}
-							
+
 							});
 					//모바일 버튼
 

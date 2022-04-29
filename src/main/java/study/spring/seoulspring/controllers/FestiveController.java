@@ -8,6 +8,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.regex.*;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -131,10 +134,14 @@ public class FestiveController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		String regex = "([\\p{Alnum}]+)://([a-z0-9ㄱ-ㅎ가-힣.\\-&/%=?:@#$(),.+;~\\_]+)";
 		String text = output.getText().replace("\r\n", "<br>");
-		output.setText(text);
+		Pattern p = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
+		Matcher m = p.matcher(text);
+		String s = m.replaceAll("<a href='http://$2' target=_blank>http://$2</a>");
+		output.setText(s);
 		model.addAttribute("output", output);
-		model.addAttribute("size",imgoutput.size());
+		model.addAttribute("size", imgoutput.size());
 		model.addAttribute("imgoutput", imgoutput);
 		return "festive/festive_detail";
 	}
