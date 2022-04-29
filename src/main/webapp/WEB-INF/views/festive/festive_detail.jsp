@@ -257,8 +257,7 @@
 				enctype="multipart/form-data"
 				action="${pageContext.request.contextPath }/festive/festive_delete.do">
 
-				<input type="hidden" name="festiveno"
-					value="${output.festiveno}" />
+				<input type="hidden" name="festiveno" value="${output.festiveno}" />
 				<c:set var="imgnum" value="${0}" />
 				<input type="hidden" name="imgList[${imgnum}].img"
 					value="${output.img}" />
@@ -272,7 +271,8 @@
 					<button class="snu_qna_delete_btn">삭제</button>
 				</div>
 			</form>
-
+			<button class="ajax_test">dd</button>
+			
 
 			<!--모바일 메인 이너-->
 
@@ -299,6 +299,29 @@
 	<script src="${pageContext.request.contextPath}/assets/js/style.js"></script>
 
 	<script>
+		$(".ajax_test")
+				.click(
+						function() {
+
+							$
+									.ajax({
+										url : "${pageContext.request.contextPath}/festive/ajax_test.do",
+										type : 'post',
+										data : {
+											name : "이름",
+											age : "20",
+											gender : "man"
+										},
+										success : function(data) {
+										
+
+										},
+										error : function() {
+											alert("error");
+										}
+									});
+
+						});
 		$(window).load(
 				function() {
 					var width_sum = 0;

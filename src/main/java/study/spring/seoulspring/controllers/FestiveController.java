@@ -34,6 +34,7 @@ import study.spring.seoulspring.helper.WebHelper;
 import study.spring.seoulspring.model.Department;
 import study.spring.seoulspring.model.Festive;
 import study.spring.seoulspring.model.FestiveImgList;
+import study.spring.seoulspring.model.Member;
 import study.spring.seoulspring.model.View;
 import study.spring.seoulspring.service.DepartmentService;
 import study.spring.seoulspring.service.FestiveService;
@@ -157,7 +158,7 @@ public class FestiveController {
 		String path = "/var/lib/tomcat9/webapps/upload/";
 		List<Festive> imglist = imgList.getImgList();
 		for (int i = 0; i < imglist.size(); i++) {
-			File file = new File(path+imglist.get(i).getImg());
+			File file = new File(path + imglist.get(i).getImg());
 			if (file.exists()) {
 				file.delete();
 			}
@@ -178,6 +179,25 @@ public class FestiveController {
 	public String festive_delete(Locale locale, Model model, @RequestParam("festiveno") int festiveno) {
 
 		return "festive/festive_write";
+	}
+
+	@RequestMapping(value = "/festive/ajax_test.do", method = { RequestMethod.POST })
+	@ResponseBody
+	public List<Member> test(@RequestParam("name") String name, @RequestParam("age") String age,
+			@RequestParam("gender") String gender, Model model) {
+
+		System.out.println(name);
+		System.out.println(age);
+		System.out.println(gender);
+		Member member = new Member();
+		member.setName(name);
+		member.setId(age);
+		member.setDepartment(gender);
+		model.addAttribute("hosu", member);
+		List<Member> output = new ArrayList();
+		output.add(member);
+		return output;
+
 	}
 
 	@RequestMapping(value = "festive/festive_insert.do", method = RequestMethod.POST)
