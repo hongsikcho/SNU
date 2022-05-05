@@ -15,7 +15,7 @@
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <title>제41대 사범대학 학생회 늘품</title>
-<link rel="icon" 
+<link rel="icon"
 	href="${pageContext.request.contextPath}/assets/img/basic_logo.png" />
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/assets/css/snu_main.css" />
@@ -34,14 +34,26 @@
 
 
 <style type="text/css">
-.back{
+.back {
 	color: white;
 	background-color: #0f0f70;
-	border-radius:7px;
+	border-radius: 7px;
 	padding: 5px 10px;
 	width: 65px;
-	text-align:center;
-	cursor: pointer;}
+	text-align: center;
+	cursor: pointer;
+}
+
+.back_m {
+	color: white;
+	background-color: #0f0f70;
+	border-radius: 7px;
+	padding: 5px 10px;
+	width: 65px;
+	text-align: center;
+	cursor: pointer;
+}
+
 .midd {
 	overflow: hidden;
 	position: relative;
@@ -168,9 +180,15 @@
 
 				<div class="festive_main_text"
 					style="width: 100%; margin: 60px 0px;">${output.text}</div>
-					<div style="display: flex; justify-content:left; margin-left:370px; margin-bottom:100px;">
-					<div class="back">목록으로</div>
-			</div>
+				<div
+					style="display: flex; justify-content: left; margin-left: 370px; margin-bottom: 100px;">
+					<div style="display: flex;">
+						<div class="back">
+							<a style="color: white;"
+								href="${pageContext.request.contextPath}/community/announce.do">목록으로</a>
+						</div>
+					</div>
+				</div>
 			</div>
 
 
@@ -195,7 +213,7 @@
 
 		<div class="snu_mobile_main_box">
 
-			<div class="snu_main_header"> ${output.title }</div>
+			<div class="snu_main_header">${output.title }</div>
 
 			<div class="">
 
@@ -203,8 +221,8 @@
 					<div style="position: relative;">
 						<img class="main_img" style="width: 100%;"
 							src="http://3.138.48.22:8080/announce/${output.img}" /> <a
-							class="prev" style="left:-20%; bottom:40%;"> <span>이전</span>
-						</a> <a class="next" style="right:-20%; bottom:40%;"> <span>이후</span>
+							class="prev" style="left: -20%; bottom: 40%;"> <span>이전</span>
+						</a> <a class="next" style="right: -20%; bottom: 40%;"> <span>이후</span>
 						</a>
 						<ul style="display: none;">
 							<li id="li_0"><a class="small_img_box on"> <img
@@ -221,8 +239,7 @@
 								</a></li>
 							</c:forEach>
 						</ul>
-						<div class="mobile_img_page" style="text-align:center;">
-						</div>
+						<div class="mobile_img_page" style="text-align: center;"></div>
 
 					</div>
 				</div>
@@ -231,9 +248,14 @@
 					style="width: 100%; margin: 60px 0px;">${output.text}</div>
 			</div>
 
-<div style="display: flex; justify-content:left; margin-left:370px; margin-bottom:100px;">
-					<div class="back">목록으로</div>
+			<div
+				style="display: flex; justify-content:center;  margin-bottom: 100px;">
+				<div class="back_m">
+					<a style="color: white;"
+						href="${pageContext.request.contextPath}/community/announce.do">목록으로</a>
+				</div>
 			</div>
+
 		</div>
 
 
@@ -283,7 +305,7 @@
 							break;
 						}
 					}
-					$(".mobile_img_page").html(1+"/"+(last_index+1));
+					$(".mobile_img_page").html(1 + "/" + (last_index + 1));
 					console.log(width_sum);
 					console.log(width);
 					console.log(overflow);
@@ -341,7 +363,8 @@
 						$("#" + index).parent(".small_img_box").addClass("on");
 						var src = $(".on").find(".small_img").attr("src");
 						$(".main_img").attr("src", src);
-						$(".mobile_img_page").html(index+1+"/"+(last_index+1));
+						$(".mobile_img_page").html(
+								index + 1 + "/" + (last_index + 1));
 					}
 					$(".small_img_box").click(
 							function() {

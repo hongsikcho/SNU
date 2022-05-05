@@ -252,6 +252,13 @@
 						예정입니다.</div>
 				</div>
 			</div>
+			
+			<div class="snu_class_file_box">
+					<a
+						href="${pageContext.request.contextPath}/file/loadmap/Curriculum_for_Teaching_Profession">교직로드맵 download</a>
+					<a
+						href="${pageContext.request.contextPath}/file/self_check/Curriculum_for_Teaching_Profession">교직 이론 및 기타 졸업 요건 자가진단표 download</a>
+			</div>
 
 
 

@@ -43,7 +43,7 @@
 						소개</a>
 				</div>
 				<div>
-					<a href="#">회의록 / 안건지</a>
+					<a href="https://drive.google.com/drive/folders/178bXKJbEItgUvkZXd1_u4L3EMwgtdaTj?usp=sharing">회의록 / 안건지</a>
 				</div>
 				<div>
 					<a

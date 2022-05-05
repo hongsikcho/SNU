@@ -263,6 +263,9 @@
                 <div class="snu_loadmap_main_btn_class">
                      <a href="${pageContext.request.contextPath}/loadmap/snu_class_loadmap_detail.do?department=윤리교육과"><i class="fas fa-chevron-right"></i> 윤리교육과</a>
                 </div>
+                <div class="snu_loadmap_main_btn_class">
+                     <a href="${pageContext.request.contextPath}/loadmap/snu_class_loadmap_detail.do?department=생물교육과"><i class="fas fa-chevron-right"></i> 생물교육과</a>
+                </div>
               
            
             </div>
@@ -351,6 +354,9 @@
                 </div>
                 <div class="snu_loadmap_main_btn_class">
                      <a href="${pageContext.request.contextPath}/loadmap/snu_class_loadmap_detail.do?department=윤리교육과"><i class="fas fa-chevron-right"></i> 윤리교육과</a>
+                </div>
+                 <div class="snu_loadmap_main_btn_class">
+                     <a href="${pageContext.request.contextPath}/loadmap/snu_class_loadmap_detail.do?department=생물교육과"><i class="fas fa-chevron-right"></i> 생물교육과</a>
                 </div>
             </div>
         </div>
