@@ -169,7 +169,7 @@
 				<div class="festive_main_text"
 					style="width: 100%; margin: 60px 0px;">${output.text}</div>
 					<div style="display: flex; justify-content:left; margin-left:370px; margin-bottom:100px;">
-					<div class="back">목록으로</div>
+					<div class="back"><a  style="color:white;" href="${pageContext.request.contextPath}/community/announce.do">목록으로</a></div>
 			</div>
 			</div>
 
@@ -232,7 +232,7 @@
 			</div>
 
 <div style="display: flex; justify-content:left; margin-left:370px; margin-bottom:100px;">
-					<div class="back">목록으로</div>
+					<div class="back"><a  style="color:white;" href="${pageContext.request.contextPath}/community/announce.do">목록으로</a></div>
 			</div>
 		</div>
 
