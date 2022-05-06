@@ -28,7 +28,7 @@
 	<select id="selectList"
 		parameterType="study.spring.seoulspring.model.Reservation"
 		resultMap="ReservationMap">
-		SELECT * FROM roomTimeTable WHERE date=#{date};
+		SELECT * FROM roomTimeTable WHERE date=#{date} and roomNum = #{roomNum};
 	</select>
 
 

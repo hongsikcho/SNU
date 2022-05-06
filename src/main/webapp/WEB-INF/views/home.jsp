@@ -139,9 +139,8 @@
 
 				</div>
 				<div class="menu">
-					<a class="menus 1"
-						href="${pageContext.request.contextPath}/calendar.do">공실예약하기</a> <a
-						class="menus 2"
+					<a class="menus 1" href="#"> <span style="text-align:center;">공실예약하기</span><br> (곧 오픈됩니다!)
+					</a> <a class="menus 2"
 						href="${pageContext.request.contextPath}/loadmap/snu_class_loadmap.do">졸업
 						로드맵</a> <a class="menus 3"
 						href="${pageContext.request.contextPath}/community/Hi.do">Hi
@@ -319,8 +318,8 @@
 
 
 			<div class="menu">
-				<a class="menus 1"
-					href="${pageContext.request.contextPath}/calendar.do">공실예약하기</a> <a
+				<a class="menus 1" href="#">  <span style="text-align:center;">공실예약하기</span> (곧 오픈됩니다!)
+					</a> <a
 					class="menus 2"
 					href="${pageContext.request.contextPath}/loadmap/snu_class_loadmap.do">졸업
 					로드맵</a> <a class="menus 3"
