@@ -182,6 +182,30 @@
 			</div>
 		</div>
 
+		<c:if test="${member !=null }">
+			<c:if test="${member.name eq '관리자' }">
+				<form class="qna_delete_form" method="post"
+					enctype="multipart/form-data"
+					action="${pageContext.request.contextPath }/festive/festive_delete.do">
+
+					<input type="hidden" name="festiveno" value="${output.festiveno}" />
+					<c:set var="imgnum" value="${0}" />
+					<input type="hidden" name="imgList[${imgnum}].img"
+						value="${output.img}" />
+					<c:forEach var="item" items="${imgoutput}" varStatus="status">
+						<c:set var="img" value="${item.img}" />
+						<c:set var="imgnum" value="${imgnum+1}" />
+						<input type="hidden" name="imgList[${imgnum}].img" value="${img}" />
+					</c:forEach>
+
+					<div class="snu_qna_write_box">
+						<button class="snu_qna_delete_btn">삭제</button>
+					</div>
+				</form>
+
+			</c:if>
+		</c:if>
+
 
 		<%@ include file="../../include/WEB/footer.jsp"%>
 
@@ -253,26 +277,33 @@
 				<div class="festive_main_text"
 					style="width: 100%; margin: 60px 0px;">${output.text}</div>
 			</div>
-			<form class="qna_delete_form" method="post"
-				enctype="multipart/form-data"
-				action="${pageContext.request.contextPath }/festive/festive_delete.do">
 
-				<input type="hidden" name="festiveno" value="${output.festiveno}" />
-				<c:set var="imgnum" value="${0}" />
-				<input type="hidden" name="imgList[${imgnum}].img"
-					value="${output.img}" />
-				<c:forEach var="item" items="${imgoutput}" varStatus="status">
-					<c:set var="img" value="${item.img}" />
-					<c:set var="imgnum" value="${imgnum+1}" />
-					<input type="hidden" name="imgList[${imgnum}].img" value="${img}" />
-				</c:forEach>
+			<c:if test="${member !=null }">
+				<c:if test="${member.name eq '관리자' }">
+					<form class="qna_delete_form" method="post"
+						enctype="multipart/form-data"
+						action="${pageContext.request.contextPath }/festive/festive_delete.do">
 
-				<div class="snu_qna_write_box">
-					<button class="snu_qna_delete_btn">삭제</button>
-				</div>
-			</form>
-			<button class="ajax_test">dd</button>
-			
+						<input type="hidden" name="festiveno" value="${output.festiveno}" />
+						<c:set var="imgnum" value="${0}" />
+						<input type="hidden" name="imgList[${imgnum}].img"
+							value="${output.img}" />
+						<c:forEach var="item" items="${imgoutput}" varStatus="status">
+							<c:set var="img" value="${item.img}" />
+							<c:set var="imgnum" value="${imgnum+1}" />
+							<input type="hidden" name="imgList[${imgnum}].img" value="${img}" />
+						</c:forEach>
+
+						<div class="snu_qna_write_box">
+							<button class="snu_qna_delete_btn">삭제</button>
+						</div>
+					</form>
+
+				</c:if>
+			</c:if>
+
+
+
 
 			<!--모바일 메인 이너-->
 
@@ -313,7 +344,6 @@
 											gender : "man"
 										},
 										success : function(data) {
-										
 
 										},
 										error : function() {

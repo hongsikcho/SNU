@@ -31,11 +31,27 @@
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/assets/css/style.css" />
 
-<link rel="icon" 
+<link rel="icon"
 	href="${pageContext.request.contextPath}/assets/img/basic_logo.png" />
 <style type="text/css">
 .rule_pdf {
 	margin: 50px 0px;
+}
+
+.rule_btn {
+	margin-top: 50px;
+	text-align: center;
+}
+
+.rule_btn button {
+	display: inline-block;
+	padding: 8px 16px;
+	border: 2px solid #ddd;
+	margin-bottom: 5px;
+	margin-right: 5px;
+	color: #333;
+	font-weight: 500;
+	background-color: white;
 }
 </style>
 
@@ -53,9 +69,19 @@
 				<span>학생회칙 / 세칙</span> <img
 					src="${pageContext.request.contextPath}/assets/img/snu_logo.png" />
 			</div>
+			<div class="rule_btn">
+				<button style="color: #005BA6; border-color: #005BA6" id="1_btn">학생회칙</button>
+				<button id="2_btn">세칙</button>
+			</div>
+			<div>
+				<iframe id="first_pdf" class="rule_pdf" width="100%" height="700"
+					src="${pageContext.request.contextPath}/assets/file/pdf/education_college_rule_2021082.pdf"></iframe>
 
-			<iframe class="rule_pdf" width="100%" height="1000"
-				src="${pageContext.request.contextPath}/assets/file/pdf/education_college_rule_2021082.pdf"></iframe>
+				<iframe id="second_pdf" style="display: none;" class="rule_pdf"
+					width="100%" height="700"
+					src="${pageContext.request.contextPath}/assets/file/pdf/선거시행세칙(2019.09.10. 개정).pdf"></iframe>
+			</div>
+
 		</div>
 
 		<%@ include file="../../include/WEB/footer.jsp"%>
@@ -69,15 +95,15 @@
 		<!-- 모바일 헤더-->
 
 		<%@ include file="../../include/MOBILE/header.jsp"%>
-		 <%@ include file="../../include/MOBILE/tab.jsp"%>
+		<%@ include file="../../include/MOBILE/tab.jsp"%>
 		<!--모바일 컨텐츠 박스-->
 		<div class="snu_mobile_main_box">
 			<div class="snu_main_header">
-				<span>학생회칙 / 세칙</span> 
+				<span>학생회칙 / 세칙</span>
 			</div>
-
-			<iframe class="rule_pdf" width="100%" height="500"
-				src="${pageContext.request.contextPath}/assets/file/pdf/education_college_rule_202108.pdf"></iframe>
+			<div>
+			모바일에서는 지원되지 않습니다! pc에서 확인해주세요!
+			</div>
 		</div>
 
 
@@ -96,6 +122,31 @@
 		src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
 	<script src="${pageContext.request.contextPath}/assets/js/style.js">
 		
+	</script>
+	<script>
+		$("#1_btn").click(function() {
+			$("#1_btn").css("border-color", "#005BA6")
+			$("#1_btn").css("color", "#005BA6")
+
+			$("#2_btn").css("border-color", "#ddd")
+			$("#2_btn").css("color", "black")
+
+			$("#second_pdf").css("display", "none");
+			$("#first_pdf").css("display", "block");
+
+		})
+		$("#2_btn").click(function() {
+
+			$("#2_btn").css("border-color", "#005BA6")
+			$("#2_btn").css("color", "#005BA6")
+
+			$("#1_btn").css("border-color", "#ddd")
+			$("#1_btn").css("color", "black")
+
+			$("#first_pdf").css("display", "none");
+			$("#second_pdf").css("display", "block");
+
+		})
 	</script>
 
 

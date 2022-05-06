@@ -57,9 +57,9 @@ public class CommunityController {
 
 	@RequestMapping(value = "community/Q&A.do", method = RequestMethod.GET)
 	public String QandA(Locale locale, Model model, @RequestParam(value = "page", defaultValue = "1") int nowPage) {
-		Community input = new Community(); 
+		Community input = new Community();
 		List<Community> output = null;
-		
+
 		Community output1 = null;
 		try {
 			output = communityService.selectList();
@@ -67,7 +67,7 @@ public class CommunityController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		int totalCount = 0;
 		int listCount = 10;
 		int pageCount = 5;
@@ -83,7 +83,6 @@ public class CommunityController {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		
 
 		try {
 			output = communityService.selectlist(input);
@@ -185,6 +184,8 @@ public class CommunityController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		String text = output.getPostcontent().replace("\r\n", "<br>");
+		output.setPostcontent(text);
 		model.addAttribute("output", output);
 		model.addAttribute("reply", re_comment);
 

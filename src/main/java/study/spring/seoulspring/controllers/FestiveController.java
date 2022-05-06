@@ -175,8 +175,9 @@ public class FestiveController {
 		return this.webHelper.redirect(redirectUrl, null);
 	}
 
-	@RequestMapping(value = "festive/festive_delete.do", method = RequestMethod.GET)
+	@RequestMapping(value = "festive/festive_write.do", method = RequestMethod.GET)
 	public String festive_delete(Locale locale, Model model, @RequestParam("festiveno") int festiveno) {
+		model.addAttribute("festiveno", festiveno);
 
 		return "festive/festive_write";
 	}
