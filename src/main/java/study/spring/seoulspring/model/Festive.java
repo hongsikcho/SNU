@@ -1,9 +1,11 @@
 package study.spring.seoulspring.model;
 
+import java.io.Serializable;
+
 import lombok.Data;
 
 @Data
-public class Festive {
+public class Festive implements Serializable {
 	private int festiveno;
 	private String title;
 	private String text;

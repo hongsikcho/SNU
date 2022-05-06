@@ -30,7 +30,7 @@
 	<select id="selectList"
 		parameterType="study.spring.seoulspring.model.Community"
 		resultMap="CommunityMap">
-		SELECT * FROM community ORDER BY postno DESC;
+		SELECT postno,postcategory,posttype,posttitle,postdate,postpublic,postview,name,(SELECT count(*) FROM reply WHERE post_num = community.postno ) AS comment_cnt FROM community ORDER BY postno DESC;
 	</select>
 
 	<select id="selectOne"

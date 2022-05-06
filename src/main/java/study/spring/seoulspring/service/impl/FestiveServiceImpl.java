@@ -43,15 +43,18 @@ public class FestiveServiceImpl implements FestiveService {
 
 	@Override
 	public int DeleteFestive(Festive input) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		int result = 0;
+		result = sqlSession.delete("FestiveMapper.deleteFestive", input);
+		result = sqlSession.delete("FestiveMapper.deleteFestiveImg", input);
+		return result;
 	}
 
 	@Override
 	public int insertImg(List<Festive> input) throws Exception {
 		int result =0;
 		result = sqlSession.insert("FestiveMapper.insertImg", input);
-		return 0;
+//		
+		return result;
 	}
 
 	@Override

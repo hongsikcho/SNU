@@ -71,6 +71,16 @@
 		SELECT count(*) FROM snu.festive
 	</select>
 	
+	<delete id="deleteFestive"
+		parameterType="study.spring.seoulspring.model.Festive">
+		DELETE FROM festive WHERE festiveno=#{festiveno}
+	</delete>
+	
+	<delete id="deleteFestiveImg"
+		parameterType="study.spring.seoulspring.model.Festive">
+		DELETE FROM festive_img WHERE festiveno=#{festiveno}
+	</delete>
+	
 	
 
 
