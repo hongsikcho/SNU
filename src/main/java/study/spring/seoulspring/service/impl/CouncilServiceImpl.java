@@ -25,7 +25,7 @@ public class CouncilServiceImpl implements CouncilService {
 	
 	@Override
 	public List<Council> SelectBusin(Council input) throws Exception {
-		List<Council> result = new ArrayList<>();
+		List<Council> result = new ArrayList<Council>();
 		
 		result = sqlSession.selectList("CouncilMapper.selectBusiness", input);
 		

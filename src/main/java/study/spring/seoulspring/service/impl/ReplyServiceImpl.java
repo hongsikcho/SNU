@@ -17,7 +17,7 @@ public class ReplyServiceImpl implements ReplyService {
 	
 	@Override
 	public List<Reply> selectList(Reply input) throws Exception{
-		List<Reply> result = new ArrayList<>();
+		List<Reply> result = new ArrayList<Reply>();
 		result = sqlSession.selectList("ReplyMapper.selectList",input);
 		return result;
 		

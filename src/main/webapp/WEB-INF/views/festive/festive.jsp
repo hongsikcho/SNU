@@ -133,7 +133,7 @@
 						<a
 							href="${pageContext.request.contextPath}/festive/festive_detail.do?festiveno=${no}">
 							<div class="festive_list_inner_img">
-								<img src="http://3.138.48.22:8080/upload/${img}">
+								<img src="${pageContext.request.contextPath}/../upload/${output.img}">
 							</div>
 							<div class="festive_list_inner_state">
 								<span>${status}</span> ${title}
@@ -264,7 +264,7 @@
 						<a
 							href="${pageContext.request.contextPath}/festive/festive_detail.do?festiveno=${no}">
 							<div class="festive_list_inner_img">
-								<img src="http://3.138.48.22:8080/upload/${img}">
+								<img src="${pageContext.request.contextPath}/../upload/${output.img}">
 							</div>
 							<div class="festive_list_inner_state">
 								<span>${status}</span><br> ${title}

@@ -175,8 +175,9 @@ public class FestiveController {
 		return this.webHelper.redirect(redirectUrl, null);
 	}
 
-	@RequestMapping(value = "festive/festive_delete.do", method = RequestMethod.GET)
+	@RequestMapping(value = "festive/festive_write.do", method = RequestMethod.GET)
 	public String festive_delete(Locale locale, Model model, @RequestParam("festiveno") int festiveno) {
+		model.addAttribute("festiveno", festiveno);
 
 		return "festive/festive_write";
 	}
@@ -198,6 +199,23 @@ public class FestiveController {
 		output.add(member);
 		return output;
 
+	}
+
+	@RequestMapping(value = "festive/festive_update.do", method = RequestMethod.POST)
+	public ModelAndView updateFestive(MultipartHttpServletRequest mtfRequest, Locale locale, Model model,
+			@RequestParam("festiveno") int festiveno, @RequestParam("text") String text) {
+		Festive input = new Festive();
+		input.setText(text);
+		input.setFestiveno(festiveno);
+		try {
+			int result = festiveService.updateFestive(input);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String redirectUrl = this.contextPath + "/festive/festive_detail.do?festiveno=" + festiveno;
+
+		return this.webHelper.redirect(redirectUrl, null);
 	}
 
 	@RequestMapping(value = "festive/festive_insert.do", method = RequestMethod.POST)

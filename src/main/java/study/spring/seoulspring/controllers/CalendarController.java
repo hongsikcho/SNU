@@ -70,7 +70,7 @@ public class CalendarController {
 			@RequestParam("start_time") String start_time, @RequestParam("end_time") String end_time,
 			@RequestParam("student_name") String student_name, @RequestParam("student_phNum") String student_phNum,
 			@RequestParam("student_id") int student_id, @RequestParam("people_num") int people_num,
-			@RequestParam("date") String date) {
+			@RequestParam("roomNum") int roomNum, @RequestParam("date") String date) {
 
 		Reservation input = new Reservation();
 		input.setStarttime(start_time);
@@ -80,9 +80,8 @@ public class CalendarController {
 		input.setStudentid(student_id);
 		input.setPeoplenum(people_num);
 		input.setDate(date);
-
+		input.setRoomNum(roomNum);
 		input.setDate(request.getParameter("date"));
-
 
 		int result = 0;
 		try {
@@ -105,12 +104,13 @@ public class CalendarController {
 		model.addAttribute("month", month);
 		model.addAttribute("day", day);
 		model.addAttribute("room_num", room_num);
-		
+
 		Reservation input = new Reservation();
 		input.setDate(date);
+		input.setRoomNum(room_num);
 		List<Reservation> output = null;
 		try {
-			output= reservationService.selectList(input);
+			output = reservationService.selectList(input);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -180,8 +180,7 @@ public class CalendarController {
 		model.addAttribute("dateList", dateList); // 날짜 데이터 배열
 		model.addAttribute("today_info", today_info);
 		model.addAttribute("today", today);
-		
-		
+
 		return "/calendar";
 	}
 
