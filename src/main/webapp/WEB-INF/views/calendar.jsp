@@ -296,7 +296,7 @@ form {
 				</span>
 			</div>
 			<div class="reserveCheck">
-			<a href="#"><div class="checkbox">예약 현황 보기</div></a>
+			<a href="${pageContext.request.contextPath}/conform.do"><div class="checkbox">예약 현황 보기</div></a>
 			<a href="#"><div class="checkbox">나의 예약 보기</div></a>
 			</div>
 			<form name="calendarFrm" id="calendarFrm" action="" method="GET">
