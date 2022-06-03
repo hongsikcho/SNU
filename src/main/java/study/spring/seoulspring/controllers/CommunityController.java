@@ -167,7 +167,7 @@ public class CommunityController {
 		// Reply객체 생성
 		Reply reply = new Reply();
 		reply.setPost_num(postno);
-		List<Reply> re_comment = new ArrayList<>();
+		List<Reply> re_comment = new ArrayList<Reply>();
 
 		// community객체 생성
 		Community input = new Community();
@@ -385,7 +385,7 @@ public class CommunityController {
 
 		sabum sabum = new sabum();
 		sabum.setNum(num);
-		List<sabum> output = new ArrayList<>();
+		List<sabum> output = new ArrayList<sabum>();
 
 		try {
 			output = sabumService.SelectSabum(sabum);

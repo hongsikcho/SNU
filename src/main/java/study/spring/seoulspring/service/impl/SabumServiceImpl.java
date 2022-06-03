@@ -18,7 +18,7 @@ public class SabumServiceImpl implements SabumService {
 	
 	@Override
 	public List<sabum> SelectSabum(sabum input) {
-		List<sabum> result = new ArrayList<>();
+		List<sabum> result = new ArrayList<sabum>();
 		result = sqlSession.selectList("SabumMapper.selectSabum", input);
 		return result;
 	}
