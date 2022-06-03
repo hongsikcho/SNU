@@ -1,25 +1,14 @@
 package study.spring.seoulspring.controllers;
 
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.servlet.jsp.PageContext;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -28,24 +17,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
-
-import com.google.protobuf.ByteString.Output;
 
 import study.spring.seoulspring.helper.WebHelper;
 import study.spring.seoulspring.model.DateData;
-import study.spring.seoulspring.model.Department;
-import study.spring.seoulspring.model.Member;
 import study.spring.seoulspring.model.Reservation;
-import study.spring.seoulspring.model.View;
+import study.spring.seoulspring.service.CalendarService;
 import study.spring.seoulspring.service.DepartmentService;
 import study.spring.seoulspring.service.ReservationService;
 import study.spring.seoulspring.service.ViewService;
-
-import org.json.simple.JSONObject; // JSON객체 생성
-import org.json.simple.JSONArray; // JSON이 들어있는 Array 생성
-import org.json.simple.parser.JSONParser; // JSON객체 파싱
-import org.json.simple.parser.ParseException;
 
 /**
  * Handles requests for the application home page.
@@ -53,6 +32,8 @@ import org.json.simple.parser.ParseException;
 @Controller
 public class CalendarController {
 
+	@Autowired
+	CalendarService calendarService;
 	@Autowired
 	DepartmentService departmentService;
 	@Autowired
@@ -119,6 +100,19 @@ public class CalendarController {
 
 		return "/reservation";
 
+	}
+	
+	@RequestMapping(value = "/conform.do" , method=RequestMethod.GET)
+	public String conform(Model model, HttpServletRequest request, Locale locale) {
+		List<study.spring.seoulspring.model.Calendar> calendar = new ArrayList<study.spring.seoulspring.model.Calendar>();
+		try {
+			calendar = calendarService.selectList();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		model.addAttribute("calendar", calendar);
+		return "/conform";
 	}
 
 	@RequestMapping(value = "/calendar.do", method = RequestMethod.GET)
