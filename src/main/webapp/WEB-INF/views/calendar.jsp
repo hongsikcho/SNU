@@ -67,7 +67,19 @@ select {
 	font-weight: bold;
 	text-align: center;
 }
-
+.reserveCheck{
+	display:flex;
+	justify-content: right;
+	margin-bottom: 10px;
+}
+.checkbox{
+	border: 1px solid black;
+	padding : 7px;
+	border-radius: 5px;
+	margin-right: 10px;
+	background-color:#0f0f70;
+	color: white;
+}
 .sat {
 	color: #529dbc;
 }
@@ -282,6 +294,10 @@ form {
 					(월 ~ 일)</span> <br> <span>- 많은 학우분들의 이용을 위해 예약 가능 시간은 <b>1일
 						최대 4시간</b>으로 제한됩니다.
 				</span>
+			</div>
+			<div class="reserveCheck">
+			<a href="#"><div class="checkbox">예약 현황 보기</div></a>
+			<a href="#"><div class="checkbox">나의 예약 보기</div></a>
 			</div>
 			<form name="calendarFrm" id="calendarFrm" action="" method="GET">
 				<c:set var="month" value="${today_info.search_month}" />
