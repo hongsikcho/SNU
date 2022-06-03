@@ -37,8 +37,9 @@ public class FestiveServiceImpl implements FestiveService {
 
 	@Override
 	public int updateFestive(Festive input) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		int result =0 ;
+		result =sqlSession.update("FestiveMapper.updateFestive", input);
+		return result;
 	}
 
 	@Override

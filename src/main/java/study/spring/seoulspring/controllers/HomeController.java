@@ -137,8 +137,7 @@ public class HomeController {
 
 	@RequestMapping(value = "/login_ok.do", method = RequestMethod.POST)
 	public ModelAndView login(Locale locale, HttpServletRequest request, HttpServletResponse response, Model model,
-			@RequestParam("si_id") String si_id, @RequestParam("si_pwd") String si_pwd,
-			@RequestParam("referer") String referer) throws MalformedURLException, IOException {
+			@RequestParam("si_id") String si_id, @RequestParam("si_pwd") String si_pwd) throws MalformedURLException, IOException {
 
 		// 서울대 페이지를 통해 로그인
 		String id = si_id;
@@ -187,8 +186,8 @@ public class HomeController {
 			e.printStackTrace();
 		}
 		// 이전페이지
-		String redirectUrl = referer;
-
+		
+		String redirectUrl = this.contextPath + "/";
 		Member ouput1 = new Member();
 		if (id.equals("root") && pw.equals("123qwe!@#")) {
 			ouput1.setName("관리자");

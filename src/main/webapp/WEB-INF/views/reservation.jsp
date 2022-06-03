@@ -326,18 +326,14 @@ input:focus {
 						type="hidden" name="start_time" id="start_time" value="" /> <input
 						type="hidden" name="end_time" id="end_time" value="" /> <br>
 
-					<label for="rent_objective">공실 대여 목적</label> <input type="text"
-						id="rent_objective" name="rent_objective" /> <br> <label
-						for="people_num">사용 인원수</label> <input type="text" id="people_num"
-						name="people_num" value="" /> <br> <label for="student_name">대표
-						예약자 성함</label> <input type="text" id="student_name" name="student_name" disabled
-						value="${member.name }" /> <br> <label for="student_id">대표 예약자 학번</label> <input
-						type="text" id="student_id" name="student_id" value="" /> <br>
-
-					<label for="student_phNum">대표 예약자 연락처</label> <input type="text"
-						id="student_phNum" name="student_phNum" /> <input type="hidden"
-						id="date" name="date" value="${date}" />
-
+					<label for="rent_objective">공실 대여 목적</label> 
+					<input type="text" id="rent_objective" name="rent_objective" /> <br> 
+					<label for="people_num">사용 인원수</label> <input type="text" id="people_num" name="people_num" value="" /> <br> 
+					<label for="student_name">대표 예약자 성함</label> <input type="text" id="student_name" name="student_name" disabled value="${member.name }" /> <br> 
+					<label for="student_id">대표 예약자 학번</label> <input type="text" id="student_id" name="student_id" value="" /> <br> 
+					<label for="student_phNum">대표 예약자 연락처</label> <input type="text" id="student_phNum" name="student_phNum" /> 
+					<input type="hidden" id="date" name="date" value="${date}" />
+					<input type="hidden" name="roomNum" id="roomNum" value=${room_num } />
 				</div>
 				<div id="btn_box">
 					<button class="reserve_btn" type="submit">예약하기</button>
@@ -369,6 +365,10 @@ input:focus {
 	</script>
 
 	<script>
+	if(${member == null} ){
+		window.location.href = '${pageContext.request.contextPath}/calendar.do';
+	}
+	
 		var starttime_list = new Array();
 		var endtime_list = new Array();
 		//jstl 변수 리스트에 담기 
@@ -518,6 +518,7 @@ input:focus {
 							var student_id = $("#student_id").val();
 							var people_num = $("#people_num").val();
 							var date = $("#date").val();
+							var roomNum = $("#roomNum").val();
 							e.preventDefault();
 							var formData = new FormData(this);
 							if (!regex.value('#start_time', '시작시간을 입력하세요')) {
@@ -526,9 +527,7 @@ input:focus {
 							if (!regex.value('#student_name', '이름을 입력하세요')) {
 								return false;
 							}
-
-							$
-									.ajax({
+							$.ajax({
 										type : "GET",
 										url : "${pageContext.request.contextPath}/reservation/reservation_insert.do?start_time="
 												+ start_time
@@ -542,7 +541,8 @@ input:focus {
 												+ student_id
 												+ "&people_num="
 												+ people_num
-												+ "&date=" + date,
+												+ "&date=" + date
+												+ "&roomNum="+roomNum,
 
 										success : function() {
 											alert("공실 예약이 완료 되었습니다!!");

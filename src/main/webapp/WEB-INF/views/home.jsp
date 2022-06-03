@@ -167,7 +167,7 @@
 							<c:set var="no" value="${item.festiveno}" />
 							<a
 								href="${pageContext.request.contextPath}/festive/festive_detail.do?festiveno=${no}"><img
-								style="width: 80%;" src="http://3.138.48.22:8080/upload/${img}" />
+								style="width: 80%;" src="${pageContext.request.contextPath}/../upload/${img}" />
 								<span class="third_inner_text">${title}</span> </a>
 						</c:forEach>
 
@@ -304,7 +304,7 @@
 							href="${pageContext.request.contextPath}/festive/festive_detail.do?festiveno=${no}">
 							<div class="pr_body_first">
 								<div class="pr_body_photo">
-									<img src="http://3.138.48.22:8080/upload/${img}" alt="">
+									<img src="${pageContext.request.contextPath}/../upload/${img}" alt="">
 								</div>
 								<div class="pr_body_text">${title}</div>
 							</div>
