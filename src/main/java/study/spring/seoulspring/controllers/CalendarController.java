@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import study.spring.seoulspring.helper.WebHelper;
 import study.spring.seoulspring.model.DateData;
 import study.spring.seoulspring.model.Reservation;
+import study.spring.seoulspring.model.TimeTable;
 import study.spring.seoulspring.service.CalendarService;
 import study.spring.seoulspring.service.DepartmentService;
 import study.spring.seoulspring.service.ReservationService;
@@ -109,7 +110,7 @@ public class CalendarController {
 
 	@RequestMapping(value = "/conform.do", method = RequestMethod.GET)
 	public String conform(Model model, HttpServletRequest request, Locale locale) {
-		List<study.spring.seoulspring.model.Calendar> calendar = new ArrayList<study.spring.seoulspring.model.Calendar>();
+		List<TimeTable> calendar = null;
 		try {
 			calendar = calendarService.selectList();
 		} catch (Exception e) {

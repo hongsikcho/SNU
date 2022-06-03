@@ -5,7 +5,7 @@ import java.sql.Date;
 import lombok.Data;
 
 @Data
-public class Calendar {
+public class TimeTable {
 	private String starttime;
 	private String endtime;
 	private int roomNum;
@@ -19,13 +19,13 @@ public class Calendar {
 		return offset;
 	}
 	public static void setOffset(int offset) {
-		Calendar.offset = offset;
+		TimeTable.offset = offset;
 	}
 	public static int getListCount() {
 		return listCount;
 	}
 	public static void setListCount(int listCount) {
-		Calendar.listCount = listCount;
+		TimeTable.listCount = listCount;
 	
 
 }
