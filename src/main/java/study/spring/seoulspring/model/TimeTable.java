@@ -9,10 +9,14 @@ public class TimeTable {
 	private String starttime;
 	private String endtime;
 	private int roomNum;
-	private Date date;
+	private String date;
 	private int calendarNo;
 	private String membername;
-	
+	private String studentid;
+	private String phonenum;
+	private int peoplenum;
+	private String purpose;
+
 	private static int offset;
 	private static int listCount;
 	public static int getOffset() {
