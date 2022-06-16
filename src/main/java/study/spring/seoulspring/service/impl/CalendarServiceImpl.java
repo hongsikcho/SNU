@@ -19,9 +19,9 @@ public class CalendarServiceImpl implements CalendarService {
 	SqlSession sqlSession;
 	
 	@Override
-	public List<TimeTable> selectList() throws Exception{
+	public List<TimeTable> selectList(TimeTable input) throws Exception{
 			List<TimeTable> result = null;
-			result = sqlSession.selectList("CalendarMapper.selectlist", null);
+			result = sqlSession.selectList("CalendarMapper.selectlist", input);
 			return result;
 		}
 	}

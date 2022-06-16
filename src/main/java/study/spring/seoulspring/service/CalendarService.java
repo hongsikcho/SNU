@@ -9,6 +9,6 @@ import study.spring.seoulspring.model.TimeTable;
 @Service
 public interface CalendarService {
 	
-	public abstract List<TimeTable> selectList() throws Exception; 
+	public abstract List<TimeTable> selectList(TimeTable input) throws Exception; 
 
 }
