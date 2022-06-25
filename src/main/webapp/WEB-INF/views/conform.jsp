@@ -43,6 +43,9 @@
 .main_box {
 	font-family: 'NanumGothic';
 }
+
+
+@media (max-width: 900px) {
 </style>
 
 </head>
@@ -101,7 +104,7 @@
 
 
 			</div>
-			<!--  
+			
 			<div class="paging_box ">
 				<ul class="pagination">
 					<c:choose>
@@ -156,7 +159,7 @@
 					</c:choose>
 				</ul>
 			</div>
-			 -->
+			 
 
 
 
@@ -184,39 +187,49 @@
 
 		<div class="snu_mobile_main_box">
 			<div class="snu_main_header">
-				<span>공지사항</span>
+				<span>예약 현황 확인</span>
 
 			</div>
 			<div class="snu_mobile_qna_main_box">
+			
+			<div class="snu_qna_content" id="snu_qna_header">
+					<div style="width: 20%;">예약일</div>
+					<div style="width: 15%;">호실</div>
+					<div style="width: 15%;">시간</div>
+					<div style="width: 20%;">예약자 이름</div>
 
-				<c:forEach var="item" items="${output}" varStatus="status">
+				</div>
 
-					<c:set var="title" value="${item.title}" />
-					<c:set var="img" value="${item.img}" />
-					<c:set var="no" value="${item.announceno}" />
-					<c:set var="postdate" value="${item.postdate}" />
-					<c:set var="view" value="${item.view}" />
-					<a
-						href="${pageContext.request.contextPath }/community/announce_detail.do?announceno=${no}">
-						<div class="snu_mobile_qna_content">
-							<div class="snu_mobile_qna_content_title">${title }</div>
-							<div class="snu_mobile_qna_content_detail">
-								<span>관리자 </span><span>| ${postdate}</span> | ${view}
-							</div>
+				<c:forEach var="item" items="${calendar}" varStatus="status">
+					<c:set var="starttime" value="${item.starttime}" />
+					<c:set var="endtime" value="${item.endtime}" />
+					<c:set var="date" value="${item.date}" />
+					<c:set var="membername" value="${item.membername}" />
+					<c:set var="phonenum" value="${item.phonenum}" />
+					<c:set var="studentid" value="${item.studentid}" />
+					<c:set var="peoplenum" value="${item.peoplenum}" />
+					<c:set var="roomNum" value="${item.roomNum}" />
+					<c:set var="purpose" value="${item.purpose}" />
+					<c:set var="calendarNo" value="${item.calendarNo}" />
+
+					
+				<a
+						href="${pageContext.request.contextPath}/reservation/info.do?studentid=${studentid}&calendarNo=${calendarNo}">
+						<div class="snu_qna_content" id="snu_qna_header"
+							style="font-weight: 600;">
+							<div style="width: 20%; display: inline-block;">${date}</div>
+							<div style="width: 15%; display: inline-block;">${roomNum }</div>
+							<div style="width: 15%; display: inline-block;">${starttime}-
+								${endtime }</div>
+							<div style="width: 20%; display: inline-block;">${membername}</div>
 						</div>
 					</a>
+
 
 				</c:forEach>
 			</div>
 
-			<c:if test="${member !=null }">
-				<c:if test="${member.name eq '관리자' }">
-					<div class="snu_qna_write_box">
-						<a class="snu_qna_write_btn"
-							href="${pageContext.request.contextPath}/community/announce_write.do?announceno=${announceno}">글쓰기</a>
-					</div>
-				</c:if>
-			</c:if>
+			
 			<div class="paging_box ">
 				<ul class="pagination">
 					<c:choose>
