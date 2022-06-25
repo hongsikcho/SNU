@@ -12,4 +12,8 @@ public class Reservation {
 	private String phonenum;
 	private int studentid;
 	private int peoplenum;
+	private int roomNum;
+	private String purpose;
+	private int calendarNo;
+	private double timeCount;
 }

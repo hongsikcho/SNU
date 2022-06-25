@@ -8,6 +8,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.regex.*;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -17,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,6 +33,8 @@ import study.spring.seoulspring.helper.PageData;
 import study.spring.seoulspring.helper.WebHelper;
 import study.spring.seoulspring.model.Department;
 import study.spring.seoulspring.model.Festive;
+import study.spring.seoulspring.model.FestiveImgList;
+import study.spring.seoulspring.model.Member;
 import study.spring.seoulspring.model.View;
 import study.spring.seoulspring.service.DepartmentService;
 import study.spring.seoulspring.service.FestiveService;
@@ -131,18 +137,85 @@ public class FestiveController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		String regex = "([\\p{Alnum}]+)://([a-z0-9ㄱ-ㅎ가-힣.\\-&/%=?:@#$(),.+;~\\_]+)";
 		String text = output.getText().replace("\r\n", "<br>");
-		output.setText(text);
+		Pattern p = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
+		Matcher m = p.matcher(text);
+		String s = m.replaceAll("<a href='http://$2' target=_blank>http://$2</a>");
+		output.setText(s);
 		model.addAttribute("output", output);
-		model.addAttribute("size",imgoutput.size());
+		model.addAttribute("size", imgoutput.size());
 		model.addAttribute("imgoutput", imgoutput);
 		return "festive/festive_detail";
 	}
 
+	@RequestMapping(value = "festive/festive_delete.do", method = RequestMethod.POST)
+	public ModelAndView festive_delete(Locale locale, Model model,
+			@ModelAttribute(value = "FestiveImgList") FestiveImgList imgList,
+			@RequestParam("festiveno") int festiveno) {
+		Festive input = new Festive();
+		input.setFestiveno(festiveno);
+		String path = "/var/lib/tomcat9/webapps/upload/";
+		List<Festive> imglist = imgList.getImgList();
+		for (int i = 0; i < imglist.size(); i++) {
+			File file = new File(path + imglist.get(i).getImg());
+			if (file.exists()) {
+				file.delete();
+			}
+
+		}
+		try {
+			int result = festiveService.DeleteFestive(input);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		String redirectUrl = this.contextPath + "/festive/festive.do";
+		return this.webHelper.redirect(redirectUrl, null);
+	}
+
 	@RequestMapping(value = "festive/festive_write.do", method = RequestMethod.GET)
-	public String festive_write(Locale locale, Model model, @RequestParam("festiveno") int festiveno) {
+	public String festive_delete(Locale locale, Model model, @RequestParam("festiveno") int festiveno) {
 		model.addAttribute("festiveno", festiveno);
+
 		return "festive/festive_write";
+	}
+
+	@RequestMapping(value = "/festive/ajax_test.do", method = { RequestMethod.POST })
+	@ResponseBody
+	public List<Member> test(@RequestParam("name") String name, @RequestParam("age") String age,
+			@RequestParam("gender") String gender, Model model) {
+
+		System.out.println(name);
+		System.out.println(age);
+		System.out.println(gender);
+		Member member = new Member();
+		member.setName(name);
+		member.setId(age);
+		member.setDepartment(gender);
+		model.addAttribute("hosu", member);
+		List<Member> output = new ArrayList();
+		output.add(member);
+		return output;
+
+	}
+
+	@RequestMapping(value = "festive/festive_update.do", method = RequestMethod.POST)
+	public ModelAndView updateFestive(MultipartHttpServletRequest mtfRequest, Locale locale, Model model,
+			@RequestParam("festiveno") int festiveno, @RequestParam("text") String text) {
+		Festive input = new Festive();
+		input.setText(text);
+		input.setFestiveno(festiveno);
+		try {
+			int result = festiveService.updateFestive(input);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String redirectUrl = this.contextPath + "/festive/festive_detail.do?festiveno=" + festiveno;
+
+		return this.webHelper.redirect(redirectUrl, null);
 	}
 
 	@RequestMapping(value = "festive/festive_insert.do", method = RequestMethod.POST)
@@ -181,8 +254,28 @@ public class FestiveController {
 		}
 		input.setImg(img_thumbnail);
 		// 썸네일 파일
+		
+
 
 		int result = 0;
+		
+
+		try {
+			result = festiveService.insertFestive(input);
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		Festive output1 = null;
+		try {
+			output1 = festiveService.selectOne();
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		int count = 0;
 		for (MultipartFile mf : fileList) {
 			String originFileName = mf.getOriginalFilename(); // 원본 파일 명
@@ -200,7 +293,7 @@ public class FestiveController {
 				img_name = originFileName + System.currentTimeMillis();
 
 				img.setImg(img_name);
-				img.setFestiveno(festiveno);
+				img.setFestiveno(output1.getFestiveno());
 				input1.add(img);
 				try {
 					mf.transferTo(new File(safeFile));
@@ -227,13 +320,6 @@ public class FestiveController {
 
 		}
 
-		try {
-			result = festiveService.insertFestive(input);
-
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 
 		return this.webHelper.redirect(redirectUrl, null);
 

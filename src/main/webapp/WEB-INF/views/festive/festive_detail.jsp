@@ -14,8 +14,9 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta NAME="ROBOTS"CONTENT="NOINDEX,NOFOLLOW">
 <title>제41대 사범대학 학생회 늘품</title>
-<link rel="icon" 
+<link rel="icon"
 	href="${pageContext.request.contextPath}/assets/img/basic_logo.png" />
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/assets/css/snu_main.css" />
@@ -111,6 +112,17 @@
 	margin: 0;
 	padding: 0;
 }
+
+.festive_main_text a {
+	color: blue;
+}
+
+textarea {
+	width: 100%;
+	height: 400px;
+	padding: 10px 5px;
+	font-size: 20px;
+}
 </style>
 
 </head>
@@ -150,7 +162,7 @@
 					<div class="head">
 
 						<img class="main_img" style="width: 100%;"
-							src="http://3.138.48.22:8080/upload/${output.img}" />
+							src="http://peda.snu.ac.kr:8080/upload/${output.img}" />
 					</div>
 					<a class="prev"> <span>이전</span>
 					</a> <a class="next"> <span>이후</span>
@@ -159,7 +171,7 @@
 						<ul>
 							<li id="li_0"><a class="small_img_box on"> <img
 									class="small_img" id="0"
-									src="http://3.138.48.22:8080/upload/${output.img}" />
+									src="http://peda.snu.ac.kr:8080/upload/${output.img}" />
 							</a></li>
 
 							<c:forEach var="item" items="${imgoutput}" varStatus="status">
@@ -167,7 +179,7 @@
 								<c:set var="num" value="${num+1}" />
 								<li id="li_${num}"><a class="small_img_box"> <img
 										class="small_img" id="${num}"
-										src="http://3.138.48.22:8080/upload/${img}" />
+										src="http://peda.snu.ac.kr:8080/upload/${img}" />
 								</a></li>
 							</c:forEach>
 						</ul>
@@ -177,6 +189,42 @@
 					style="width: 100%; margin: 60px 0px;">${output.text}</div>
 			</div>
 		</div>
+
+		<c:if test="${member !=null }">
+			<c:if test="${member.name eq '관리자' }">
+				<form class="qna_delete_form" method="post"
+					enctype="multipart/form-data"
+					action="${pageContext.request.contextPath }/festive/festive_delete.do">
+
+					<input type="hidden" name="festiveno" value="${output.festiveno}" />
+					<c:set var="imgnum" value="${0}" />
+					<input type="hidden" name="imgList[${imgnum}].img"
+						value="${output.img}" />
+					<c:forEach var="item" items="${imgoutput}" varStatus="status">
+						<c:set var="img" value="${item.img}" />
+						<c:set var="imgnum" value="${imgnum+1}" />
+						<input type="hidden" name="imgList[${imgnum}].img" value="${img}" />
+					</c:forEach>
+
+					<div class="snu_qna_write_box">
+						<button class="snu_qna_delete_btn">삭제</button>
+					</div>
+				</form>
+
+				<form class="qna_update_form" method="post"
+					enctype="multipart/form-data"
+					action="${pageContext.request.contextPath }/festive/festive_update.do">
+					<input type="hidden" name="festiveno" value="${output.festiveno}" />
+					<div style="margin-top: 30px;">
+						<textarea id="content" name="text" placeholder="내용을 입력해 주세요...."></textarea>
+					</div>
+					<div class="snu_qna_write_box">
+						<button class="snu_qna_update_btn">글쓰기</button>
+					</div>
+				</form>
+
+			</c:if>
+		</c:if>
 
 
 		<%@ include file="../../include/WEB/footer.jsp"%>
@@ -195,8 +243,6 @@
 		<fmt:parseNumber value="${strPlanDate.time / (1000*60*60*24)}"
 			integerOnly="true" var="strDate"></fmt:parseNumber>
 
-
-
 		<fmt:parseDate value="${output.end_date }" var="endPlanDate"
 			pattern="yyyy-MM-dd" />
 		<fmt:parseNumber value="${endPlanDate.time / (1000*60*60*24)}"
@@ -212,7 +258,6 @@
 				<c:set var="status"
 					value="<span style='color:#0f0f70'>[진행중] </span>" />
 			</c:otherwise>
-
 		</c:choose>
 		<div class="snu_mobile_main_box">
 
@@ -222,14 +267,14 @@
 				<div style="width: 70%; margin: auto; margin-top: 30px">
 					<div style="position: relative;">
 						<img class="main_img" style="width: 100%;"
-							src="http://3.138.48.22:8080/upload/${output.img}" /> <a
-							class="prev" style="left:-20%; bottom:40%;"> <span>이전</span>
-						</a> <a class="next" style="right:-20%; bottom:40%;"> <span>이후</span>
+							src="http://peda.snu.ac.kr:8080/upload/${output.img}" /> <a
+							class="prev" style="left: -20%; bottom: 40%;"> <span>이전</span>
+						</a> <a class="next" style="right: -20%; bottom: 40%;"> <span>이후</span>
 						</a>
 						<ul style="display: none;">
 							<li id="li_0"><a class="small_img_box on"> <img
 									class="small_img" id="0"
-									src="http://3.138.48.22:8080/upload/${output.img}" />
+									src="${pageContext.request.contextPath}/../upload/${output.img}" />
 							</a></li>
 
 							<c:forEach var="item" items="${imgoutput}" varStatus="status">
@@ -237,19 +282,43 @@
 								<c:set var="num" value="${num+1}" />
 								<li id="li_${num}"><a class="small_img_box"> <img
 										class="small_img" id="${num}"
-										src="http://3.138.48.22:8080/upload/${img}" />
+										src="http://peda.snu.ac.kr:8080/upload/${img}" />
 								</a></li>
 							</c:forEach>
 						</ul>
-						<div class="mobile_img_page" style="text-align:center;">
-						</div>
-
+						<div class="mobile_img_page" style="text-align: center;"></div>
 					</div>
 				</div>
 
 				<div class="festive_main_text"
 					style="width: 100%; margin: 60px 0px;">${output.text}</div>
 			</div>
+
+			<c:if test="${member !=null }">
+				<c:if test="${member.name eq '관리자' }">
+					<form class="qna_delete_form" method="post"
+						enctype="multipart/form-data"
+						action="${pageContext.request.contextPath }/festive/festive_delete.do">
+
+						<input type="hidden" name="festiveno" value="${output.festiveno}" />
+						<c:set var="imgnum" value="${0}" />
+						<input type="hidden" name="imgList[${imgnum}].img"
+							value="${output.img}" />
+						<c:forEach var="item" items="${imgoutput}" varStatus="status">
+							<c:set var="img" value="${item.img}" />
+							<c:set var="imgnum" value="${imgnum+1}" />
+							<input type="hidden" name="imgList[${imgnum}].img" value="${img}" />
+						</c:forEach>
+
+						<div class="snu_qna_write_box">
+							<button class="snu_qna_delete_btn">삭제</button>
+						</div>
+					</form>
+
+				</c:if>
+			</c:if>
+
+
 
 
 			<!--모바일 메인 이너-->
@@ -271,12 +340,34 @@
 
 	<script src="https://kit.fontawesome.com/695be3a17b.js"
 		crossorigin="anonymous"></script>
-	
+
 	<script
 		src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
 	<script src="${pageContext.request.contextPath}/assets/js/style.js"></script>
 
 	<script>
+		$(".ajax_test")
+				.click(
+						function() {
+
+							$
+									.ajax({
+										url : "${pageContext.request.contextPath}/festive/ajax_test.do",
+										type : 'post',
+										data : {
+											name : "이름",
+											age : "20",
+											gender : "man"
+										},
+										success : function(data) {
+
+										},
+										error : function() {
+											alert("error");
+										}
+									});
+
+						});
 		$(window).load(
 				function() {
 					var width_sum = 0;
@@ -293,7 +384,7 @@
 							break;
 						}
 					}
-					$(".mobile_img_page").html(1+"/"+(last_index+1));
+					$(".mobile_img_page").html(1 + "/" + (last_index + 1));
 					console.log(width_sum);
 					console.log(width);
 					console.log(overflow);
@@ -323,7 +414,7 @@
 										}
 									}
 								}
-							
+
 							});
 					$(".prev").click(
 							function() {
@@ -344,15 +435,17 @@
 										}, 200);
 									}
 								}
-						
+
 							});
-					function slide(index){
+					function slide(index) {
 						$(".small_img_box").removeClass("on");
 						$("#" + index).parent(".small_img_box").addClass("on");
 						var src = $(".on").find(".small_img").attr("src");
 						$(".main_img").attr("src", src);
-						$(".mobile_img_page").html(index+1+"/"+(last_index+1));
-					}					$(".small_img_box").click(
+						$(".mobile_img_page").html(
+								index + 1 + "/" + (last_index + 1));
+					}
+					$(".small_img_box").click(
 							function() {
 								move_distance = 0;
 								$(".small_img_box").removeClass("on");
@@ -373,7 +466,7 @@
 										left : "0px"
 									}, 200);
 								}
-							
+
 							});
 					//모바일 버튼
 

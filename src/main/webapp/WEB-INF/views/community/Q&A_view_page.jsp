@@ -173,7 +173,17 @@ textarea {
 		padding: 5px 5px;
 	}
 }
+
+.reply_add_view_box {
+	text-align: center;
+	margin-top: 20px;
 }
+
+.reply_add_view_btn {
+	border: none;
+	width: 150px;
+	padding: 10px 25px;
+	border-radius: 0.4em;
 }
 </style>
 
@@ -234,6 +244,9 @@ textarea {
 						</c:if>
 					</div>
 				</c:forEach>
+			</div>
+			<div class="reply_add_view_box">
+				<button class="reply_add_view_btn">댓글 더보기</button>
 			</div>
 			<div class="post_btn_box">
 				<form class="reply_write_insert"
@@ -309,6 +322,9 @@ textarea {
 
 					</div>
 				</c:forEach>
+			</div>
+			<div class="reply_add_view_box">
+				<button class="reply_add_view_btn">댓글 더보기</button>
 			</div>
 			<div class="post_btn_box">
 				<form class="reply_write_insert_m"

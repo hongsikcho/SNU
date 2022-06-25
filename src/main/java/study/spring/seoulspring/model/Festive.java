@@ -3,7 +3,7 @@ package study.spring.seoulspring.model;
 import lombok.Data;
 
 @Data
-public class Festive {
+public class Festive{
 	private int festiveno;
 	private String title;
 	private String text;
