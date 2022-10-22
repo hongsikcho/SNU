@@ -2,9 +2,13 @@ package study.spring.seoulspring.controllers;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import study.spring.seoulspring.model.DateData;
 import study.spring.seoulspring.model.Department;
 import study.spring.seoulspring.model.View;
 import study.spring.seoulspring.service.DepartmentService;
@@ -62,5 +67,7 @@ public class LoadmapController {
 
 		return "loadmap/snu_class_loadmap_detail";
 	}
+	
+	
 
 }

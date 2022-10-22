@@ -1,7 +1,13 @@
 .hi_main {
   width: 100%;
 }
+.main_box{
+	font-family: 'NanumGothic';
+}
 
+.snu_main_box{
+  margin-bottom:50px;
+  }
 .hi_intro_title {
   width: 1190px;
   margin: auto;
@@ -46,10 +52,7 @@
   line-height: 30px;
   height: 300px;
   overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 10;
-  -webkit-box-orient: vertical;
+  
 }
 .hi_onclick {
   width: 1190px;
@@ -93,6 +96,10 @@
   height: 100%;
   border-radius: 20px;
 }
+.hi_foot_box_bot {
+  margin: 10px 0px 10px 0px ;
+  line-height:30px;
+  }
 
 @media (max-width: 900px) {
   .hi_intro_title {
@@ -115,7 +122,7 @@
     margin-bottom: 30px;
   }
   .hi_main_pt {
-    padding-left: 15%;
+    padding-left:10%;
   }
 
   .hi_main_text {
@@ -168,11 +175,18 @@
   }
   .hi_foot_box_top {
     padding: 0 1px 0 1px;
-
     width: 100%;
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
   }
+  .hi_foot_box_bot {
+  margin: 10px 0px 10px 0px ;
+  line-height:30px;
+  }
+  .snu_mobile_main_box{
+  margin-bottom:20px;
+  }
+  
 }

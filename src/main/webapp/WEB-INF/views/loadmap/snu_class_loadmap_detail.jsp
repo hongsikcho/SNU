@@ -14,8 +14,10 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta NAME="ROBOTS"CONTENT="NOINDEX,NOFOLLOW">
 <title>제41대 사범대학 학생회 늘품</title>
-
+<link rel="icon" 
+	href="${pageContext.request.contextPath}/assets/img/basic_logo.png" />
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/assets/css/snu_main.css" />
 <link rel="stylesheet" type="text/css"
@@ -41,7 +43,7 @@
 	width: 60%;
 	margin-top: 20px;
 	padding-right: 20px;
-	border-right: 1px solid rgba(0, 0, 0, 0.6);
+	border-right: 3px solid #0f0f70;
 }
 
 .snu_class_name_box img {
@@ -168,7 +170,7 @@
 
 				<div style="margin-top: 20px;">
 					<b>2. 응급처치 및 심폐소생술 교육</b> <br> <span>1 ) 매 학기 초 신청, 단체
-						교육 신청 기간을 놓쳤을 시 서울대하교 보건진료소 홈페이지(http://cpr.snu.ac.kr)에서 개별 신청</span> <br>
+						교육 신청 기간을 놓쳤을 시 서울대학교 보건진료소 홈페이지(http://cpr.snu.ac.kr)에서 개별 신청</span> <br>
 					<span>2 ) 두 학기 연속으로 검사를 신청할 수 없음</span>
 				</div>
 
@@ -191,7 +193,7 @@
 	</div>
 
 	<!--모바일 -->
-	<div class="snu_mobile_box">
+	<div class="snu_mobile_box" style="font-family: 'NanumGothic';">
 
 		<!-- 모바일 헤더-->
 
@@ -208,7 +210,7 @@
 			<div class="snu_detail_loadmap_main">
 				<div class="snu_class_name_box">
 					<img
-						src="${pageContext.request.contextPath}/assets/img/2_class_loadmap/class/eng_edu.png" />
+						src="${pageContext.request.contextPath}/assets/img/2_class_loadmap/class/${department.image}.png" />
 				</div>
 				<div class="snu_class_file_box">
 					<a
@@ -237,7 +239,7 @@
 
 				<div style="margin-top: 20px;">
 					<b>2. 응급처치 및 심폐소생술 교육</b> <br> <span>1 ) 매 학기 초 신청, 단체
-						교육 신청 기간을 놓쳤을 시 서울대하교 보건진료소 홈페이지(http://cpr.snu.ac.kr)에서 개별 신청</span> <br>
+						교육 신청 기간을 놓쳤을 시 서울대학교 보건진료소 홈페이지(http://cpr.snu.ac.kr)에서 개별 신청</span> <br>
 					<span>2 ) 두 학기 연속으로 검사를 신청할 수 없음</span>
 				</div>
 

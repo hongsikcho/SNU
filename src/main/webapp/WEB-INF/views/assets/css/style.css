@@ -18,10 +18,13 @@ body {
     display: none;
   }
 }
-
+:root{
+  --main-color:#0f0f70;
+}
 @media (max-width: 900px) {
   .snu_mobile_box {
     width: 100%;
+    position: relative;
   }
   .main_box {
     display: none;

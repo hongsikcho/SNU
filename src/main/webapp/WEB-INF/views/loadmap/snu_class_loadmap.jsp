@@ -14,8 +14,10 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta NAME="ROBOTS"CONTENT="NOINDEX,NOFOLLOW">
 <title>제41대 사범대학 학생회 늘품</title>
-
+<link rel="icon" 
+	href="${pageContext.request.contextPath}/assets/img/basic_logo.png" />
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/assets/css/snu_main.css" />
 	<link rel="stylesheet" type="text/css"
@@ -138,6 +140,13 @@
         .snu_loadmap_main_btn_class {
             width: 31%;
         }
+         .snu_loadmap_main_img {
+        width: 100%;
+    }
+    .snu_loadmap_main_text{
+    margin-top: 200px;
+    line-height: 30px;
+    }
 
 
     }
@@ -164,6 +173,15 @@
             font-size: 18px;
 
         }
+         .snu_loadmap_main_img {
+        width: 100%;
+    }
+    
+     .snu_loadmap_main_text{
+    margin-top: 50px;
+    line-height: 30px;
+    }
+    
 
     }
 </style>
@@ -246,6 +264,9 @@
                 <div class="snu_loadmap_main_btn_class">
                      <a href="${pageContext.request.contextPath}/loadmap/snu_class_loadmap_detail.do?department=윤리교육과"><i class="fas fa-chevron-right"></i> 윤리교육과</a>
                 </div>
+                <div class="snu_loadmap_main_btn_class">
+                     <a href="${pageContext.request.contextPath}/loadmap/snu_class_loadmap_detail.do?department=생물교육과"><i class="fas fa-chevron-right"></i> 생물교육과</a>
+                </div>
               
            
             </div>
@@ -261,7 +282,7 @@
     </div>
 
     <!--모바일 -->
-    <div class="snu_mobile_box">
+    <div class="snu_mobile_box" style="font-family: 'NanumGothic';">
 
         <!-- 모바일 헤더-->
      
@@ -334,6 +355,9 @@
                 </div>
                 <div class="snu_loadmap_main_btn_class">
                      <a href="${pageContext.request.contextPath}/loadmap/snu_class_loadmap_detail.do?department=윤리교육과"><i class="fas fa-chevron-right"></i> 윤리교육과</a>
+                </div>
+                 <div class="snu_loadmap_main_btn_class">
+                     <a href="${pageContext.request.contextPath}/loadmap/snu_class_loadmap_detail.do?department=생물교육과"><i class="fas fa-chevron-right"></i> 생물교육과</a>
                 </div>
             </div>
         </div>

@@ -14,8 +14,10 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta NAME="ROBOTS"CONTENT="NOINDEX,NOFOLLOW">
 <title>제41대 사범대학 학생회 늘품</title>
-
+<link rel="icon" 
+	href="${pageContext.request.contextPath}/assets/img/basic_logo.png" />
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/assets/css/snu_main.css" />
 <link rel="stylesheet" type="text/css"
@@ -33,9 +35,11 @@
 
 
 <style type="text/css">
+
 .snu_loadmap_main {
 	width: 1190px;
 	margin: auto;
+	margin-bottom:70px;
 }
 
 .snu_loadmap_main_header {
@@ -127,9 +131,14 @@
 	}
 	.snu_loadmap_main_text {
 		width: 100%;
+		margin-top:50px;
+		line-height: 30px;
 	}
 	.snu_loadmap_main_btn_class {
 		width: 31%;
+	}
+	.snu_loadmap_info{
+	line-height:30px
 	}
 }
 
@@ -215,7 +224,7 @@
 	</div>
 
 	<!--모바일 -->
-	<div class="snu_mobile_box">
+	<div class="snu_mobile_box" style="font-family: 'NanumGothic';">
 
 		<!-- 모바일 헤더-->
 
@@ -243,6 +252,13 @@
 						로드맵을 제작하며, 자가진단표를 통해 이수 상황을 체크할 수 있도록 합니다. 자료에 대한 업데이트는 매년 진행할
 						예정입니다.</div>
 				</div>
+			</div>
+			
+			<div class="snu_class_file_box">
+					<a
+						href="${pageContext.request.contextPath}/file/loadmap/Curriculum_for_Teaching_Profession">교직로드맵 download</a>
+					<a
+						href="${pageContext.request.contextPath}/file/self_check/Curriculum_for_Teaching_Profession">교직 이론 및 기타 졸업 요건 자가진단표 download</a>
 			</div>
 
 

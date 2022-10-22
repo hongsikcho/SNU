@@ -26,10 +26,7 @@
                 </div>
 
                 <div class="snu_m_menu_box">
-                    <a href="#" class="snu_m_menu_box_btn">
-                        <i class="fas fa-search"></i>
-
-                    </a>
+                   
 
                     <a class=" snu_m_menu_box_btn menu-trigger" href="#">
                         <span></span>
